@@ -1,515 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
+/* =========================
+   SOCIAL LINKS
+   ========================= */
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+.socials {
+    display: flex;
 
-    <title>Fish Heard — Game Designer & Artist</title>
+    justify-content: center;
+    align-items: center;
 
-    <style>
+    gap: 28px;
 
-        /* =========================
-           COLOUR PALETTE
-           ========================= */
+    margin-top: 30px;
 
-        :root {
-            --black: #050707;
-            --background: #080D0D;
-
-            --teal-dark: #025043;
-            --teal: #036C5F;
-            --teal-light: #078C7C;
-
-            --pink-dark: #9C3F57;
-            --pink: #E88FA6;
-
-            --text: #F1E8E5;
-            --text-muted: #B6C0BD;
-        }
-
-
-        /* =========================
-           BASIC PAGE
-           ========================= */
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            min-height: 100vh;
-
-            background: var(--background);
-
-            color: var(--text);
-
-            font-family: Arial, sans-serif;
-
-            overflow-x: hidden;
-        }
-
-
-        /* =========================
-           MOVING BLOBS
-           ========================= */
-
-        .blob {
-            position: fixed;
-
-            border-radius: 50%;
-
-            pointer-events: none;
-
-            z-index: 0;
-
-            filter: blur(90px);
-
-            opacity: 0.7;
-        }
-
-
-        /* Pink blob */
-
-        .blob-pink {
-            width: 520px;
-            height: 520px;
-
-            background: rgba(232, 143, 166, 0.38);
-
-            top: -180px;
-            left: -160px;
-
-            animation: pinkMovement 18s ease-in-out infinite alternate;
-        }
-
-
-        /* Teal blob */
-
-        .blob-teal {
-            width: 600px;
-            height: 600px;
-
-            background: rgba(3, 108, 95, 0.42);
-
-            right: -200px;
-            bottom: -220px;
-
-            animation: tealMovement 22s ease-in-out infinite alternate;
-        }
-
-
-        /* Smaller pink blob */
-
-        .blob-pink-small {
-            width: 300px;
-            height: 300px;
-
-            background: rgba(156, 63, 87, 0.28);
-
-            right: 15%;
-            top: 15%;
-
-            animation: pinkSmallMovement 25s ease-in-out infinite alternate;
-        }
-
-
-        /* Smaller teal blob */
-
-        .blob-teal-small {
-            width: 350px;
-            height: 350px;
-
-            background: rgba(2, 80, 67, 0.32);
-
-            left: 20%;
-            bottom: 5%;
-
-            animation: tealSmallMovement 20s ease-in-out infinite alternate;
-        }
-
-
-        /* =========================
-           PINK MOVEMENT
-           ========================= */
-
-        @keyframes pinkMovement {
-
-            0% {
-                transform:
-                    translate(0px, 0px)
-                    scale(1);
-            }
-
-            25% {
-                transform:
-                    translate(180px, 80px)
-                    scale(1.15);
-            }
-
-            50% {
-                transform:
-                    translate(350px, 20px)
-                    scale(0.9);
-            }
-
-            75% {
-                transform:
-                    translate(250px, 220px)
-                    scale(1.2);
-            }
-
-            100% {
-                transform:
-                    translate(500px, 150px)
-                    scale(1);
-            }
-
-        }
-
-
-        /* =========================
-           TEAL MOVEMENT
-           ========================= */
-
-        @keyframes tealMovement {
-
-            0% {
-                transform:
-                    translate(0px, 0px)
-                    scale(1);
-            }
-
-            25% {
-                transform:
-                    translate(-160px, -100px)
-                    scale(1.15);
-            }
-
-            50% {
-                transform:
-                    translate(-350px, -40px)
-                    scale(0.9);
-            }
-
-            75% {
-                transform:
-                    translate(-250px, -250px)
-                    scale(1.2);
-            }
-
-            100% {
-                transform:
-                    translate(-500px, -120px)
-                    scale(1);
-            }
-
-        }
-
-
-        /* =========================
-           SMALL PINK MOVEMENT
-           ========================= */
-
-        @keyframes pinkSmallMovement {
-
-            0% {
-                transform:
-                    translate(0px, 0px)
-                    scale(1);
-            }
-
-            30% {
-                transform:
-                    translate(-180px, 160px)
-                    scale(1.3);
-            }
-
-            60% {
-                transform:
-                    translate(-80px, 350px)
-                    scale(0.8);
-            }
-
-            100% {
-                transform:
-                    translate(200px, 220px)
-                    scale(1.15);
-            }
-
-        }
-
-
-        /* =========================
-           SMALL TEAL MOVEMENT
-           ========================= */
-
-        @keyframes tealSmallMovement {
-
-            0% {
-                transform:
-                    translate(0px, 0px)
-                    scale(1);
-            }
-
-            30% {
-                transform:
-                    translate(200px, -120px)
-                    scale(1.25);
-            }
-
-            60% {
-                transform:
-                    translate(350px, -250px)
-                    scale(0.85);
-            }
-
-            100% {
-                transform:
-                    translate(100px, -350px)
-                    scale(1.2);
-            }
-
-        }
-
-
-        /* =========================
-           MAIN HERO
-           ========================= */
-
-        main {
-            position: relative;
-
-            z-index: 1;
-
-            min-height: 100vh;
-
-            display: flex;
-            flex-direction: column;
-
-            justify-content: center;
-            align-items: center;
-
-            text-align: center;
-
-            padding: 40px;
-        }
-
-
-        /* =========================
-           MAIN TITLE
-           ========================= */
-
-        h1 {
-            margin: 0;
-
-            font-size: clamp(60px, 10vw, 140px);
-
-            color: var(--teal-light);
-
-            letter-spacing: -5px;
-
-            -webkit-text-stroke: 1px var(--text);
-
-            text-shadow:
-                4px 4px 0 var(--teal-dark),
-                0 0 25px rgba(3, 108, 95, 0.3);
-        }
-
-
-        /* =========================
-           SUBTITLE
-           ========================= */
-
-        .subtitle {
-            margin-top: 15px;
-
-            font-size: 24px;
-
-            color: var(--pink);
-
-            letter-spacing: 2px;
-
-            -webkit-text-stroke: 0.4px var(--text);
-
-            text-shadow:
-                0 0 12px rgba(232, 143, 166, 0.2);
-        }
-
-
-        /* =========================
-           INTRO
-           ========================= */
-
-        .intro {
-            max-width: 600px;
-
-            margin-top: 30px;
-
-            color: var(--text-muted);
-
-            font-size: 18px;
-
-            line-height: 1.6;
-        }
-
-
-        /* =========================
-           BUTTON
-           ========================= */
-
-        .button {
-            display: inline-block;
-
-            margin-top: 35px;
-
-            padding: 14px 28px;
-
-            background: var(--teal);
-
-            color: var(--text);
-
-            text-decoration: none;
-
-            border: 2px solid var(--teal-light);
-
-            border-radius: 3px;
-
-            transition:
-                transform 0.2s ease,
-                background 0.2s ease,
-                color 0.2s ease,
-                border-color 0.2s ease;
-        }
-
-
-        .button:hover {
-            background: var(--pink);
-
-            color: var(--black);
-
-            border-color: var(--text);
-
-            transform:
-                translateY(-5px)
-                rotate(-2deg);
-        }
-
-
-        /* =========================
-           DECORATIVE LINE
-           ========================= */
-
-        .divider {
-            width: 120px;
-
-            height: 3px;
-
-            margin-top: 45px;
-
-            background: var(--pink-dark);
-
-            box-shadow:
-                0 0 12px rgba(156, 63, 87, 0.3);
-        }
-
-
-        /* =========================
-           MOBILE
-           ========================= */
-
-        @media (max-width: 600px) {
-
-    .blob {
-        filter: blur(70px);
-    }
-
-    main {
-        padding: 25px;
-    }
-
-    h1 {
-        letter-spacing: -2px;
-
-        /* Remove the stroke that causes rendering glitches
-           on some mobile browsers */
-        -webkit-text-stroke: 0;
-
-        /* Fake the outline using shadows instead */
-        text-shadow:
-            -1px -1px 0 var(--text),
-             1px -1px 0 var(--text),
-            -1px  1px 0 var(--text),
-             1px  1px 0 var(--text),
-             4px  4px 0 var(--teal-dark),
-             0 0 25px rgba(3, 108, 95, 0.3);
-    }
-
-    .subtitle {
-        font-size: 17px;
-
-        -webkit-text-stroke: 0;
-
-        text-shadow:
-            -0.5px -0.5px 0 var(--text),
-             0.5px -0.5px 0 var(--text),
-            -0.5px  0.5px 0 var(--text),
-             0.5px  0.5px 0 var(--text),
-             0 0 12px rgba(232, 143, 166, 0.2);
-    }
-
-    .intro {
-        font-size: 16px;
-    }
-
+    flex-wrap: wrap;
 }
 
-    </style>
+.socials a {
+    position: relative;
 
-</head>
+    color: var(--text-muted);
+
+    font-size: 15px;
+
+    letter-spacing: 1px;
+
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
 
 
-<body>
+/* Little line underneath */
 
-    <!-- Moving background blobs -->
+.socials a::after {
+    content: "";
 
-    <div class="blob blob-pink"></div>
+    position: absolute;
 
-    <div class="blob blob-teal"></div>
+    left: 0;
+    bottom: -5px;
 
-    <div class="blob blob-pink-small"></div>
+    width: 0;
+    height: 2px;
 
-    <div class="blob blob-teal-small"></div>
+    background: var(--pink);
+
+    transition:
+        width 0.25s ease;
+}
 
 
-    <!-- Main content -->
+/* Hover effect */
 
-    <main>
+.socials a:hover {
+    color: var(--pink);
 
-        <h1>Fish Heard</h1>
+    transform:
+        translateY(-3px);
+}
 
-        <div class="subtitle">
-            GAME DESIGNER & ARTIST
-        </div>
-
-        <p class="intro">
-            I create games, characters and strange little worlds
-            somewhere between cute, unsettling and a little bit weird.
-        </p>
-
-        <a href="#work" class="button">
-            ENTER PORTFOLIO
-        </a>
-
-        <div class="divider"></div>
-
-    </main>
-
-</body>
-
-</html>
+.socials a:hover::after {
+    width: 100%;
+}
