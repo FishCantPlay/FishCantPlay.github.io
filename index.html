@@ -344,6 +344,10 @@
 
             letter-spacing: 1px;
 
+            text-decoration: none;
+
+            display: inline-block;
+
             transition:
                 transform 0.2s ease,
                 background 0.2s ease,
@@ -783,6 +787,34 @@
 
 
         /* ========================================
+           MORE ART BUTTON
+           ======================================== */
+
+        .more-art {
+
+            display: flex;
+
+            justify-content: center;
+
+            margin-top: 50px;
+
+        }
+
+
+        .more-art .button {
+
+            padding:
+                16px
+                32px;
+
+            font-size: 15px;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        /* ========================================
            ABOUT ME
            ======================================== */
 
@@ -956,12 +988,18 @@
         @media (max-width: 900px) {
 
             .project-grid {
+
                 grid-template-columns: 1fr;
+
                 max-width: 600px;
+
             }
 
+
             .about {
+
                 grid-template-columns: 1fr;
+
             }
 
         }
@@ -970,12 +1008,16 @@
         @media (max-width: 700px) {
 
             .blob {
+
                 filter: blur(70px);
+
             }
 
 
             .landing {
+
                 padding: 25px;
+
             }
 
 
@@ -998,12 +1040,16 @@
 
 
             .subtitle {
+
                 font-size: 17px;
+
             }
 
 
             .intro {
+
                 font-size: 16px;
+
             }
 
 
@@ -1021,6 +1067,8 @@
             .button {
 
                 width: 100%;
+
+                text-align: center;
 
             }
 
@@ -1091,12 +1139,11 @@
     <div class="blob blob-teal-small"></div>
 
 
-
     <!-- ========================================
          LANDING PAGE
          ======================================== -->
 
-    <section class="landing">
+    <section class="landing" id="home">
 
 
         <h1>
@@ -1206,7 +1253,6 @@
     </section>
 
 
-
     <!-- ========================================
          PREVIOUS PROJECTS
          ======================================== -->
@@ -1308,7 +1354,6 @@
     </section>
 
 
-
     <!-- ========================================
          PERSONAL ART
          ======================================== -->
@@ -1326,11 +1371,16 @@
             </h2>
 
             <p>
-                CHARACTERS · ILLUSTRATION · ANIMATION · EXPERIMENTS
+                A SMALL SELECTION OF MY ARTWORK
             </p>
 
         </div>
 
+
+        <!--
+             These are preview spaces for your actual artwork.
+             Replace each "ARTWORK PLACEHOLDER" with an image later.
+        -->
 
         <div class="art-grid">
 
@@ -1368,8 +1418,23 @@
         </div>
 
 
-    </section>
+        <!-- ========================================
+             MORE ART BUTTON
+             ======================================== -->
 
+        <div class="more-art">
+
+            <a
+                href="art.html"
+                class="button"
+            >
+                MORE ART
+            </a>
+
+        </div>
+
+
+    </section>
 
 
     <!-- ========================================
@@ -1444,7 +1509,6 @@
         </div>
 
 
-
         <!-- ========================================
              CONTACT
              ======================================== -->
@@ -1517,7 +1581,6 @@
 
 
     </section>
-
 
 
     <!-- ========================================
