@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,107 +9,158 @@
 
     <style>
 
-        /* -------------------------
+        /* =========================
            COLOUR PALETTE
-        ------------------------- */
+           ========================= */
 
         :root {
-            --deep-teal: #025043;
+            --black: #050707;
+            --background: #0A1111;
+            --background-light: #10201F;
+
+            --teal-dark: #025043;
             --teal: #036C5F;
-            --light-teal: #A8D8D1;
+            --teal-light: #078C7C;
 
-            --deep-pink: #9C3F57;
+            --pink-dark: #9C3F57;
             --pink: #E88FA6;
-            --light-pink: #F7D9E1;
 
-            --black: #151719;
-            --cream: #F5F1EA;
-            --grey: #777A78;
+            --text: #F1E8E5;
+            --text-muted: #9EAEAA;
         }
 
 
-        /* -------------------------
-           GENERAL
-        ------------------------- */
+        /* =========================
+           BASIC PAGE
+           ========================= */
 
         * {
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
-            background: var(--cream);
-            color: var(--black);
+            background: var(--background);
+            color: var(--text);
+
             font-family: Arial, sans-serif;
+
+            min-height: 100vh;
         }
 
 
-        /* -------------------------
-           HERO
-        ------------------------- */
+        /* =========================
+           MAIN HERO
+           ========================= */
 
         main {
             min-height: 100vh;
+
             display: flex;
             flex-direction: column;
+
             justify-content: center;
             align-items: center;
-            text-align: center;
 
-            background:
-                radial-gradient(
-                    circle at 20% 20%,
-                    var(--light-pink),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 80% 80%,
-                    var(--light-teal),
-                    transparent 30%
-                ),
-                var(--cream);
+            text-align: center;
 
             padding: 40px;
         }
 
+
         h1 {
-            font-size: clamp(60px, 10vw, 140px);
             margin: 0;
-            color: var(--deep-teal);
+
+            font-size: clamp(60px, 10vw, 140px);
+
+            color: var(--teal-light);
+
             letter-spacing: -5px;
+
+            text-shadow:
+                4px 4px 0 var(--teal-dark);
         }
 
-        p {
-            font-size: 20px;
-            color: var(--deep-pink);
+
+        .subtitle {
+            margin-top: 15px;
+
+            font-size: 24px;
+
+            color: var(--pink);
+
+            letter-spacing: 2px;
         }
 
 
-        /* -------------------------
+        .intro {
+            max-width: 600px;
+
+            margin-top: 30px;
+
+            color: var(--text-muted);
+
+            font-size: 18px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
            BUTTON
-        ------------------------- */
+           ========================= */
 
         .button {
-            margin-top: 30px;
-            padding: 15px 30px;
+            display: inline-block;
+
+            margin-top: 35px;
+
+            padding: 14px 28px;
 
             background: var(--teal);
-            color: var(--cream);
+
+            color: var(--text);
 
             text-decoration: none;
-            border-radius: 50px;
+
+            border: 2px solid var(--teal-light);
 
             transition:
-                background 0.3s ease,
-                transform 0.3s ease;
+                transform 0.2s ease,
+                background 0.2s ease,
+                color 0.2s ease;
         }
 
+
         .button:hover {
-            background: var(--deep-pink);
-            transform: translateY(-5px);
+            background: var(--pink);
+
+            color: var(--black);
+
+            transform: translateY(-5px) rotate(-2deg);
+        }
+
+
+        /* =========================
+           LITTLE DECORATIVE LINE
+           ========================= */
+
+        .divider {
+            width: 120px;
+
+            height: 3px;
+
+            margin-top: 45px;
+
+            background: var(--pink-dark);
         }
 
     </style>
+
 </head>
 
 
@@ -118,13 +170,23 @@
 
         <h1>Fish Heard</h1>
 
-        <p>Game Designer & Artist</p>
+        <div class="subtitle">
+            GAME DESIGNER & ARTIST
+        </div>
 
-        <a class="button" href="#">
-            Enter
+        <p class="intro">
+            I create games, characters and strange little worlds
+            somewhere between cute, unsettling and a little bit weird.
+        </p>
+
+        <a href="#work" class="button">
+            ENTER PORTFOLIO
         </a>
+
+        <div class="divider"></div>
 
     </main>
 
 </body>
+
 </html>
