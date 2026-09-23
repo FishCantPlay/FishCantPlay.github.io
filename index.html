@@ -333,7 +333,11 @@
 
 
         /* ========================================
-           BUTTONS
+           MAIN NAVIGATION
+           ORDER:
+           ABOUT ME
+           PREVIOUS PROJECTS
+           PERSONAL ART
            ======================================== */
 
         .navigation {
@@ -836,7 +840,8 @@
 
 
         /* ========================================
-           MORE ART BUTTON
+           MORE ART
+           EXACTLY ONE BUTTON
            ======================================== */
 
         .more-art {
@@ -964,7 +969,9 @@
 
         /* ========================================
            CONTACT
-           CONTACT IS PART OF THE ABOUT SECTION
+           PART OF ABOUT ME
+           NO DIVIDER
+           NO LARGE HEADER
            ======================================== */
 
         .contact {
@@ -972,33 +979,27 @@
             max-width: 1200px;
 
             margin:
-                90px auto 0;
+                75px auto 0;
 
             padding:
-                65px 20px 20px;
+                0 20px 20px;
 
             text-align: center;
-
-            border-top:
-                1px solid
-                rgba(232, 143, 166, 0.18);
 
         }
 
 
-        .contact h3 {
+        .contact-label {
 
-            margin: 0;
-
-            font-size:
-                clamp(30px, 4vw, 48px);
+            margin: 0 0 15px;
 
             color: var(--pink);
 
-            letter-spacing: 1px;
+            font-size: 13px;
 
-            text-shadow:
-                2px 2px 0 var(--pink-dark);
+            letter-spacing: 3px;
+
+            font-weight: bold;
 
         }
 
@@ -1008,29 +1009,44 @@
             max-width: 600px;
 
             margin:
-                15px auto
-                25px;
+                0 auto 22px;
 
             color: var(--text-muted);
 
-            font-size: 17px;
+            font-size: 16px;
 
             line-height: 1.6;
 
         }
 
 
-        .email {
+        /* ========================================
+           COPY EMAIL
+           ======================================== */
 
-            display: inline-block;
+        .copy-email {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding:
+                10px
+                0;
+
+            background: transparent;
+
+            border: none;
 
             color: var(--text);
 
+            font-family: inherit;
+
             font-size: 21px;
 
-            text-decoration: none;
-
-            padding-bottom: 5px;
+            cursor: pointer;
 
             border-bottom:
                 2px solid
@@ -1038,14 +1054,28 @@
 
             transition:
                 color 0.25s ease,
-                border-color 0.25s ease;
+                border-color 0.25s ease,
+                transform 0.25s ease;
 
         }
 
 
-        .email:hover {
+        .copy-email:hover {
 
             color: var(--pink);
+
+            border-color:
+                var(--teal-light);
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        .copy-email.copied {
+
+            color: var(--teal-light);
 
             border-color:
                 var(--teal-light);
@@ -1189,9 +1219,9 @@
             }
 
 
-            .email {
+            .copy-email {
 
-                font-size: 19px;
+                font-size: 18px;
 
             }
 
@@ -1243,12 +1273,17 @@
         </p>
 
 
-        <!-- MAIN NAVIGATION -->
+        <!-- ========================================
+             MAIN BUTTONS
+
+             ORDER:
+             1. ABOUT ME
+             2. PREVIOUS PROJECTS
+             3. PERSONAL ART
+             ======================================== -->
 
         <div class="navigation">
 
-
-            <!-- 1. ABOUT ME -->
 
             <button
                 type="button"
@@ -1259,8 +1294,6 @@
             </button>
 
 
-            <!-- 2. PREVIOUS PROJECTS -->
-
             <button
                 type="button"
                 class="button"
@@ -1269,8 +1302,6 @@
                 PREVIOUS PROJECTS
             </button>
 
-
-            <!-- 3. PERSONAL ART -->
 
             <button
                 type="button"
@@ -1494,7 +1525,7 @@
         </div>
 
 
-        <!-- EXACTLY ONE MORE ART BUTTON -->
+        <!-- ONLY MORE ART BUTTON ON THE HOMEPAGE -->
 
         <div class="more-art">
 
@@ -1585,15 +1616,15 @@
 
         <!-- ========================================
              CONTACT
-             PART OF THE ABOUT ME SECTION
+             THIS IS PART OF ABOUT ME
              ======================================== -->
 
         <div class="contact">
 
 
-            <h3>
-                CONTACT ME
-            </h3>
+            <div class="contact-label">
+                GET IN TOUCH
+            </div>
 
 
             <p>
@@ -1602,12 +1633,19 @@
             </p>
 
 
-            <a
-                class="email"
-                href="mailto:fishcantemail@gmail.com"
+            <!--
+                Clicking this copies the email.
+                It does NOT open an email application.
+            -->
+
+            <button
+                type="button"
+                class="copy-email"
+                id="copyEmailButton"
+                onclick="copyEmail()"
             >
                 fishcantemail@gmail.com
-            </a>
+            </button>
 
 
             <div class="socials">
@@ -1659,10 +1697,15 @@
 
 
     <!-- ========================================
-         NAVIGATION SCRIPT
+         JAVASCRIPT
          ======================================== -->
 
     <script>
+
+
+        /* ========================================
+           SECTION NAVIGATION
+           ======================================== */
 
         function goToSection(sectionId) {
 
@@ -1680,6 +1723,96 @@
                 });
 
             }
+
+        }
+
+
+        /* ========================================
+           COPY EMAIL TO CLIPBOARD
+           ======================================== */
+
+        function copyEmail() {
+
+            const email =
+                "fishcantemail@gmail.com";
+
+            const button =
+                document.getElementById("copyEmailButton");
+
+
+            navigator.clipboard.writeText(email)
+                .then(function () {
+
+                    button.textContent = "COPIED!";
+
+                    button.classList.add("copied");
+
+
+                    setTimeout(function () {
+
+                        button.textContent =
+                            "fishcantemail@gmail.com";
+
+                        button.classList.remove("copied");
+
+                    }, 2000);
+
+                })
+
+                .catch(function () {
+
+                    /*
+                        Fallback for browsers where the
+                        Clipboard API is unavailable.
+                    */
+
+                    const textArea =
+                        document.createElement("textarea");
+
+                    textArea.value = email;
+
+                    textArea.style.position = "fixed";
+
+                    textArea.style.opacity = "0";
+
+                    document.body.appendChild(textArea);
+
+                    textArea.focus();
+
+                    textArea.select();
+
+
+                    try {
+
+                        document.execCommand("copy");
+
+                        button.textContent = "COPIED!";
+
+                        button.classList.add("copied");
+
+
+                        setTimeout(function () {
+
+                            button.textContent =
+                                "fishcantemail@gmail.com";
+
+                            button.classList.remove("copied");
+
+                        }, 2000);
+
+                    }
+
+                    catch (error) {
+
+                        button.textContent =
+                            "COPY FAILED";
+
+                    }
+
+
+                    document.body.removeChild(textArea);
+
+                });
 
         }
 
