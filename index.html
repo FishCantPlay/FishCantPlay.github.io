@@ -5,10 +5,7 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Fish Heard — Game Designer & Artist</title>
 
@@ -16,20 +13,15 @@
     <style>
 
         :root {
-
             --black: #050707;
             --background: #080D0D;
-
             --teal-dark: #025043;
             --teal: #036C5F;
             --teal-light: #078C7C;
-
             --pink-dark: #9C3F57;
             --pink: #E88FA6;
-
             --text: #F1E8E5;
             --text-muted: #B6C0BD;
-
         }
 
 
@@ -61,7 +53,7 @@
 
 
         /* ========================================
-           MOVING BACKGROUND
+           MOVING BACKGROUND BLOBS
            ======================================== */
 
         .blob {
@@ -333,7 +325,7 @@
 
 
         /* ========================================
-           BUTTONS
+           NAVIGATION BUTTONS
            ======================================== */
 
         .navigation {
@@ -355,17 +347,13 @@
 
         .button {
 
-            display: inline-block;
-
             padding: 14px 24px;
 
             background: var(--teal);
 
             color: var(--text);
 
-            border:
-                2px solid
-                var(--teal-light);
+            border: 2px solid var(--teal-light);
 
             border-radius: 3px;
 
@@ -459,8 +447,7 @@
 
             background: var(--pink);
 
-            transition:
-                width 0.25s ease;
+            transition: width 0.25s ease;
 
         }
 
@@ -469,8 +456,7 @@
 
             color: var(--pink);
 
-            transform:
-                translateY(-3px);
+            transform: translateY(-3px);
 
         }
 
@@ -493,8 +479,7 @@
             background: var(--pink-dark);
 
             box-shadow:
-                0 0 12px
-                rgba(156, 63, 87, 0.3);
+                0 0 12px rgba(156, 63, 87, 0.3);
 
         }
 
@@ -529,8 +514,7 @@
 
             margin: 0;
 
-            font-size:
-                clamp(42px, 7vw, 80px);
+            font-size: clamp(42px, 7vw, 80px);
 
             color: var(--text);
 
@@ -551,6 +535,176 @@
             letter-spacing: 3px;
 
             font-size: 14px;
+
+        }
+
+
+        /* ========================================
+           ABOUT ME
+           ======================================== */
+
+        #about {
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(5, 7, 7, 0.2),
+                    rgba(156, 63, 87, 0.06)
+                );
+
+        }
+
+
+        .about {
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+
+        }
+
+
+        .about-placeholder {
+
+            min-height: 450px;
+
+            border: 2px solid var(--teal);
+
+            background:
+
+                radial-gradient(
+                    circle at 70% 30%,
+                    rgba(232, 143, 166, 0.25),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 30% 70%,
+                    rgba(3, 108, 95, 0.35),
+                    transparent 40%
+                ),
+
+                #0A1514;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: rgba(241, 232, 229, 0.4);
+
+            letter-spacing: 3px;
+
+        }
+
+
+        .about-text h3 {
+
+            font-size: clamp(40px, 5vw, 65px);
+
+            margin:
+                0
+                0
+                25px;
+
+            color: var(--pink);
+
+            text-shadow:
+                3px 3px 0 var(--pink-dark);
+
+        }
+
+
+        .about-text p {
+
+            color: var(--text-muted);
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* ========================================
+           CONTACT ME
+           ======================================== */
+
+        .contact {
+
+            max-width: 1200px;
+
+            margin: 100px auto 0;
+
+            padding: 100px 20px;
+
+            text-align: center;
+
+            border-top:
+                1px solid
+                rgba(232, 143, 166, 0.25);
+
+        }
+
+
+        .contact h3 {
+
+            margin: 0;
+
+            font-size: clamp(40px, 6vw, 70px);
+
+            color: var(--text);
+
+        }
+
+
+        .contact p {
+
+            color: var(--text-muted);
+
+            font-size: 18px;
+
+            margin:
+                20px auto
+                30px;
+
+        }
+
+
+        .email {
+
+            display: inline-block;
+
+            color: var(--pink);
+
+            font-size: 24px;
+
+            text-decoration: none;
+
+            border-bottom:
+                2px solid
+                var(--pink);
+
+            padding-bottom: 5px;
+
+            transition:
+                color 0.25s ease;
+
+        }
+
+
+        .email:hover {
+
+            color: var(--teal-light);
 
         }
 
@@ -579,8 +733,7 @@
 
             display: grid;
 
-            grid-template-columns:
-                repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
 
             gap: 30px;
 
@@ -600,9 +753,7 @@
                     rgba(5, 7, 7, 0.9)
                 );
 
-            border:
-                2px solid
-                rgba(3, 108, 95, 0.7);
+            border: 2px solid rgba(3, 108, 95, 0.7);
 
             overflow: hidden;
 
@@ -644,15 +795,13 @@
 
                 #0A1514;
 
-            color:
-                rgba(241, 232, 229, 0.35);
+            color: rgba(241, 232, 229, 0.35);
 
             font-size: 16px;
 
             letter-spacing: 3px;
 
-            transition:
-                transform 0.5s ease;
+            transition: transform 0.5s ease;
 
         }
 
@@ -714,8 +863,7 @@
 
         .project-info p {
 
-            margin:
-                8px 0 0;
+            margin: 8px 0 0;
 
             color: var(--pink);
 
@@ -735,17 +883,13 @@
             border-color: var(--pink);
 
             box-shadow:
-                0 20px 50px
-                rgba(0, 0, 0, 0.5),
-
-                0 0 25px
-                rgba(232, 143, 166, 0.15);
+                0 20px 50px rgba(0, 0, 0, 0.5),
+                0 0 25px rgba(232, 143, 166, 0.15);
 
         }
 
 
-        .project-card:hover
-        .placeholder-art {
+        .project-card:hover .placeholder-art {
 
             transform:
                 scale(1.06)
@@ -774,8 +918,7 @@
 
             display: grid;
 
-            grid-template-columns:
-                repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
 
             gap: 25px;
 
@@ -812,8 +955,7 @@
 
             justify-content: center;
 
-            color:
-                rgba(241, 232, 229, 0.35);
+            color: rgba(241, 232, 229, 0.35);
 
             letter-spacing: 2px;
 
@@ -859,179 +1001,6 @@
             font-size: 15px;
 
             letter-spacing: 2px;
-
-        }
-
-
-        /* ========================================
-           ABOUT ME
-           ======================================== */
-
-        #about {
-
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(5, 7, 7, 0.2),
-                    rgba(156, 63, 87, 0.06)
-                );
-
-        }
-
-
-        .about {
-
-            max-width: 1200px;
-
-            margin: 0 auto;
-
-            display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap: 70px;
-
-            align-items: center;
-
-        }
-
-
-        .about-placeholder {
-
-            min-height: 450px;
-
-            border:
-                2px solid
-                var(--teal);
-
-            background:
-
-                radial-gradient(
-                    circle at 70% 30%,
-                    rgba(232, 143, 166, 0.25),
-                    transparent 30%
-                ),
-
-                radial-gradient(
-                    circle at 30% 70%,
-                    rgba(3, 108, 95, 0.35),
-                    transparent 40%
-                ),
-
-                #0A1514;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            color:
-                rgba(241, 232, 229, 0.4);
-
-            letter-spacing: 3px;
-
-        }
-
-
-        .about-text h3 {
-
-            font-size:
-                clamp(40px, 5vw, 65px);
-
-            margin:
-                0 0 25px;
-
-            color: var(--pink);
-
-            text-shadow:
-                3px 3px 0 var(--pink-dark);
-
-        }
-
-
-        .about-text p {
-
-            color: var(--text-muted);
-
-            font-size: 18px;
-
-            line-height: 1.8;
-
-        }
-
-
-        /* ========================================
-           CONTACT
-           ======================================== */
-
-        .contact {
-
-            max-width: 1200px;
-
-            margin:
-                100px auto 0;
-
-            padding:
-                100px 20px;
-
-            text-align: center;
-
-            border-top:
-                1px solid
-                rgba(232, 143, 166, 0.25);
-
-        }
-
-
-        .contact h3 {
-
-            margin: 0;
-
-            font-size:
-                clamp(40px, 6vw, 70px);
-
-            color: var(--text);
-
-        }
-
-
-        .contact p {
-
-            color: var(--text-muted);
-
-            font-size: 18px;
-
-            margin:
-                20px auto
-                30px;
-
-        }
-
-
-        .email {
-
-            display: inline-block;
-
-            color: var(--pink);
-
-            font-size: 24px;
-
-            text-decoration: none;
-
-            border-bottom:
-                2px solid
-                var(--pink);
-
-            padding-bottom: 5px;
-
-        }
-
-
-        .email:hover {
-
-            color: var(--teal-light);
 
         }
 
@@ -1122,8 +1091,6 @@
             .button {
 
                 width: 100%;
-
-                text-align: center;
 
             }
 
@@ -1220,6 +1187,8 @@
         </p>
 
 
+        <!-- THREE MAIN BUTTONS -->
+
         <div class="navigation">
 
 
@@ -1305,6 +1274,154 @@
 
 
     <!-- ========================================
+         ABOUT ME
+         ======================================== -->
+
+    <section
+        class="section"
+        id="about"
+    >
+
+
+        <div class="section-heading">
+
+            <h2>
+                ABOUT ME
+            </h2>
+
+            <p>
+                WHO IS FISH?
+            </p>
+
+        </div>
+
+
+        <div class="about">
+
+
+            <div class="about-placeholder">
+                ABOUT ME ART PLACEHOLDER
+            </div>
+
+
+            <div class="about-text">
+
+
+                <h3>
+                    HI, I'M FISH.
+                </h3>
+
+
+                <p>
+
+                    I'm Fish, a Game Designer and Artist who likes making
+                    characters, strange little worlds and games that sit
+                    somewhere between cute, unsettling and a little bit weird.
+
+                </p>
+
+
+                <p>
+
+                    I enjoy working across character art, game design,
+                    2D animation and 3D, with a particular interest in
+                    creating characters and worlds with their own personality.
+
+                </p>
+
+
+                <p>
+
+                    I'm always interested in projects that let me experiment
+                    with storytelling, visual design and the stranger side
+                    of games.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ========================================
+             CONTACT ME
+             ======================================== -->
+
+        <div class="contact">
+
+
+            <h3>
+                CONTACT ME
+            </h3>
+
+
+            <p>
+                Have a project, opportunity, question,
+                or just want to say hi?
+            </p>
+
+
+            <a
+                class="email"
+                href="mailto:fishcantemail@gmail.com"
+            >
+                fishcantemail@gmail.com
+            </a>
+
+
+            <div class="socials">
+
+
+                <a
+                    href="https://bsky.app/profile/fishcantplay.bsky.social"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Bluesky
+                </a>
+
+
+                <a
+                    href="https://www.tiktok.com/@fishcantplay"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    TikTok
+                </a>
+
+
+                <a
+                    href="https://www.youtube.com/channel/UCaDKDHI5PpZDd8WhXMEVYtQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    YouTube
+                </a>
+
+
+                <a
+                    href="https://www.artstation.com/fishcantdraw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    ArtStation
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ========================================
          PREVIOUS PROJECTS
          ======================================== -->
 
@@ -1330,6 +1447,8 @@
         <div class="project-grid">
 
 
+            <!-- BIBLIOCIDE -->
+
             <div class="project-card">
 
                 <div class="placeholder-art">
@@ -1351,6 +1470,8 @@
             </div>
 
 
+            <!-- GROUP PROJECT -->
+
             <div class="project-card">
 
                 <div class="placeholder-art">
@@ -1371,6 +1492,8 @@
 
             </div>
 
+
+            <!-- UNDER WOOL AND BRIAR -->
 
             <div class="project-card">
 
@@ -1458,144 +1581,17 @@
 
         </div>
 
-    <!-- ========================================
-         ABOUT ME
-         ======================================== -->
 
-    <section
-        class="section"
-        id="about"
-    >
+        <!-- ONLY MORE ART BUTTON -->
 
-
-        <div class="section-heading">
-
-            <h2>
-                ABOUT ME
-            </h2>
-
-            <p>
-                WHO IS FISH?
-            </p>
-
-        </div>
-
-
-        <div class="about">
-
-
-            <div class="about-placeholder">
-                ABOUT ME ART PLACEHOLDER
-            </div>
-
-
-            <div class="about-text">
-
-
-                <h3>
-                    HI, I'M FISH.
-                </h3>
-
-
-                <p>
-
-                    I'm Fish, a Game Designer and Artist who likes making
-                    characters, strange little worlds and games that sit
-                    somewhere between cute, unsettling and a little bit weird.
-
-                </p>
-
-
-                <p>
-
-                    I enjoy working across character art, game design,
-                    2D animation and 3D, with a particular interest in
-                    creating characters and worlds with their own personality.
-
-                </p>
-
-
-                <p>
-
-                    I'm always interested in projects that let me experiment
-                    with storytelling, visual design and the stranger side
-                    of games.
-
-                </p>
-
-
-            </div>
-
-
-        </div>
-
-
-
-        <!-- CONTACT -->
-
-        <div class="contact">
-
-
-            <h3>
-                LET'S TALK
-            </h3>
-
-
-            <p>
-                Have a project, opportunity, question,
-                or just want to say hi?
-            </p>
-
+        <div class="more-art">
 
             <a
-                class="email"
-                href="mailto:YOUR-EMAIL-HERE@example.com"
+                href="./art.html"
+                class="button"
             >
-                YOUR-EMAIL-HERE@example.com
+                MORE ART
             </a>
-
-
-            <div class="socials">
-
-
-                <a
-                    href="https://bsky.app/profile/fishcantplay.bsky.social"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Bluesky
-                </a>
-
-
-                <a
-                    href="https://www.tiktok.com/@fishcantplay"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    TikTok
-                </a>
-
-
-                <a
-                    href="https://www.youtube.com/channel/UCaDKDHI5PpZDd8WhXMEVYtQ"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    YouTube
-                </a>
-
-
-                <a
-                    href="https://www.artstation.com/fishcantdraw"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    ArtStation
-                </a>
-
-
-            </div>
-
 
         </div>
 
@@ -1605,7 +1601,7 @@
 
 
     <!-- ========================================
-         NAVIGATION SCRIPT
+         BUTTON NAVIGATION
          ======================================== -->
 
     <script>
