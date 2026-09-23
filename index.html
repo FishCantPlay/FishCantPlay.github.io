@@ -5,22 +5,31 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Fish Heard — Game Designer & Artist</title>
+
 
     <style>
 
         :root {
+
             --black: #050707;
             --background: #080D0D;
+
             --teal-dark: #025043;
             --teal: #036C5F;
             --teal-light: #078C7C;
+
             --pink-dark: #9C3F57;
             --pink: #E88FA6;
+
             --text: #F1E8E5;
             --text-muted: #B6C0BD;
+
         }
 
 
@@ -52,7 +61,7 @@
 
 
         /* ========================================
-           MOVING BACKGROUND BLOBS
+           MOVING BACKGROUND
            ======================================== */
 
         .blob {
@@ -82,7 +91,12 @@
             top: -180px;
             left: -160px;
 
-            animation: pinkMovement 18s ease-in-out infinite alternate;
+            animation:
+                pinkMovement
+                18s
+                ease-in-out
+                infinite
+                alternate;
 
         }
 
@@ -97,7 +111,12 @@
             right: -200px;
             bottom: -220px;
 
-            animation: tealMovement 22s ease-in-out infinite alternate;
+            animation:
+                tealMovement
+                22s
+                ease-in-out
+                infinite
+                alternate;
 
         }
 
@@ -112,7 +131,12 @@
             right: 15%;
             top: 15%;
 
-            animation: pinkSmallMovement 25s ease-in-out infinite alternate;
+            animation:
+                pinkSmallMovement
+                25s
+                ease-in-out
+                infinite
+                alternate;
 
         }
 
@@ -127,7 +151,12 @@
             left: 20%;
             bottom: 5%;
 
-            animation: tealSmallMovement 20s ease-in-out infinite alternate;
+            animation:
+                tealSmallMovement
+                20s
+                ease-in-out
+                infinite
+                alternate;
 
         }
 
@@ -304,7 +333,7 @@
 
 
         /* ========================================
-           NAVIGATION BUTTONS
+           BUTTONS
            ======================================== */
 
         .navigation {
@@ -326,13 +355,17 @@
 
         .button {
 
+            display: inline-block;
+
             padding: 14px 24px;
 
             background: var(--teal);
 
             color: var(--text);
 
-            border: 2px solid var(--teal-light);
+            border:
+                2px solid
+                var(--teal-light);
 
             border-radius: 3px;
 
@@ -345,8 +378,6 @@
             letter-spacing: 1px;
 
             text-decoration: none;
-
-            display: inline-block;
 
             transition:
                 transform 0.2s ease,
@@ -428,7 +459,8 @@
 
             background: var(--pink);
 
-            transition: width 0.25s ease;
+            transition:
+                width 0.25s ease;
 
         }
 
@@ -437,7 +469,8 @@
 
             color: var(--pink);
 
-            transform: translateY(-3px);
+            transform:
+                translateY(-3px);
 
         }
 
@@ -460,7 +493,8 @@
             background: var(--pink-dark);
 
             box-shadow:
-                0 0 12px rgba(156, 63, 87, 0.3);
+                0 0 12px
+                rgba(156, 63, 87, 0.3);
 
         }
 
@@ -495,7 +529,8 @@
 
             margin: 0;
 
-            font-size: clamp(42px, 7vw, 80px);
+            font-size:
+                clamp(42px, 7vw, 80px);
 
             color: var(--text);
 
@@ -544,7 +579,8 @@
 
             display: grid;
 
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns:
+                repeat(3, 1fr);
 
             gap: 30px;
 
@@ -564,7 +600,9 @@
                     rgba(5, 7, 7, 0.9)
                 );
 
-            border: 2px solid rgba(3, 108, 95, 0.7);
+            border:
+                2px solid
+                rgba(3, 108, 95, 0.7);
 
             overflow: hidden;
 
@@ -606,13 +644,15 @@
 
                 #0A1514;
 
-            color: rgba(241, 232, 229, 0.35);
+            color:
+                rgba(241, 232, 229, 0.35);
 
             font-size: 16px;
 
             letter-spacing: 3px;
 
-            transition: transform 0.5s ease;
+            transition:
+                transform 0.5s ease;
 
         }
 
@@ -625,7 +665,9 @@
 
             height: 55%;
 
-            border: 2px dashed rgba(232, 143, 166, 0.35);
+            border:
+                2px dashed
+                rgba(232, 143, 166, 0.35);
 
             transform: rotate(-4deg);
 
@@ -672,7 +714,8 @@
 
         .project-info p {
 
-            margin: 8px 0 0;
+            margin:
+                8px 0 0;
 
             color: var(--pink);
 
@@ -692,13 +735,17 @@
             border-color: var(--pink);
 
             box-shadow:
-                0 20px 50px rgba(0, 0, 0, 0.5),
-                0 0 25px rgba(232, 143, 166, 0.15);
+                0 20px 50px
+                rgba(0, 0, 0, 0.5),
+
+                0 0 25px
+                rgba(232, 143, 166, 0.15);
 
         }
 
 
-        .project-card:hover .placeholder-art {
+        .project-card:hover
+        .placeholder-art {
 
             transform:
                 scale(1.06)
@@ -727,7 +774,8 @@
 
             display: grid;
 
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns:
+                repeat(3, 1fr);
 
             gap: 25px;
 
@@ -764,7 +812,8 @@
 
             justify-content: center;
 
-            color: rgba(241, 232, 229, 0.35);
+            color:
+                rgba(241, 232, 229, 0.35);
 
             letter-spacing: 2px;
 
@@ -838,7 +887,8 @@
 
             display: grid;
 
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns:
+                1fr 1fr;
 
             gap: 70px;
 
@@ -851,7 +901,9 @@
 
             min-height: 450px;
 
-            border: 2px solid var(--teal);
+            border:
+                2px solid
+                var(--teal);
 
             background:
 
@@ -875,7 +927,8 @@
 
             justify-content: center;
 
-            color: rgba(241, 232, 229, 0.4);
+            color:
+                rgba(241, 232, 229, 0.4);
 
             letter-spacing: 3px;
 
@@ -884,12 +937,11 @@
 
         .about-text h3 {
 
-            font-size: clamp(40px, 5vw, 65px);
+            font-size:
+                clamp(40px, 5vw, 65px);
 
             margin:
-                0
-                0
-                25px;
+                0 0 25px;
 
             color: var(--pink);
 
@@ -918,9 +970,11 @@
 
             max-width: 1200px;
 
-            margin: 100px auto 0;
+            margin:
+                100px auto 0;
 
-            padding: 100px 20px;
+            padding:
+                100px 20px;
 
             text-align: center;
 
@@ -935,7 +989,8 @@
 
             margin: 0;
 
-            font-size: clamp(40px, 6vw, 70px);
+            font-size:
+                clamp(40px, 6vw, 70px);
 
             color: var(--text);
 
@@ -1139,11 +1194,12 @@
     <div class="blob blob-teal-small"></div>
 
 
+
     <!-- ========================================
          LANDING PAGE
          ======================================== -->
 
-    <section class="landing" id="home">
+    <section class="landing">
 
 
         <h1>
@@ -1163,10 +1219,6 @@
 
         </p>
 
-
-        <!-- ========================================
-             THREE MAIN BUTTONS
-             ======================================== -->
 
         <div class="navigation">
 
@@ -1201,9 +1253,7 @@
         </div>
 
 
-        <!-- ========================================
-             SOCIALS
-             ======================================== -->
+        <!-- SOCIALS -->
 
         <div class="socials">
 
@@ -1253,6 +1303,7 @@
     </section>
 
 
+
     <!-- ========================================
          PREVIOUS PROJECTS
          ======================================== -->
@@ -1279,8 +1330,6 @@
         <div class="project-grid">
 
 
-            <!-- BIBLIOCIDE -->
-
             <div class="project-card">
 
                 <div class="placeholder-art">
@@ -1302,8 +1351,6 @@
             </div>
 
 
-            <!-- GROUP PROJECT -->
-
             <div class="project-card">
 
                 <div class="placeholder-art">
@@ -1324,8 +1371,6 @@
 
             </div>
 
-
-            <!-- UNDER WOOL AND BRIAR -->
 
             <div class="project-card">
 
@@ -1354,6 +1399,7 @@
     </section>
 
 
+
     <!-- ========================================
          PERSONAL ART
          ======================================== -->
@@ -1371,16 +1417,11 @@
             </h2>
 
             <p>
-                A SMALL SELECTION OF MY ARTWORK
+                CHARACTERS · ILLUSTRATION · ANIMATION · EXPERIMENTS
             </p>
 
         </div>
 
-
-        <!--
-             These are preview spaces for your actual artwork.
-             Replace each "ARTWORK PLACEHOLDER" with an image later.
-        -->
 
         <div class="art-grid">
 
@@ -1419,13 +1460,13 @@
 
 
         <!-- ========================================
-             MORE ART BUTTON
+             THE ONLY MORE ART BUTTON
              ======================================== -->
 
         <div class="more-art">
 
             <a
-                href="art.html"
+                href="./art.html"
                 class="button"
             >
                 MORE ART
@@ -1434,18 +1475,8 @@
         </div>
 
 
-        <!-- MORE ART BUTTON -->
-
-        <div class="more-art">
-
-            <a href="art.html" class="button">
-                MORE ART
-            </a>
-
-        </div>
-
-
     </section>
+
 
 
     <!-- ========================================
@@ -1520,9 +1551,8 @@
         </div>
 
 
-        <!-- ========================================
-             CONTACT
-             ======================================== -->
+
+        <!-- CONTACT -->
 
         <div class="contact">
 
@@ -1594,21 +1624,26 @@
     </section>
 
 
+
     <!-- ========================================
-         BUTTON NAVIGATION
+         NAVIGATION SCRIPT
          ======================================== -->
 
     <script>
 
         function goToSection(sectionId) {
 
-            const section = document.getElementById(sectionId);
+            const section =
+                document.getElementById(sectionId);
 
             if (section) {
 
                 section.scrollIntoView({
+
                     behavior: "smooth",
+
                     block: "start"
+
                 });
 
             }
