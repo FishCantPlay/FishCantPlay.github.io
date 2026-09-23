@@ -556,201 +556,6 @@
 
 
         /* ========================================
-           ABOUT ME
-           ======================================== */
-
-        #about {
-
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(5, 7, 7, 0.2),
-                    rgba(156, 63, 87, 0.06)
-                );
-
-        }
-
-
-        .about {
-
-            max-width: 1200px;
-
-            margin: 0 auto;
-
-            display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap: 70px;
-
-            align-items: center;
-
-        }
-
-
-        .about-placeholder {
-
-            min-height: 450px;
-
-            border:
-                2px solid
-                var(--teal);
-
-            background:
-
-                radial-gradient(
-                    circle at 70% 30%,
-                    rgba(232, 143, 166, 0.25),
-                    transparent 30%
-                ),
-
-                radial-gradient(
-                    circle at 30% 70%,
-                    rgba(3, 108, 95, 0.35),
-                    transparent 40%
-                ),
-
-                #0A1514;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            color:
-                rgba(241, 232, 229, 0.4);
-
-            letter-spacing: 3px;
-
-        }
-
-
-        .about-text h3 {
-
-            font-size:
-                clamp(40px, 5vw, 65px);
-
-            margin:
-                0 0 25px;
-
-            color: var(--pink);
-
-            text-shadow:
-                3px 3px 0 var(--pink-dark);
-
-        }
-
-
-        .about-text p {
-
-            color: var(--text-muted);
-
-            font-size: 18px;
-
-            line-height: 1.8;
-
-        }
-
-
-        /* ========================================
-           CONTACT — PART OF ABOUT ME
-           ======================================== */
-
-        .contact {
-
-            max-width: 1200px;
-
-            margin:
-                90px auto 0;
-
-            padding:
-                65px 20px 20px;
-
-            text-align: center;
-
-            border-top:
-                1px solid
-                rgba(232, 143, 166, 0.18);
-
-        }
-
-
-        .contact h3 {
-
-            margin: 0;
-
-            font-size:
-                clamp(30px, 4vw, 48px);
-
-            color: var(--pink);
-
-            letter-spacing: 1px;
-
-            text-shadow:
-                2px 2px 0 var(--pink-dark);
-
-        }
-
-
-        .contact p {
-
-            max-width: 600px;
-
-            margin:
-                15px auto 25px;
-
-            color: var(--text-muted);
-
-            font-size: 17px;
-
-            line-height: 1.6;
-
-        }
-
-
-        .email {
-
-            display: inline-block;
-
-            color: var(--text);
-
-            font-size: 21px;
-
-            text-decoration: none;
-
-            padding-bottom: 5px;
-
-            border-bottom:
-                2px solid
-                var(--pink);
-
-            transition:
-                color 0.25s ease,
-                border-color 0.25s ease;
-
-        }
-
-
-        .email:hover {
-
-            color: var(--pink);
-
-            border-color:
-                var(--teal-light);
-
-        }
-
-
-        .contact .socials {
-
-            margin-top: 25px;
-
-        }
-
-
-        /* ========================================
            PREVIOUS PROJECTS
            ======================================== */
 
@@ -927,8 +732,7 @@
                 translateY(-10px)
                 rotate(-1deg);
 
-            border-color:
-                var(--pink);
+            border-color: var(--pink);
 
             box-shadow:
                 0 20px 50px
@@ -1026,14 +830,13 @@
                 translateY(-8px)
                 rotate(1deg);
 
-            border-color:
-                var(--pink);
+            border-color: var(--pink);
 
         }
 
 
         /* ========================================
-           MORE ART
+           MORE ART BUTTON
            ======================================== */
 
         .more-art {
@@ -1050,11 +853,209 @@
         .more-art .button {
 
             padding:
-                16px 32px;
+                16px
+                32px;
 
             font-size: 15px;
 
             letter-spacing: 2px;
+
+        }
+
+
+        /* ========================================
+           ABOUT ME
+           ======================================== */
+
+        #about {
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(5, 7, 7, 0.2),
+                    rgba(156, 63, 87, 0.06)
+                );
+
+        }
+
+
+        .about {
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+
+        }
+
+
+        .about-placeholder {
+
+            min-height: 450px;
+
+            border:
+                2px solid
+                var(--teal);
+
+            background:
+
+                radial-gradient(
+                    circle at 70% 30%,
+                    rgba(232, 143, 166, 0.25),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 30% 70%,
+                    rgba(3, 108, 95, 0.35),
+                    transparent 40%
+                ),
+
+                #0A1514;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color:
+                rgba(241, 232, 229, 0.4);
+
+            letter-spacing: 3px;
+
+        }
+
+
+        .about-text h3 {
+
+            font-size:
+                clamp(40px, 5vw, 65px);
+
+            margin:
+                0 0 25px;
+
+            color: var(--pink);
+
+            text-shadow:
+                3px 3px 0 var(--pink-dark);
+
+        }
+
+
+        .about-text p {
+
+            color: var(--text-muted);
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* ========================================
+           CONTACT
+           CONTACT IS PART OF THE ABOUT SECTION
+           ======================================== */
+
+        .contact {
+
+            max-width: 1200px;
+
+            margin:
+                90px auto 0;
+
+            padding:
+                65px 20px 20px;
+
+            text-align: center;
+
+            border-top:
+                1px solid
+                rgba(232, 143, 166, 0.18);
+
+        }
+
+
+        .contact h3 {
+
+            margin: 0;
+
+            font-size:
+                clamp(30px, 4vw, 48px);
+
+            color: var(--pink);
+
+            letter-spacing: 1px;
+
+            text-shadow:
+                2px 2px 0 var(--pink-dark);
+
+        }
+
+
+        .contact p {
+
+            max-width: 600px;
+
+            margin:
+                15px auto
+                25px;
+
+            color: var(--text-muted);
+
+            font-size: 17px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .email {
+
+            display: inline-block;
+
+            color: var(--text);
+
+            font-size: 21px;
+
+            text-decoration: none;
+
+            padding-bottom: 5px;
+
+            border-bottom:
+                2px solid
+                var(--pink);
+
+            transition:
+                color 0.25s ease,
+                border-color 0.25s ease;
+
+        }
+
+
+        .email:hover {
+
+            color: var(--pink);
+
+            border-color:
+                var(--teal-light);
+
+        }
+
+
+        .contact .socials {
+
+            margin-top: 25px;
 
         }
 
@@ -1161,7 +1162,8 @@
             .section {
 
                 padding:
-                    90px 20px;
+                    90px
+                    20px;
 
             }
 
@@ -1193,15 +1195,6 @@
 
             }
 
-
-            .contact {
-
-                margin-top: 60px;
-
-                padding-top: 45px;
-
-            }
-
         }
 
     </style>
@@ -1223,7 +1216,6 @@
     <div class="blob blob-pink-small"></div>
 
     <div class="blob blob-teal-small"></div>
-
 
 
     <!-- ========================================
@@ -1251,10 +1243,12 @@
         </p>
 
 
-        <!-- ORDER MATCHES PAGE -->
+        <!-- MAIN NAVIGATION -->
 
         <div class="navigation">
 
+
+            <!-- 1. ABOUT ME -->
 
             <button
                 type="button"
@@ -1265,6 +1259,8 @@
             </button>
 
 
+            <!-- 2. PREVIOUS PROJECTS -->
+
             <button
                 type="button"
                 class="button"
@@ -1273,6 +1269,8 @@
                 PREVIOUS PROJECTS
             </button>
 
+
+            <!-- 3. PERSONAL ART -->
 
             <button
                 type="button"
@@ -1336,9 +1334,185 @@
     </section>
 
 
+    <!-- ========================================
+         PREVIOUS PROJECTS
+         ======================================== -->
+
+    <section
+        class="section"
+        id="projects"
+    >
+
+
+        <div class="section-heading">
+
+            <h2>
+                PREVIOUS PROJECTS
+            </h2>
+
+            <p>
+                GAMES I'VE WORKED ON
+            </p>
+
+        </div>
+
+
+        <div class="project-grid">
+
+
+            <!-- BIBLIOCIDE -->
+
+            <div class="project-card">
+
+                <div class="placeholder-art">
+                    ARTWORK PLACEHOLDER
+                </div>
+
+                <div class="project-info">
+
+                    <h3>
+                        BIBLIOCIDE
+                    </h3>
+
+                    <p>
+                        FIRST-PERSON PUZZLE GAME
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- GROUP PROJECT -->
+
+            <div class="project-card">
+
+                <div class="placeholder-art">
+                    ARTWORK PLACEHOLDER
+                </div>
+
+                <div class="project-info">
+
+                    <h3>
+                        GROUP PROJECT
+                    </h3>
+
+                    <p>
+                        RELATIONSHIP MANAGEMENT GAME
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- UNDER WOOL AND BRIAR -->
+
+            <div class="project-card">
+
+                <div class="placeholder-art">
+                    ARTWORK PLACEHOLDER
+                </div>
+
+                <div class="project-info">
+
+                    <h3>
+                        UNDER WOOL AND BRIAR
+                    </h3>
+
+                    <p>
+                        GAME PROJECT
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
 
     <!-- ========================================
-         ABOUT ME + CONTACT
+         PERSONAL ART
+         ======================================== -->
+
+    <section
+        class="section"
+        id="art"
+    >
+
+
+        <div class="section-heading">
+
+            <h2>
+                PERSONAL ART
+            </h2>
+
+            <p>
+                CHARACTERS · ILLUSTRATION · ANIMATION · EXPERIMENTS
+            </p>
+
+        </div>
+
+
+        <div class="art-grid">
+
+
+            <div class="art-card">
+                ARTWORK PLACEHOLDER
+            </div>
+
+
+            <div class="art-card">
+                ARTWORK PLACEHOLDER
+            </div>
+
+
+            <div class="art-card">
+                ARTWORK PLACEHOLDER
+            </div>
+
+
+            <div class="art-card">
+                ARTWORK PLACEHOLDER
+            </div>
+
+
+            <div class="art-card">
+                ARTWORK PLACEHOLDER
+            </div>
+
+
+            <div class="art-card">
+                ARTWORK PLACEHOLDER
+            </div>
+
+
+        </div>
+
+
+        <!-- EXACTLY ONE MORE ART BUTTON -->
+
+        <div class="more-art">
+
+            <a
+                href="./art.html"
+                class="button"
+            >
+                MORE ART
+            </a>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ========================================
+         ABOUT ME
          ======================================== -->
 
     <section
@@ -1409,7 +1583,10 @@
         </div>
 
 
-        <!-- CONTACT IS PART OF ABOUT -->
+        <!-- ========================================
+             CONTACT
+             PART OF THE ABOUT ME SECTION
+             ======================================== -->
 
         <div class="contact">
 
@@ -1420,10 +1597,8 @@
 
 
             <p>
-
                 Have a project, opportunity, question,
                 or just want to say hi?
-
             </p>
 
 
@@ -1481,180 +1656,6 @@
 
 
     </section>
-
-
-
-    <!-- ========================================
-         PREVIOUS PROJECTS
-         ======================================== -->
-
-    <section
-        class="section"
-        id="projects"
-    >
-
-
-        <div class="section-heading">
-
-            <h2>
-                PREVIOUS PROJECTS
-            </h2>
-
-            <p>
-                GAMES I'VE WORKED ON
-            </p>
-
-        </div>
-
-
-        <div class="project-grid">
-
-
-            <div class="project-card">
-
-                <div class="placeholder-art">
-                    ARTWORK PLACEHOLDER
-                </div>
-
-                <div class="project-info">
-
-                    <h3>
-                        BIBLIOCIDE
-                    </h3>
-
-                    <p>
-                        FIRST-PERSON PUZZLE GAME
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="project-card">
-
-                <div class="placeholder-art">
-                    ARTWORK PLACEHOLDER
-                </div>
-
-                <div class="project-info">
-
-                    <h3>
-                        GROUP PROJECT
-                    </h3>
-
-                    <p>
-                        RELATIONSHIP MANAGEMENT GAME
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="project-card">
-
-                <div class="placeholder-art">
-                    ARTWORK PLACEHOLDER
-                </div>
-
-                <div class="project-info">
-
-                    <h3>
-                        UNDER WOOL AND BRIAR
-                    </h3>
-
-                    <p>
-                        GAME PROJECT
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-    </section>
-
-
-
-    <!-- ========================================
-         PERSONAL ART
-         ======================================== -->
-
-    <section
-        class="section"
-        id="art"
-    >
-
-
-        <div class="section-heading">
-
-            <h2>
-                PERSONAL ART
-            </h2>
-
-            <p>
-                CHARACTERS · ILLUSTRATION · ANIMATION · EXPERIMENTS
-            </p>
-
-        </div>
-
-
-        <div class="art-grid">
-
-
-            <div class="art-card">
-                ARTWORK PLACEHOLDER
-            </div>
-
-
-            <div class="art-card">
-                ARTWORK PLACEHOLDER
-            </div>
-
-
-            <div class="art-card">
-                ARTWORK PLACEHOLDER
-            </div>
-
-
-            <div class="art-card">
-                ARTWORK PLACEHOLDER
-            </div>
-
-
-            <div class="art-card">
-                ARTWORK PLACEHOLDER
-            </div>
-
-
-            <div class="art-card">
-                ARTWORK PLACEHOLDER
-            </div>
-
-
-        </div>
-
-
-        <!-- ONLY MORE ART BUTTON -->
-
-        <div class="more-art">
-
-            <a
-                href="./art.html"
-                class="button"
-            >
-                MORE ART
-            </a>
-
-        </div>
-
-
-    </section>
-
 
 
     <!-- ========================================
