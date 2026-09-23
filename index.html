@@ -395,7 +395,7 @@
 
 
         /* =========================
-           ENTER BUTTON
+           ENTER PORTFOLIO BUTTON
            ========================= */
 
         .button {
@@ -415,6 +415,12 @@
             border: 2px solid var(--teal-light);
 
             border-radius: 3px;
+
+            cursor: pointer;
+
+            font-family: inherit;
+
+            font-size: inherit;
 
             transition:
 
@@ -544,7 +550,7 @@
 
 
         /* ==================================================
-           PORTFOLIO PAGE
+           PORTFOLIO
            ================================================== */
 
         .portfolio {
@@ -660,7 +666,9 @@
         }
 
 
-        /* Placeholder artwork area */
+        /* =========================
+           PLACEHOLDER ART
+           ========================= */
 
         .placeholder-art {
 
@@ -719,7 +727,9 @@
         }
 
 
-        /* Project information */
+        /* =========================
+           PROJECT INFORMATION
+           ========================= */
 
         .project-info {
 
@@ -760,8 +770,7 @@
         .project-info p {
 
             margin:
-                8px
-                0
+                8px 0
                 0;
 
             color: var(--pink);
@@ -773,7 +782,9 @@
         }
 
 
-        /* Card hover */
+        /* =========================
+           PROJECT HOVER
+           ========================= */
 
         .project-card:hover {
 
@@ -1140,7 +1151,7 @@
 
 
     <!-- =========================
-         BACKGROUND BLOBS
+         MOVING BACKGROUND BLOBS
          ========================= -->
 
     <div class="blob blob-pink"></div>
@@ -1178,16 +1189,19 @@
 
 
         <!--
-            This button now takes you to the
-            portfolio section below.
+            PORTFOLIO BUTTON
+
+            This uses JavaScript rather than an anchor,
+            so clicking it explicitly scrolls to the
+            portfolio section.
         -->
 
-        <a
-            href="#portfolio"
+        <button
             class="button"
+            onclick="document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });"
         >
             ENTER PORTFOLIO
-        </a>
+        </button>
 
 
         <!-- SOCIAL LINKS -->
@@ -1264,7 +1278,7 @@
 
 
         <!-- =========================
-             PROJECT CARDS
+             PROJECT GRID
              ========================= -->
 
         <div class="project-grid">
