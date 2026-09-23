@@ -425,27 +425,49 @@
 
         @media (max-width: 600px) {
 
-            .blob {
-                filter: blur(70px);
-            }
+    .blob {
+        filter: blur(70px);
+    }
 
-            main {
-                padding: 25px;
-            }
+    main {
+        padding: 25px;
+    }
 
-            h1 {
-                letter-spacing: -2px;
-            }
+    h1 {
+        letter-spacing: -2px;
 
-            .subtitle {
-                font-size: 17px;
-            }
+        /* Remove the stroke that causes rendering glitches
+           on some mobile browsers */
+        -webkit-text-stroke: 0;
 
-            .intro {
-                font-size: 16px;
-            }
+        /* Fake the outline using shadows instead */
+        text-shadow:
+            -1px -1px 0 var(--text),
+             1px -1px 0 var(--text),
+            -1px  1px 0 var(--text),
+             1px  1px 0 var(--text),
+             4px  4px 0 var(--teal-dark),
+             0 0 25px rgba(3, 108, 95, 0.3);
+    }
 
-        }
+    .subtitle {
+        font-size: 17px;
+
+        -webkit-text-stroke: 0;
+
+        text-shadow:
+            -0.5px -0.5px 0 var(--text),
+             0.5px -0.5px 0 var(--text),
+            -0.5px  0.5px 0 var(--text),
+             0.5px  0.5px 0 var(--text),
+             0 0 12px rgba(232, 143, 166, 0.2);
+    }
+
+    .intro {
+        font-size: 16px;
+    }
+
+}
 
     </style>
 
