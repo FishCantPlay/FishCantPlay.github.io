@@ -20,6 +20,7 @@
 
             --black: #050707;
             --background: #080D0D;
+            --background-light: #0D1918;
 
             --teal-dark: #025043;
             --teal: #036C5F;
@@ -44,7 +45,9 @@
 
 
         html {
+
             scroll-behavior: smooth;
+
         }
 
 
@@ -86,8 +89,6 @@
         }
 
 
-        /* Large pink blob */
-
         .blob-pink {
 
             width: 520px;
@@ -107,8 +108,6 @@
 
         }
 
-
-        /* Large teal blob */
 
         .blob-teal {
 
@@ -130,8 +129,6 @@
         }
 
 
-        /* Small pink blob */
-
         .blob-pink-small {
 
             width: 300px;
@@ -151,8 +148,6 @@
 
         }
 
-
-        /* Small teal blob */
 
         .blob-teal-small {
 
@@ -175,7 +170,7 @@
 
 
         /* =========================
-           PINK BLOB MOVEMENT
+           BLOB ANIMATIONS
            ========================= */
 
         @keyframes pinkMovement {
@@ -213,10 +208,6 @@
         }
 
 
-        /* =========================
-           TEAL BLOB MOVEMENT
-           ========================= */
-
         @keyframes tealMovement {
 
             0% {
@@ -252,10 +243,6 @@
         }
 
 
-        /* =========================
-           SMALL PINK BLOB MOVEMENT
-           ========================= */
-
         @keyframes pinkSmallMovement {
 
             0% {
@@ -284,10 +271,6 @@
 
         }
 
-
-        /* =========================
-           SMALL TEAL BLOB MOVEMENT
-           ========================= */
 
         @keyframes tealSmallMovement {
 
@@ -319,10 +302,10 @@
 
 
         /* =========================
-           MAIN HERO
+           LANDING PAGE
            ========================= */
 
-        main {
+        .landing {
 
             position: relative;
 
@@ -387,14 +370,13 @@
             -webkit-text-stroke: 0.4px var(--text);
 
             text-shadow:
-
                 0 0 12px rgba(232, 143, 166, 0.2);
 
         }
 
 
         /* =========================
-           INTRODUCTION
+           INTRO
            ========================= */
 
         .intro {
@@ -413,7 +395,7 @@
 
 
         /* =========================
-           ENTER PORTFOLIO BUTTON
+           ENTER BUTTON
            ========================= */
 
         .button {
@@ -463,7 +445,7 @@
 
 
         /* =========================
-           SOCIAL MEDIA LINKS
+           SOCIAL LINKS
            ========================= */
 
         .socials {
@@ -502,8 +484,6 @@
         }
 
 
-        /* Pink underline */
-
         .socials a::after {
 
             content: "";
@@ -525,8 +505,6 @@
 
         }
 
-
-        /* Social hover */
 
         .socials a:hover {
 
@@ -565,11 +543,435 @@
         }
 
 
+        /* ==================================================
+           PORTFOLIO PAGE
+           ================================================== */
+
+        .portfolio {
+
+            position: relative;
+
+            z-index: 1;
+
+            min-height: 100vh;
+
+            padding: 100px 8% 120px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(5, 7, 7, 0.2),
+                    rgba(2, 80, 67, 0.12)
+                );
+
+        }
+
+
+        /* =========================
+           PORTFOLIO HEADER
+           ========================= */
+
+        .section-heading {
+
+            text-align: center;
+
+            margin-bottom: 70px;
+
+        }
+
+
+        .section-heading h2 {
+
+            margin: 0;
+
+            font-size: clamp(42px, 7vw, 80px);
+
+            color: var(--text);
+
+            letter-spacing: -2px;
+
+            text-shadow:
+                3px 3px 0 var(--teal-dark);
+
+        }
+
+
+        .section-heading p {
+
+            margin-top: 15px;
+
+            color: var(--pink);
+
+            letter-spacing: 3px;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =========================
+           PROJECT GRID
+           ========================= */
+
+        .project-grid {
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 35px;
+
+        }
+
+
+        /* =========================
+           PROJECT CARD
+           ========================= */
+
+        .project-card {
+
+            position: relative;
+
+            min-height: 380px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(3, 108, 95, 0.28),
+                    rgba(5, 7, 7, 0.9)
+                );
+
+            border: 2px solid rgba(3, 108, 95, 0.7);
+
+            overflow: hidden;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+
+        }
+
+
+        /* Placeholder artwork area */
+
+        .placeholder-art {
+
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+
+                radial-gradient(
+                    circle at 30% 30%,
+                    rgba(232, 143, 166, 0.2),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at 70% 70%,
+                    rgba(3, 108, 95, 0.3),
+                    transparent 40%
+                ),
+
+                #0A1514;
+
+            color: rgba(241, 232, 229, 0.35);
+
+            font-size: 18px;
+
+            letter-spacing: 3px;
+
+            transition:
+                transform 0.5s ease;
+
+        }
+
+
+        .placeholder-art::before {
+
+            content: "";
+
+            width: 55%;
+
+            height: 55%;
+
+            border: 2px dashed rgba(232, 143, 166, 0.35);
+
+            transform: rotate(-4deg);
+
+            position: absolute;
+
+        }
+
+
+        /* Project information */
+
+        .project-info {
+
+            position: absolute;
+
+            left: 0;
+
+            right: 0;
+
+            bottom: 0;
+
+            padding: 30px;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    rgba(5, 7, 7, 0.98) 35%
+                );
+
+            padding-top: 90px;
+
+        }
+
+
+        .project-info h3 {
+
+            margin: 0;
+
+            color: var(--text);
+
+            font-size: 30px;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .project-info p {
+
+            margin:
+                8px
+                0
+                0;
+
+            color: var(--pink);
+
+            font-size: 14px;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        /* Card hover */
+
+        .project-card:hover {
+
+            transform:
+                translateY(-10px)
+                rotate(-1deg);
+
+            border-color: var(--pink);
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.5),
+                0 0 25px rgba(232, 143, 166, 0.15);
+
+        }
+
+
+        .project-card:hover .placeholder-art {
+
+            transform:
+                scale(1.06)
+                rotate(1deg);
+
+        }
+
+
+        /* =========================
+           ABOUT SECTION
+           ========================= */
+
+        .about {
+
+            max-width: 1200px;
+
+            margin: 150px auto 0;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 70px;
+
+            align-items: center;
+
+        }
+
+
+        .about-placeholder {
+
+            min-height: 450px;
+
+            border: 2px solid var(--teal);
+
+            background:
+
+                radial-gradient(
+                    circle at 70% 30%,
+                    rgba(232, 143, 166, 0.25),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 30% 70%,
+                    rgba(3, 108, 95, 0.35),
+                    transparent 40%
+                ),
+
+                #0A1514;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: rgba(241, 232, 229, 0.4);
+
+            letter-spacing: 3px;
+
+        }
+
+
+        .about-text h2 {
+
+            font-size: clamp(40px, 5vw, 65px);
+
+            margin:
+                0
+                0
+                25px;
+
+            color: var(--pink);
+
+            text-shadow:
+                3px 3px 0 var(--pink-dark);
+
+        }
+
+
+        .about-text p {
+
+            color: var(--text-muted);
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================
+           CONTACT
+           ========================= */
+
+        .contact {
+
+            margin-top: 160px;
+
+            padding:
+                100px
+                20px;
+
+            text-align: center;
+
+            border-top:
+                1px solid
+                rgba(232, 143, 166, 0.25);
+
+        }
+
+
+        .contact h2 {
+
+            margin: 0;
+
+            font-size: clamp(40px, 6vw, 70px);
+
+            color: var(--text);
+
+        }
+
+
+        .contact p {
+
+            color: var(--text-muted);
+
+            font-size: 18px;
+
+            margin:
+                20px
+                auto
+                30px;
+
+        }
+
+
+        .email {
+
+            display: inline-block;
+
+            color: var(--pink);
+
+            font-size: 24px;
+
+            text-decoration: none;
+
+            border-bottom:
+                2px solid
+                var(--pink);
+
+            padding-bottom: 5px;
+
+            transition:
+                color 0.25s ease;
+
+        }
+
+
+        .email:hover {
+
+            color: var(--teal-light);
+
+        }
+
+
+        .contact .socials {
+
+            margin-top: 40px;
+
+        }
+
+
         /* =========================
            MOBILE
            ========================= */
 
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
 
 
             .blob {
@@ -579,25 +981,16 @@
             }
 
 
-            main {
+            .landing {
 
                 padding: 25px;
 
             }
 
 
-            /* Mobile title fix */
-
             h1 {
 
                 letter-spacing: -2px;
-
-                /*
-                   Mobile browsers can sometimes create
-                   strange artefacts with text-stroke.
-
-                   The outline is recreated with shadows.
-                */
 
                 -webkit-text-stroke: 0;
 
@@ -618,8 +1011,6 @@
             }
 
 
-            /* Mobile subtitle */
-
             .subtitle {
 
                 font-size: 17px;
@@ -634,14 +1025,10 @@
 
                     -0.5px 0.5px 0 var(--text),
 
-                    0.5px 0.5px 0 var(--text),
-
-                    0 0 12px rgba(232, 143, 166, 0.2);
+                    0.5px 0.5px 0 var(--text);
 
             }
 
-
-            /* Mobile introduction */
 
             .intro {
 
@@ -649,8 +1036,6 @@
 
             }
 
-
-            /* Mobile social links */
 
             .socials {
 
@@ -667,6 +1052,83 @@
 
             }
 
+
+            /* Portfolio */
+
+            .portfolio {
+
+                padding:
+                    80px
+                    20px
+                    100px;
+
+            }
+
+
+            .project-grid {
+
+                grid-template-columns:
+                    1fr;
+
+                gap: 25px;
+
+            }
+
+
+            .project-card {
+
+                min-height: 330px;
+
+            }
+
+
+            /* About */
+
+            .about {
+
+                grid-template-columns:
+                    1fr;
+
+                gap: 35px;
+
+                margin-top: 100px;
+
+            }
+
+
+            .about-placeholder {
+
+                min-height: 320px;
+
+            }
+
+
+            .about-text p {
+
+                font-size: 16px;
+
+            }
+
+
+            /* Contact */
+
+            .contact {
+
+                margin-top: 100px;
+
+                padding:
+                    80px
+                    20px;
+
+            }
+
+
+            .email {
+
+                font-size: 19px;
+
+            }
+
         }
 
     </style>
@@ -678,7 +1140,7 @@
 
 
     <!-- =========================
-         MOVING BACKGROUND BLOBS
+         BACKGROUND BLOBS
          ========================= -->
 
     <div class="blob blob-pink"></div>
@@ -690,11 +1152,11 @@
     <div class="blob blob-teal-small"></div>
 
 
-    <!-- =========================
-         MAIN CONTENT
-         ========================= -->
+    <!-- ==================================================
+         LANDING PAGE
+         ================================================== -->
 
-    <main>
+    <section class="landing">
 
 
         <h1>
@@ -715,17 +1177,20 @@
         </p>
 
 
+        <!--
+            This button now takes you to the
+            portfolio section below.
+        -->
+
         <a
-            href="#work"
+            href="#portfolio"
             class="button"
         >
             ENTER PORTFOLIO
         </a>
 
 
-        <!-- =========================
-             SOCIAL MEDIA
-             ========================= -->
+        <!-- SOCIAL LINKS -->
 
         <div class="socials">
 
@@ -772,7 +1237,283 @@
         <div class="divider"></div>
 
 
-    </main>
+    </section>
+
+
+    <!-- ==================================================
+         PORTFOLIO
+         ================================================== -->
+
+    <section
+        class="portfolio"
+        id="portfolio"
+    >
+
+
+        <div class="section-heading">
+
+            <h2>
+                SELECTED WORK
+            </h2>
+
+            <p>
+                GAMES · ART · WORLDS · OTHER WEIRD THINGS
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             PROJECT CARDS
+             ========================= -->
+
+        <div class="project-grid">
+
+
+            <!-- BIBLIOCIDE -->
+
+            <div class="project-card">
+
+                <div class="placeholder-art">
+
+                    ARTWORK PLACEHOLDER
+
+                </div>
+
+
+                <div class="project-info">
+
+                    <h3>
+                        BIBLIOCIDE
+                    </h3>
+
+                    <p>
+                        FIRST-PERSON PUZZLE GAME
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- GROUP PROJECT -->
+
+            <div class="project-card">
+
+                <div class="placeholder-art">
+
+                    ARTWORK PLACEHOLDER
+
+                </div>
+
+
+                <div class="project-info">
+
+                    <h3>
+                        GROUP PROJECT
+                    </h3>
+
+                    <p>
+                        RELATIONSHIP MANAGEMENT GAME
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- UNDER WOOL AND BRIAR -->
+
+            <div class="project-card">
+
+                <div class="placeholder-art">
+
+                    ARTWORK PLACEHOLDER
+
+                </div>
+
+
+                <div class="project-info">
+
+                    <h3>
+                        UNDER WOOL AND BRIAR
+                    </h3>
+
+                    <p>
+                        GAME PROJECT
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- GENERAL ART -->
+
+            <div class="project-card">
+
+                <div class="placeholder-art">
+
+                    ART GALLERY PLACEHOLDER
+
+                </div>
+
+
+                <div class="project-info">
+
+                    <h3>
+                        GENERAL ART
+                    </h3>
+
+                    <p>
+                        CHARACTERS · ILLUSTRATION · ANIMATION
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =========================
+             ABOUT ME
+             ========================= -->
+
+        <div class="about">
+
+
+            <div class="about-placeholder">
+
+                ABOUT ME ART PLACEHOLDER
+
+            </div>
+
+
+            <div class="about-text">
+
+
+                <h2>
+                    ABOUT ME
+                </h2>
+
+
+                <p>
+
+                    I'm Fish, a Game Designer and Artist who likes making
+                    characters, strange little worlds and games that sit
+                    somewhere between cute, unsettling and a little bit weird.
+
+                </p>
+
+
+                <p>
+
+                    I enjoy working across character art, game design,
+                    2D animation and 3D, with a particular interest in
+                    creating characters and worlds with their own personality.
+
+                </p>
+
+
+                <p>
+
+                    I'm always interested in projects that let me experiment
+                    with storytelling, visual design and the stranger side
+                    of games.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =========================
+             CONTACT
+             ========================= -->
+
+        <div class="contact">
+
+
+            <h2>
+                LET'S TALK
+            </h2>
+
+
+            <p>
+
+                Have a project, opportunity, question,
+                or just want to say hi?
+
+            </p>
+
+
+            <!--
+                CHANGE THIS EMAIL ADDRESS
+                WHEN YOU DECIDE WHICH ONE
+                YOU WANT TO DISPLAY.
+            -->
+
+            <a
+                class="email"
+                href="mailto:YOUR-EMAIL-HERE@example.com"
+            >
+                YOUR-EMAIL-HERE@example.com
+            </a>
+
+
+            <!-- SOCIAL LINKS -->
+
+            <div class="socials">
+
+
+                <a
+                    href="https://bsky.app/profile/fishcantplay.bsky.social"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Bluesky
+                </a>
+
+
+                <a
+                    href="https://www.tiktok.com/@fishcantplay"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    TikTok
+                </a>
+
+
+                <a
+                    href="https://www.youtube.com/channel/UCaDKDHI5PpZDd8WhXMEVYtQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    YouTube
+                </a>
+
+
+                <a
+                    href="https://www.artstation.com/fishcantdraw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    ArtStation
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
 
 
 </body>
