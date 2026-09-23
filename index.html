@@ -7,12 +7,45 @@
     <title>Fish Heard — Game Designer & Artist</title>
 
     <style>
+
+        /* -------------------------
+           COLOUR PALETTE
+        ------------------------- */
+
+        :root {
+            --deep-teal: #025043;
+            --teal: #036C5F;
+            --light-teal: #A8D8D1;
+
+            --deep-pink: #9C3F57;
+            --pink: #E88FA6;
+            --light-pink: #F7D9E1;
+
+            --black: #151719;
+            --cream: #F5F1EA;
+            --grey: #777A78;
+        }
+
+
+        /* -------------------------
+           GENERAL
+        ------------------------- */
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            background: #f2f0e8;
-            color: #183b3b;
+            background: var(--cream);
+            color: var(--black);
             font-family: Arial, sans-serif;
         }
+
+
+        /* -------------------------
+           HERO
+        ------------------------- */
 
         main {
             min-height: 100vh;
@@ -21,27 +54,76 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    var(--light-pink),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 80% 80%,
+                    var(--light-teal),
+                    transparent 30%
+                ),
+                var(--cream);
+
+            padding: 40px;
         }
 
         h1 {
-            font-size: 80px;
+            font-size: clamp(60px, 10vw, 140px);
             margin: 0;
+            color: var(--deep-teal);
+            letter-spacing: -5px;
         }
 
         p {
             font-size: 20px;
+            color: var(--deep-pink);
         }
+
+
+        /* -------------------------
+           BUTTON
+        ------------------------- */
+
+        .button {
+            margin-top: 30px;
+            padding: 15px 30px;
+
+            background: var(--teal);
+            color: var(--cream);
+
+            text-decoration: none;
+            border-radius: 50px;
+
+            transition:
+                background 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .button:hover {
+            background: var(--deep-pink);
+            transform: translateY(-5px);
+        }
+
     </style>
 </head>
+
 
 <body>
 
     <main>
+
         <h1>Fish Heard</h1>
 
         <p>Game Designer & Artist</p>
 
-        <p>Website coming soon...</p>
+        <a class="button" href="#">
+            Enter
+        </a>
+
     </main>
 
 </body>
