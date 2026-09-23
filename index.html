@@ -655,7 +655,7 @@
 
 
         /* ========================================
-           CONTACT ME
+           CONTACT — PART OF ABOUT ME
            ======================================== */
 
         .contact {
@@ -663,16 +663,16 @@
             max-width: 1200px;
 
             margin:
-                100px auto 0;
+                90px auto 0;
 
             padding:
-                100px 20px;
+                65px 20px 20px;
 
             text-align: center;
 
             border-top:
                 1px solid
-                rgba(232, 143, 166, 0.25);
+                rgba(232, 143, 166, 0.18);
 
         }
 
@@ -682,22 +682,30 @@
             margin: 0;
 
             font-size:
-                clamp(40px, 6vw, 70px);
+                clamp(30px, 4vw, 48px);
 
-            color: var(--text);
+            color: var(--pink);
+
+            letter-spacing: 1px;
+
+            text-shadow:
+                2px 2px 0 var(--pink-dark);
 
         }
 
 
         .contact p {
 
-            color: var(--text-muted);
-
-            font-size: 18px;
+            max-width: 600px;
 
             margin:
-                20px auto
-                30px;
+                15px auto 25px;
+
+            color: var(--text-muted);
+
+            font-size: 17px;
+
+            line-height: 1.6;
 
         }
 
@@ -706,27 +714,38 @@
 
             display: inline-block;
 
-            color: var(--pink);
+            color: var(--text);
 
-            font-size: 24px;
+            font-size: 21px;
 
             text-decoration: none;
+
+            padding-bottom: 5px;
 
             border-bottom:
                 2px solid
                 var(--pink);
 
-            padding-bottom: 5px;
-
             transition:
-                color 0.25s ease;
+                color 0.25s ease,
+                border-color 0.25s ease;
 
         }
 
 
         .email:hover {
 
-            color: var(--teal-light);
+            color: var(--pink);
+
+            border-color:
+                var(--teal-light);
+
+        }
+
+
+        .contact .socials {
+
+            margin-top: 25px;
 
         }
 
@@ -908,7 +927,8 @@
                 translateY(-10px)
                 rotate(-1deg);
 
-            border-color: var(--pink);
+            border-color:
+                var(--pink);
 
             box-shadow:
                 0 20px 50px
@@ -1006,7 +1026,8 @@
                 translateY(-8px)
                 rotate(1deg);
 
-            border-color: var(--pink);
+            border-color:
+                var(--pink);
 
         }
 
@@ -1029,8 +1050,7 @@
         .more-art .button {
 
             padding:
-                16px
-                32px;
+                16px 32px;
 
             font-size: 15px;
 
@@ -1141,8 +1161,7 @@
             .section {
 
                 padding:
-                    90px
-                    20px;
+                    90px 20px;
 
             }
 
@@ -1171,6 +1190,15 @@
             .email {
 
                 font-size: 19px;
+
+            }
+
+
+            .contact {
+
+                margin-top: 60px;
+
+                padding-top: 45px;
 
             }
 
@@ -1223,7 +1251,18 @@
         </p>
 
 
+        <!-- ORDER MATCHES PAGE -->
+
         <div class="navigation">
+
+
+            <button
+                type="button"
+                class="button"
+                onclick="goToSection('about')"
+            >
+                ABOUT ME
+            </button>
 
 
             <button
@@ -1241,15 +1280,6 @@
                 onclick="goToSection('art')"
             >
                 PERSONAL ART
-            </button>
-
-
-            <button
-                type="button"
-                class="button"
-                onclick="goToSection('about')"
-            >
-                ABOUT ME
             </button>
 
 
@@ -1308,7 +1338,7 @@
 
 
     <!-- ========================================
-         ABOUT ME
+         ABOUT ME + CONTACT
          ======================================== -->
 
     <section
@@ -1379,10 +1409,7 @@
         </div>
 
 
-
-        <!-- ========================================
-             CONTACT ME
-             ======================================== -->
+        <!-- CONTACT IS PART OF ABOUT -->
 
         <div class="contact">
 
@@ -1393,8 +1420,10 @@
 
 
             <p>
+
                 Have a project, opportunity, question,
                 or just want to say hi?
+
             </p>
 
 
@@ -1481,8 +1510,6 @@
         <div class="project-grid">
 
 
-            <!-- BIBLIOCIDE -->
-
             <div class="project-card">
 
                 <div class="placeholder-art">
@@ -1504,8 +1531,6 @@
             </div>
 
 
-            <!-- GROUP PROJECT -->
-
             <div class="project-card">
 
                 <div class="placeholder-art">
@@ -1526,8 +1551,6 @@
 
             </div>
 
-
-            <!-- UNDER WOOL AND BRIAR -->
 
             <div class="project-card">
 
@@ -1616,9 +1639,7 @@
         </div>
 
 
-        <!-- ========================================
-             THE ONLY MORE ART BUTTON
-             ======================================== -->
+        <!-- ONLY MORE ART BUTTON -->
 
         <div class="more-art">
 
