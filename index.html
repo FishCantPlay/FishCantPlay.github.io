@@ -8,15 +8,13 @@
 
     <title>Fish Heard — Game Designer & Artist</title>
 
-
     <style>
 
-        /* =====================================================
+        /* =========================
            COLOUR PALETTE
-           ===================================================== */
+           ========================= */
 
         :root {
-
             --black: #050707;
             --background: #080D0D;
 
@@ -29,29 +27,23 @@
 
             --text: #F1E8E5;
             --text-muted: #B6C0BD;
-
         }
 
 
-
-        /* =====================================================
+        /* =========================
            BASIC PAGE
-           ===================================================== */
+           ========================= */
 
         * {
             box-sizing: border-box;
         }
 
-
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
-
             margin: 0;
-
             min-height: 100vh;
 
             background: var(--background);
@@ -61,17 +53,14 @@
             font-family: Arial, sans-serif;
 
             overflow-x: hidden;
-
         }
 
 
-
-        /* =====================================================
+        /* =========================
            MOVING BACKGROUND BLOBS
-           ===================================================== */
+           ========================= */
 
         .blob {
-
             position: fixed;
 
             border-radius: 50%;
@@ -83,17 +72,12 @@
             filter: blur(90px);
 
             opacity: 0.7;
-
         }
 
 
-
-        /* -----------------------------------------------------
-           LARGE PINK BLOB
-           ----------------------------------------------------- */
+        /* Large pink blob */
 
         .blob-pink {
-
             width: 520px;
             height: 520px;
 
@@ -102,23 +86,13 @@
             top: -180px;
             left: -160px;
 
-            animation:
-                pinkMovement
-                18s
-                ease-in-out
-                infinite
-                alternate;
-
+            animation: pinkMovement 18s ease-in-out infinite alternate;
         }
 
 
-
-        /* -----------------------------------------------------
-           LARGE TEAL BLOB
-           ----------------------------------------------------- */
+        /* Large teal blob */
 
         .blob-teal {
-
             width: 600px;
             height: 600px;
 
@@ -127,23 +101,13 @@
             right: -200px;
             bottom: -220px;
 
-            animation:
-                tealMovement
-                22s
-                ease-in-out
-                infinite
-                alternate;
-
+            animation: tealMovement 22s ease-in-out infinite alternate;
         }
 
 
-
-        /* -----------------------------------------------------
-           SMALL PINK BLOB
-           ----------------------------------------------------- */
+        /* Small pink blob */
 
         .blob-pink-small {
-
             width: 300px;
             height: 300px;
 
@@ -152,23 +116,13 @@
             right: 15%;
             top: 15%;
 
-            animation:
-                pinkSmallMovement
-                25s
-                ease-in-out
-                infinite
-                alternate;
-
+            animation: pinkSmallMovement 25s ease-in-out infinite alternate;
         }
 
 
-
-        /* -----------------------------------------------------
-           SMALL TEAL BLOB
-           ----------------------------------------------------- */
+        /* Small teal blob */
 
         .blob-teal-small {
-
             width: 350px;
             height: 350px;
 
@@ -177,207 +131,155 @@
             left: 20%;
             bottom: 5%;
 
-            animation:
-                tealSmallMovement
-                20s
-                ease-in-out
-                infinite
-                alternate;
-
+            animation: tealSmallMovement 20s ease-in-out infinite alternate;
         }
 
 
-
-        /* =====================================================
+        /* =========================
            PINK BLOB MOVEMENT
-           ===================================================== */
+           ========================= */
 
         @keyframes pinkMovement {
 
             0% {
-
                 transform:
                     translate(0px, 0px)
                     scale(1);
-
             }
 
             25% {
-
                 transform:
                     translate(180px, 80px)
                     scale(1.15);
-
             }
 
             50% {
-
                 transform:
                     translate(350px, 20px)
                     scale(0.9);
-
             }
 
             75% {
-
                 transform:
                     translate(250px, 220px)
                     scale(1.2);
-
             }
 
             100% {
-
                 transform:
                     translate(500px, 150px)
                     scale(1);
-
             }
-
         }
 
 
-
-        /* =====================================================
+        /* =========================
            TEAL BLOB MOVEMENT
-           ===================================================== */
+           ========================= */
 
         @keyframes tealMovement {
 
             0% {
-
                 transform:
                     translate(0px, 0px)
                     scale(1);
-
             }
 
             25% {
-
                 transform:
                     translate(-160px, -100px)
                     scale(1.15);
-
             }
 
             50% {
-
                 transform:
                     translate(-350px, -40px)
                     scale(0.9);
-
             }
 
             75% {
-
                 transform:
                     translate(-250px, -250px)
                     scale(1.2);
-
             }
 
             100% {
-
                 transform:
                     translate(-500px, -120px)
                     scale(1);
-
             }
-
         }
 
 
-
-        /* =====================================================
+        /* =========================
            SMALL PINK BLOB MOVEMENT
-           ===================================================== */
+           ========================= */
 
         @keyframes pinkSmallMovement {
 
             0% {
-
                 transform:
                     translate(0px, 0px)
                     scale(1);
-
             }
 
             30% {
-
                 transform:
                     translate(-180px, 160px)
                     scale(1.3);
-
             }
 
             60% {
-
                 transform:
                     translate(-80px, 350px)
                     scale(0.8);
-
             }
 
             100% {
-
                 transform:
                     translate(200px, 220px)
                     scale(1.15);
-
             }
-
         }
 
 
-
-        /* =====================================================
+        /* =========================
            SMALL TEAL BLOB MOVEMENT
-           ===================================================== */
+           ========================= */
 
         @keyframes tealSmallMovement {
 
             0% {
-
                 transform:
                     translate(0px, 0px)
                     scale(1);
-
             }
 
             30% {
-
                 transform:
                     translate(200px, -120px)
                     scale(1.25);
-
             }
 
             60% {
-
                 transform:
                     translate(350px, -250px)
                     scale(0.85);
-
             }
 
             100% {
-
                 transform:
                     translate(100px, -350px)
                     scale(1.2);
-
             }
-
         }
 
 
-
-        /* =====================================================
+        /* =========================
            MAIN HERO
-           ===================================================== */
+           ========================= */
 
         main {
-
             position: relative;
 
             z-index: 1;
@@ -385,62 +287,43 @@
             min-height: 100vh;
 
             display: flex;
-
             flex-direction: column;
 
             justify-content: center;
-
             align-items: center;
 
             text-align: center;
 
             padding: 40px;
-
         }
 
 
-
-        /* =====================================================
+        /* =========================
            MAIN TITLE
-           ===================================================== */
+           ========================= */
 
         h1 {
-
             margin: 0;
 
-            font-size:
-                clamp(
-                    60px,
-                    10vw,
-                    140px
-                );
+            font-size: clamp(60px, 10vw, 140px);
 
             color: var(--teal-light);
 
             letter-spacing: -5px;
 
-            -webkit-text-stroke:
-                1px
-                var(--text);
+            -webkit-text-stroke: 1px var(--text);
 
             text-shadow:
-
-                4px 4px 0
-                var(--teal-dark),
-
-                0 0 25px
-                rgba(3, 108, 95, 0.3);
-
+                4px 4px 0 var(--teal-dark),
+                0 0 25px rgba(3, 108, 95, 0.3);
         }
 
 
-
-        /* =====================================================
+        /* =========================
            SUBTITLE
-           ===================================================== */
+           ========================= */
 
         .subtitle {
-
             margin-top: 15px;
 
             font-size: 24px;
@@ -449,25 +332,18 @@
 
             letter-spacing: 2px;
 
-            -webkit-text-stroke:
-                0.4px
-                var(--text);
+            -webkit-text-stroke: 0.4px var(--text);
 
             text-shadow:
-
-                0 0 12px
-                rgba(232, 143, 166, 0.2);
-
+                0 0 12px rgba(232, 143, 166, 0.2);
         }
 
 
-
-        /* =====================================================
+        /* =========================
            INTRODUCTION
-           ===================================================== */
+           ========================= */
 
         .intro {
-
             max-width: 600px;
 
             margin-top: 30px;
@@ -477,24 +353,19 @@
             font-size: 18px;
 
             line-height: 1.6;
-
         }
 
 
-
-        /* =====================================================
+        /* =========================
            ENTER PORTFOLIO BUTTON
-           ===================================================== */
+           ========================= */
 
         .button {
-
             display: inline-block;
 
             margin-top: 35px;
 
-            padding:
-                14px
-                28px;
+            padding: 14px 28px;
 
             background: var(--teal);
 
@@ -502,39 +373,19 @@
 
             text-decoration: none;
 
-            border:
-                2px
-                solid
-                var(--teal-light);
+            border: 2px solid var(--teal-light);
 
             border-radius: 3px;
 
             transition:
-
-                transform
-                0.2s
-                ease,
-
-                background
-                0.2s
-                ease,
-
-                color
-                0.2s
-                ease,
-
-                border-color
-                0.2s
-                ease;
-
+                transform 0.2s ease,
+                background 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease;
         }
 
 
-
-        /* Button hover */
-
         .button:hover {
-
             background: var(--pink);
 
             color: var(--black);
@@ -544,21 +395,17 @@
             transform:
                 translateY(-5px)
                 rotate(-2deg);
-
         }
 
 
-
-        /* =====================================================
+        /* =========================
            SOCIAL MEDIA LINKS
-           ===================================================== */
+           ========================= */
 
         .socials {
-
             display: flex;
 
             justify-content: center;
-
             align-items: center;
 
             gap: 28px;
@@ -566,15 +413,10 @@
             margin-top: 30px;
 
             flex-wrap: wrap;
-
         }
 
 
-
-        /* Individual social link */
-
         .socials a {
-
             position: relative;
 
             color: var(--text-muted);
@@ -586,76 +428,50 @@
             text-decoration: none;
 
             transition:
-
-                color
-                0.25s
-                ease,
-
-                transform
-                0.25s
-                ease;
-
+                color 0.25s ease,
+                transform 0.25s ease;
         }
 
 
-
-        /* Pink underline */
+        /* Little pink underline */
 
         .socials a::after {
-
             content: "";
 
             position: absolute;
 
             left: 0;
-
             bottom: -5px;
 
             width: 0;
-
             height: 2px;
 
             background: var(--pink);
 
             transition:
-
-                width
-                0.25s
-                ease;
-
+                width 0.25s ease;
         }
 
 
-
-        /* Social hover */
+        /* Social link hover */
 
         .socials a:hover {
-
             color: var(--pink);
 
-            transform:
-                translateY(-3px);
-
+            transform: translateY(-3px);
         }
 
-
-
-        /* Expand underline */
 
         .socials a:hover::after {
-
             width: 100%;
-
         }
 
 
-
-        /* =====================================================
+        /* =========================
            DECORATIVE LINE
-           ===================================================== */
+           ========================= */
 
         .divider {
-
             width: 120px;
 
             height: 3px;
@@ -665,139 +481,87 @@
             background: var(--pink-dark);
 
             box-shadow:
-
-                0 0 12px
-                rgba(156, 63, 87, 0.3);
-
+                0 0 12px rgba(156, 63, 87, 0.3);
         }
 
 
-
-        /* =====================================================
+        /* =========================
            MOBILE
-           ===================================================== */
+           ========================= */
 
         @media (max-width: 600px) {
 
-
-            /* Smaller blur on phones */
-
             .blob {
-
                 filter: blur(70px);
-
             }
 
-
-
-            /* Main spacing */
 
             main {
-
                 padding: 25px;
-
             }
 
 
+            /*
 
-            /* -------------------------------------------------
-               MOBILE TITLE
+                MOBILE TITLE FIX
 
-               We remove -webkit-text-stroke here because
-               some mobile browsers can render it strangely.
-               Instead, four tiny text shadows create a
-               similar outline.
-               ------------------------------------------------- */
+                The normal -webkit-text-stroke can cause
+                weird rendering artefacts on some phones.
+
+                So on mobile we remove it and recreate
+                the thin outline using text-shadow.
+
+            */
 
             h1 {
-
                 letter-spacing: -2px;
 
                 -webkit-text-stroke: 0;
 
                 text-shadow:
-
-                    -1px -1px 0
-                    var(--text),
-
-                     1px -1px 0
-                    var(--text),
-
-                    -1px 1px 0
-                    var(--text),
-
-                     1px 1px 0
-                    var(--text),
-
-                     4px 4px 0
-                    var(--teal-dark),
-
-                     0 0 25px
-                    rgba(3, 108, 95, 0.3);
-
+                    -1px -1px 0 var(--text),
+                     1px -1px 0 var(--text),
+                    -1px  1px 0 var(--text),
+                     1px  1px 0 var(--text),
+                     4px  4px 0 var(--teal-dark),
+                     0 0 25px rgba(3, 108, 95, 0.3);
             }
 
 
-
-            /* -------------------------------------------------
-               MOBILE SUBTITLE
-               ------------------------------------------------- */
+            /* Mobile subtitle */
 
             .subtitle {
-
                 font-size: 17px;
 
                 -webkit-text-stroke: 0;
 
                 text-shadow:
-
-                    -0.5px -0.5px 0
-                    var(--text),
-
-                     0.5px -0.5px 0
-                    var(--text),
-
-                    -0.5px 0.5px 0
-                    var(--text),
-
-                     0.5px 0.5px 0
-                    var(--text),
-
-                     0 0 12px
-                    rgba(232, 143, 166, 0.2);
-
+                    -0.5px -0.5px 0 var(--text),
+                     0.5px -0.5px 0 var(--text),
+                    -0.5px  0.5px 0 var(--text),
+                     0.5px  0.5px 0 var(--text),
+                     0 0 12px rgba(232, 143, 166, 0.2);
             }
 
 
-
-            /* Smaller introduction */
+            /* Mobile introduction */
 
             .intro {
-
                 font-size: 16px;
-
             }
 
 
-
-            /* -------------------------------------------------
-               MOBILE SOCIAL LINKS
-               ------------------------------------------------- */
+            /* Mobile social links */
 
             .socials {
-
                 gap: 18px;
 
                 margin-top: 25px;
-
             }
 
 
-
             .socials a {
-
                 font-size: 14px;
-
             }
 
         }
@@ -807,13 +571,12 @@
 </head>
 
 
-
 <body>
 
 
-    <!-- =====================================================
+    <!-- =========================
          MOVING BACKGROUND BLOBS
-         ===================================================== -->
+         ========================= -->
 
     <div class="blob blob-pink"></div>
 
@@ -824,42 +587,36 @@
     <div class="blob blob-teal-small"></div>
 
 
-
-    <!-- =====================================================
-         MAIN HERO
-         ===================================================== -->
+    <!-- =========================
+         MAIN CONTENT
+         ========================= -->
 
     <main>
 
 
-        <!-- Name -->
+        <!-- NAME -->
 
         <h1>
             Fish Heard
         </h1>
 
 
-
-        <!-- Job title -->
+        <!-- JOB TITLE -->
 
         <div class="subtitle">
-            GAME DESIGNER & ARTIST
+            GAME DESIGNER &amp; ARTIST
         </div>
 
 
-
-        <!-- Introduction -->
+        <!-- INTRODUCTION -->
 
         <p class="intro">
-
             I create games, characters and strange little worlds
             somewhere between cute, unsettling and a little bit weird.
-
         </p>
 
 
-
-        <!-- Portfolio button -->
+        <!-- ENTER PORTFOLIO -->
 
         <a
             href="#work"
@@ -869,15 +626,11 @@
         </a>
 
 
-
-        <!-- =================================================
+        <!-- =========================
              SOCIAL MEDIA
-             ================================================= -->
+             ========================= -->
 
         <div class="socials">
-
-
-            <!-- Bluesky -->
 
             <a
                 href="https://bsky.app/profile/fishcantplay.bsky.social"
@@ -887,10 +640,6 @@
                 Bluesky
             </a>
 
-
-
-            <!-- TikTok -->
-
             <a
                 href="https://www.tiktok.com/@fishcantplay"
                 target="_blank"
@@ -898,10 +647,6 @@
             >
                 TikTok
             </a>
-
-
-
-            <!-- YouTube -->
 
             <a
                 href="https://www.youtube.com/channel/UCaDKDHI5PpZDd8WhXMEVYtQ"
@@ -911,10 +656,6 @@
                 YouTube
             </a>
 
-
-
-            <!-- ArtStation -->
-
             <a
                 href="https://www.artstation.com/fishcantdraw"
                 target="_blank"
@@ -923,18 +664,15 @@
                 ArtStation
             </a>
 
-
         </div>
 
 
-
-        <!-- Decorative line -->
+        <!-- DECORATIVE LINE -->
 
         <div class="divider"></div>
 
 
     </main>
-
 
 </body>
 
