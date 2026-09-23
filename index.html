@@ -9,35 +9,20 @@
 
     <title>Fish Heard — Game Designer & Artist</title>
 
-
     <style>
 
-        /* =========================
-           COLOUR PALETTE
-           ========================= */
-
         :root {
-
             --black: #050707;
             --background: #080D0D;
-            --background-light: #0D1918;
-
             --teal-dark: #025043;
             --teal: #036C5F;
             --teal-light: #078C7C;
-
             --pink-dark: #9C3F57;
             --pink: #E88FA6;
-
             --text: #F1E8E5;
             --text-muted: #B6C0BD;
-
         }
 
-
-        /* =========================
-           BASIC PAGE
-           ========================= */
 
         * {
             box-sizing: border-box;
@@ -45,9 +30,7 @@
 
 
         html {
-
             scroll-behavior: smooth;
-
         }
 
 
@@ -68,9 +51,9 @@
         }
 
 
-        /* =========================
+        /* ========================================
            MOVING BACKGROUND BLOBS
-           ========================= */
+           ======================================== */
 
         .blob {
 
@@ -99,12 +82,7 @@
             top: -180px;
             left: -160px;
 
-            animation:
-                pinkMovement
-                18s
-                ease-in-out
-                infinite
-                alternate;
+            animation: pinkMovement 18s ease-in-out infinite alternate;
 
         }
 
@@ -119,12 +97,7 @@
             right: -200px;
             bottom: -220px;
 
-            animation:
-                tealMovement
-                22s
-                ease-in-out
-                infinite
-                alternate;
+            animation: tealMovement 22s ease-in-out infinite alternate;
 
         }
 
@@ -139,12 +112,7 @@
             right: 15%;
             top: 15%;
 
-            animation:
-                pinkSmallMovement
-                25s
-                ease-in-out
-                infinite
-                alternate;
+            animation: pinkSmallMovement 25s ease-in-out infinite alternate;
 
         }
 
@@ -159,50 +127,31 @@
             left: 20%;
             bottom: 5%;
 
-            animation:
-                tealSmallMovement
-                20s
-                ease-in-out
-                infinite
-                alternate;
+            animation: tealSmallMovement 20s ease-in-out infinite alternate;
 
         }
 
 
-        /* =========================
-           BLOB ANIMATIONS
-           ========================= */
-
         @keyframes pinkMovement {
 
             0% {
-                transform:
-                    translate(0px, 0px)
-                    scale(1);
+                transform: translate(0px, 0px) scale(1);
             }
 
             25% {
-                transform:
-                    translate(180px, 80px)
-                    scale(1.15);
+                transform: translate(180px, 80px) scale(1.15);
             }
 
             50% {
-                transform:
-                    translate(350px, 20px)
-                    scale(0.9);
+                transform: translate(350px, 20px) scale(0.9);
             }
 
             75% {
-                transform:
-                    translate(250px, 220px)
-                    scale(1.2);
+                transform: translate(250px, 220px) scale(1.2);
             }
 
             100% {
-                transform:
-                    translate(500px, 150px)
-                    scale(1);
+                transform: translate(500px, 150px) scale(1);
             }
 
         }
@@ -211,33 +160,23 @@
         @keyframes tealMovement {
 
             0% {
-                transform:
-                    translate(0px, 0px)
-                    scale(1);
+                transform: translate(0px, 0px) scale(1);
             }
 
             25% {
-                transform:
-                    translate(-160px, -100px)
-                    scale(1.15);
+                transform: translate(-160px, -100px) scale(1.15);
             }
 
             50% {
-                transform:
-                    translate(-350px, -40px)
-                    scale(0.9);
+                transform: translate(-350px, -40px) scale(0.9);
             }
 
             75% {
-                transform:
-                    translate(-250px, -250px)
-                    scale(1.2);
+                transform: translate(-250px, -250px) scale(1.2);
             }
 
             100% {
-                transform:
-                    translate(-500px, -120px)
-                    scale(1);
+                transform: translate(-500px, -120px) scale(1);
             }
 
         }
@@ -246,27 +185,19 @@
         @keyframes pinkSmallMovement {
 
             0% {
-                transform:
-                    translate(0px, 0px)
-                    scale(1);
+                transform: translate(0px, 0px) scale(1);
             }
 
             30% {
-                transform:
-                    translate(-180px, 160px)
-                    scale(1.3);
+                transform: translate(-180px, 160px) scale(1.3);
             }
 
             60% {
-                transform:
-                    translate(-80px, 350px)
-                    scale(0.8);
+                transform: translate(-80px, 350px) scale(0.8);
             }
 
             100% {
-                transform:
-                    translate(200px, 220px)
-                    scale(1.15);
+                transform: translate(200px, 220px) scale(1.15);
             }
 
         }
@@ -275,35 +206,27 @@
         @keyframes tealSmallMovement {
 
             0% {
-                transform:
-                    translate(0px, 0px)
-                    scale(1);
+                transform: translate(0px, 0px) scale(1);
             }
 
             30% {
-                transform:
-                    translate(200px, -120px)
-                    scale(1.25);
+                transform: translate(200px, -120px) scale(1.25);
             }
 
             60% {
-                transform:
-                    translate(350px, -250px)
-                    scale(0.85);
+                transform: translate(350px, -250px) scale(0.85);
             }
 
             100% {
-                transform:
-                    translate(100px, -350px)
-                    scale(1.2);
+                transform: translate(100px, -350px) scale(1.2);
             }
 
         }
 
 
-        /* =========================
+        /* ========================================
            LANDING PAGE
-           ========================= */
+           ======================================== */
 
         .landing {
 
@@ -328,10 +251,6 @@
         }
 
 
-        /* =========================
-           MAIN TITLE
-           ========================= */
-
         h1 {
 
             margin: 0;
@@ -345,17 +264,11 @@
             -webkit-text-stroke: 1px var(--text);
 
             text-shadow:
-
                 4px 4px 0 var(--teal-dark),
-
                 0 0 25px rgba(3, 108, 95, 0.3);
 
         }
 
-
-        /* =========================
-           SUBTITLE
-           ========================= */
 
         .subtitle {
 
@@ -375,10 +288,6 @@
         }
 
 
-        /* =========================
-           INTRO
-           ========================= */
-
         .intro {
 
             max-width: 600px;
@@ -394,23 +303,34 @@
         }
 
 
-        /* =========================
-           ENTER PORTFOLIO BUTTON
-           ========================= */
+        /* ========================================
+           NAVIGATION BUTTONS
+           ======================================== */
 
-        .button {
+        .navigation {
 
-            display: inline-block;
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 15px;
 
             margin-top: 35px;
 
-            padding: 14px 28px;
+            flex-wrap: wrap;
+
+        }
+
+
+        .button {
+
+            padding: 14px 24px;
 
             background: var(--teal);
 
             color: var(--text);
-
-            text-decoration: none;
 
             border: 2px solid var(--teal-light);
 
@@ -420,16 +340,14 @@
 
             font-family: inherit;
 
-            font-size: inherit;
+            font-size: 14px;
+
+            letter-spacing: 1px;
 
             transition:
-
                 transform 0.2s ease,
-
                 background 0.2s ease,
-
                 color 0.2s ease,
-
                 border-color 0.2s ease;
 
         }
@@ -450,9 +368,9 @@
         }
 
 
-        /* =========================
+        /* ========================================
            SOCIAL LINKS
-           ========================= */
+           ======================================== */
 
         .socials {
 
@@ -506,8 +424,7 @@
 
             background: var(--pink);
 
-            transition:
-                width 0.25s ease;
+            transition: width 0.25s ease;
 
         }
 
@@ -516,8 +433,7 @@
 
             color: var(--pink);
 
-            transform:
-                translateY(-3px);
+            transform: translateY(-3px);
 
         }
 
@@ -528,10 +444,6 @@
 
         }
 
-
-        /* =========================
-           DECORATIVE LINE
-           ========================= */
 
         .divider {
 
@@ -549,11 +461,11 @@
         }
 
 
-        /* ==================================================
-           PORTFOLIO
-           ================================================== */
+        /* ========================================
+           GENERAL SECTIONS
+           ======================================== */
 
-        .portfolio {
+        .section {
 
             position: relative;
 
@@ -561,21 +473,10 @@
 
             min-height: 100vh;
 
-            padding: 100px 8% 120px;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(5, 7, 7, 0.2),
-                    rgba(2, 80, 67, 0.12)
-                );
+            padding: 120px 8%;
 
         }
 
-
-        /* =========================
-           PORTFOLIO HEADER
-           ========================= */
 
         .section-heading {
 
@@ -615,9 +516,21 @@
         }
 
 
-        /* =========================
-           PROJECT GRID
-           ========================= */
+        /* ========================================
+           PREVIOUS PROJECTS
+           ======================================== */
+
+        #projects {
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(5, 7, 7, 0.2),
+                    rgba(2, 80, 67, 0.12)
+                );
+
+        }
+
 
         .project-grid {
 
@@ -627,23 +540,18 @@
 
             display: grid;
 
-            grid-template-columns:
-                repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
 
-            gap: 35px;
+            gap: 30px;
 
         }
 
-
-        /* =========================
-           PROJECT CARD
-           ========================= */
 
         .project-card {
 
             position: relative;
 
-            min-height: 380px;
+            min-height: 430px;
 
             background:
                 linear-gradient(
@@ -665,10 +573,6 @@
 
         }
 
-
-        /* =========================
-           PLACEHOLDER ART
-           ========================= */
 
         .placeholder-art {
 
@@ -700,12 +604,11 @@
 
             color: rgba(241, 232, 229, 0.35);
 
-            font-size: 18px;
+            font-size: 16px;
 
             letter-spacing: 3px;
 
-            transition:
-                transform 0.5s ease;
+            transition: transform 0.5s ease;
 
         }
 
@@ -727,10 +630,6 @@
         }
 
 
-        /* =========================
-           PROJECT INFORMATION
-           ========================= */
-
         .project-info {
 
             position: absolute;
@@ -743,13 +642,13 @@
 
             padding: 30px;
 
+            padding-top: 110px;
+
             background:
                 linear-gradient(
                     transparent,
                     rgba(5, 7, 7, 0.98) 35%
                 );
-
-            padding-top: 90px;
 
         }
 
@@ -760,7 +659,7 @@
 
             color: var(--text);
 
-            font-size: 30px;
+            font-size: 27px;
 
             letter-spacing: 1px;
 
@@ -769,22 +668,16 @@
 
         .project-info p {
 
-            margin:
-                8px 0
-                0;
+            margin: 8px 0 0;
 
             color: var(--pink);
 
-            font-size: 14px;
+            font-size: 13px;
 
             letter-spacing: 1px;
 
         }
 
-
-        /* =========================
-           PROJECT HOVER
-           ========================= */
 
         .project-card:hover {
 
@@ -810,21 +703,110 @@
         }
 
 
-        /* =========================
-           ABOUT SECTION
-           ========================= */
+        /* ========================================
+           PERSONAL ART
+           ======================================== */
+
+        #art {
+
+            background:
+                rgba(3, 108, 95, 0.04);
+
+        }
+
+
+        .art-grid {
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+
+        }
+
+
+        .art-card {
+
+            aspect-ratio: 1 / 1;
+
+            border:
+                2px solid
+                rgba(232, 143, 166, 0.45);
+
+            background:
+
+                radial-gradient(
+                    circle at 30% 20%,
+                    rgba(232, 143, 166, 0.25),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at 70% 80%,
+                    rgba(3, 108, 95, 0.35),
+                    transparent 40%
+                ),
+
+                #0A1514;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: rgba(241, 232, 229, 0.35);
+
+            letter-spacing: 2px;
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease;
+
+        }
+
+
+        .art-card:hover {
+
+            transform:
+                translateY(-8px)
+                rotate(1deg);
+
+            border-color: var(--pink);
+
+        }
+
+
+        /* ========================================
+           ABOUT ME
+           ======================================== */
+
+        #about {
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(5, 7, 7, 0.2),
+                    rgba(156, 63, 87, 0.06)
+                );
+
+        }
+
 
         .about {
 
             max-width: 1200px;
 
-            margin: 150px auto 0;
+            margin: 0 auto;
 
             display: grid;
 
-            grid-template-columns:
-                1fr
-                1fr;
+            grid-template-columns: 1fr 1fr;
 
             gap: 70px;
 
@@ -868,7 +850,7 @@
         }
 
 
-        .about-text h2 {
+        .about-text h3 {
 
             font-size: clamp(40px, 5vw, 65px);
 
@@ -896,17 +878,17 @@
         }
 
 
-        /* =========================
+        /* ========================================
            CONTACT
-           ========================= */
+           ======================================== */
 
         .contact {
 
-            margin-top: 160px;
+            max-width: 1200px;
 
-            padding:
-                100px
-                20px;
+            margin: 100px auto 0;
+
+            padding: 100px 20px;
 
             text-align: center;
 
@@ -917,7 +899,7 @@
         }
 
 
-        .contact h2 {
+        .contact h3 {
 
             margin: 0;
 
@@ -935,8 +917,7 @@
             font-size: 18px;
 
             margin:
-                20px
-                auto
+                20px auto
                 30px;
 
         }
@@ -958,9 +939,6 @@
 
             padding-bottom: 5px;
 
-            transition:
-                color 0.25s ease;
-
         }
 
 
@@ -971,31 +949,33 @@
         }
 
 
-        .contact .socials {
+        /* ========================================
+           MOBILE
+           ======================================== */
 
-            margin-top: 40px;
+        @media (max-width: 900px) {
+
+            .project-grid {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
 
         }
 
 
-        /* =========================
-           MOBILE
-           ========================= */
-
         @media (max-width: 700px) {
 
-
             .blob {
-
                 filter: blur(70px);
-
             }
 
 
             .landing {
-
                 padding: 25px;
-
             }
 
 
@@ -1008,42 +988,39 @@
                 text-shadow:
 
                     -1px -1px 0 var(--text),
-
                     1px -1px 0 var(--text),
-
                     -1px 1px 0 var(--text),
-
                     1px 1px 0 var(--text),
 
-                    4px 4px 0 var(--teal-dark),
-
-                    0 0 25px rgba(3, 108, 95, 0.3);
+                    4px 4px 0 var(--teal-dark);
 
             }
 
 
             .subtitle {
-
                 font-size: 17px;
-
-                -webkit-text-stroke: 0;
-
-                text-shadow:
-
-                    -0.5px -0.5px 0 var(--text),
-
-                    0.5px -0.5px 0 var(--text),
-
-                    -0.5px 0.5px 0 var(--text),
-
-                    0.5px 0.5px 0 var(--text);
-
             }
 
 
             .intro {
-
                 font-size: 16px;
+            }
+
+
+            .navigation {
+
+                flex-direction: column;
+
+                width: 100%;
+
+                max-width: 280px;
+
+            }
+
+
+            .button {
+
+                width: 100%;
 
             }
 
@@ -1052,57 +1029,21 @@
 
                 gap: 18px;
 
-                margin-top: 25px;
-
             }
 
 
-            .socials a {
-
-                font-size: 14px;
-
-            }
-
-
-            /* Portfolio */
-
-            .portfolio {
+            .section {
 
                 padding:
-                    80px
-                    20px
-                    100px;
+                    90px
+                    20px;
 
             }
 
 
-            .project-grid {
+            .art-grid {
 
-                grid-template-columns:
-                    1fr;
-
-                gap: 25px;
-
-            }
-
-
-            .project-card {
-
-                min-height: 330px;
-
-            }
-
-
-            /* About */
-
-            .about {
-
-                grid-template-columns:
-                    1fr;
-
-                gap: 35px;
-
-                margin-top: 100px;
+                grid-template-columns: 1fr;
 
             }
 
@@ -1117,19 +1058,6 @@
             .about-text p {
 
                 font-size: 16px;
-
-            }
-
-
-            /* Contact */
-
-            .contact {
-
-                margin-top: 100px;
-
-                padding:
-                    80px
-                    20px;
 
             }
 
@@ -1150,9 +1078,9 @@
 <body>
 
 
-    <!-- =========================
-         MOVING BACKGROUND BLOBS
-         ========================= -->
+    <!-- ========================================
+         BACKGROUND
+         ======================================== -->
 
     <div class="blob blob-pink"></div>
 
@@ -1163,15 +1091,16 @@
     <div class="blob blob-teal-small"></div>
 
 
-    <!-- ==================================================
+
+    <!-- ========================================
          LANDING PAGE
-         ================================================== -->
+         ======================================== -->
 
     <section class="landing">
 
 
         <h1>
-            Fish Heard
+            FISH HEARD
         </h1>
 
 
@@ -1188,23 +1117,46 @@
         </p>
 
 
-        <!--
-            PORTFOLIO BUTTON
+        <!-- ========================================
+             THREE MAIN BUTTONS
+             ======================================== -->
 
-            This uses JavaScript rather than an anchor,
-            so clicking it explicitly scrolls to the
-            portfolio section.
-        -->
-
-        <button
-            class="button"
-            onclick="document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });"
-        >
-            ENTER PORTFOLIO
-        </button>
+        <div class="navigation">
 
 
-        <!-- SOCIAL LINKS -->
+            <button
+                type="button"
+                class="button"
+                onclick="goToSection('projects')"
+            >
+                PREVIOUS PROJECTS
+            </button>
+
+
+            <button
+                type="button"
+                class="button"
+                onclick="goToSection('art')"
+            >
+                PERSONAL ART
+            </button>
+
+
+            <button
+                type="button"
+                class="button"
+                onclick="goToSection('about')"
+            >
+                ABOUT ME
+            </button>
+
+
+        </div>
+
+
+        <!-- ========================================
+             SOCIALS
+             ======================================== -->
 
         <div class="socials">
 
@@ -1254,32 +1206,29 @@
     </section>
 
 
-    <!-- ==================================================
-         PORTFOLIO
-         ================================================== -->
+
+    <!-- ========================================
+         PREVIOUS PROJECTS
+         ======================================== -->
 
     <section
-        class="portfolio"
-        id="portfolio"
+        class="section"
+        id="projects"
     >
 
 
         <div class="section-heading">
 
             <h2>
-                SELECTED WORK
+                PREVIOUS PROJECTS
             </h2>
 
             <p>
-                GAMES · ART · WORLDS · OTHER WEIRD THINGS
+                GAMES I'VE WORKED ON
             </p>
 
         </div>
 
-
-        <!-- =========================
-             PROJECT GRID
-             ========================= -->
 
         <div class="project-grid">
 
@@ -1289,11 +1238,8 @@
             <div class="project-card">
 
                 <div class="placeholder-art">
-
                     ARTWORK PLACEHOLDER
-
                 </div>
-
 
                 <div class="project-info">
 
@@ -1315,11 +1261,8 @@
             <div class="project-card">
 
                 <div class="placeholder-art">
-
                     ARTWORK PLACEHOLDER
-
                 </div>
-
 
                 <div class="project-info">
 
@@ -1341,11 +1284,8 @@
             <div class="project-card">
 
                 <div class="placeholder-art">
-
                     ARTWORK PLACEHOLDER
-
                 </div>
-
 
                 <div class="project-info">
 
@@ -1362,55 +1302,113 @@
             </div>
 
 
-            <!-- GENERAL ART -->
-
-            <div class="project-card">
-
-                <div class="placeholder-art">
-
-                    ART GALLERY PLACEHOLDER
-
-                </div>
+        </div>
 
 
-                <div class="project-info">
+    </section>
 
-                    <h3>
-                        GENERAL ART
-                    </h3>
 
-                    <p>
-                        CHARACTERS · ILLUSTRATION · ANIMATION
-                    </p>
 
-                </div>
+    <!-- ========================================
+         PERSONAL ART
+         ======================================== -->
 
+    <section
+        class="section"
+        id="art"
+    >
+
+
+        <div class="section-heading">
+
+            <h2>
+                PERSONAL ART
+            </h2>
+
+            <p>
+                CHARACTERS · ILLUSTRATION · ANIMATION · EXPERIMENTS
+            </p>
+
+        </div>
+
+
+        <div class="art-grid">
+
+
+            <div class="art-card">
+                ARTWORK PLACEHOLDER
+            </div>
+
+
+            <div class="art-card">
+                ARTWORK PLACEHOLDER
+            </div>
+
+
+            <div class="art-card">
+                ARTWORK PLACEHOLDER
+            </div>
+
+
+            <div class="art-card">
+                ARTWORK PLACEHOLDER
+            </div>
+
+
+            <div class="art-card">
+                ARTWORK PLACEHOLDER
+            </div>
+
+
+            <div class="art-card">
+                ARTWORK PLACEHOLDER
             </div>
 
 
         </div>
 
 
-        <!-- =========================
-             ABOUT ME
-             ========================= -->
+    </section>
+
+
+
+    <!-- ========================================
+         ABOUT ME
+         ======================================== -->
+
+    <section
+        class="section"
+        id="about"
+    >
+
+
+        <div class="section-heading">
+
+            <h2>
+                ABOUT ME
+            </h2>
+
+            <p>
+                WHO IS FISH?
+            </p>
+
+        </div>
+
 
         <div class="about">
 
 
             <div class="about-placeholder">
-
                 ABOUT ME ART PLACEHOLDER
-
             </div>
 
 
             <div class="about-text">
 
 
-                <h2>
-                    ABOUT ME
-                </h2>
+                <h3>
+                    HI, I'M FISH.
+                </h3>
 
 
                 <p>
@@ -1446,31 +1444,24 @@
         </div>
 
 
-        <!-- =========================
+
+        <!-- ========================================
              CONTACT
-             ========================= -->
+             ======================================== -->
 
         <div class="contact">
 
 
-            <h2>
+            <h3>
                 LET'S TALK
-            </h2>
+            </h3>
 
 
             <p>
-
                 Have a project, opportunity, question,
                 or just want to say hi?
-
             </p>
 
-
-            <!--
-                CHANGE THIS EMAIL ADDRESS
-                WHEN YOU DECIDE WHICH ONE
-                YOU WANT TO DISPLAY.
-            -->
 
             <a
                 class="email"
@@ -1479,8 +1470,6 @@
                 YOUR-EMAIL-HERE@example.com
             </a>
 
-
-            <!-- SOCIAL LINKS -->
 
             <div class="socials">
 
@@ -1528,6 +1517,31 @@
 
 
     </section>
+
+
+
+    <!-- ========================================
+         BUTTON NAVIGATION
+         ======================================== -->
+
+    <script>
+
+        function goToSection(sectionId) {
+
+            const section = document.getElementById(sectionId);
+
+            if (section) {
+
+                section.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+
+        }
+
+    </script>
 
 
 </body>
