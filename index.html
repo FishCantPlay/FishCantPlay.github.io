@@ -353,19 +353,6 @@
         }
 
 
-        .navigation .button:nth-child(1) {
-            order: 1;
-        }
-
-        .navigation .button:nth-child(2) {
-            order: 2;
-        }
-
-        .navigation .button:nth-child(3) {
-            order: 3;
-        }
-
-
         .button {
 
             display: inline-block;
@@ -1240,13 +1227,8 @@
         </p>
 
 
-        <!-- BUTTON ORDER:
-             ABOUT ME
-             PREVIOUS PROJECTS
-             PERSONAL ART
-        -->
-
         <div class="navigation">
+
 
             <button
                 type="button"
@@ -1274,12 +1256,14 @@
                 PERSONAL ART
             </button>
 
+
         </div>
 
 
         <!-- SOCIALS -->
 
         <div class="socials">
+
 
             <a
                 href="https://bsky.app/profile/fishcantplay.bsky.social"
@@ -1316,23 +1300,25 @@
                 ArtStation
             </a>
 
+
         </div>
 
 
         <div class="divider"></div>
+
 
     </section>
 
 
     <!-- ========================================
          ABOUT ME
-         THIS IS NOW DIRECTLY AFTER LANDING
          ======================================== -->
 
     <section
         class="section"
         id="about"
     >
+
 
         <div class="section-heading">
 
@@ -1349,12 +1335,14 @@
 
         <div class="about">
 
+
             <div class="about-placeholder">
                 ABOUT ME ART PLACEHOLDER
             </div>
 
 
             <div class="about-text">
+
 
                 <h3>
                     HI, I'M FISH.
@@ -1387,14 +1375,17 @@
 
                 </p>
 
+
             </div>
+
 
         </div>
 
 
-        <!-- CONTACT IS PART OF ABOUT ME -->
+        <!-- CONTACT -->
 
         <div class="contact">
+
 
             <p>
                 Have a project, opportunity, question,
@@ -1413,6 +1404,7 @@
 
 
             <div class="socials">
+
 
                 <a
                     href="https://bsky.app/profile/fishcantplay.bsky.social"
@@ -1449,9 +1441,12 @@
                     ArtStation
                 </a>
 
+
             </div>
 
+
         </div>
+
 
     </section>
 
@@ -1464,6 +1459,7 @@
         class="section"
         id="projects"
     >
+
 
         <div class="section-heading">
 
@@ -1479,6 +1475,7 @@
 
 
         <div class="project-grid">
+
 
             <div class="project-card">
 
@@ -1542,7 +1539,9 @@
 
             </div>
 
+
         </div>
+
 
     </section>
 
@@ -1555,6 +1554,7 @@
         class="section"
         id="art"
     >
+
 
         <div class="section-heading">
 
@@ -1571,10 +1571,6 @@
 
         <div class="art-grid">
 
-            <div class="art-card">
-                ARTWORK PLACEHOLDER
-            </div>
-
 
             <div class="art-card">
                 ARTWORK PLACEHOLDER
@@ -1599,11 +1595,17 @@
             <div class="art-card">
                 ARTWORK PLACEHOLDER
             </div>
+
+
+            <div class="art-card">
+                ARTWORK PLACEHOLDER
+            </div>
+
 
         </div>
 
 
-        <!-- EXACTLY ONE MORE ART BUTTON -->
+        <!-- ONLY ONE MORE ART BUTTON -->
 
         <div class="more-art">
 
@@ -1615,6 +1617,7 @@
             </a>
 
         </div>
+
 
     </section>
 
@@ -1651,7 +1654,9 @@
                 "fishcantemail@gmail.com";
 
             const button =
-                document.getElementById("copyEmailButton");
+                document.getElementById(
+                    "copyEmailButton"
+                );
 
 
             navigator.clipboard.writeText(email)
@@ -1683,7 +1688,9 @@
                 .catch(function () {
 
                     const textArea =
-                        document.createElement("textarea");
+                        document.createElement(
+                            "textarea"
+                        );
 
                     textArea.value =
                         email;
