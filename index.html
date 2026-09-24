@@ -333,11 +333,7 @@
 
 
         /* ========================================
-           MAIN NAVIGATION
-           ORDER:
-           ABOUT ME
-           PREVIOUS PROJECTS
-           PERSONAL ART
+           BUTTONS
            ======================================== */
 
         .navigation {
@@ -354,6 +350,19 @@
 
             flex-wrap: wrap;
 
+        }
+
+
+        .navigation .button:nth-child(1) {
+            order: 1;
+        }
+
+        .navigation .button:nth-child(2) {
+            order: 2;
+        }
+
+        .navigation .button:nth-child(3) {
+            order: 3;
         }
 
 
@@ -560,6 +569,187 @@
 
 
         /* ========================================
+           ABOUT ME
+           ======================================== */
+
+        #about {
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(5, 7, 7, 0.2),
+                    rgba(156, 63, 87, 0.06)
+                );
+
+        }
+
+
+        .about {
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+
+        }
+
+
+        .about-placeholder {
+
+            min-height: 450px;
+
+            border:
+                2px solid
+                var(--teal);
+
+            background:
+
+                radial-gradient(
+                    circle at 70% 30%,
+                    rgba(232, 143, 166, 0.25),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 30% 70%,
+                    rgba(3, 108, 95, 0.35),
+                    transparent 40%
+                ),
+
+                #0A1514;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color:
+                rgba(241, 232, 229, 0.4);
+
+            letter-spacing: 3px;
+
+        }
+
+
+        .about-text h3 {
+
+            font-size:
+                clamp(40px, 5vw, 65px);
+
+            margin:
+                0 0 25px;
+
+            color: var(--pink);
+
+            text-shadow:
+                3px 3px 0 var(--pink-dark);
+
+        }
+
+
+        .about-text p {
+
+            color: var(--text-muted);
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* ========================================
+           CONTACT
+           ======================================== */
+
+        .contact {
+
+            max-width: 1200px;
+
+            margin:
+                70px auto 0;
+
+            padding:
+                20px;
+
+            text-align: center;
+
+        }
+
+
+        .contact p {
+
+            color: var(--text-muted);
+
+            font-size: 18px;
+
+            margin:
+                0 auto
+                30px;
+
+        }
+
+
+        .copy-email {
+
+            display: inline-block;
+
+            background: transparent;
+
+            color: var(--pink);
+
+            font-family: inherit;
+
+            font-size: 24px;
+
+            border: none;
+
+            border-bottom:
+                2px solid
+                var(--pink);
+
+            padding:
+                5px 0;
+
+            cursor: pointer;
+
+            transition:
+                color 0.25s ease,
+                border-color 0.25s ease;
+
+        }
+
+
+        .copy-email:hover {
+
+            color: var(--teal-light);
+
+            border-color:
+                var(--teal-light);
+
+        }
+
+
+        .copy-email.copied {
+
+            color: var(--teal-light);
+
+            border-color:
+                var(--teal-light);
+
+        }
+
+
+        /* ========================================
            PREVIOUS PROJECTS
            ======================================== */
 
@@ -673,7 +863,8 @@
                 2px dashed
                 rgba(232, 143, 166, 0.35);
 
-            transform: rotate(-4deg);
+            transform:
+                rotate(-4deg);
 
             position: absolute;
 
@@ -840,8 +1031,7 @@
 
 
         /* ========================================
-           MORE ART
-           EXACTLY ONE BUTTON
+           MORE ART BUTTON
            ======================================== */
 
         .more-art {
@@ -864,228 +1054,6 @@
             font-size: 15px;
 
             letter-spacing: 2px;
-
-        }
-
-
-        /* ========================================
-           ABOUT ME
-           ======================================== */
-
-        #about {
-
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(5, 7, 7, 0.2),
-                    rgba(156, 63, 87, 0.06)
-                );
-
-        }
-
-
-        .about {
-
-            max-width: 1200px;
-
-            margin: 0 auto;
-
-            display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap: 70px;
-
-            align-items: center;
-
-        }
-
-
-        .about-placeholder {
-
-            min-height: 450px;
-
-            border:
-                2px solid
-                var(--teal);
-
-            background:
-
-                radial-gradient(
-                    circle at 70% 30%,
-                    rgba(232, 143, 166, 0.25),
-                    transparent 30%
-                ),
-
-                radial-gradient(
-                    circle at 30% 70%,
-                    rgba(3, 108, 95, 0.35),
-                    transparent 40%
-                ),
-
-                #0A1514;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            color:
-                rgba(241, 232, 229, 0.4);
-
-            letter-spacing: 3px;
-
-        }
-
-
-        .about-text h3 {
-
-            font-size:
-                clamp(40px, 5vw, 65px);
-
-            margin:
-                0 0 25px;
-
-            color: var(--pink);
-
-            text-shadow:
-                3px 3px 0 var(--pink-dark);
-
-        }
-
-
-        .about-text p {
-
-            color: var(--text-muted);
-
-            font-size: 18px;
-
-            line-height: 1.8;
-
-        }
-
-
-        /* ========================================
-           CONTACT
-           PART OF ABOUT ME
-           NO DIVIDER
-           NO LARGE HEADER
-           ======================================== */
-
-        .contact {
-
-            max-width: 1200px;
-
-            margin:
-                75px auto 0;
-
-            padding:
-                0 20px 20px;
-
-            text-align: center;
-
-        }
-
-
-        .contact-label {
-
-            margin: 0 0 15px;
-
-            color: var(--pink);
-
-            font-size: 13px;
-
-            letter-spacing: 3px;
-
-            font-weight: bold;
-
-        }
-
-
-        .contact p {
-
-            max-width: 600px;
-
-            margin:
-                0 auto 22px;
-
-            color: var(--text-muted);
-
-            font-size: 16px;
-
-            line-height: 1.6;
-
-        }
-
-
-        /* ========================================
-           COPY EMAIL
-           ======================================== */
-
-        .copy-email {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            padding:
-                10px
-                0;
-
-            background: transparent;
-
-            border: none;
-
-            color: var(--text);
-
-            font-family: inherit;
-
-            font-size: 21px;
-
-            cursor: pointer;
-
-            border-bottom:
-                2px solid
-                var(--pink);
-
-            transition:
-                color 0.25s ease,
-                border-color 0.25s ease,
-                transform 0.25s ease;
-
-        }
-
-
-        .copy-email:hover {
-
-            color: var(--pink);
-
-            border-color:
-                var(--teal-light);
-
-            transform:
-                translateY(-2px);
-
-        }
-
-
-        .copy-email.copied {
-
-            color: var(--teal-light);
-
-            border-color:
-                var(--teal-light);
-
-        }
-
-
-        .contact .socials {
-
-            margin-top: 25px;
 
         }
 
@@ -1221,7 +1189,7 @@
 
             .copy-email {
 
-                font-size: 18px;
+                font-size: 19px;
 
             }
 
@@ -1254,7 +1222,6 @@
 
     <section class="landing">
 
-
         <h1>
             FISH HEARD
         </h1>
@@ -1273,17 +1240,13 @@
         </p>
 
 
-        <!-- ========================================
-             MAIN BUTTONS
-
-             ORDER:
-             1. ABOUT ME
-             2. PREVIOUS PROJECTS
-             3. PERSONAL ART
-             ======================================== -->
+        <!-- BUTTON ORDER:
+             ABOUT ME
+             PREVIOUS PROJECTS
+             PERSONAL ART
+        -->
 
         <div class="navigation">
-
 
             <button
                 type="button"
@@ -1311,14 +1274,12 @@
                 PERSONAL ART
             </button>
 
-
         </div>
 
 
         <!-- SOCIALS -->
 
         <div class="socials">
-
 
             <a
                 href="https://bsky.app/profile/fishcantplay.bsky.social"
@@ -1355,202 +1316,23 @@
                 ArtStation
             </a>
 
-
         </div>
 
 
         <div class="divider"></div>
-
-
-    </section>
-
-
-    <!-- ========================================
-         PREVIOUS PROJECTS
-         ======================================== -->
-
-    <section
-        class="section"
-        id="projects"
-    >
-
-
-        <div class="section-heading">
-
-            <h2>
-                PREVIOUS PROJECTS
-            </h2>
-
-            <p>
-                GAMES I'VE WORKED ON
-            </p>
-
-        </div>
-
-
-        <div class="project-grid">
-
-
-            <!-- BIBLIOCIDE -->
-
-            <div class="project-card">
-
-                <div class="placeholder-art">
-                    ARTWORK PLACEHOLDER
-                </div>
-
-                <div class="project-info">
-
-                    <h3>
-                        BIBLIOCIDE
-                    </h3>
-
-                    <p>
-                        FIRST-PERSON PUZZLE GAME
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- GROUP PROJECT -->
-
-            <div class="project-card">
-
-                <div class="placeholder-art">
-                    ARTWORK PLACEHOLDER
-                </div>
-
-                <div class="project-info">
-
-                    <h3>
-                        GROUP PROJECT
-                    </h3>
-
-                    <p>
-                        RELATIONSHIP MANAGEMENT GAME
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- UNDER WOOL AND BRIAR -->
-
-            <div class="project-card">
-
-                <div class="placeholder-art">
-                    ARTWORK PLACEHOLDER
-                </div>
-
-                <div class="project-info">
-
-                    <h3>
-                        UNDER WOOL AND BRIAR
-                    </h3>
-
-                    <p>
-                        GAME PROJECT
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-    </section>
-
-
-    <!-- ========================================
-         PERSONAL ART
-         ======================================== -->
-
-    <section
-        class="section"
-        id="art"
-    >
-
-
-        <div class="section-heading">
-
-            <h2>
-                PERSONAL ART
-            </h2>
-
-            <p>
-                CHARACTERS · ILLUSTRATION · ANIMATION · EXPERIMENTS
-            </p>
-
-        </div>
-
-
-        <div class="art-grid">
-
-
-            <div class="art-card">
-                ARTWORK PLACEHOLDER
-            </div>
-
-
-            <div class="art-card">
-                ARTWORK PLACEHOLDER
-            </div>
-
-
-            <div class="art-card">
-                ARTWORK PLACEHOLDER
-            </div>
-
-
-            <div class="art-card">
-                ARTWORK PLACEHOLDER
-            </div>
-
-
-            <div class="art-card">
-                ARTWORK PLACEHOLDER
-            </div>
-
-
-            <div class="art-card">
-                ARTWORK PLACEHOLDER
-            </div>
-
-
-        </div>
-
-
-        <!-- ONLY MORE ART BUTTON ON THE HOMEPAGE -->
-
-        <div class="more-art">
-
-            <a
-                href="./art.html"
-                class="button"
-            >
-                MORE ART
-            </a>
-
-        </div>
-
 
     </section>
 
 
     <!-- ========================================
          ABOUT ME
+         THIS IS NOW DIRECTLY AFTER LANDING
          ======================================== -->
 
     <section
         class="section"
         id="about"
     >
-
 
         <div class="section-heading">
 
@@ -1567,14 +1349,12 @@
 
         <div class="about">
 
-
             <div class="about-placeholder">
                 ABOUT ME ART PLACEHOLDER
             </div>
 
 
             <div class="about-text">
-
 
                 <h3>
                     HI, I'M FISH.
@@ -1607,36 +1387,20 @@
 
                 </p>
 
-
             </div>
-
 
         </div>
 
 
-        <!-- ========================================
-             CONTACT
-             THIS IS PART OF ABOUT ME
-             ======================================== -->
+        <!-- CONTACT IS PART OF ABOUT ME -->
 
         <div class="contact">
-
-
-            <div class="contact-label">
-                GET IN TOUCH
-            </div>
-
 
             <p>
                 Have a project, opportunity, question,
                 or just want to say hi?
             </p>
 
-
-            <!--
-                Clicking this copies the email.
-                It does NOT open an email application.
-            -->
 
             <button
                 type="button"
@@ -1649,7 +1413,6 @@
 
 
             <div class="socials">
-
 
                 <a
                     href="https://bsky.app/profile/fishcantplay.bsky.social"
@@ -1686,12 +1449,172 @@
                     ArtStation
                 </a>
 
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         PREVIOUS PROJECTS
+         ======================================== -->
+
+    <section
+        class="section"
+        id="projects"
+    >
+
+        <div class="section-heading">
+
+            <h2>
+                PREVIOUS PROJECTS
+            </h2>
+
+            <p>
+                GAMES I'VE WORKED ON
+            </p>
+
+        </div>
+
+
+        <div class="project-grid">
+
+            <div class="project-card">
+
+                <div class="placeholder-art">
+                    ARTWORK PLACEHOLDER
+                </div>
+
+                <div class="project-info">
+
+                    <h3>
+                        BIBLIOCIDE
+                    </h3>
+
+                    <p>
+                        FIRST-PERSON PUZZLE GAME
+                    </p>
+
+                </div>
 
             </div>
 
 
+            <div class="project-card">
+
+                <div class="placeholder-art">
+                    ARTWORK PLACEHOLDER
+                </div>
+
+                <div class="project-info">
+
+                    <h3>
+                        GROUP PROJECT
+                    </h3>
+
+                    <p>
+                        RELATIONSHIP MANAGEMENT GAME
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="placeholder-art">
+                    ARTWORK PLACEHOLDER
+                </div>
+
+                <div class="project-info">
+
+                    <h3>
+                        UNDER WOOL AND BRIAR
+                    </h3>
+
+                    <p>
+                        GAME PROJECT
+                    </p>
+
+                </div>
+
+            </div>
+
         </div>
 
+    </section>
+
+
+    <!-- ========================================
+         PERSONAL ART
+         ======================================== -->
+
+    <section
+        class="section"
+        id="art"
+    >
+
+        <div class="section-heading">
+
+            <h2>
+                PERSONAL ART
+            </h2>
+
+            <p>
+                CHARACTERS · ILLUSTRATION · ANIMATION · EXPERIMENTS
+            </p>
+
+        </div>
+
+
+        <div class="art-grid">
+
+            <div class="art-card">
+                ARTWORK PLACEHOLDER
+            </div>
+
+
+            <div class="art-card">
+                ARTWORK PLACEHOLDER
+            </div>
+
+
+            <div class="art-card">
+                ARTWORK PLACEHOLDER
+            </div>
+
+
+            <div class="art-card">
+                ARTWORK PLACEHOLDER
+            </div>
+
+
+            <div class="art-card">
+                ARTWORK PLACEHOLDER
+            </div>
+
+
+            <div class="art-card">
+                ARTWORK PLACEHOLDER
+            </div>
+
+        </div>
+
+
+        <!-- EXACTLY ONE MORE ART BUTTON -->
+
+        <div class="more-art">
+
+            <a
+                href="./art.html"
+                class="button"
+            >
+                MORE ART
+            </a>
+
+        </div>
 
     </section>
 
@@ -1701,11 +1624,6 @@
          ======================================== -->
 
     <script>
-
-
-        /* ========================================
-           SECTION NAVIGATION
-           ======================================== */
 
         function goToSection(sectionId) {
 
@@ -1727,10 +1645,6 @@
         }
 
 
-        /* ========================================
-           COPY EMAIL TO CLIPBOARD
-           ======================================== */
-
         function copyEmail() {
 
             const email =
@@ -1741,11 +1655,15 @@
 
 
             navigator.clipboard.writeText(email)
+
                 .then(function () {
 
-                    button.textContent = "COPIED!";
+                    button.textContent =
+                        "COPIED!";
 
-                    button.classList.add("copied");
+                    button.classList.add(
+                        "copied"
+                    );
 
 
                     setTimeout(function () {
@@ -1753,29 +1671,32 @@
                         button.textContent =
                             "fishcantemail@gmail.com";
 
-                        button.classList.remove("copied");
+                        button.classList.remove(
+                            "copied"
+                        );
 
                     }, 2000);
 
                 })
 
-                .catch(function () {
 
-                    /*
-                        Fallback for browsers where the
-                        Clipboard API is unavailable.
-                    */
+                .catch(function () {
 
                     const textArea =
                         document.createElement("textarea");
 
-                    textArea.value = email;
+                    textArea.value =
+                        email;
 
-                    textArea.style.position = "fixed";
+                    textArea.style.position =
+                        "fixed";
 
-                    textArea.style.opacity = "0";
+                    textArea.style.opacity =
+                        "0";
 
-                    document.body.appendChild(textArea);
+                    document.body.appendChild(
+                        textArea
+                    );
 
                     textArea.focus();
 
@@ -1784,11 +1705,16 @@
 
                     try {
 
-                        document.execCommand("copy");
+                        document.execCommand(
+                            "copy"
+                        );
 
-                        button.textContent = "COPIED!";
+                        button.textContent =
+                            "COPIED!";
 
-                        button.classList.add("copied");
+                        button.classList.add(
+                            "copied"
+                        );
 
 
                         setTimeout(function () {
@@ -1796,7 +1722,9 @@
                             button.textContent =
                                 "fishcantemail@gmail.com";
 
-                            button.classList.remove("copied");
+                            button.classList.remove(
+                                "copied"
+                            );
 
                         }, 2000);
 
@@ -1810,7 +1738,9 @@
                     }
 
 
-                    document.body.removeChild(textArea);
+                    document.body.removeChild(
+                        textArea
+                    );
 
                 });
 
