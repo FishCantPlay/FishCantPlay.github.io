@@ -1,1 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Group Project - Fish Heard</title>
+
+    <style>
+
+        :root {
+            --black: #08070b;
+            --black-two: #121017;
+            --purple-dark: #45245d;
+            --purple: #764394;
+            --purple-light: #b985ce;
+            --pink: #e5a4d4;
+            --paper: #e8d8ed;
+            --text: #f2eaf4;
+            --muted: #b7aebc;
+        }
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(118, 67, 148, 0.2),
+                    transparent 30%
+                ),
+                var(--black);
+            color: var(--text);
+            font-family: Arial, sans-serif;
+        }
+
+
+        .page {
+            min-height: 100vh;
+            padding: 70px 7% 100px;
+        }
+
+
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+
+        .back {
+            display: inline-block;
+            padding: 13px 22px;
+            background: var(--purple-dark);
+            color: var(--text);
+            border: 2px solid var(--purple-light);
+            text-decoration: none;
+            letter-spacing: 1px;
+            box-shadow: 6px 6px 0 rgba(229, 164, 212, 0.35);
+            transition: 0.2s ease;
+        }
+
+
+        .back:hover {
+            background: var(--pink);
+            color: var(--black);
+            transform: translateY(-4px) rotate(-2deg);
+        }
+
+
+        .hero {
+            position: relative;
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .sticky {
+            position: absolute;
+            width: 62%;
+            height: 70%;
+            background: var(--paper);
+            transform: rotate(-5deg);
+            box-shadow: 18px 20px 0 rgba(0, 0, 0, 0.6);
+        }
+
+
+        .sticky-two {
+            position: absolute;
+            width: 58%;
+            height: 67%;
+            background: var(--pink);
+            transform: rotate(7deg);
+            box-shadow: 12px 15px 0 rgba(0, 0, 0, 0.5);
+        }
+
+
+        .sticky-three {
+            position: absolute;
+            width: 52%;
+            height: 64%;
+            background: var(--purple-light);
+            transform: rotate(-1deg);
+            box-shadow: 10px 12px 0 rgba(0, 0, 0, 0.45);
+        }
+
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            width: 700px;
+            padding: 55px;
+            color: #221827;
+        }
+
+
+        .eyebrow {
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 5px;
+        }
+
+
+        h1 {
+            margin: 18px 0;
+            font-size: clamp(55px, 9vw, 105px);
+            line-height: 0.9;
+            letter-spacing: -5px;
+        }
+
+
+        .subtitle {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+        }
+
+
+        .note {
+            min-height: 250px;
+            padding: 35px;
+            background: var(--paper);
+            color: #251a2c;
+            box-shadow: 10px 12px 0 rgba(0, 0, 0, 0.5);
+            transform: rotate(-1deg);
+        }
+
+
+        .note:nth-child(even) {
+            background: var(--pink);
+            transform: rotate(2deg);
+        }
+
+
+        .note h2 {
+            margin-top: 0;
+            color: var(--purple-dark);
+        }
+
+
+        .note p {
+            line-height: 1.8;
+        }
+
+
+        .placeholder {
+            min-height: 350px;
+            margin-top: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--purple-light);
+            color: var(--purple-light);
+            letter-spacing: 4px;
+            background: rgba(118, 67, 148, 0.05);
+        }
+
+
+        @media (max-width: 700px) {
+
+            .page {
+                padding: 40px 20px;
+            }
+
+
+            .hero {
+                min-height: 550px;
+            }
+
+
+            .sticky {
+                width: 90%;
+            }
+
+
+            .sticky-two {
+                width: 84%;
+            }
+
+
+            .sticky-three {
+                width: 78%;
+            }
+
+
+            .hero-content {
+                width: 90%;
+                padding: 35px;
+            }
+
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <main class="page">
+
+        <div class="container">
+
+            <a
+                href="./index.html"
+                class="back"
+            >
+                BACK TO PORTFOLIO
+            </a>
+
+
+            <section class="hero">
+
+                <div class="sticky"></div>
+
+                <div class="sticky-two"></div>
+
+                <div class="sticky-three"></div>
+
+
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        PROJECT 02 / 03
+                    </div>
+
+                    <h1>
+                        GROUP PROJECT
+                    </h1>
+
+                    <p class="subtitle">
+                        RELATIONSHIP MANAGEMENT GAME
+                    </p>
+
+                    <p class="subtitle">
+                        PLACEHOLDER PROJECT DESCRIPTION.
+                        THIS AREA CAN EVENTUALLY EXPLAIN THE GAME,
+                        ITS CHARACTERS AND THE CORE RELATIONSHIP SYSTEM.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <section class="content-grid">
+
+                <div class="note">
+
+                    <h2>
+                        PROJECT OVERVIEW
+                    </h2>
+
+                    <p>
+                        Placeholder text for the project overview.
+                        Explain the game's concept, its premise and
+                        what the player actually does.
+                    </p>
+
+                </div>
+
+
+                <div class="note">
+
+                    <h2>
+                        MY ROLE
+                    </h2>
+
+                    <p>
+                        Placeholder text for your role on the project.
+                        This can eventually cover character design,
+                        modelling, textures, animation, dialogue,
+                        audio and other responsibilities.
+                    </p>
+
+                </div>
+
+
+                <div class="note">
+
+                    <h2>
+                        CHARACTER WORK
+                    </h2>
+
+                    <p>
+                        Placeholder text for the character development.
+                        This section can eventually show concept art,
+                        model sheets and development experiments.
+                    </p>
+
+                </div>
+
+
+                <div class="note">
+
+                    <h2>
+                        DEVELOPMENT
+                    </h2>
+
+                    <p>
+                        Placeholder text for development and iteration.
+                        This could include screenshots, design decisions,
+                        testing and changes made throughout production.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <div class="placeholder">
+                PROJECT ARTWORK / SCREENSHOTS HERE
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
