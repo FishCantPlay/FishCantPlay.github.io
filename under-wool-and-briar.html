@@ -12,412 +12,774 @@
     <style>
 
         :root {
-            --purple-dark: #241C2A;
-            --purple: #5A426A;
-            --purple-light: #8C6C9C;
-            --pink: #D88BA8;
-            --pink-light: #F0C5D4;
-            --grey: #A8A1AA;
-            --paper: #EEE7DE;
-            --paper-dark: #D8CEC2;
-            --ink: #302734;
-            --white: #F8F2EA;
+            --deep: #211827;
+            --purple: #51395f;
+            --purple-light: #80638b;
+            --pink: #c78399;
+            --pink-light: #e2b6c2;
+            --cream: #e7dcc7;
+            --cream-dark: #c9b99d;
+            --grey: #8e8988;
+            --ink: #302b30;
         }
+
 
         * {
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
+
             margin: 0;
+
+            color: var(--ink);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
             background:
                 radial-gradient(
-                    circle at 20% 15%,
-                    rgba(216,139,168,0.12),
-                    transparent 30%
+                    circle at 20% 20%,
+                    rgba(199,131,153,0.13),
+                    transparent 25%
                 ),
                 radial-gradient(
                     circle at 80% 70%,
-                    rgba(90,66,106,0.3),
-                    transparent 40%
+                    rgba(81,57,95,0.2),
+                    transparent 30%
                 ),
-                var(--purple-dark);
-            color: var(--paper);
-            font-family: Georgia, serif;
+                var(--deep);
+
             overflow-x: hidden;
+
         }
+
 
         body::before {
+
             content: "";
+
             position: fixed;
-            inset: 18px;
-            border: 1px solid rgba(240,197,212,0.18);
+
+            inset: 20px;
+
+            border:
+                1px solid
+                rgba(226,182,194,0.25);
+
             pointer-events: none;
-            z-index: 50;
+
+            z-index: 20;
+
         }
 
-        .page {
-            max-width: 1400px;
-            margin: auto;
-            padding: 45px 7% 130px;
+
+        /* ========================================
+           NAV
+           ======================================== */
+
+        .top-nav {
+
+            position: relative;
+
+            z-index: 5;
+
+            padding: 35px 7%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
         }
+
 
         .back-button {
-            display: inline-block;
-            padding: 13px 22px;
-            background: var(--purple);
-            color: var(--paper);
-            border: 2px solid var(--pink);
-            box-shadow: 6px 6px 0 var(--pink);
+
+            padding: 12px 22px;
+
+            color: var(--cream);
+
+            border:
+                1px solid
+                var(--pink);
+
             text-decoration: none;
-            font-family: Arial, sans-serif;
-            font-size: 13px;
+
             letter-spacing: 1px;
-            transition: 0.25s ease;
+
+            background: rgba(33,24,39,0.8);
+
+            transition:
+                background 0.25s ease,
+                color 0.25s ease;
+
         }
+
 
         .back-button:hover {
-            transform: translate(-3px, -3px);
+
             background: var(--pink);
-            color: var(--ink);
+
+            color: var(--deep);
+
         }
+
+
+        .nav-label {
+
+            color: var(--pink-light);
+
+            font-size: 11px;
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        /* ========================================
+           HERO
+           ======================================== */
 
         .hero {
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-            align-items: center;
+
             position: relative;
+
+            min-height: 95vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 80px 30px 150px;
+
+            text-align: center;
+
+            overflow: hidden;
+
         }
 
-        .chapter {
-            color: var(--pink-light);
-            font-family: Arial, sans-serif;
-            letter-spacing: 6px;
-            font-size: 12px;
-            text-transform: uppercase;
-        }
-
-        .hero h1 {
-            max-width: 1100px;
-            margin: 35px 0 25px;
-            font-size: clamp(60px, 11vw, 140px);
-            line-height: 0.82;
-            font-weight: normal;
-            color: var(--pink-light);
-            text-shadow:
-                3px 3px 0 var(--purple),
-                7px 7px 0 rgba(216,139,168,0.3);
-        }
 
         .ornament {
-            color: var(--pink);
-            font-size: 34px;
-            letter-spacing: 15px;
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            border:
+                1px solid
+                rgba(199,131,153,0.25);
+
+            border-radius: 50%;
+
         }
+
+
+        .ornament.one {
+
+            top: -200px;
+
+            left: -120px;
+
+        }
+
+
+        .ornament.two {
+
+            bottom: -250px;
+
+            right: -130px;
+
+        }
+
+
+        .hero-inner {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 1000px;
+
+        }
+
+
+        .chapter {
+
+            color: var(--pink-light);
+
+            font-size: 12px;
+
+            letter-spacing: 6px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .hero h1 {
+
+            margin: 35px 0 25px;
+
+            font-size: clamp(55px, 11vw, 145px);
+
+            line-height: 0.85;
+
+            font-weight: normal;
+
+            color: var(--pink-light);
+
+            text-shadow:
+                3px 3px 0 var(--purple);
+
+        }
+
+
+        .flourish {
+
+            width: 280px;
+
+            margin: 30px auto;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+        }
+
+
+        .flourish::before,
+        .flourish::after {
+
+            content: "";
+
+            flex: 1;
+
+            height: 1px;
+
+            background: var(--pink);
+
+        }
+
+
+        .flourish span {
+
+            color: var(--pink);
+
+            font-size: 20px;
+
+        }
+
 
         .hero-subtitle {
-            max-width: 800px;
-            color: var(--paper);
-            font-size: 23px;
-            line-height: 1.6;
-        }
 
-        .hero-description {
-            max-width: 780px;
-            color: var(--grey);
-            font-family: Arial, sans-serif;
-            line-height: 1.8;
-            font-size: 16px;
-        }
+            max-width: 700px;
 
-        .section {
-            margin-top: 100px;
-        }
-
-        .section-heading {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .section-heading span {
-            display: block;
-            color: var(--pink);
-            font-family: Arial, sans-serif;
-            letter-spacing: 5px;
-            font-size: 11px;
-            margin-bottom: 12px;
-        }
-
-        .section-heading h2 {
-            margin: 0;
-            font-size: clamp(40px, 6vw, 70px);
-            font-weight: normal;
-            color: var(--pink-light);
-        }
-
-        .ornate-line {
-            width: 180px;
-            height: 1px;
-            margin: 20px auto;
-            background: var(--pink);
-            position: relative;
-        }
-
-        .ornate-line::before,
-        .ornate-line::after {
-            content: "✦";
-            position: absolute;
-            top: -9px;
-            color: var(--pink);
-            font-size: 16px;
-        }
-
-        .ornate-line::before {
-            left: -25px;
-        }
-
-        .ornate-line::after {
-            right: -25px;
-        }
-
-        .story-panel {
-            max-width: 1000px;
             margin: auto;
-            padding: 55px;
+
+            color: var(--cream);
+
+            font-size: 21px;
+
+            line-height: 1.8;
+
+            font-style: italic;
+
+        }
+
+
+        /* ========================================
+           CONTENT
+           ======================================== */
+
+        main {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 0 30px 120px;
+
+        }
+
+
+        .storybook-page {
+
+            position: relative;
+
+            margin-bottom: 90px;
+
+            padding: 65px;
+
             background:
                 linear-gradient(
-                    rgba(255,255,255,0.15),
-                    rgba(255,255,255,0.15)
-                ),
-                var(--paper);
-            color: var(--ink);
-            border: 1px solid var(--paper-dark);
+                    135deg,
+                    var(--cream),
+                    #ded2bc
+                );
+
+            border:
+                1px solid
+                var(--cream-dark);
+
             box-shadow:
-                0 0 0 8px rgba(216,206,194,0.12),
-                14px 14px 0 rgba(36,28,42,0.55);
-            position: relative;
+                0 20px 60px rgba(0,0,0,0.35);
+
         }
 
-        .story-panel::before,
-        .story-panel::after {
-            content: "✦";
+
+        .storybook-page::before {
+
+            content: "";
+
             position: absolute;
-            color: var(--pink);
-            font-size: 28px;
+
+            inset: 14px;
+
+            border:
+                1px solid
+                rgba(81,57,95,0.35);
+
+            pointer-events: none;
+
         }
 
-        .story-panel::before {
-            top: 20px;
-            left: 25px;
+
+        .storybook-page::after {
+
+            content: "✦";
+
+            position: absolute;
+
+            top: 25px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            color: var(--purple);
+
+            font-size: 16px;
+
         }
 
-        .story-panel::after {
-            bottom: 20px;
-            right: 25px;
+
+        .page-label {
+
+            color: var(--purple);
+
+            font-size: 11px;
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+
+            text-align: center;
+
         }
 
-        .story-panel p {
-            font-size: 19px;
+
+        .page-title {
+
+            margin: 18px 0 40px;
+
+            text-align: center;
+
+            color: var(--purple);
+
+            font-size: clamp(38px, 6vw, 68px);
+
+            font-weight: normal;
+
+        }
+
+
+        .body-text {
+
+            max-width: 850px;
+
+            margin: auto;
+
+            font-size: 18px;
+
             line-height: 2;
-            margin: 0 0 22px;
+
+            text-align: center;
+
         }
 
-        .story-panel p:last-child {
-            margin-bottom: 0;
+
+        /* ========================================
+           VIDEO
+           ======================================== */
+
+        .video-frame {
+
+            padding: 15px;
+
+            border:
+                1px solid
+                var(--purple);
+
+            background:
+                var(--purple);
+
+            box-shadow:
+                8px 8px 0 var(--pink);
+
         }
+
+
+        .video-screen {
+
+            aspect-ratio: 16 / 9;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: var(--cream);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #302a35,
+                    #17141a
+                );
+
+            border:
+                1px solid
+                var(--pink-light);
+
+            letter-spacing: 4px;
+
+        }
+
+
+        .video-caption {
+
+            color: var(--cream);
+
+            margin-top: 15px;
+
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        /* ========================================
+           ILLUSTRATION GALLERY
+           ======================================== */
 
         .illustration-grid {
+
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                1fr 1fr;
+
             gap: 35px;
-            align-items: start;
+
+            align-items: center;
+
         }
+
 
         .illustration {
-            padding: 12px;
-            background: var(--paper);
-            border: 1px solid var(--paper-dark);
-            cursor: pointer;
-            box-shadow: 8px 10px 0 rgba(0,0,0,0.3);
-            transition: 0.35s ease;
+
+            min-height: 420px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px;
+
+            text-align: center;
+
+            color: var(--purple);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ded2bc,
+                    #cfc1a7
+                );
+
+            border:
+                1px solid
+                var(--purple);
+
+            outline:
+                8px solid
+                rgba(81,57,95,0.1);
+
+            outline-offset: -18px;
+
         }
+
 
         .illustration:nth-child(2) {
-            margin-top: 60px;
+
+            transform: translateY(40px);
+
         }
+
 
         .illustration:nth-child(3) {
-            margin-top: 20px;
+
+            transform: translateY(-20px);
+
         }
 
-        .illustration:hover {
-            transform: translateY(-10px);
-            box-shadow: 12px 15px 0 rgba(0,0,0,0.4);
+
+        .illustration:nth-child(4) {
+
+            transform: translateY(25px);
+
         }
 
-        .illustration-placeholder {
-            aspect-ratio: 4 / 5;
-            display: flex;
+
+        /* ========================================
+           STORY TEXT
+           ======================================== */
+
+        .story-layout {
+
+            display: grid;
+
+            grid-template-columns:
+                0.8fr
+                1.2fr;
+
+            gap: 60px;
+
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            background:
-                radial-gradient(circle at 30% 25%, rgba(216,139,168,0.35), transparent 30%),
-                radial-gradient(circle at 70% 70%, rgba(90,66,106,0.4), transparent 40%),
-                #C9BFC8;
-            color: var(--ink);
-            font-size: 16px;
-            line-height: 1.5;
+
         }
 
-        .illustration-caption {
-            padding: 15px 8px 5px;
-            text-align: center;
+
+        .drop-cap {
+
+            float: left;
+
+            font-size: 90px;
+
+            line-height: 0.7;
+
+            padding-right: 12px;
+
+            color: var(--pink);
+
+        }
+
+
+        .story-text p {
+
+            font-size: 18px;
+
+            line-height: 1.9;
+
+        }
+
+
+        .side-note {
+
+            padding: 35px;
+
+            border:
+                1px solid
+                var(--purple);
+
+            background:
+                rgba(81,57,95,0.08);
+
             color: var(--purple);
-            font-size: 15px;
-            letter-spacing: 2px;
+
+            font-style: italic;
+
+            line-height: 1.8;
+
         }
 
-        .video-room {
-            max-width: 1100px;
-            margin: auto;
-            padding: 18px;
-            background: var(--paper);
-            border: 1px solid var(--pink);
-            box-shadow:
-                10px 10px 0 var(--purple);
-        }
 
-        .video-inner {
-            min-height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(216,139,168,0.15),
-                    transparent 40%
-                ),
-                var(--purple-dark);
-            color: var(--pink-light);
-            border: 1px solid var(--purple-light);
-            font-family: Arial, sans-serif;
-            letter-spacing: 3px;
-        }
+        /* ========================================
+           MY ROLE
+           ======================================== */
 
         .role-grid {
+
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 25px;
+
         }
 
-        .role {
+
+        .role-card {
+
             padding: 30px;
-            border: 1px solid var(--purple-light);
-            background: rgba(90,66,106,0.12);
-        }
 
-        .role h3 {
-            margin: 0 0 12px;
-            color: var(--pink);
-            font-weight: normal;
-            font-size: 24px;
-        }
-
-        .role p {
-            margin: 0;
-            color: var(--grey);
-            font-family: Arial, sans-serif;
-            line-height: 1.7;
-        }
-
-        .popup {
-            position: fixed;
-            inset: 0;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
-            background: rgba(20,15,24,0.92);
-            z-index: 100;
-        }
-
-        .popup.active {
-            display: flex;
-        }
-
-        .popup-inner {
-            position: relative;
-            max-width: 900px;
-            width: 100%;
-            padding: 20px;
-            background: var(--paper);
-            color: var(--ink);
-            box-shadow: 15px 15px 0 var(--pink);
-        }
-
-        .popup-image {
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             text-align: center;
+
+            border-top:
+                2px solid
+                var(--pink);
+
+            border-bottom:
+                2px solid
+                var(--purple);
+
             background:
-                radial-gradient(circle at 30% 30%, var(--pink), transparent 30%),
-                radial-gradient(circle at 70% 70%, var(--purple-light), transparent 40%),
-                #C9BFC8;
+                rgba(81,57,95,0.04);
+
+        }
+
+
+        .role-card span {
+
+            display: block;
+
+            margin-bottom: 12px;
+
+            color: var(--pink);
+
+            font-size: 12px;
+
+            letter-spacing: 4px;
+
+        }
+
+
+        .role-card h3 {
+
+            margin: 0 0 12px;
+
+            color: var(--purple);
+
             font-size: 20px;
+
+            font-weight: normal;
+
         }
 
-        .popup-close {
-            position: absolute;
-            top: -18px;
-            right: -18px;
-            width: 45px;
-            height: 45px;
-            background: var(--purple);
-            border: 2px solid var(--pink-light);
-            color: white;
-            font-size: 22px;
-            cursor: pointer;
-        }
 
-        .popup p {
+        .role-card p {
+
             line-height: 1.7;
-            font-family: Arial, sans-serif;
+
         }
+
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+
+        footer {
+
+            padding: 80px 20px;
+
+            text-align: center;
+
+            color: var(--cream);
+
+        }
+
+
+        footer .flourish {
+
+            margin-bottom: 35px;
+
+        }
+
+
+        footer a {
+
+            display: inline-block;
+
+            padding: 13px 25px;
+
+            border:
+                1px solid
+                var(--pink);
+
+            color: var(--cream);
+
+            text-decoration: none;
+
+        }
+
 
         @media (max-width: 800px) {
 
+            body::before {
+
+                inset: 10px;
+
+            }
+
+
+            .hero {
+
+                min-height: 80vh;
+
+            }
+
+
+            .storybook-page {
+
+                padding: 40px 25px;
+
+            }
+
+
             .illustration-grid,
+            .story-layout,
             .role-grid {
+
                 grid-template-columns: 1fr;
+
             }
 
-            .illustration:nth-child(2),
-            .illustration:nth-child(3) {
-                margin-top: 0;
+
+            .illustration:nth-child(n) {
+
+                transform: none;
+
             }
 
-            .story-panel {
-                padding: 35px 25px;
-            }
 
-            .video-inner {
-                min-height: 300px;
-            }
+            .side-note {
 
-            .popup-image {
-                min-height: 350px;
+                margin-top: 20px;
+
             }
 
         }
@@ -426,350 +788,367 @@
 
 </head>
 
+
 <body>
 
-    <main class="page">
 
-        <a class="back-button" href="./index.html">← BACK TO PORTFOLIO</a>
+    <nav class="top-nav">
 
-        <section class="hero">
+        <a
+            href="./index.html"
+            class="back-button"
+        >
+            ← BACK TO PORTFOLIO
+        </a>
+
+
+        <span class="nav-label">
+            PROJECT / 03
+        </span>
+
+    </nav>
+
+
+    <header class="hero">
+
+        <div class="ornament one"></div>
+
+        <div class="ornament two"></div>
+
+
+        <div class="hero-inner">
 
             <div class="chapter">
-                A TALE OF THE FOREST
+                A TALE FROM THE WOODS
             </div>
 
-            <div class="ornament">✦ ✧ ✦</div>
 
-            <h1>UNDER WOOL<br>AND BRIAR</h1>
+            <h1>
+                Under Wool<br>
+                and Briar
+            </h1>
 
-            <div class="ornament">✦ ✧ ✦</div>
+
+            <div class="flourish">
+                <span>✦</span>
+            </div>
+
 
             <p class="hero-subtitle">
-                A story of belonging, rejection, protection and the
-                things that can become prisons when they are built from kindness.
-            </p>
 
-            <p class="hero-description">
-                A third-person narrative action-adventure set within
-                an enchanted forest. Exploration, environmental storytelling,
-                light combat and progression come together around a world
-                filled with creatures that have nowhere else to go.
-            </p>
+                PLACEHOLDER PROJECT INTRODUCTION.
+                A short, storybook-style description of
+                Under Wool and Briar goes here.
 
-        </section>
-
-        <section class="section">
-
-            <div class="section-heading">
-
-                <span>CHAPTER I</span>
-
-                <h2>THE STORY</h2>
-
-                <div class="ornate-line"></div>
-
-            </div>
-
-            <div class="story-panel">
-
-                <p>
-                    Somewhere beyond the edge of the world lies a forest
-                    where the unwanted are allowed to disappear.
-                </p>
-
-                <p>
-                    Those who are different are sent there. Those who
-                    have nowhere else to belong eventually find their way
-                    beneath its branches.
-                </p>
-
-                <p>
-                    The forest was once a sanctuary. Over time, however,
-                    the protection offered by the Wolf Mother became
-                    something far more complicated.
-                </p>
-
-                <p>
-                    The player explores this world, meeting creatures
-                    that have been rejected or misunderstood while
-                    gradually uncovering what the forest has become.
-                </p>
-
-            </div>
-
-        </section>
-
-        <section class="section">
-
-            <div class="section-heading">
-
-                <span>CHAPTER II</span>
-
-                <h2>ILLUSTRATIONS</h2>
-
-                <div class="ornate-line"></div>
-
-            </div>
-
-            <div class="illustration-grid">
-
-                <div class="illustration" onclick="openPopup('Character Illustration Placeholder')">
-
-                    <div class="illustration-placeholder">
-                        CHARACTER<br>
-                        ILLUSTRATION<br>
-                        PLACEHOLDER
-                    </div>
-
-                    <div class="illustration-caption">
-                        CHARACTER STUDY
-                    </div>
-
-                </div>
-
-                <div class="illustration" onclick="openPopup('Environment Illustration Placeholder')">
-
-                    <div class="illustration-placeholder">
-                        FOREST<br>
-                        ENVIRONMENT<br>
-                        PLACEHOLDER
-                    </div>
-
-                    <div class="illustration-caption">
-                        THE FOREST
-                    </div>
-
-                </div>
-
-                <div class="illustration" onclick="openPopup('Wolf Mother Placeholder')">
-
-                    <div class="illustration-placeholder">
-                        WOLF MOTHER<br>
-                        PLACEHOLDER
-                    </div>
-
-                    <div class="illustration-caption">
-                        THE WOLF MOTHER
-                    </div>
-
-                </div>
-
-                <div class="illustration" onclick="openPopup('NPC Placeholder')">
-
-                    <div class="illustration-placeholder">
-                        NPC<br>
-                        PLACEHOLDER
-                    </div>
-
-                    <div class="illustration-caption">
-                        FOREST DWELLER
-                    </div>
-
-                </div>
-
-                <div class="illustration" onclick="openPopup('Concept Art Placeholder')">
-
-                    <div class="illustration-placeholder">
-                        CONCEPT ART<br>
-                        PLACEHOLDER
-                    </div>
-
-                    <div class="illustration-caption">
-                        CONCEPT ART
-                    </div>
-
-                </div>
-
-                <div class="illustration" onclick="openPopup('World Placeholder')">
-
-                    <div class="illustration-placeholder">
-                        WORLD<br>
-                        DESIGN<br>
-                        PLACEHOLDER
-                    </div>
-
-                    <div class="illustration-caption">
-                        WORLD DESIGN
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="section">
-
-            <div class="section-heading">
-
-                <span>CHAPTER III</span>
-
-                <h2>THE EXPERIENCE</h2>
-
-                <div class="ornate-line"></div>
-
-            </div>
-
-            <div class="role-grid">
-
-                <div class="role">
-
-                    <h3>EXPLORATION</h3>
-
-                    <p>
-                        Explore an enchanted forest filled with hidden
-                        spaces, strange inhabitants and environmental
-                        storytelling.
-                    </p>
-
-                </div>
-
-                <div class="role">
-
-                    <h3>COMBAT</h3>
-
-                    <p>
-                        Light action mechanics give the player a way
-                        to interact with the dangers within the forest.
-                    </p>
-
-                </div>
-
-                <div class="role">
-
-                    <h3>PROGRESSION</h3>
-
-                    <p>
-                        Abilities and masks allow the player to develop
-                        their approach and revisit previously inaccessible
-                        areas.
-                    </p>
-
-                </div>
-
-                <div class="role">
-
-                    <h3>DEATH &amp; REBIRTH</h3>
-
-                    <p>
-                        Death is part of the protagonist's existence,
-                        creating a strange relationship between failure,
-                        discovery and returning to the world.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="section">
-
-            <div class="section-heading">
-
-                <span>CHAPTER IV</span>
-
-                <h2>VIDEO</h2>
-
-                <div class="ornate-line"></div>
-
-            </div>
-
-            <div class="video-room">
-
-                <div class="video-inner">
-                    PROJECT VIDEO PLACEHOLDER
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="section">
-
-            <div class="section-heading">
-
-                <span>CHAPTER V</span>
-
-                <h2>MY CONTRIBUTION</h2>
-
-                <div class="ornate-line"></div>
-
-            </div>
-
-            <div class="story-panel">
-
-                <p>
-                    Concept development · Character design · NPC concepts ·
-                    Colour variants · Menu design · Title design ·
-                    Environmental thumbnails · Visual development
-                </p>
-
-                <p>
-                    Placeholder space for a more detailed breakdown of
-                    the work completed on Under Wool and Briar.
-                </p>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <div class="popup" id="popup" onclick="closePopup(event)">
-
-        <div class="popup-inner">
-
-            <button class="popup-close" onclick="closePopup()">×</button>
-
-            <div class="popup-image" id="popupImage">
-                ARTWORK PLACEHOLDER
-            </div>
-
-            <p>
-                Placeholder description for this artwork. Replace this
-                with whatever information you want visitors to see.
             </p>
 
         </div>
 
-    </div>
+    </header>
 
-    <script>
 
-        function openPopup(title) {
+    <main>
 
-            document.getElementById("popup").classList.add("active");
 
-            document.getElementById("popupImage").innerHTML = title;
+        <section class="storybook-page">
 
-        }
+            <div class="page-label">
+                CHAPTER I
+            </div>
 
-        function closePopup(event) {
 
-            if (
-                !event ||
-                event.target.id === "popup" ||
-                event.target.classList.contains("popup-close")
-            ) {
+            <h2 class="page-title">
+                The Story
+            </h2>
 
-                document.getElementById("popup").classList.remove("active");
 
-            }
+            <p class="body-text">
 
-        }
+                PLACEHOLDER DESCRIPTION OF THE GAME.
+                Write this section like the introduction
+                to an old illustrated storybook, explaining
+                the world, premise and central conflict.
 
-        document.addEventListener("keydown", function(event) {
+            </p>
 
-            if (event.key === "Escape") {
+        </section>
 
-                document.getElementById("popup").classList.remove("active");
 
-            }
+        <section class="storybook-page">
 
-        });
+            <div class="page-label">
+                CHAPTER II
+            </div>
 
-    </script>
+
+            <h2 class="page-title">
+                A Glimpse Within
+            </h2>
+
+
+            <div class="video-frame">
+
+                <div class="video-screen">
+                    VIDEO PLACEHOLDER
+                </div>
+
+
+                <div class="video-caption">
+                    GAMEPLAY VIDEO / TRAILER PLACEHOLDER
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="storybook-page">
+
+            <div class="page-label">
+                ILLUSTRATIONS
+            </div>
+
+
+            <h2 class="page-title">
+                Pages From The World
+            </h2>
+
+
+            <div class="illustration-grid">
+
+
+                <div class="illustration">
+                    ILLUSTRATION PLACEHOLDER
+                </div>
+
+
+                <div class="illustration">
+                    CHARACTER ART PLACEHOLDER
+                </div>
+
+
+                <div class="illustration">
+                    ENVIRONMENT PLACEHOLDER
+                </div>
+
+
+                <div class="illustration">
+                    CONCEPT ART PLACEHOLDER
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <section class="storybook-page">
+
+            <div class="page-label">
+                CHAPTER III
+            </div>
+
+
+            <h2 class="page-title">
+                The Tale Unfolds
+            </h2>
+
+
+            <div class="story-layout">
+
+
+                <div class="story-text">
+
+                    <p>
+
+                        <span class="drop-cap">
+                            O
+                        </span>
+
+                        NCE UPON A TIME...
+
+                    </p>
+
+
+                    <p>
+                        PLACEHOLDER NARRATIVE DESCRIPTION.
+                        Use this area for a longer explanation
+                        of the story, themes, gameplay and
+                        player's journey.
+                    </p>
+
+
+                    <p>
+                        PLACEHOLDER CONTINUATION OF THE PROJECT
+                        DESCRIPTION.
+                    </p>
+
+                </div>
+
+
+                <div class="side-note">
+
+                    PLACEHOLDER QUOTE, DEVELOPMENT NOTE,
+                    DESIGN THOUGHT OR SMALL PIECE OF STORY
+                    TEXT.
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <section class="storybook-page">
+
+            <div class="page-label">
+                CHAPTER IV
+            </div>
+
+
+            <h2 class="page-title">
+                My Part In The Tale
+            </h2>
+
+
+            <div class="role-grid">
+
+
+                <div class="role-card">
+
+                    <span>
+                        01
+                    </span>
+
+                    <h3>
+                        ART
+                    </h3>
+
+                    <p>
+                        PLACEHOLDER DESCRIPTION OF YOUR
+                        ART CONTRIBUTION.
+                    </p>
+
+                </div>
+
+
+                <div class="role-card">
+
+                    <span>
+                        02
+                    </span>
+
+                    <h3>
+                        DESIGN
+                    </h3>
+
+                    <p>
+                        PLACEHOLDER DESCRIPTION OF YOUR
+                        DESIGN CONTRIBUTION.
+                    </p>
+
+                </div>
+
+
+                <div class="role-card">
+
+                    <span>
+                        03
+                    </span>
+
+                    <h3>
+                        DEVELOPMENT
+                    </h3>
+
+                    <p>
+                        PLACEHOLDER DESCRIPTION OF YOUR
+                        DEVELOPMENT CONTRIBUTION.
+                    </p>
+
+                </div>
+
+
+                <div class="role-card">
+
+                    <span>
+                        04
+                    </span>
+
+                    <h3>
+                        WRITING
+                    </h3>
+
+                    <p>
+                        PLACEHOLDER DESCRIPTION OF YOUR
+                        WRITING CONTRIBUTION.
+                    </p>
+
+                </div>
+
+
+                <div class="role-card">
+
+                    <span>
+                        05
+                    </span>
+
+                    <h3>
+                        MODELLING
+                    </h3>
+
+                    <p>
+                        PLACEHOLDER DESCRIPTION OF YOUR
+                        3D CONTRIBUTION.
+                    </p>
+
+                </div>
+
+
+                <div class="role-card">
+
+                    <span>
+                        06
+                    </span>
+
+                    <h3>
+                        OTHER
+                    </h3>
+
+                    <p>
+                        PLACEHOLDER DESCRIPTION OF ANY
+                        ADDITIONAL CONTRIBUTIONS.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <footer>
+
+        <div class="flourish">
+            <span>✦</span>
+        </div>
+
+
+        <div>
+            END OF PROJECT / UNDER WOOL AND BRIAR
+        </div>
+
+
+        <a href="./index.html">
+            BACK TO PORTFOLIO
+        </a>
+
+    </footer>
+
 
 </body>
 
