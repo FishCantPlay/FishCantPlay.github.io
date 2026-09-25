@@ -7,7 +7,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Fish Heard — Game Designer & Artist</title>
+    <title>Fish Heard - Game Designer & Artist</title>
 
     <style>
 
@@ -787,30 +787,46 @@
            ======================================== */
 
         #about {
+
             background:
                 radial-gradient(circle at 15% 20%, rgba(3, 108, 95, 0.12), transparent 35%),
                 radial-gradient(circle at 85% 80%, rgba(232, 143, 166, 0.08), transparent 35%),
                 linear-gradient(180deg, rgba(5, 7, 7, 0.2), rgba(156, 63, 87, 0.06));
+
             overflow: hidden;
+
         }
+
 
         .about-slideshow {
+
             max-width: 1200px;
+
             margin: 0 auto;
+
             position: relative;
+
         }
 
+
         .about-slide {
+
             display: none;
+
             min-height: 620px;
+
             animation: aboutSlideIn 0.55s ease;
+
         }
+
 
         .about-slide.active {
             display: grid;
         }
 
+
         @keyframes aboutSlideIn {
+
             from {
                 opacity: 0;
                 transform: translateX(35px);
@@ -820,58 +836,163 @@
                 opacity: 1;
                 transform: translateX(0);
             }
+
         }
+
 
         .about-slide:first-child {
+
             grid-template-columns: 0.9fr 1.1fr;
+
             gap: 70px;
+
             align-items: center;
+
         }
 
-        .about-image {
-            min-height: 500px;
-            border: 2px solid var(--teal);
-            background:
-                radial-gradient(circle at 70% 30%, rgba(232, 143, 166, 0.28), transparent 30%),
-                radial-gradient(circle at 30% 70%, rgba(3, 108, 95, 0.38), transparent 40%),
-                #0A1514;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(241, 232, 229, 0.35);
-            letter-spacing: 3px;
-            font-size: 13px;
-            position: relative;
-            overflow: hidden;
+
+        /* ========================================
+           ABOUT DECORATIVE ELEMENTS
+           ======================================== */
+
+        .about-slide::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+
+            height: 180px;
+
+            border: 1px solid rgba(232, 143, 166, 0.16);
+
+            transform: rotate(45deg);
+
+            pointer-events: none;
+
+            right: -80px;
+
+            top: 120px;
+
         }
+
+
+        .about-slide::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 80px;
+
+            height: 80px;
+
+            border: 1px solid rgba(3, 108, 95, 0.35);
+
+            pointer-events: none;
+
+            left: -35px;
+
+            bottom: 100px;
+
+        }
+
+
+        .about-image {
+
+            min-height: 500px;
+
+            border: 2px solid var(--teal);
+
+            background:
+
+                radial-gradient(
+                    circle at 70% 30%,
+                    rgba(232, 143, 166, 0.28),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 30% 70%,
+                    rgba(3, 108, 95, 0.38),
+                    transparent 40%
+                ),
+
+                #0A1514;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: rgba(241, 232, 229, 0.35);
+
+            letter-spacing: 3px;
+
+            font-size: 13px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            box-shadow:
+                15px 15px 0 rgba(156, 63, 87, 0.12);
+
+        }
+
 
         .about-image::before,
         .about-image::after {
+
             content: '';
+
             position: absolute;
+
             border-radius: 50%;
+
             filter: blur(40px);
+
         }
+
 
         .about-image::before {
+
             width: 250px;
+
             height: 250px;
+
             right: -70px;
+
             top: -70px;
+
             background: rgba(232, 143, 166, 0.12);
+
             animation: aboutBlob 7s ease-in-out infinite alternate;
+
         }
+
 
         .about-image::after {
+
             width: 200px;
+
             height: 200px;
+
             left: -50px;
+
             bottom: -60px;
+
             background: rgba(3, 108, 95, 0.15);
+
             animation: aboutBlob 9s ease-in-out infinite alternate-reverse;
+
         }
 
+
         @keyframes aboutBlob {
+
             from {
                 transform: translate(0, 0) scale(1);
             }
@@ -879,74 +1000,164 @@
             to {
                 transform: translate(30px, 20px) scale(1.2);
             }
+
         }
 
-        .about-content {
-            position: relative;
+
+        .about-image-main::after {
+
+            border-radius: 0;
+
+            width: 80px;
+
+            height: 80px;
+
+            border: 1px solid rgba(232, 143, 166, 0.35);
+
+            background: transparent;
+
+            filter: none;
+
+            left: auto;
+
+            bottom: 35px;
+
+            right: 35px;
+
+            transform: rotate(45deg);
+
+            animation: none;
+
         }
+
+
+        .about-content {
+
+            position: relative;
+
+        }
+
 
         .about-content.full-width {
             width: 100%;
         }
 
+
         .about-number {
+
             color: var(--teal-light);
+
             font-size: 14px;
+
             letter-spacing: 4px;
+
             font-weight: bold;
+
             margin-bottom: 15px;
+
         }
 
+
         .about-content h2 {
+
             font-size: clamp(42px, 5vw, 72px);
+
             line-height: 0.95;
+
             margin: 0 0 20px;
+
             color: var(--pink);
+
             text-shadow:
                 3px 3px 0 var(--pink-dark),
                 0 0 20px rgba(232, 143, 166, 0.12);
+
         }
+
 
         .about-role {
+
             color: var(--teal-light);
+
             font-size: 14px;
+
             letter-spacing: 2px;
+
             font-weight: bold;
+
             margin-bottom: 30px;
+
         }
+
 
         .about-content p {
+
             color: var(--text-muted);
+
             font-size: 17px;
+
             line-height: 1.8;
+
         }
+
 
         .about-intro {
+
             max-width: 850px;
+
             font-size: 20px !important;
+
             margin-bottom: 40px;
+
         }
 
+
         .about-closing {
+
             margin-top: 35px;
+
             max-width: 1000px;
+
         }
 
 
         /* ========================================
-           PRONOUNS
+           PRONOUN BADGE
            ======================================== */
 
-        .about-pronouns {
-            display: inline-block;
+        .pronouns {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 12px;
+
             margin: 5px 0 25px;
-            padding: 8px 14px;
-            border: 1px solid var(--pink-dark);
+
+            padding: 10px 16px;
+
+            border-left: 3px solid var(--pink);
+
+            background: rgba(232, 143, 166, 0.06);
+
+            color: var(--text);
+
+            font-size: 13px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .pronouns span {
+
             color: var(--pink);
-            background: rgba(232, 143, 166, 0.04);
-            font-size: 12px;
-            letter-spacing: 3px;
+
             font-weight: bold;
+
         }
 
 
@@ -955,38 +1166,85 @@
            ======================================== */
 
         .about-skills {
+
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 20px;
+
         }
 
+
         .about-skill {
+
+            position: relative;
+
             border: 1px solid rgba(3, 108, 95, 0.55);
+
             padding: 25px;
+
             background: rgba(3, 108, 95, 0.04);
+
             transition:
                 transform 0.3s ease,
                 border-color 0.3s ease,
                 background 0.3s ease;
+
         }
+
+
+        .about-skill::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 35px;
+
+            height: 3px;
+
+            background: var(--pink);
+
+        }
+
 
         .about-skill:hover {
+
             transform: translateY(-5px);
+
             border-color: var(--pink);
+
             background: rgba(232, 143, 166, 0.06);
+
         }
+
 
         .about-skill h3 {
+
             color: var(--pink);
+
             font-size: 18px;
+
             letter-spacing: 1px;
+
             margin: 0 0 12px;
+
         }
 
+
         .about-skill p {
+
             font-size: 14px !important;
+
             line-height: 1.65 !important;
+
             margin: 0;
+
         }
 
 
@@ -995,52 +1253,151 @@
            ======================================== */
 
         .about-timeline {
+
+            position: relative;
+
             display: grid;
+
             grid-template-columns: repeat(2, 1fr);
+
             gap: 25px;
+
         }
+
+
+        .about-timeline::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 10px;
+
+            bottom: 10px;
+
+            width: 1px;
+
+            background: rgba(232, 143, 166, 0.2);
+
+        }
+
 
         .timeline-item {
-            padding: 25px;
+
+            position: relative;
+
+            padding: 28px;
+
             border-left: 3px solid var(--teal);
+
             background: rgba(3, 108, 95, 0.04);
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease;
+
         }
+
+
+        .timeline-item:hover {
+
+            transform: translateX(5px);
+
+            border-color: var(--pink);
+
+        }
+
 
         .timeline-date {
+
             color: var(--teal-light);
+
             font-size: 12px;
+
             letter-spacing: 3px;
+
             font-weight: bold;
+
         }
+
 
         .timeline-item h3 {
+
             color: var(--pink);
+
             font-size: 22px;
+
             margin: 10px 0;
+
         }
+
 
         .timeline-item p {
+
             font-size: 14px !important;
+
             line-height: 1.65 !important;
+
             margin: 0;
+
         }
+
 
         .about-highlight {
+
             margin-top: 30px;
-            padding: 25px;
+
+            padding: 30px;
+
             border: 1px solid var(--pink-dark);
+
             background: rgba(156, 63, 87, 0.06);
+
+            position: relative;
+
         }
+
+
+        .about-highlight::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 12px;
+
+            height: 12px;
+
+            border: 1px solid var(--pink);
+
+            right: 20px;
+
+            top: 20px;
+
+            transform: rotate(45deg);
+
+        }
+
 
         .about-highlight span {
+
             color: var(--pink);
+
             font-size: 13px;
+
             letter-spacing: 3px;
+
             font-weight: bold;
+
         }
 
+
         .about-highlight p {
+
             margin: 10px 0 0;
+
         }
 
 
@@ -1049,37 +1406,74 @@
            ======================================== */
 
         .about-traits {
+
             display: flex;
+
             flex-wrap: wrap;
+
             gap: 10px;
+
             margin-bottom: 40px;
+
         }
+
 
         .about-traits span {
+
             border: 1px solid var(--pink-dark);
+
             padding: 9px 15px;
+
             color: var(--pink);
+
             font-size: 12px;
+
             letter-spacing: 2px;
+
             font-weight: bold;
+
             background: rgba(232, 143, 166, 0.04);
+
         }
+
 
         .about-work-grid {
+
             display: grid;
+
             grid-template-columns: repeat(2, 1fr);
+
             gap: 35px 60px;
+
         }
+
+
+        .about-work-grid > div {
+
+            padding-left: 20px;
+
+            border-left: 2px solid var(--teal);
+
+        }
+
 
         .about-work-grid h3 {
+
             color: var(--teal-light);
+
             font-size: 18px;
+
             letter-spacing: 2px;
+
             margin: 0 0 10px;
+
         }
 
+
         .about-work-grid p {
+
             font-size: 15px !important;
+
         }
 
 
@@ -1088,96 +1482,129 @@
            ======================================== */
 
         .about-life-grid {
+
             display: grid;
+
             grid-template-columns: 1fr 1fr;
+
             gap: 60px;
+
             align-items: start;
+
         }
+
 
         .about-life-text p {
+
             margin-top: 0;
+
             margin-bottom: 25px;
+
         }
+
 
         .about-favourites {
+
             display: grid;
+
             grid-template-columns: 1fr 1fr;
+
             gap: 15px;
+
         }
+
 
         .about-favourites > div {
+
             padding: 22px;
+
             border: 1px solid rgba(3, 108, 95, 0.5);
+
             background: rgba(3, 108, 95, 0.04);
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease;
+
         }
+
+
+        .about-favourites > div:hover {
+
+            transform: translateY(-5px);
+
+            border-color: var(--pink);
+
+        }
+
 
         .about-favourites span {
+
             color: var(--pink);
+
             font-size: 12px;
+
             letter-spacing: 2px;
+
         }
+
 
         .about-favourites strong {
+
             display: block;
+
             color: var(--text);
+
             font-size: 16px;
+
             letter-spacing: 1px;
+
             margin-top: 8px;
+
         }
+
 
         .about-favourites p {
+
             font-size: 13px !important;
+
             line-height: 1.5 !important;
+
             margin: 10px 0 0;
+
         }
+
 
         .about-personal {
+
             margin-top: 40px;
+
             padding: 30px;
+
             border-top: 1px solid var(--pink-dark);
+
             border-bottom: 1px solid var(--pink-dark);
+
         }
+
 
         .about-personal h3 {
+
             color: var(--pink);
+
             font-size: 20px;
+
             letter-spacing: 2px;
+
             margin: 0 0 10px;
+
         }
+
 
         .about-personal p {
+
             margin: 0;
-        }
 
-
-        /* ========================================
-           CREATIVE INTERESTS
-           ======================================== */
-
-        .about-interests {
-            margin-top: 35px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .interest-box {
-            padding: 25px;
-            border: 1px solid rgba(232, 143, 166, 0.35);
-            background: rgba(232, 143, 166, 0.035);
-        }
-
-        .interest-box h3 {
-            color: var(--pink);
-            font-size: 17px;
-            letter-spacing: 2px;
-            margin: 0 0 10px;
-        }
-
-        .interest-box p {
-            font-size: 14px !important;
-            line-height: 1.65 !important;
-            margin: 0;
         }
 
 
@@ -1186,111 +1613,193 @@
            ======================================== */
 
         .future-grid {
+
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 20px;
+
         }
 
+
         .future-item {
+
+            position: relative;
+
             padding: 25px;
+
             border: 1px solid rgba(3, 108, 95, 0.55);
+
             background: rgba(3, 108, 95, 0.04);
+
             transition:
                 transform 0.3s ease,
                 border-color 0.3s ease;
+
         }
+
 
         .future-item:hover {
+
             transform: translateY(-5px);
+
             border-color: var(--pink);
+
         }
+
 
         .future-item span {
+
             color: var(--pink);
+
             font-size: 13px;
+
             letter-spacing: 2px;
+
         }
+
 
         .future-item h3 {
+
             color: var(--text);
+
             font-size: 17px;
+
             margin: 10px 0;
+
         }
+
 
         .future-item p {
+
             font-size: 14px !important;
+
             line-height: 1.6 !important;
+
             margin: 0;
+
         }
+
 
         .about-final {
+
             margin-top: 40px;
-            padding: 25px;
+
+            padding: 30px;
+
             border-left: 3px solid var(--pink);
+
             background: rgba(232, 143, 166, 0.04);
+
         }
 
+
         .about-final p {
+
             margin: 0;
+
             font-size: 18px !important;
+
         }
 
 
         /* ========================================
-           SLIDESHOW CONTROLS
+           ABOUT CONTROLS
            ======================================== */
 
         .about-controls {
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             gap: 35px;
+
             margin-top: 45px;
+
         }
 
+
         .about-arrow {
+
             width: 48px;
+
             height: 48px;
+
             border: 1px solid var(--teal);
+
             background: transparent;
+
             color: var(--teal-light);
+
             font-size: 22px;
+
             cursor: pointer;
+
             transition:
                 background 0.25s ease,
                 color 0.25s ease,
                 transform 0.25s ease;
+
         }
+
 
         .about-arrow:hover {
+
             background: var(--teal);
+
             color: var(--text);
+
             transform: scale(1.08);
+
         }
+
 
         .about-dots {
+
             display: flex;
+
             align-items: center;
+
             gap: 10px;
+
         }
 
+
         .about-dot {
+
             width: 9px;
+
             height: 9px;
+
             padding: 0;
+
             border: 1px solid var(--teal);
+
             border-radius: 50%;
+
             background: transparent;
+
             cursor: pointer;
+
             transition:
                 background 0.25s ease,
                 transform 0.25s ease;
+
         }
 
+
         .about-dot.active {
+
             background: var(--pink);
+
             border-color: var(--pink);
+
             transform: scale(1.35);
+
         }
 
 
@@ -1299,9 +1808,13 @@
            ======================================== */
 
         .more-art {
+
             display: flex;
+
             justify-content: center;
+
             margin-top: 45px;
+
         }
 
 
@@ -1377,96 +1890,82 @@
 
 
         /* ========================================
-           ABOUT RESPONSIVE
-           ======================================== */
-
-        @media (max-width: 900px) {
-
-            .about-slide:first-child {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .about-image {
-                min-height: 350px;
-            }
-
-            .about-skills,
-            .future-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .about-life-grid {
-                grid-template-columns: 1fr;
-                gap: 35px;
-            }
-
-            .about-interests {
-                grid-template-columns: 1fr;
-            }
-
-        }
-
-
-        /* ========================================
            MOBILE
            ======================================== */
 
         @media (max-width: 900px) {
 
             .project-grid {
+
                 grid-template-columns: 1fr;
+
                 max-width: 600px;
+
             }
 
+
             .about {
+
                 grid-template-columns: 1fr;
+
+            }
+
+
+            .about-slide:first-child {
+
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+
+            }
+
+
+            .about-image {
+
+                min-height: 350px;
+
+            }
+
+
+            .about-skills,
+            .future-grid {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+
+            .about-life-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 35px;
+
+            }
+
+
+            .about-timeline::before {
+
+                display: none;
+
             }
 
         }
 
 
-        @media (max-width: 600px) {
-
-            .about-slide {
-                min-height: auto;
-            }
-
-            .about-image {
-                min-height: 280px;
-            }
-
-            .about-content h2 {
-                font-size: 42px;
-            }
-
-            .about-content p {
-                font-size: 15px;
-            }
-
-            .about-skills,
-            .about-timeline,
-            .about-work-grid,
-            .future-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-favourites {
-                grid-template-columns: 1fr;
-            }
-
-            .about-controls {
-                gap: 20px;
-                margin-top: 30px;
-            }
+        @media (max-width: 700px) {
 
             .blob {
+
                 filter: blur(70px);
+
             }
 
 
             .landing {
+
                 padding: 25px;
+
             }
 
 
@@ -1489,12 +1988,16 @@
 
 
             .subtitle {
+
                 font-size: 17px;
+
             }
 
 
             .intro {
+
                 font-size: 16px;
+
             }
 
 
@@ -1546,9 +2049,56 @@
             }
 
 
-            .about-text p {
+            .about-image {
 
-                font-size: 16px;
+                min-height: 280px;
+
+            }
+
+
+            .about-slide {
+
+                min-height: auto;
+
+            }
+
+
+            .about-content h2 {
+
+                font-size: 42px;
+
+            }
+
+
+            .about-content p {
+
+                font-size: 15px;
+
+            }
+
+
+            .about-skills,
+            .about-timeline,
+            .about-work-grid,
+            .future-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .about-favourites {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .about-controls {
+
+                gap: 20px;
+
+                margin-top: 30px;
 
             }
 
@@ -1608,10 +2158,6 @@
         </p>
 
 
-        <!-- ========================================
-             THREE MAIN BUTTONS
-             ======================================== -->
-
         <div class="navigation">
 
 
@@ -1644,10 +2190,6 @@
 
         </div>
 
-
-        <!-- ========================================
-             SOCIALS
-             ======================================== -->
 
         <div class="socials">
 
@@ -1708,8 +2250,11 @@
     >
 
         <div class="section-heading">
+
             <h2>ABOUT ME</h2>
+
             <p>WHO IS FISH?</p>
+
         </div>
 
 
@@ -1717,96 +2262,96 @@
 
 
             <!-- ========================================
-                 SLIDE 1 — INTRODUCTION
+                 SLIDE 1
                  ======================================== -->
 
             <div class="about-slide active">
 
                 <div class="about-image about-image-main">
+
                     <span>YOUR ARTWORK HERE</span>
+
                 </div>
+
 
                 <div class="about-content">
 
-                    <p class="about-number">01 / 06</p>
+                    <p class="about-number">
+                        01 / 06
+                    </p>
 
-                    <h2>HI, I'M FISH.</h2>
+
+                    <h2>
+                        HI, I'M FISH.
+                    </h2>
+
 
                     <p class="about-role">
                         GAME DESIGNER · CHARACTER ARTIST · STORYTELLER
                     </p>
 
-                    <div class="about-pronouns">
+
+                    <div class="pronouns">
+                        <span>PRONOUNS</span>
                         THEY / THEM
                     </div>
 
-                    <p>
-                        I'm Fish Heard, a nonbinary Game Design and Production
-                        student at the University of Salford, specialising
-                        primarily in character art, concept development and
-                        visual storytelling.
-                    </p>
 
                     <p>
-                        I've always been drawn to making characters and worlds
-                        that feel like they have a life beyond what the player
-                        immediately sees. I particularly love creating cute
-                        characters with something slightly unsettling hiding
-                        underneath, or characters that look harmless until
-                        you notice one strange little detail.
+                        I'm Fish Heard, a nonbinary Game Design and Production student at the University of Salford, with my main focus being character art, concept development and visual storytelling.
                     </p>
 
-                    <p>
-                        Eyes are one of my favourite details to play with.
-                        Whether they're exaggerated, hidden, misplaced or
-                        quietly staring back at the player from somewhere they
-                        shouldn't be, I love using them to make a character
-                        feel just a little more interesting.
-                    </p>
 
                     <p>
-                        Art has been a constant part of my life for as long as
-                        I can remember, and games have become the place where
-                        my interests in art, characters, storytelling and
-                        making things all come together.
+                        I've been making art for as long as I can remember. I started with after-school art clubs and traditional drawing, moved into digital art as a preteen, and have continued developing my skills through GCSE, college and university.
                     </p>
+
+
+                    <p>
+                        I'm particularly interested in characters that are cute, strange or quietly unsettling. I love taking something that initially looks friendly and adding small details that make you look twice.
+                    </p>
+
 
                 </div>
 
             </div>
 
 
+
             <!-- ========================================
-                 SLIDE 2 — WHAT I DO
+                 SLIDE 2
                  ======================================== -->
 
             <div class="about-slide">
 
                 <div class="about-content full-width">
 
-                    <p class="about-number">02 / 06</p>
+                    <p class="about-number">
+                        02 / 06
+                    </p>
 
-                    <h2>WHAT I DO.</h2>
+
+                    <h2>
+                        WHAT I DO.
+                    </h2>
+
 
                     <p class="about-intro">
-                        My main focus is character art, but I enjoy working
-                        across different parts of game development and
-                        understanding how they connect.
+                        My main focus is character art, but I enjoy working across different parts of game development and understanding how they connect.
                     </p>
 
 
                     <div class="about-skills">
 
+
                         <div class="about-skill">
 
-                            <h3>CHARACTER ART</h3>
+                            <h3>
+                                CHARACTER ART
+                            </h3>
 
                             <p>
-                                Character concepts, visual development,
-                                silhouettes, colour exploration and taking
-                                an idea from an early sketch into a finished
-                                design. I especially enjoy creating cute,
-                                expressive or subtly horrifying characters.
+                                Character concepts, visual development, silhouettes, colour exploration and taking an idea from an early sketch into a finished design. I especially enjoy creating cute characters and characters with subtle horror elements.
                             </p>
 
                         </div>
@@ -1814,14 +2359,12 @@
 
                         <div class="about-skill">
 
-                            <h3>3D ART</h3>
+                            <h3>
+                                3D ART
+                            </h3>
 
                             <p>
-                                3D modelling and asset creation, primarily
-                                using Maya, while currently expanding my
-                                skills in Blender and ZBrush. I'm particularly
-                                interested in pushing towards more detailed,
-                                higher-poly character work.
+                                3D modelling and asset creation, primarily using Maya, while continuing to expand my skills in Blender and ZBrush. I'm particularly interested in developing stronger high-poly character work.
                             </p>
 
                         </div>
@@ -1829,13 +2372,12 @@
 
                         <div class="about-skill">
 
-                            <h3>NARRATIVE</h3>
+                            <h3>
+                                NARRATIVE
+                            </h3>
 
                             <p>
-                                Character writing, dialogue, game scripts and
-                                narrative-focused design. I particularly enjoy
-                                writing characters with distinct personalities,
-                                relationships and stories.
+                                Character writing, dialogue, game scripts and narrative-focused design. I enjoy creating characters with distinct personalities, relationships and stories that support the wider game.
                             </p>
 
                         </div>
@@ -1843,12 +2385,12 @@
 
                         <div class="about-skill">
 
-                            <h3>GAME DESIGN</h3>
+                            <h3>
+                                GAME DESIGN
+                            </h3>
 
                             <p>
-                                Developing gameplay concepts, mechanics and
-                                player experiences, particularly where
-                                gameplay and narrative can support one another.
+                                Developing gameplay concepts, mechanics and player experiences, particularly where gameplay and narrative can support one another.
                             </p>
 
                         </div>
@@ -1856,13 +2398,12 @@
 
                         <div class="about-skill">
 
-                            <h3>ANIMATION</h3>
+                            <h3>
+                                ANIMATION
+                            </h3>
 
                             <p>
-                                Experience with 2D and 3D animation fundamentals,
-                                with a particular interest in developing more
-                                advanced character animation and eventually
-                                exploring motion capture.
+                                Experience with 2D and 3D animation fundamentals, with an interest in pushing character animation further and eventually exploring motion capture.
                             </p>
 
                         </div>
@@ -1870,45 +2411,47 @@
 
                         <div class="about-skill">
 
-                            <h3>AUDIO &amp; VOICE</h3>
+                            <h3>
+                                AUDIO &amp; VOICE
+                            </h3>
 
                             <p>
-                                Music and sound experimentation, alongside an
-                                interest in exploring voice acting and
-                                performance for games.
+                                Music and sound experimentation alongside an interest in voice acting, performance and how audio can help establish character and atmosphere.
                             </p>
 
                         </div>
+
 
                     </div>
 
 
                     <p class="about-closing">
-                        Programming isn't my favourite part of development,
-                        but I understand the fundamentals and enjoy knowing
-                        enough about the technical side of games to communicate
-                        with programmers and understand how my work will
-                        actually be used. I also coded this website myself,
-                        so apparently I can tolerate programming when there's
-                        a pretty website at the end of it.
+                        Programming isn't my favourite part of development, but I understand the fundamentals and enjoy knowing enough about the technical side of games to understand how my work will actually be used. I also coded this website myself, so I can survive it when necessary.
                     </p>
+
 
                 </div>
 
             </div>
 
 
+
             <!-- ========================================
-                 SLIDE 3 — CREATIVE BACKGROUND
+                 SLIDE 3
                  ======================================== -->
 
             <div class="about-slide">
 
                 <div class="about-content full-width">
 
-                    <p class="about-number">03 / 06</p>
+                    <p class="about-number">
+                        03 / 06
+                    </p>
 
-                    <h2>MY CREATIVE BACKGROUND.</h2>
+
+                    <h2>
+                        MY CREATIVE BACKGROUND.
+                    </h2>
 
 
                     <div class="about-timeline">
@@ -1920,13 +2463,29 @@
                                 PRIMARY SCHOOL
                             </span>
 
-                            <h3>WHERE IT STARTED.</h3>
+                            <h3>
+                                WHERE IT STARTED.
+                            </h3>
 
                             <p>
-                                I was always making something. I attended
-                                after-school art clubs and spent a lot of my
-                                free time drawing, experimenting and generally
-                                finding excuses to be creative.
+                                I attended after-school art clubs and was constantly drawing, making things and experimenting creatively. Art became something I naturally kept returning to.
+                            </p>
+
+                        </div>
+
+
+                        <div class="timeline-item">
+
+                            <span class="timeline-date">
+                                DRAMA SCHOOL
+                            </span>
+
+                            <h3>
+                                SIX YEARS OF PERFORMANCE.
+                            </h3>
+
+                            <p>
+                                During primary and secondary school, I attended drama school for six years and was part of the main cast every single year. This gave me experience with performance, characters, dialogue and working as part of a production.
                             </p>
 
                         </div>
@@ -1938,14 +2497,12 @@
                                 SECONDARY SCHOOL
                             </span>
 
-                            <h3>ART, DRAMA &amp; LEADERSHIP.</h3>
+                            <h3>
+                                LEARNING TO LEAD.
+                            </h3>
 
                             <p>
-                                I continued attending art clubs and had already
-                                been creating digital art since I was a preteen.
-                                I also spent six years attending drama school,
-                                where I was part of the main cast every single
-                                year.
+                                I led my student council for five years and became the first student at my secondary school to hold the role for that length of time. Whenever I was given the opportunity to lead a project, I took it.
                             </p>
 
                         </div>
@@ -1954,18 +2511,32 @@
                         <div class="timeline-item">
 
                             <span class="timeline-date">
-                                GCSE &amp; COLLEGE
+                                COLLEGE
                             </span>
 
-                            <h3>BUILDING A CREATIVE FOUNDATION.</h3>
+                            <h3>
+                                GAMES, ART &amp; PATISSERIE.
+                            </h3>
 
                             <p>
-                                I studied Art at GCSE before attending one
-                                college for Games Design and Art, where I began
-                                bringing my visual skills into game development.
-                                I later attended a second college to study
-                                Patisserie, developing an entirely different
-                                creative discipline alongside my work.
+                                I attended two colleges. One focused on Games Design and Art, where I developed my creative and game development skills, while the other focused on patisserie and gave me a completely different practical discipline.
+                            </p>
+
+                        </div>
+
+
+                        <div class="timeline-item">
+
+                            <span class="timeline-date">
+                                PATISSERIE
+                            </span>
+
+                            <h3>
+                                MORE THAN BAKING.
+                            </h3>
+
+                            <p>
+                                During my patisserie course, I worked in a teaching assistant-style role. I handled stock, organised the kitchen, marked work, helped plan lessons and taught students, giving me experience with responsibility, organisation and supporting other people.
                             </p>
 
                         </div>
@@ -1977,13 +2548,12 @@
                                 UNIVERSITY
                             </span>
 
-                            <h3>GAMES BECAME THE FOCUS.</h3>
+                            <h3>
+                                GAMES BECAME THE FOCUS.
+                            </h3>
 
                             <p>
-                                I'm now studying Games Design and Production
-                                at the University of Salford, bringing together
-                                my interests in art, storytelling, characters,
-                                games and technology.
+                                I'm now studying Games Design and Production at the University of Salford, bringing together my interests in art, storytelling, games, design and production.
                             </p>
 
                         </div>
@@ -1995,78 +2565,38 @@
                     <div class="about-highlight">
 
                         <span>
-                            FIVE YEARS OF STUDENT LEADERSHIP
+                            PROJECT LEADERSHIP
                         </span>
 
                         <p>
-                            I led my Student Council throughout all five years
-                            of secondary school, becoming the first student in
-                            my secondary school to hold that position for the
-                            full five-year period. Whenever I was given the
-                            opportunity to lead a project throughout my
-                            education, I generally took it. Leadership has
-                            become something I naturally gravitate towards,
-                            particularly when I care about the project and
-                            want to help shape where it goes.
+                            Leadership has been a consistent part of my education. From student council and drama productions to college projects and university development teams, I've regularly found myself taking responsibility for organising people, shaping ideas and making sure work moves forward.
                         </p>
 
                     </div>
 
-
-                    <div class="about-highlight">
-
-                        <span>
-                            PATISSERIE · TEACHING &amp; RESPONSIBILITY
-                        </span>
-
-                        <p>
-                            During my patisserie college course, I took on
-                            responsibilities that went well beyond being a
-                            student. I worked almost like a teaching assistant,
-                            helping with stock, organising the entire kitchen,
-                            marking work, planning lessons and even teaching
-                            students myself. It gave me experience in
-                            organisation, communication, responsibility and
-                            supporting other people while still working within
-                            a practical creative environment.
-                        </p>
-
-                    </div>
-
-
-                    <div class="about-highlight">
-
-                        <span>
-                            DRAMA &amp; PERFORMANCE
-                        </span>
-
-                        <p>
-                            My six years at drama school also shaped the way I
-                            approach characters. Being part of the main cast
-                            every year gave me experience with performance,
-                            characterisation, collaboration and understanding
-                            how personality can be communicated through
-                            movement and voice.
-                        </p>
-
-                    </div>
 
                 </div>
 
             </div>
 
 
+
             <!-- ========================================
-                 SLIDE 4 — HOW I WORK
+                 SLIDE 4
                  ======================================== -->
 
             <div class="about-slide">
 
                 <div class="about-content full-width">
 
-                    <p class="about-number">04 / 06</p>
+                    <p class="about-number">
+                        04 / 06
+                    </p>
 
-                    <h2>HOW I WORK.</h2>
+
+                    <h2>
+                        HOW I WORK.
+                    </h2>
 
 
                     <div class="about-traits">
@@ -2079,8 +2609,6 @@
                         <span>ADAPTABLE</span>
                         <span>AMBITIOUS</span>
                         <span>PROBLEM SOLVER</span>
-                        <span>LEADERSHIP</span>
-                        <span>COMMUNICATIVE</span>
 
                     </div>
 
@@ -2090,14 +2618,12 @@
 
                         <div>
 
-                            <h3>INDEPENDENT</h3>
+                            <h3>
+                                INDEPENDENT
+                            </h3>
 
                             <p>
-                                I'm comfortable being trusted with a task and
-                                working independently to figure out how I want
-                                to approach it. I like having responsibility
-                                over my work and making sure things actually
-                                get finished.
+                                I'm comfortable being trusted with a task and working independently to figure out how I want to approach it. I like having responsibility over my work and making sure things actually get finished.
                             </p>
 
                         </div>
@@ -2105,13 +2631,12 @@
 
                         <div>
 
-                            <h3>A TEAM PLAYER</h3>
+                            <h3>
+                                A TEAM PLAYER
+                            </h3>
 
                             <p>
-                                I enjoy leading projects and helping shape a
-                                team's direction, but I'm equally comfortable
-                                working alongside other people and contributing
-                                wherever I'm needed.
+                                I enjoy leading projects and helping shape a team's direction, but I'm equally comfortable working alongside other people and contributing wherever I'm needed.
                             </p>
 
                         </div>
@@ -2119,15 +2644,12 @@
 
                         <div>
 
-                            <h3>A NATURAL LEADER</h3>
+                            <h3>
+                                ALWAYS LEARNING
+                            </h3>
 
                             <p>
-                                Leadership has been a recurring part of my
-                                education, from leading my Student Council for
-                                five years to taking leadership roles across
-                                projects and helping organise teams. I enjoy
-                                giving a project direction while making sure
-                                other people have room to contribute.
+                                If I don't know how to do something, I would rather learn it than immediately work around it. I'm continually experimenting with new software, techniques and creative disciplines.
                             </p>
 
                         </div>
@@ -2135,43 +2657,12 @@
 
                         <div>
 
-                            <h3>ALWAYS LEARNING</h3>
+                            <h3>
+                                CREATIVE PROBLEM SOLVING
+                            </h3>
 
                             <p>
-                                If I don't know how to do something, I would
-                                rather learn it than immediately work around
-                                it. I'm continually experimenting with new
-                                software, techniques and creative disciplines.
-                            </p>
-
-                        </div>
-
-
-                        <div>
-
-                            <h3>CREATIVE PROBLEM SOLVING</h3>
-
-                            <p>
-                                I enjoy figuring out how to turn an idea into
-                                something tangible, especially when there isn't
-                                an obvious answer. Experimentation is a big part
-                                of how I develop my work.
-                            </p>
-
-                        </div>
-
-
-                        <div>
-
-                            <h3>PEOPLE &amp; COMMUNICATION</h3>
-
-                            <p>
-                                My experience in drama, student leadership and
-                                teaching has made communication a big part of
-                                how I work. I enjoy explaining ideas, helping
-                                people understand what needs to happen and
-                                adapting how I communicate depending on the
-                                situation.
+                                I enjoy figuring out how to turn an idea into something tangible, especially when there isn't an obvious answer. Experimentation is a big part of how I develop my work.
                             </p>
 
                         </div>
@@ -2181,28 +2672,32 @@
 
 
                     <p class="about-closing">
-                        I'm also aware that being a creative means constantly
-                        having things to improve. I don't expect to know
-                        everything, and I'm comfortable recognising where I
-                        need to develop further.
+                        I'm also aware that being a creative means constantly having things to improve. I don't expect to know everything, and I'm comfortable recognising where I need to develop further.
                     </p>
+
 
                 </div>
 
             </div>
 
 
+
             <!-- ========================================
-                 SLIDE 5 — OUTSIDE THE WORK
+                 SLIDE 5
                  ======================================== -->
 
             <div class="about-slide">
 
                 <div class="about-content full-width">
 
-                    <p class="about-number">05 / 06</p>
+                    <p class="about-number">
+                        05 / 06
+                    </p>
 
-                    <h2>OUTSIDE THE WORK.</h2>
+
+                    <h2>
+                        OUTSIDE THE WORK.
+                    </h2>
 
 
                     <div class="about-life-grid">
@@ -2211,54 +2706,24 @@
                         <div class="about-life-text">
 
                             <p>
-                                I'm a massive fan of characters and stories,
-                                which is probably unsurprising considering
-                                what I ended up studying. I particularly love
-                                narrative-heavy games where the characters and
-                                their relationships are just as important as
-                                the gameplay itself.
+                                I'm a massive fan of characters, stories and fantasy. I particularly love narrative-heavy games where the characters and their relationships are just as important as the gameplay itself.
                             </p>
 
 
                             <p>
-                                Some of my favourite games include
-                                <em>Hades</em>,
-                                <em>Detroit: Become Human</em>,
-                                <em>Cult of the Lamb</em>,
-                                the <em>Sherlock Holmes</em> games and the
-                                <em>Batman: Arkham</em> series.
+                                Some of my favourite games include <em>Hades</em>, <em>Detroit: Become Human</em>, <em>Cult of the Lamb</em>, the <em>Sherlock Holmes</em> games and the <em>Batman: Arkham</em> series.
                             </p>
 
 
                             <p>
-                                I'm especially drawn to fantasy. I'm not
-                                particularly a sci-fi person, although there
-                                are definitely exceptions. Give me magic,
-                                strange creatures, old legends, dramatic
-                                characters and an unnecessarily complicated
-                                fantasy world and I'm probably interested.
+                                I'm also a massive fan of <em>Merlin</em>, alongside Spider-Man, <em>My Little Pony</em> and <em>Teenage Mutant Ninja Turtles</em>. Fantasy is a particular favourite of mine. I'm not usually drawn to science fiction, although there are always exceptions.
                             </p>
 
 
                             <p>
-                                I'm also a massive fan of
-                                <em>Merlin</em>, which is probably one of the
-                                more obvious signs that I have a weakness for
-                                fantasy, magic, complicated relationships and
-                                characters making terrible decisions.
+                                Outside of games and art, I enjoy baking and gardening. I also have a bearded dragon called Lord Bartholomew, who I've had since around 2021.
                             </p>
 
-
-                            <p>
-                                Outside of games, I'm a lifelong Spider-Man
-                                fan and have a particular soft spot for
-                                <em>My Little Pony</em> and
-                                <em>Teenage Mutant Ninja Turtles</em>.
-                                I enjoy both digital and traditional art and
-                                tend to jump between different creative
-                                interests depending on what I'm currently
-                                obsessed with.
-                            </p>
 
                         </div>
 
@@ -2268,13 +2733,16 @@
 
                             <div>
 
-                                <span>01</span>
+                                <span>
+                                    01
+                                </span>
 
-                                <strong>CHARACTERS</strong>
+                                <strong>
+                                    FANTASY
+                                </strong>
 
                                 <p>
-                                    Cute, weird, unsettling and preferably
-                                    with something strange hiding somewhere.
+                                    Worlds, mythology, magic and characters that feel larger than life.
                                 </p>
 
                             </div>
@@ -2282,13 +2750,16 @@
 
                             <div>
 
-                                <span>02</span>
+                                <span>
+                                    02
+                                </span>
 
-                                <strong>EYES</strong>
+                                <strong>
+                                    CHARACTERS
+                                </strong>
 
                                 <p>
-                                    The more unexpected the placement,
-                                    the better.
+                                    Character-driven stories, memorable designs and complicated relationships.
                                 </p>
 
                             </div>
@@ -2296,13 +2767,16 @@
 
                             <div>
 
-                                <span>03</span>
+                                <span>
+                                    03
+                                </span>
 
-                                <strong>FANTASY</strong>
+                                <strong>
+                                    MAKING THINGS
+                                </strong>
 
                                 <p>
-                                    Magic, myths, strange creatures and
-                                    worlds with too much lore.
+                                    Art, baking, gardening and generally finding excuses to make something.
                                 </p>
 
                             </div>
@@ -2310,41 +2784,16 @@
 
                             <div>
 
-                                <span>04</span>
+                                <span>
+                                    04
+                                </span>
 
-                                <strong>MAKING THINGS</strong>
-
-                                <p>
-                                    Art, baking, gardening and generally
-                                    finding excuses to make something.
-                                </p>
-
-                            </div>
-
-
-                            <div>
-
-                                <span>05</span>
-
-                                <strong>MERLIN</strong>
+                                <strong>
+                                    LORD BARTHOLOMEW
+                                </strong>
 
                                 <p>
-                                    Magic, medieval drama and an unreasonable
-                                    amount of emotional investment.
-                                </p>
-
-                            </div>
-
-
-                            <div>
-
-                                <span>06</span>
-
-                                <strong>LORD BARTHOLOMEW</strong>
-
-                                <p>
-                                    My bearded dragon, who I've had since
-                                    around 2021.
+                                    My bearded dragon and long-term supervisor since around 2021.
                                 </p>
 
                             </div>
@@ -2362,78 +2811,38 @@
                         </h3>
 
                         <p>
-                            I'm autistic, and I've found that one of the things
-                            I value most about myself is how deeply I can engage
-                            with the things I'm passionate about. When something
-                            captures my attention, I want to understand it,
-                            experiment with it and keep pushing it further.
-                            That curiosity is something I try to bring into my
-                            creative work.
+                            I'm autistic, and I've found that one of the things I value most about myself is how deeply I can engage with the things I'm passionate about. When something captures my attention, I want to understand it, experiment with it and keep pushing it further. That curiosity is something I try to bring into my creative work.
                         </p>
 
                     </div>
 
-
-                    <div class="about-interests">
-
-
-                        <div class="interest-box">
-
-                            <h3>
-                                CUTE &amp; CREEPY
-                            </h3>
-
-                            <p>
-                                A lot of my personal character work sits
-                                somewhere between adorable and slightly
-                                unsettling. I like designs that can be cute
-                                at first glance but reveal something stranger
-                                the longer you look at them.
-                            </p>
-
-                        </div>
-
-
-                        <div class="interest-box">
-
-                            <h3>
-                                DIGITAL &amp; TRADITIONAL
-                            </h3>
-
-                            <p>
-                                I've been making digital art since I was a
-                                preteen, but I still love traditional mediums
-                                and the feeling of physically making something.
-                                I like moving between the two rather than
-                                limiting myself to one way of working.
-                            </p>
-
-                        </div>
-
-
-                    </div>
 
                 </div>
 
             </div>
 
 
+
             <!-- ========================================
-                 SLIDE 6 — WHERE I'M GOING
+                 SLIDE 6
                  ======================================== -->
 
             <div class="about-slide">
 
                 <div class="about-content full-width">
 
-                    <p class="about-number">06 / 06</p>
+                    <p class="about-number">
+                        06 / 06
+                    </p>
 
-                    <h2>WHERE I'M GOING.</h2>
+
+                    <h2>
+                        WHERE I'M GOING.
+                    </h2>
+
 
                     <p class="about-intro">
-                        I'm still figuring out exactly where I want my career
-                        to take me, but I know I want to keep working where
-                        art, characters, storytelling and games overlap.
+                        I'm still figuring out exactly where I want my career to take me, but I know I want to keep working where art, characters, storytelling and games overlap.
                     </p>
 
 
@@ -2442,16 +2851,16 @@
 
                         <div class="future-item">
 
-                            <span>01</span>
+                            <span>
+                                01
+                            </span>
 
                             <h3>
                                 HIGH-POLY MODELLING
                             </h3>
 
                             <p>
-                                Developing my sculpting and modelling skills
-                                and becoming more confident working with
-                                detailed character models.
+                                Developing my sculpting and modelling skills and becoming more confident working with detailed character models.
                             </p>
 
                         </div>
@@ -2459,16 +2868,16 @@
 
                         <div class="future-item">
 
-                            <span>02</span>
+                            <span>
+                                02
+                            </span>
 
                             <h3>
                                 BLENDER &amp; ZBRUSH
                             </h3>
 
                             <p>
-                                Expanding beyond my existing Maya experience
-                                and becoming comfortable with more advanced
-                                workflows.
+                                Expanding beyond my existing Maya experience and becoming more comfortable with different modelling and sculpting workflows.
                             </p>
 
                         </div>
@@ -2476,16 +2885,16 @@
 
                         <div class="future-item">
 
-                            <span>03</span>
+                            <span>
+                                03
+                            </span>
 
                             <h3>
                                 CHARACTER ANIMATION
                             </h3>
 
                             <p>
-                                Pushing my animation skills further and
-                                learning how movement can communicate
-                                personality and emotion.
+                                Pushing my animation skills further and learning how movement can communicate personality and emotion.
                             </p>
 
                         </div>
@@ -2493,16 +2902,16 @@
 
                         <div class="future-item">
 
-                            <span>04</span>
+                            <span>
+                                04
+                            </span>
 
                             <h3>
                                 MOTION CAPTURE
                             </h3>
 
                             <p>
-                                I'd love the opportunity to work with mocap
-                                and explore the relationship between
-                                performance, animation and character design.
+                                I'd love the opportunity to work with mocap and explore the relationship between performance, animation and character design.
                             </p>
 
                         </div>
@@ -2510,16 +2919,16 @@
 
                         <div class="future-item">
 
-                            <span>05</span>
+                            <span>
+                                05
+                            </span>
 
                             <h3>
                                 VOICE ACTING
                             </h3>
 
                             <p>
-                                Exploring voice acting and learning more about
-                                how voice, writing and animation can work
-                                together to create stronger characters.
+                                Exploring voice acting and learning more about how voice, writing and animation can work together to create stronger characters.
                             </p>
 
                         </div>
@@ -2527,16 +2936,16 @@
 
                         <div class="future-item">
 
-                            <span>06</span>
+                            <span>
+                                06
+                            </span>
 
                             <h3>
                                 KEEP MAKING
                             </h3>
 
                             <p>
-                                Continuing to grow as a versatile game
-                                developer while developing a stronger
-                                specialism in character art and narrative.
+                                Continuing to grow as a versatile game developer while developing a stronger specialism in character art and narrative.
                             </p>
 
                         </div>
@@ -2548,26 +2957,24 @@
                     <div class="about-final">
 
                         <p>
-                            Ultimately, I want to make things that people
-                            remember. Whether that's a character, a story,
-                            a strange little game mechanic or an entire world,
-                            I'm most interested in the parts of game
-                            development that make something feel like it has
-                            a personality of its own.
+                            Ultimately, I want to make things that people remember. Whether that's a character, a story, a strange little game mechanic or an entire world, I'm most interested in the parts of game development that make something feel like it has a personality of its own.
                         </p>
 
                     </div>
+
 
                 </div>
 
             </div>
 
 
+
             <!-- ========================================
-                 SLIDESHOW CONTROLS
+                 ABOUT CONTROLS
                  ======================================== -->
 
             <div class="about-controls">
+
 
                 <button
                     class="about-arrow"
@@ -2627,10 +3034,12 @@
                     →
                 </button>
 
+
             </div>
 
 
         </div>
+
 
 
         <!-- ========================================
@@ -2757,6 +3166,7 @@
             </div>
 
 
+
             <!-- GROUP PROJECT -->
 
             <div class="project-card">
@@ -2778,6 +3188,7 @@
                 </div>
 
             </div>
+
 
 
             <!-- UNDER WOOL AND BRIAR -->
@@ -2869,8 +3280,16 @@
         </div>
 
 
+
         <div class="more-art">
-            <a href="./art.html" class="button">MORE ART</a>
+
+            <a
+                href="./art.html"
+                class="button"
+            >
+                MORE ART
+            </a>
+
         </div>
 
 
@@ -2912,60 +3331,50 @@
             currentAboutSlide = index;
 
 
-            aboutSlides.forEach(
-                (slide, i) => {
+            aboutSlides.forEach((slide, i) => {
 
-                    slide.classList.toggle(
-                        "active",
-                        i === currentAboutSlide
-                    );
+                slide.classList.toggle(
+                    "active",
+                    i === currentAboutSlide
+                );
 
-                }
-            );
+            });
 
 
-            aboutDots.forEach(
-                (dot, i) => {
+            aboutDots.forEach((dot, i) => {
 
-                    dot.classList.toggle(
-                        "active",
-                        i === currentAboutSlide
-                    );
+                dot.classList.toggle(
+                    "active",
+                    i === currentAboutSlide
+                );
 
-                }
-            );
+            });
 
         }
 
 
         aboutNext.addEventListener(
             "click",
-            () => showAboutSlide(
-                currentAboutSlide + 1
-            )
+            () => showAboutSlide(currentAboutSlide + 1)
         );
 
 
         aboutPrev.addEventListener(
             "click",
-            () => showAboutSlide(
-                currentAboutSlide - 1
-            )
+            () => showAboutSlide(currentAboutSlide - 1)
         );
 
 
-        aboutDots.forEach(
-            (dot) => {
+        aboutDots.forEach((dot) => {
 
-                dot.addEventListener(
-                    "click",
-                    () => showAboutSlide(
-                        Number(dot.dataset.slide)
-                    )
-                );
+            dot.addEventListener(
+                "click",
+                () => showAboutSlide(
+                    Number(dot.dataset.slide)
+                )
+            );
 
-            }
-        );
+        });
 
 
         function goToSection(sectionId) {
@@ -2976,8 +3385,11 @@
             if (section) {
 
                 section.scrollIntoView({
+
                     behavior: "smooth",
+
                     block: "start"
+
                 });
 
             }
