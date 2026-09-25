@@ -12,14 +12,16 @@
     <style>
 
         :root {
-            --deep: #211827;
-            --purple: #51395f;
-            --purple-light: #80638b;
-            --pink: #c78399;
-            --pink-light: #e2b6c2;
-            --cream: #e7dcc7;
+            --forest: #17141c;
+            --forest-deep: #0d0c11;
+            --purple: #55405f;
+            --purple-dark: #34263b;
+            --pink: #c9829b;
+            --pink-light: #e1b1bf;
+            --cream: #e7dcc5;
             --cream-dark: #c9b99d;
-            --grey: #8e8988;
+            --grey: #918c91;
+            --green: #435449;
             --ink: #302b30;
         }
 
@@ -38,7 +40,9 @@
 
             margin: 0;
 
-            color: var(--ink);
+            min-height: 100vh;
+
+            color: var(--cream);
 
             font-family:
                 Georgia,
@@ -47,21 +51,29 @@
 
             background:
                 radial-gradient(
-                    circle at 20% 20%,
-                    rgba(199,131,153,0.13),
-                    transparent 25%
+                    circle at 50% 10%,
+                    rgba(201,130,155,0.12),
+                    transparent 28%
                 ),
                 radial-gradient(
-                    circle at 80% 70%,
-                    rgba(81,57,95,0.2),
+                    circle at 15% 65%,
+                    rgba(67,84,73,0.22),
                     transparent 30%
                 ),
-                var(--deep);
+                radial-gradient(
+                    circle at 85% 70%,
+                    rgba(85,64,95,0.25),
+                    transparent 30%
+                ),
+                var(--forest);
 
             overflow-x: hidden;
-
         }
 
+
+        /* ========================================
+           FOREST ATMOSPHERE
+           ======================================== */
 
         body::before {
 
@@ -69,82 +81,255 @@
 
             position: fixed;
 
-            inset: 20px;
-
-            border:
-                1px solid
-                rgba(226,182,194,0.25);
+            inset: 0;
 
             pointer-events: none;
 
-            z-index: 20;
+            z-index: 50;
 
+            opacity: 0.18;
+
+            background:
+                radial-gradient(
+                    ellipse at center,
+                    transparent 30%,
+                    rgba(0,0,0,0.7) 100%
+                );
+        }
+
+
+        body::after {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 20px;
+
+            pointer-events: none;
+
+            z-index: 51;
+
+            border:
+                1px solid
+                rgba(225,177,191,0.2);
+        }
+
+
+        .forest-branch {
+
+            position: absolute;
+
+            pointer-events: none;
+
+            z-index: 1;
+
+            opacity: 0.45;
+        }
+
+
+        .branch-left {
+
+            left: -20px;
+
+            top: 170px;
+
+            width: 300px;
+
+            height: 500px;
+
+            border-left:
+                5px solid
+                var(--green);
+
+            border-radius:
+                50%;
+
+            transform:
+                rotate(17deg);
+        }
+
+
+        .branch-left::before,
+        .branch-left::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+
+            height: 5px;
+
+            background:
+                var(--green);
+
+            transform-origin: left;
+        }
+
+
+        .branch-left::before {
+
+            top: 110px;
+
+            left: 0;
+
+            transform:
+                rotate(-35deg);
+        }
+
+
+        .branch-left::after {
+
+            top: 250px;
+
+            left: 5px;
+
+            transform:
+                rotate(30deg);
+        }
+
+
+        .branch-right {
+
+            right: -30px;
+
+            bottom: 100px;
+
+            width: 300px;
+
+            height: 500px;
+
+            border-right:
+                5px solid
+                var(--green);
+
+            border-radius:
+                50%;
+
+            transform:
+                rotate(-17deg);
+        }
+
+
+        .leaf {
+
+            position: absolute;
+
+            width: 14px;
+
+            height: 25px;
+
+            border-radius:
+                100% 0 100% 0;
+
+            background:
+                var(--green);
+
+            opacity: 0.55;
+        }
+
+
+        .leaf.l1 {
+            left: 100px;
+            top: 220px;
+            transform: rotate(-30deg);
+        }
+
+
+        .leaf.l2 {
+            left: 170px;
+            top: 300px;
+            transform: rotate(30deg);
+        }
+
+
+        .leaf.l3 {
+            right: 120px;
+            bottom: 250px;
+            transform: rotate(30deg);
+        }
+
+
+        .leaf.l4 {
+            right: 190px;
+            bottom: 350px;
+            transform: rotate(-30deg);
         }
 
 
         /* ========================================
-           NAV
+           NAVIGATION
            ======================================== */
 
         .top-nav {
 
             position: relative;
 
-            z-index: 5;
+            z-index: 60;
 
-            padding: 35px 7%;
+            padding:
+                30px
+                7%;
 
             display: flex;
 
             justify-content: space-between;
 
             align-items: center;
-
         }
 
 
         .back-button {
 
-            padding: 12px 22px;
+            display: inline-block;
 
-            color: var(--cream);
+            padding:
+                12px
+                22px;
+
+            color:
+                var(--cream);
+
+            text-decoration: none;
 
             border:
                 1px solid
                 var(--pink);
 
-            text-decoration: none;
-
-            letter-spacing: 1px;
-
-            background: rgba(33,24,39,0.8);
+            background:
+                rgba(23,20,28,0.85);
 
             transition:
                 background 0.25s ease,
-                color 0.25s ease;
-
+                color 0.25s ease,
+                transform 0.25s ease;
         }
 
 
         .back-button:hover {
 
-            background: var(--pink);
+            background:
+                var(--pink);
 
-            color: var(--deep);
+            color:
+                var(--forest-deep);
 
+            transform:
+                translateY(-3px);
         }
 
 
         .nav-label {
 
-            color: var(--pink-light);
+            color:
+                var(--pink-light);
 
             font-size: 11px;
 
             letter-spacing: 5px;
 
             text-transform: uppercase;
-
         }
 
 
@@ -164,46 +349,137 @@
 
             justify-content: center;
 
-            padding: 80px 30px 150px;
-
             text-align: center;
 
-            overflow: hidden;
+            padding:
+                70px
+                30px
+                160px;
 
+            overflow: hidden;
         }
 
 
-        .ornament {
+        .moon {
 
             position: absolute;
 
-            width: 500px;
-            height: 500px;
+            width: 260px;
 
-            border:
-                1px solid
-                rgba(199,131,153,0.25);
+            height: 260px;
 
             border-radius: 50%;
 
+            right: 12%;
+
+            top: 12%;
+
+            background:
+                radial-gradient(
+                    circle at 35% 35%,
+                    #f0dce0,
+                    #c69eab 55%,
+                    #8d6877 100%
+                );
+
+            box-shadow:
+                0 0 80px
+                rgba(225,177,191,0.16);
+
+            opacity: 0.5;
         }
 
 
-        .ornament.one {
+        .moon::before,
+        .moon::after {
 
-            top: -200px;
+            content: "";
 
-            left: -120px;
+            position: absolute;
 
+            border-radius: 50%;
+
+            background:
+                rgba(84,63,73,0.18);
         }
 
 
-        .ornament.two {
+        .moon::before {
 
-            bottom: -250px;
+            width: 40px;
+            height: 40px;
 
-            right: -130px;
+            left: 60px;
+            top: 80px;
+        }
 
+
+        .moon::after {
+
+            width: 25px;
+            height: 25px;
+
+            right: 60px;
+            bottom: 65px;
+        }
+
+
+        .stars {
+
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+        }
+
+
+        .stars span {
+
+            position: absolute;
+
+            color:
+                var(--pink-light);
+
+            opacity: 0.65;
+
+            font-size: 13px;
+        }
+
+
+        .star1 {
+            left: 15%;
+            top: 25%;
+        }
+
+
+        .star2 {
+            left: 30%;
+            top: 14%;
+        }
+
+
+        .star3 {
+            right: 28%;
+            top: 30%;
+        }
+
+
+        .star4 {
+            right: 14%;
+            top: 43%;
+        }
+
+
+        .star5 {
+            left: 21%;
+            bottom: 30%;
+        }
+
+
+        .star6 {
+            right: 35%;
+            bottom: 22%;
         }
 
 
@@ -211,56 +487,94 @@
 
             position: relative;
 
-            z-index: 2;
+            z-index: 5;
 
             max-width: 1000px;
-
         }
 
 
         .chapter {
 
-            color: var(--pink-light);
+            color:
+                var(--pink-light);
 
             font-size: 12px;
 
             letter-spacing: 6px;
 
             text-transform: uppercase;
-
         }
 
 
         .hero h1 {
 
-            margin: 35px 0 25px;
+            margin:
+                30px
+                0
+                20px;
 
-            font-size: clamp(55px, 11vw, 145px);
+            font-size:
+                clamp(
+                    60px,
+                    11vw,
+                    150px
+                );
 
-            line-height: 0.85;
+            line-height:
+                0.8;
 
-            font-weight: normal;
+            font-weight:
+                normal;
 
-            color: var(--pink-light);
+            color:
+                var(--cream);
 
             text-shadow:
-                3px 3px 0 var(--purple);
+                3px 3px 0
+                var(--purple),
+                0 0 30px
+                rgba(225,177,191,0.08);
+        }
 
+
+        .hero-subtitle {
+
+            max-width:
+                720px;
+
+            margin:
+                30px auto 0;
+
+            color:
+                var(--pink-light);
+
+            font-size:
+                21px;
+
+            line-height:
+                1.8;
+
+            font-style:
+                italic;
         }
 
 
         .flourish {
 
-            width: 280px;
+            width:
+                340px;
 
-            margin: 30px auto;
+            margin:
+                30px auto;
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            gap: 15px;
-
+            gap:
+                15px;
         }
 
 
@@ -273,65 +587,129 @@
 
             height: 1px;
 
-            background: var(--pink);
-
+            background:
+                var(--pink);
         }
 
 
         .flourish span {
 
-            color: var(--pink);
+            color:
+                var(--pink);
 
-            font-size: 20px;
-
-        }
-
-
-        .hero-subtitle {
-
-            max-width: 700px;
-
-            margin: auto;
-
-            color: var(--cream);
-
-            font-size: 21px;
-
-            line-height: 1.8;
-
-            font-style: italic;
-
+            font-size:
+                20px;
         }
 
 
         /* ========================================
-           CONTENT
+           WOLF / LAMB SYMBOL
+           ======================================== */
+
+        .woodland-symbol {
+
+            position: absolute;
+
+            left: 8%;
+
+            bottom: 16%;
+
+            width: 180px;
+
+            height: 180px;
+
+            border:
+                1px solid
+                rgba(225,177,191,0.35);
+
+            border-radius: 50%;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            color:
+                var(--pink-light);
+
+            font-size:
+                80px;
+
+            opacity:
+                0.55;
+
+            transform:
+                rotate(-8deg);
+        }
+
+
+        .woodland-symbol::after {
+
+            content:
+                "✦";
+
+            position:
+                absolute;
+
+            right:
+                -20px;
+
+            top:
+                20px;
+
+            font-size:
+                20px;
+        }
+
+
+        /* ========================================
+           MAIN
            ======================================== */
 
         main {
 
-            max-width: 1150px;
+            position:
+                relative;
 
-            margin: auto;
+            z-index:
+                5;
 
-            padding: 0 30px 120px;
+            max-width:
+                1150px;
 
+            margin:
+                auto;
+
+            padding:
+                0
+                30px
+                130px;
         }
 
 
         .storybook-page {
 
-            position: relative;
+            position:
+                relative;
 
-            margin-bottom: 90px;
+            margin-bottom:
+                90px;
 
-            padding: 65px;
+            padding:
+                70px;
+
+            color:
+                var(--ink);
 
             background:
                 linear-gradient(
                     135deg,
                     var(--cream),
-                    #ded2bc
+                    #dcd0b8
                 );
 
             border:
@@ -339,8 +717,8 @@
                 var(--cream-dark);
 
             box-shadow:
-                0 20px 60px rgba(0,0,0,0.35);
-
+                0 25px 70px
+                rgba(0,0,0,0.4);
         }
 
 
@@ -348,80 +726,109 @@
 
             content: "";
 
-            position: absolute;
+            position:
+                absolute;
 
-            inset: 14px;
+            inset:
+                14px;
 
             border:
                 1px solid
-                rgba(81,57,95,0.35);
+                rgba(85,64,95,0.35);
 
-            pointer-events: none;
-
+            pointer-events:
+                none;
         }
 
 
         .storybook-page::after {
 
-            content: "✦";
+            content:
+                "✦";
 
-            position: absolute;
+            position:
+                absolute;
 
-            top: 25px;
+            top:
+                24px;
 
-            left: 50%;
+            left:
+                50%;
 
-            transform: translateX(-50%);
+            transform:
+                translateX(-50%);
 
-            color: var(--purple);
+            color:
+                var(--purple);
 
-            font-size: 16px;
-
+            font-size:
+                16px;
         }
 
 
         .page-label {
 
-            color: var(--purple);
+            color:
+                var(--purple);
 
-            font-size: 11px;
+            font-size:
+                11px;
 
-            letter-spacing: 5px;
+            letter-spacing:
+                5px;
 
-            text-transform: uppercase;
+            text-transform:
+                uppercase;
 
-            text-align: center;
-
+            text-align:
+                center;
         }
 
 
         .page-title {
 
-            margin: 18px 0 40px;
+            margin:
+                18px
+                0
+                40px;
 
-            text-align: center;
+            text-align:
+                center;
 
-            color: var(--purple);
+            color:
+                var(--purple);
 
-            font-size: clamp(38px, 6vw, 68px);
+            font-size:
+                clamp(
+                    38px,
+                    6vw,
+                    68px
+                );
 
-            font-weight: normal;
+            font-weight:
+                normal;
 
+            line-height:
+                0.95;
         }
 
 
         .body-text {
 
-            max-width: 850px;
+            max-width:
+                850px;
 
-            margin: auto;
+            margin:
+                auto;
 
-            font-size: 18px;
+            font-size:
+                18px;
 
-            line-height: 2;
+            line-height:
+                2;
 
-            text-align: center;
-
+            text-align:
+                center;
         }
 
 
@@ -431,7 +838,8 @@
 
         .video-frame {
 
-            padding: 15px;
+            padding:
+                15px;
 
             border:
                 1px solid
@@ -441,22 +849,27 @@
                 var(--purple);
 
             box-shadow:
-                8px 8px 0 var(--pink);
-
+                8px 8px 0
+                var(--pink);
         }
 
 
         .video-screen {
 
-            aspect-ratio: 16 / 9;
+            aspect-ratio:
+                16 / 9;
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            justify-content: center;
+            justify-content:
+                center;
 
-            color: var(--cream);
+            color:
+                var(--cream);
 
             background:
                 linear-gradient(
@@ -469,59 +882,73 @@
                 1px solid
                 var(--pink-light);
 
-            letter-spacing: 4px;
-
+            letter-spacing:
+                4px;
         }
 
 
         .video-caption {
 
-            color: var(--cream);
+            color:
+                var(--cream);
 
-            margin-top: 15px;
+            margin-top:
+                15px;
 
-            font-size: 12px;
+            font-size:
+                12px;
 
-            letter-spacing: 3px;
+            letter-spacing:
+                3px;
 
-            text-transform: uppercase;
-
+            text-transform:
+                uppercase;
         }
 
 
         /* ========================================
-           ILLUSTRATION GALLERY
+           ILLUSTRATIONS
            ======================================== */
 
         .illustration-grid {
 
-            display: grid;
+            display:
+                grid;
 
             grid-template-columns:
-                1fr 1fr;
+                1fr
+                1fr;
 
-            gap: 35px;
+            gap:
+                35px;
 
-            align-items: center;
-
+            align-items:
+                center;
         }
 
 
         .illustration {
 
-            min-height: 420px;
+            min-height:
+                420px;
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            justify-content: center;
+            justify-content:
+                center;
 
-            padding: 30px;
+            padding:
+                30px;
 
-            text-align: center;
+            text-align:
+                center;
 
-            color: var(--purple);
+            color:
+                var(--purple);
 
             background:
                 linear-gradient(
@@ -538,78 +965,148 @@
                 8px solid
                 rgba(81,57,95,0.1);
 
-            outline-offset: -18px;
+            outline-offset:
+                -18px;
 
+            cursor:
+                pointer;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease;
+        }
+
+
+        .illustration:hover {
+
+            transform:
+                translateY(-10px)
+                rotate(-1deg);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e8dcc5,
+                    #d4c4a8
+                );
         }
 
 
         .illustration:nth-child(2) {
+            transform:
+                translateY(35px);
+        }
 
-            transform: translateY(40px);
 
+        .illustration:nth-child(2):hover {
+            transform:
+                translateY(25px)
+                rotate(1deg);
         }
 
 
         .illustration:nth-child(3) {
+            transform:
+                translateY(-20px);
+        }
 
-            transform: translateY(-20px);
 
+        .illustration:nth-child(3):hover {
+            transform:
+                translateY(-30px)
+                rotate(-1deg);
         }
 
 
         .illustration:nth-child(4) {
+            transform:
+                translateY(25px);
+        }
 
-            transform: translateY(25px);
 
+        .illustration:nth-child(4):hover {
+            transform:
+                translateY(15px)
+                rotate(1deg);
+        }
+
+
+        .illustration-hint {
+
+            display:
+                block;
+
+            margin-top:
+                15px;
+
+            font-size:
+                10px;
+
+            letter-spacing:
+                3px;
+
+            opacity:
+                0.55;
         }
 
 
         /* ========================================
-           STORY TEXT
+           STORY SECTION
            ======================================== */
 
         .story-layout {
 
-            display: grid;
+            display:
+                grid;
 
             grid-template-columns:
                 0.8fr
                 1.2fr;
 
-            gap: 60px;
+            gap:
+                60px;
 
-            align-items: center;
-
-        }
-
-
-        .drop-cap {
-
-            float: left;
-
-            font-size: 90px;
-
-            line-height: 0.7;
-
-            padding-right: 12px;
-
-            color: var(--pink);
-
+            align-items:
+                center;
         }
 
 
         .story-text p {
 
-            font-size: 18px;
+            font-size:
+                18px;
 
-            line-height: 1.9;
+            line-height:
+                1.9;
+        }
 
+
+        .drop-cap {
+
+            float:
+                left;
+
+            font-size:
+                90px;
+
+            line-height:
+                0.7;
+
+            padding-right:
+                12px;
+
+            color:
+                var(--pink);
         }
 
 
         .side-note {
 
-            padding: 35px;
+            position:
+                relative;
+
+            padding:
+                35px;
 
             border:
                 1px solid
@@ -618,36 +1115,60 @@
             background:
                 rgba(81,57,95,0.08);
 
-            color: var(--purple);
+            color:
+                var(--purple);
 
-            font-style: italic;
+            font-style:
+                italic;
 
-            line-height: 1.8;
+            line-height:
+                1.8;
+        }
 
+
+        .side-note::before {
+
+            content:
+                "❧";
+
+            display:
+                block;
+
+            margin-bottom:
+                15px;
+
+            color:
+                var(--pink);
+
+            font-size:
+                28px;
         }
 
 
         /* ========================================
-           MY ROLE
+           ROLE
            ======================================== */
 
         .role-grid {
 
-            display: grid;
+            display:
+                grid;
 
             grid-template-columns:
                 repeat(3, 1fr);
 
-            gap: 25px;
-
+            gap:
+                25px;
         }
 
 
         .role-card {
 
-            padding: 30px;
+            padding:
+                30px;
 
-            text-align: center;
+            text-align:
+                center;
 
             border-top:
                 2px solid
@@ -659,42 +1180,224 @@
 
             background:
                 rgba(81,57,95,0.04);
-
         }
 
 
         .role-card span {
 
-            display: block;
+            display:
+                block;
 
-            margin-bottom: 12px;
+            margin-bottom:
+                12px;
 
-            color: var(--pink);
+            color:
+                var(--pink);
 
-            font-size: 12px;
+            font-size:
+                12px;
 
-            letter-spacing: 4px;
-
+            letter-spacing:
+                4px;
         }
 
 
         .role-card h3 {
 
-            margin: 0 0 12px;
+            margin:
+                0
+                0
+                12px;
 
-            color: var(--purple);
+            color:
+                var(--purple);
 
-            font-size: 20px;
+            font-size:
+                20px;
 
-            font-weight: normal;
-
+            font-weight:
+                normal;
         }
 
 
         .role-card p {
 
-            line-height: 1.7;
+            line-height:
+                1.7;
+        }
 
+
+        /* ========================================
+           POPUP
+           ======================================== */
+
+        .popup {
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            z-index:
+                100;
+
+            display:
+                none;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            padding:
+                30px;
+
+            background:
+                rgba(10,8,12,0.88);
+
+            backdrop-filter:
+                blur(8px);
+        }
+
+
+        .popup.active {
+            display:
+                flex;
+        }
+
+
+        .popup-box {
+
+            position:
+                relative;
+
+            width:
+                min(900px, 100%);
+
+            max-height:
+                90vh;
+
+            overflow-y:
+                auto;
+
+            padding:
+                28px;
+
+            color:
+                var(--ink);
+
+            background:
+                var(--cream);
+
+            border:
+                1px solid
+                var(--purple);
+
+            box-shadow:
+                12px 14px 0
+                var(--pink);
+
+            transform:
+                rotate(-0.5deg);
+        }
+
+
+        .popup-image {
+
+            min-height:
+                430px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            text-align:
+                center;
+
+            background:
+                #d1c2a8;
+
+            border:
+                1px dashed
+                var(--purple);
+
+            color:
+                var(--purple);
+
+            letter-spacing:
+                3px;
+        }
+
+
+        .popup-title {
+
+            margin:
+                25px
+                0
+                10px;
+
+            color:
+                var(--purple);
+
+            font-size:
+                32px;
+
+            font-weight:
+                normal;
+        }
+
+
+        .popup-description {
+
+            font-size:
+                17px;
+
+            line-height:
+                1.8;
+        }
+
+
+        .popup-close {
+
+            position:
+                absolute;
+
+            top:
+                10px;
+
+            right:
+                10px;
+
+            width:
+                42px;
+
+            height:
+                42px;
+
+            border:
+                0;
+
+            background:
+                var(--purple);
+
+            color:
+                white;
+
+            cursor:
+                pointer;
+
+            font-size:
+                22px;
+
+            z-index:
+                2;
         }
 
 
@@ -704,82 +1407,121 @@
 
         footer {
 
-            padding: 80px 20px;
+            position:
+                relative;
 
-            text-align: center;
+            z-index:
+                5;
 
-            color: var(--cream);
+            padding:
+                90px
+                20px;
 
+            text-align:
+                center;
+
+            color:
+                var(--cream);
         }
 
 
         footer .flourish {
-
-            margin-bottom: 35px;
-
+            margin-bottom:
+                35px;
         }
 
 
         footer a {
 
-            display: inline-block;
+            display:
+                inline-block;
 
-            padding: 13px 25px;
+            padding:
+                13px
+                25px;
 
             border:
                 1px solid
                 var(--pink);
 
-            color: var(--cream);
+            color:
+                var(--cream);
 
-            text-decoration: none;
-
+            text-decoration:
+                none;
         }
 
 
         @media (max-width: 800px) {
 
-            body::before {
-
-                inset: 10px;
-
+            body::after {
+                inset:
+                    10px;
             }
 
 
             .hero {
+                min-height:
+                    80vh;
 
-                min-height: 80vh;
+                padding:
+                    70px
+                    25px
+                    130px;
+            }
 
+
+            .moon {
+                width:
+                    180px;
+
+                height:
+                    180px;
+
+                right:
+                    -30px;
+
+                top:
+                    10%;
+            }
+
+
+            .woodland-symbol {
+                display:
+                    none;
             }
 
 
             .storybook-page {
-
-                padding: 40px 25px;
-
+                padding:
+                    45px
+                    25px;
             }
 
 
             .illustration-grid,
             .story-layout,
             .role-grid {
-
-                grid-template-columns: 1fr;
-
+                grid-template-columns:
+                    1fr;
             }
 
 
             .illustration:nth-child(n) {
-
-                transform: none;
-
+                transform:
+                    none;
             }
 
 
-            .side-note {
+            .illustration:hover {
+                transform:
+                    translateY(-7px);
+            }
 
-                margin-top: 20px;
 
+            .popup-image {
+                min-height:
+                    280px;
             }
 
         }
@@ -790,6 +1532,22 @@
 
 
 <body>
+
+
+    <div class="forest-branch branch-left">
+
+        <div class="leaf l1"></div>
+        <div class="leaf l2"></div>
+
+    </div>
+
+
+    <div class="forest-branch branch-right">
+
+        <div class="leaf l3"></div>
+        <div class="leaf l4"></div>
+
+    </div>
 
 
     <nav class="top-nav">
@@ -811,9 +1569,25 @@
 
     <header class="hero">
 
-        <div class="ornament one"></div>
 
-        <div class="ornament two"></div>
+        <div class="moon"></div>
+
+
+        <div class="stars">
+
+            <span class="star1">✦</span>
+            <span class="star2">·</span>
+            <span class="star3">✧</span>
+            <span class="star4">·</span>
+            <span class="star5">✦</span>
+            <span class="star6">✧</span>
+
+        </div>
+
+
+        <div class="woodland-symbol">
+            ◌
+        </div>
 
 
         <div class="hero-inner">
@@ -836,9 +1610,8 @@
 
             <p class="hero-subtitle">
 
-                PLACEHOLDER PROJECT INTRODUCTION.
-                A short, storybook-style description of
-                Under Wool and Briar goes here.
+                A little tale of wool, briars, wandering,
+                and the things that wait beneath the trees.
 
             </p>
 
@@ -858,16 +1631,16 @@
 
 
             <h2 class="page-title">
-                The Story
+                Once Upon A Time...
             </h2>
 
 
             <p class="body-text">
 
-                PLACEHOLDER DESCRIPTION OF THE GAME.
-                Write this section like the introduction
-                to an old illustrated storybook, explaining
-                the world, premise and central conflict.
+                PLACEHOLDER DESCRIPTION OF UNDER WOOL AND BRIAR.
+                Write the main project introduction here, describing
+                the story, the woodland setting, the characters and
+                the central conflict.
 
             </p>
 
@@ -882,7 +1655,7 @@
 
 
             <h2 class="page-title">
-                A Glimpse Within
+                A Glimpse Beyond The Trees
             </h2>
 
 
@@ -905,7 +1678,7 @@
         <section class="storybook-page">
 
             <div class="page-label">
-                ILLUSTRATIONS
+                ILLUSTRATIONS FROM THE WOODS
             </div>
 
 
@@ -917,23 +1690,59 @@
             <div class="illustration-grid">
 
 
-                <div class="illustration">
-                    ILLUSTRATION PLACEHOLDER
+                <div
+                    class="illustration"
+                    data-title="Woodland Illustration"
+                    data-description="PLACEHOLDER DESCRIPTION FOR THIS ARTWORK. Explain what part of the woodland or world this illustration represents."
+                >
+                    <div>
+                        WOODLAND ILLUSTRATION
+                        <span class="illustration-hint">
+                            CLICK TO OPEN
+                        </span>
+                    </div>
                 </div>
 
 
-                <div class="illustration">
-                    CHARACTER ART PLACEHOLDER
+                <div
+                    class="illustration"
+                    data-title="Character Illustration"
+                    data-description="PLACEHOLDER DESCRIPTION FOR THIS CHARACTER ART. Explain who the character is, their role in the story and how you developed their visual design."
+                >
+                    <div>
+                        CHARACTER ART
+                        <span class="illustration-hint">
+                            CLICK TO OPEN
+                        </span>
+                    </div>
                 </div>
 
 
-                <div class="illustration">
-                    ENVIRONMENT PLACEHOLDER
+                <div
+                    class="illustration"
+                    data-title="Forest Environment"
+                    data-description="PLACEHOLDER DESCRIPTION FOR THIS ENVIRONMENT ART. Explain the location, atmosphere and visual choices used to build the world."
+                >
+                    <div>
+                        FOREST ENVIRONMENT
+                        <span class="illustration-hint">
+                            CLICK TO OPEN
+                        </span>
+                    </div>
                 </div>
 
 
-                <div class="illustration">
-                    CONCEPT ART PLACEHOLDER
+                <div
+                    class="illustration"
+                    data-title="Concept Art"
+                    data-description="PLACEHOLDER DESCRIPTION FOR THIS CONCEPT ART. Explain how the idea developed from early concepts into the final design."
+                >
+                    <div>
+                        CONCEPT ART
+                        <span class="illustration-hint">
+                            CLICK TO OPEN
+                        </span>
+                    </div>
                 </div>
 
 
@@ -950,7 +1759,7 @@
 
 
             <h2 class="page-title">
-                The Tale Unfolds
+                Beneath The Briars
             </h2>
 
 
@@ -965,22 +1774,26 @@
                             O
                         </span>
 
-                        NCE UPON A TIME...
+                        NCE UPON A TIME, DEEP WITHIN THE WOODS...
 
                     </p>
 
 
                     <p>
+
                         PLACEHOLDER NARRATIVE DESCRIPTION.
-                        Use this area for a longer explanation
-                        of the story, themes, gameplay and
+                        Use this section for a longer explanation
+                        of the story, characters, themes and
                         player's journey.
+
                     </p>
 
 
                     <p>
+
                         PLACEHOLDER CONTINUATION OF THE PROJECT
                         DESCRIPTION.
+
                     </p>
 
                 </div>
@@ -988,9 +1801,9 @@
 
                 <div class="side-note">
 
-                    PLACEHOLDER QUOTE, DEVELOPMENT NOTE,
-                    DESIGN THOUGHT OR SMALL PIECE OF STORY
-                    TEXT.
+                    PLACEHOLDER STORYBOOK QUOTE,
+                    CHARACTER THOUGHT, DEVELOPMENT NOTE
+                    OR PIECE OF LORE.
 
                 </div>
 
@@ -1017,13 +1830,9 @@
 
                 <div class="role-card">
 
-                    <span>
-                        01
-                    </span>
+                    <span>01</span>
 
-                    <h3>
-                        ART
-                    </h3>
+                    <h3>ART</h3>
 
                     <p>
                         PLACEHOLDER DESCRIPTION OF YOUR
@@ -1035,13 +1844,9 @@
 
                 <div class="role-card">
 
-                    <span>
-                        02
-                    </span>
+                    <span>02</span>
 
-                    <h3>
-                        DESIGN
-                    </h3>
+                    <h3>DESIGN</h3>
 
                     <p>
                         PLACEHOLDER DESCRIPTION OF YOUR
@@ -1053,13 +1858,9 @@
 
                 <div class="role-card">
 
-                    <span>
-                        03
-                    </span>
+                    <span>03</span>
 
-                    <h3>
-                        DEVELOPMENT
-                    </h3>
+                    <h3>DEVELOPMENT</h3>
 
                     <p>
                         PLACEHOLDER DESCRIPTION OF YOUR
@@ -1071,13 +1872,9 @@
 
                 <div class="role-card">
 
-                    <span>
-                        04
-                    </span>
+                    <span>04</span>
 
-                    <h3>
-                        WRITING
-                    </h3>
+                    <h3>WRITING</h3>
 
                     <p>
                         PLACEHOLDER DESCRIPTION OF YOUR
@@ -1089,13 +1886,9 @@
 
                 <div class="role-card">
 
-                    <span>
-                        05
-                    </span>
+                    <span>05</span>
 
-                    <h3>
-                        MODELLING
-                    </h3>
+                    <h3>MODELLING</h3>
 
                     <p>
                         PLACEHOLDER DESCRIPTION OF YOUR
@@ -1107,13 +1900,9 @@
 
                 <div class="role-card">
 
-                    <span>
-                        06
-                    </span>
+                    <span>06</span>
 
-                    <h3>
-                        OTHER
-                    </h3>
+                    <h3>OTHER</h3>
 
                     <p>
                         PLACEHOLDER DESCRIPTION OF ANY
@@ -1148,6 +1937,113 @@
         </a>
 
     </footer>
+
+
+    <div
+        class="popup"
+        id="artPopup"
+    >
+
+        <div class="popup-box">
+
+            <button
+                class="popup-close"
+                id="artPopupClose"
+                aria-label="Close artwork"
+            >
+                ×
+            </button>
+
+
+            <div class="popup-image">
+                IMAGE PLACEHOLDER
+            </div>
+
+
+            <h2
+                class="popup-title"
+                id="artPopupTitle"
+            >
+                Artwork Placeholder
+            </h2>
+
+
+            <p
+                class="popup-description"
+                id="artPopupDescription"
+            >
+                PLACEHOLDER DESCRIPTION.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const illustrations =
+            document.querySelectorAll(".illustration");
+
+        const artPopup =
+            document.getElementById("artPopup");
+
+        const artPopupClose =
+            document.getElementById("artPopupClose");
+
+        const artPopupTitle =
+            document.getElementById("artPopupTitle");
+
+        const artPopupDescription =
+            document.getElementById("artPopupDescription");
+
+
+        illustrations.forEach((art) => {
+
+            art.addEventListener("click", () => {
+
+                artPopupTitle.textContent =
+                    art.dataset.title;
+
+                artPopupDescription.textContent =
+                    art.dataset.description;
+
+                artPopup.classList.add("active");
+
+            });
+
+        });
+
+
+        artPopupClose.addEventListener("click", () => {
+
+            artPopup.classList.remove("active");
+
+        });
+
+
+        artPopup.addEventListener("click", (event) => {
+
+            if (event.target === artPopup) {
+
+                artPopup.classList.remove("active");
+
+            }
+
+        });
+
+
+        document.addEventListener("keydown", (event) => {
+
+            if (event.key === "Escape") {
+
+                artPopup.classList.remove("active");
+
+            }
+
+        });
+
+    </script>
 
 
 </body>
