@@ -35,13 +35,9 @@
 
 
         body {
-
             margin: 0;
-
             min-height: 100vh;
-
             color: var(--ink);
-
             font-family: Georgia, "Times New Roman", serif;
 
             background:
@@ -58,23 +54,16 @@
                 #382923;
 
             overflow-x: hidden;
-
         }
 
 
         body::before {
-
             content: "";
-
             position: fixed;
-
             inset: 0;
-
             pointer-events: none;
-
-            opacity: 0.18;
-
-            z-index: 20;
+            opacity: 0.15;
+            z-index: 30;
 
             background-image:
                 repeating-linear-gradient(
@@ -83,7 +72,6 @@
                     transparent 3px,
                     rgba(255,255,255,0.04) 4px
                 );
-
         }
 
 
@@ -92,30 +80,23 @@
            ======================================== */
 
         .top-nav {
-
             position: relative;
-
             z-index: 10;
 
-            padding: 25px 6%;
+            padding: 22px 6%;
 
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
-
         }
 
 
         .back-button {
-
             display: inline-block;
 
             padding: 12px 20px;
 
             color: var(--paper-light);
-
             text-decoration: none;
 
             border: 2px solid var(--blue);
@@ -127,31 +108,24 @@
             transition:
                 transform 0.2s ease,
                 background 0.2s ease;
-
         }
 
 
         .back-button:hover {
-
             transform:
                 translate(-3px, -3px)
                 rotate(-1deg);
 
             background: var(--blue-dark);
-
         }
 
 
         .nav-label {
-
             color: var(--paper);
 
             font-size: 12px;
-
             letter-spacing: 4px;
-
             text-transform: uppercase;
-
         }
 
 
@@ -160,12 +134,14 @@
            ======================================== */
 
         .hero {
-
             position: relative;
 
-            min-height: 90vh;
+            min-height: 74vh;
 
-            padding: 70px 7% 120px;
+            padding:
+                45px
+                7%
+                75px;
 
             background:
                 linear-gradient(
@@ -175,12 +151,10 @@
                 );
 
             overflow: hidden;
-
         }
 
 
         .hero::before {
-
             content: "";
 
             position: absolute;
@@ -188,19 +162,18 @@
             width: 650px;
             height: 650px;
 
-            border: 2px solid rgba(61, 101, 116, 0.3);
+            border:
+                2px solid
+                rgba(61, 101, 116, 0.3);
 
             border-radius: 50%;
 
             right: -180px;
-
             top: -180px;
-
         }
 
 
         .hero::after {
-
             content: "";
 
             position: absolute;
@@ -208,96 +181,80 @@
             width: 500px;
             height: 500px;
 
-            border: 2px solid rgba(155, 77, 67, 0.2);
+            border:
+                2px solid
+                rgba(155, 77, 67, 0.2);
 
             transform: rotate(14deg);
 
             left: -180px;
-
             bottom: -230px;
-
         }
 
 
         .scribble {
-
             position: absolute;
 
             width: 300px;
             height: 120px;
 
             border-top: 3px solid var(--blue-dark);
-
             border-bottom: 2px solid var(--red);
 
             transform: rotate(-8deg);
 
             opacity: 0.45;
-
         }
 
 
         .scribble.one {
-
             right: 10%;
-
             top: 28%;
-
         }
 
 
         .scribble.two {
-
             left: 8%;
-
             top: 15%;
 
             transform: rotate(12deg);
-
         }
 
 
         .hero-inner {
-
             position: relative;
-
             z-index: 2;
 
             max-width: 1200px;
-
             margin: auto;
-
         }
 
 
         .project-label {
-
             display: inline-block;
 
             padding: 8px 15px;
 
             background: var(--blue);
-
             color: white;
 
             font-size: 12px;
-
             letter-spacing: 3px;
-
             text-transform: uppercase;
 
             transform: rotate(-2deg);
 
             box-shadow: 5px 5px 0 var(--brown);
-
         }
 
 
         .hero h1 {
-
             max-width: 1000px;
 
-            margin: 45px 0 15px;
+            margin:
+                30px
+                0
+                12px;
 
             font-size: clamp(65px, 13vw, 170px);
 
@@ -312,12 +269,10 @@
                 9px 9px 0 rgba(74, 48, 37, 0.15);
 
             transform: rotate(-1deg);
-
         }
 
 
         .hero-subtitle {
-
             font-size: clamp(20px, 3vw, 32px);
 
             color: var(--blue-dark);
@@ -325,42 +280,37 @@
             font-style: italic;
 
             max-width: 700px;
-
         }
 
 
         .hero-description {
-
             max-width: 650px;
 
-            margin-top: 35px;
+            margin-top: 28px;
 
             font-size: 18px;
 
             line-height: 1.8;
-
         }
 
 
         .hero-stamp {
-
             position: absolute;
 
             right: 8%;
-
-            bottom: 16%;
+            bottom: 12%;
 
             width: 150px;
             height: 150px;
 
-            border: 4px solid var(--red);
+            border:
+                4px solid
+                var(--red);
 
             border-radius: 50%;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             text-align: center;
@@ -368,42 +318,41 @@
             color: var(--red);
 
             font-weight: bold;
-
             font-size: 13px;
-
             letter-spacing: 2px;
 
             transform: rotate(13deg);
 
             opacity: 0.7;
-
         }
 
 
         /* ========================================
-           MAIN CONTENT
+           CONTENT
            ======================================== */
 
         main {
-
             position: relative;
+            z-index: 3;
 
             max-width: 1250px;
 
-            margin: -40px auto 0;
+            margin:
+                -65px
+                auto
+                0;
 
-            padding: 0 30px 100px;
-
-            z-index: 3;
-
+            padding:
+                0
+                30px
+                100px;
         }
 
 
         .paper-section {
-
             position: relative;
 
-            margin-bottom: 80px;
+            margin-bottom: 75px;
 
             padding: 55px;
 
@@ -412,27 +361,24 @@
             box-shadow:
                 12px 14px 0 rgba(0,0,0,0.3),
                 -5px 4px 0 rgba(109,157,175,0.35);
-
         }
 
 
         .paper-section:nth-child(2) {
-
             transform: rotate(0.6deg);
-
         }
 
 
         .paper-section:nth-child(3) {
-
             transform: rotate(-0.4deg);
-
         }
 
 
         .section-title {
-
-            margin: 0 0 25px;
+            margin:
+                0
+                0
+                25px;
 
             font-size: clamp(35px, 5vw, 65px);
 
@@ -440,13 +386,12 @@
 
             line-height: 0.9;
 
-            text-shadow: 3px 3px 0 rgba(109,157,175,0.5);
-
+            text-shadow:
+                3px 3px 0 rgba(109,157,175,0.5);
         }
 
 
         .section-label {
-
             color: var(--red);
 
             font-size: 12px;
@@ -456,27 +401,23 @@
             text-transform: uppercase;
 
             font-weight: bold;
-
         }
 
 
         .text-columns {
-
             display: grid;
 
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns:
+                1fr
+                1fr;
 
             gap: 50px;
-
         }
 
 
         .text-columns p {
-
             font-size: 17px;
-
             line-height: 1.8;
-
         }
 
 
@@ -485,7 +426,6 @@
            ======================================== */
 
         .video-room {
-
             position: relative;
 
             padding: 20px;
@@ -494,19 +434,18 @@
 
             transform: rotate(-0.8deg);
 
-            box-shadow: 10px 10px 0 var(--blue-dark);
-
+            box-shadow:
+                10px 10px 0
+                var(--blue-dark);
         }
 
 
         .video-screen {
-
             aspect-ratio: 16 / 9;
 
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
             background:
@@ -518,7 +457,9 @@
                     #27201c 20px
                 );
 
-            border: 3px solid var(--paper);
+            border:
+                3px solid
+                var(--paper);
 
             color: var(--paper);
 
@@ -527,12 +468,10 @@
             font-size: 18px;
 
             letter-spacing: 3px;
-
         }
 
 
         .video-caption {
-
             color: var(--paper-light);
 
             margin-top: 15px;
@@ -542,37 +481,31 @@
             letter-spacing: 2px;
 
             text-transform: uppercase;
-
         }
 
 
         /* ========================================
-           SCATTERED ART
+           MESSY GALLERY
            ======================================== */
 
         .messy-gallery {
-
             position: relative;
 
-            min-height: 850px;
+            min-height: 760px;
 
             margin-top: 40px;
-
         }
 
 
         .messy-image {
-
             position: absolute;
 
             width: 250px;
-
             height: 310px;
 
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
             text-align: center;
@@ -581,10 +514,13 @@
 
             background: #eee2c5;
 
-            border: 8px solid #f2e8d0;
+            border:
+                8px solid
+                #f2e8d0;
 
             box-shadow:
-                6px 8px 0 rgba(45,29,24,0.35);
+                6px 8px 0
+                rgba(45,29,24,0.35);
 
             color: var(--brown);
 
@@ -592,11 +528,27 @@
 
             letter-spacing: 2px;
 
+            cursor: pointer;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+        .messy-image:hover {
+            transform:
+                translateY(-10px)
+                rotate(0deg)
+                scale(1.03);
+
+            box-shadow:
+                10px 14px 0
+                rgba(45,29,24,0.35);
         }
 
 
         .messy-image::before {
-
             content: "";
 
             position: absolute;
@@ -605,106 +557,56 @@
             height: 25px;
 
             top: -17px;
-
             left: 50%;
 
-            transform: translateX(-50%) rotate(-4deg);
+            transform:
+                translateX(-50%)
+                rotate(-4deg);
 
-            background: rgba(109,157,175,0.7);
-
+            background:
+                rgba(109,157,175,0.7);
         }
 
 
         .messy-image:nth-child(1) {
-
             left: 2%;
-
             top: 40px;
-
             transform: rotate(-7deg);
-
         }
 
 
         .messy-image:nth-child(2) {
-
             right: 3%;
-
             top: 10px;
-
             transform: rotate(6deg);
-
         }
 
 
         .messy-image:nth-child(3) {
-
             left: 31%;
-
             top: 150px;
-
             transform: rotate(3deg);
-
         }
 
 
         .messy-image:nth-child(4) {
-
             left: 8%;
-
-            top: 430px;
-
+            top: 420px;
             transform: rotate(8deg);
-
         }
 
 
         .messy-image:nth-child(5) {
-
             right: 30%;
-
-            top: 500px;
-
+            top: 490px;
             transform: rotate(-5deg);
-
         }
 
 
         .messy-image:nth-child(6) {
-
             right: 2%;
-
-            top: 400px;
-
+            top: 390px;
             transform: rotate(9deg);
-
-        }
-
-
-        .scribbled-note {
-
-            position: absolute;
-
-            left: 39%;
-
-            bottom: 10px;
-
-            width: 280px;
-
-            padding: 25px;
-
-            background: var(--blue);
-
-            color: white;
-
-            transform: rotate(-4deg);
-
-            box-shadow: 7px 8px 0 var(--brown);
-
-            font-family: "Comic Sans MS", cursive;
-
-            line-height: 1.5;
-
         }
 
 
@@ -713,55 +615,178 @@
            ======================================== */
 
         .contribution-grid {
-
             display: grid;
 
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns:
+                repeat(3, 1fr);
 
             gap: 20px;
-
         }
 
 
         .contribution-card {
-
             min-height: 180px;
 
             padding: 25px;
 
-            border: 3px solid var(--brown);
+            border:
+                3px solid
+                var(--brown);
 
             background: var(--paper);
 
             transform: rotate(-1deg);
-
         }
 
 
         .contribution-card:nth-child(even) {
-
             transform: rotate(1.5deg);
 
             background: #d0e0df;
-
         }
 
 
         .contribution-card h3 {
-
             margin-top: 0;
 
             color: var(--red);
 
             font-size: 18px;
-
         }
 
 
         .contribution-card p {
-
             line-height: 1.6;
+        }
 
+
+        /* ========================================
+           POPUP
+           ======================================== */
+
+        .popup {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 100;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+
+            background:
+                rgba(20, 12, 10, 0.82);
+
+            backdrop-filter: blur(7px);
+        }
+
+
+        .popup.active {
+            display: flex;
+        }
+
+
+        .popup-box {
+            position: relative;
+
+            width: min(900px, 100%);
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            padding: 25px;
+
+            background: var(--paper-light);
+
+            border:
+                3px solid
+                var(--brown);
+
+            box-shadow:
+                15px 15px 0
+                var(--blue-dark);
+
+            transform: rotate(-0.5deg);
+        }
+
+
+        .popup-image {
+            min-height: 430px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background:
+                radial-gradient(
+                    circle at 30% 30%,
+                    rgba(109,157,175,0.25),
+                    transparent 35%
+                ),
+                #c7b58f;
+
+            border:
+                2px dashed
+                var(--brown);
+
+            color: var(--brown);
+
+            letter-spacing: 3px;
+
+            text-align: center;
+        }
+
+
+        .popup-title {
+            margin:
+                25px
+                0
+                10px;
+
+            color: var(--brown);
+
+            font-size: 32px;
+        }
+
+
+        .popup-description {
+            color: var(--ink);
+
+            line-height: 1.8;
+
+            font-size: 17px;
+        }
+
+
+        .popup-close {
+            position: absolute;
+
+            top: 10px;
+            right: 10px;
+
+            width: 42px;
+            height: 42px;
+
+            border:
+                2px solid
+                var(--brown);
+
+            background:
+                var(--red);
+
+            color: white;
+
+            cursor: pointer;
+
+            font-size: 22px;
+
+            z-index: 2;
         }
 
 
@@ -770,7 +795,6 @@
            ======================================== */
 
         footer {
-
             padding: 70px 20px;
 
             text-align: center;
@@ -778,12 +802,10 @@
             color: var(--paper);
 
             background: var(--brown-dark);
-
         }
 
 
         footer a {
-
             display: inline-block;
 
             margin-top: 20px;
@@ -792,96 +814,80 @@
 
             color: var(--paper);
 
-            border: 2px solid var(--blue);
+            border:
+                2px solid
+                var(--blue);
 
             text-decoration: none;
-
         }
 
 
         @media (max-width: 800px) {
 
             .hero {
-
-                padding: 60px 25px 100px;
-
+                padding:
+                    40px
+                    25px
+                    70px;
             }
 
 
             .hero h1 {
-
                 letter-spacing: -4px;
-
             }
 
 
             .hero-stamp {
-
                 display: none;
-
             }
 
 
             main {
-
-                padding: 0 15px 70px;
-
+                padding:
+                    0
+                    15px
+                    70px;
             }
 
 
             .paper-section {
-
                 padding: 30px 22px;
-
             }
 
 
             .text-columns,
             .contribution-grid {
-
                 grid-template-columns: 1fr;
-
             }
 
 
             .messy-gallery {
-
                 min-height: auto;
 
                 display: grid;
 
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns:
+                    1fr
+                    1fr;
 
                 gap: 25px;
-
             }
 
 
             .messy-image {
-
                 position: relative;
 
                 width: 100%;
-
                 height: 280px;
 
                 inset: auto !important;
 
+                transform: none !important;
             }
 
 
-            .scribbled-note {
-
-                position: relative;
-
-                left: auto;
-
-                bottom: auto;
-
-                width: auto;
-
-                grid-column: 1 / -1;
-
+            .popup-image {
+                min-height: 280px;
             }
 
         }
@@ -890,16 +896,7 @@
         @media (max-width: 500px) {
 
             .messy-gallery {
-
                 grid-template-columns: 1fr;
-
-            }
-
-
-            .messy-image {
-
-                grid-column: auto;
-
             }
 
         }
@@ -921,6 +918,7 @@
             ← BACK TO PORTFOLIO
         </a>
 
+
         <span class="nav-label">
             PROJECT / 01
         </span>
@@ -938,7 +936,7 @@
         <div class="hero-inner">
 
             <span class="project-label">
-                UNIVERSITY PROJECT
+                UNIVERSITY GROUP PROJECT
             </span>
 
 
@@ -981,6 +979,7 @@
                 THE PROJECT
             </span>
 
+
             <h2 class="section-title">
                 A BOOK FALLING APART.
             </h2>
@@ -991,7 +990,7 @@
                 <div>
 
                     <p>
-                        PLACEHOLDER PROJECT DESCRIPTION
+                        PLACEHOLDER PROJECT DESCRIPTION.
                     </p>
 
                     <p>
@@ -1027,6 +1026,7 @@
                 GAMEPLAY
             </span>
 
+
             <h2 class="section-title">
                 VIDEO / PLAYTHROUGH
             </h2>
@@ -1035,9 +1035,7 @@
             <div class="video-room">
 
                 <div class="video-screen">
-
                     VIDEO PLACEHOLDER
-
                 </div>
 
 
@@ -1056,6 +1054,7 @@
                 DEVELOPMENT
             </span>
 
+
             <h2 class="section-title">
                 THINGS I MADE.
             </h2>
@@ -1064,42 +1063,57 @@
             <div class="messy-gallery">
 
 
-                <div class="messy-image">
+                <div
+                    class="messy-image"
+                    data-title="Artwork Placeholder"
+                    data-description="PLACEHOLDER DESCRIPTION FOR THIS ARTWORK. Add information about what the image shows, what you created and how it contributed to Bibliocide."
+                >
                     ARTWORK PLACEHOLDER
                 </div>
 
 
-                <div class="messy-image">
+                <div
+                    class="messy-image"
+                    data-title="Character Art Placeholder"
+                    data-description="PLACEHOLDER DESCRIPTION FOR THIS CHARACTER ART. Explain the character, your design process and your contribution."
+                >
                     CHARACTER ART PLACEHOLDER
                 </div>
 
 
-                <div class="messy-image">
+                <div
+                    class="messy-image"
+                    data-title="Environment Placeholder"
+                    data-description="PLACEHOLDER DESCRIPTION FOR THIS ENVIRONMENT. Explain what part of the game it represents and what you worked on."
+                >
                     ENVIRONMENT PLACEHOLDER
                 </div>
 
 
-                <div class="messy-image">
+                <div
+                    class="messy-image"
+                    data-title="Puzzle or Prop Placeholder"
+                    data-description="PLACEHOLDER DESCRIPTION FOR THIS PUZZLE OR PROP. Explain its purpose within the game and what you created."
+                >
                     PUZZLE / PROP PLACEHOLDER
                 </div>
 
 
-                <div class="messy-image">
+                <div
+                    class="messy-image"
+                    data-title="Concept Art Placeholder"
+                    data-description="PLACEHOLDER DESCRIPTION FOR THIS CONCEPT ART. Explain how the concept developed and what decisions you made."
+                >
                     CONCEPT ART PLACEHOLDER
                 </div>
 
 
-                <div class="messy-image">
+                <div
+                    class="messy-image"
+                    data-title="Gameplay Screenshot Placeholder"
+                    data-description="PLACEHOLDER DESCRIPTION FOR THIS SCREENSHOT. Explain what is happening in the image and what part you worked on."
+                >
                     SCREENSHOT PLACEHOLDER
-                </div>
-
-
-                <div class="scribbled-note">
-
-                    PLACEHOLDER DEVELOPMENT NOTE.
-                    Add a short handwritten-style note
-                    about this part of the project here.
-
                 </div>
 
 
@@ -1114,6 +1128,7 @@
                 MY ROLE
             </span>
 
+
             <h2 class="section-title">
                 WHAT I DID.
             </h2>
@@ -1123,86 +1138,38 @@
 
 
                 <div class="contribution-card">
-
-                    <h3>
-                        ART
-                    </h3>
-
-                    <p>
-                        PLACEHOLDER DESCRIPTION OF YOUR
-                        ART CONTRIBUTION.
-                    </p>
-
+                    <h3>ART</h3>
+                    <p>PLACEHOLDER DESCRIPTION OF YOUR ART CONTRIBUTION.</p>
                 </div>
 
 
                 <div class="contribution-card">
-
-                    <h3>
-                        WRITING
-                    </h3>
-
-                    <p>
-                        PLACEHOLDER DESCRIPTION OF YOUR
-                        WRITING AND NARRATIVE CONTRIBUTION.
-                    </p>
-
+                    <h3>WRITING</h3>
+                    <p>PLACEHOLDER DESCRIPTION OF YOUR WRITING AND NARRATIVE CONTRIBUTION.</p>
                 </div>
 
 
                 <div class="contribution-card">
-
-                    <h3>
-                        AUDIO
-                    </h3>
-
-                    <p>
-                        PLACEHOLDER DESCRIPTION OF YOUR
-                        MUSIC AND SOUND CONTRIBUTION.
-                    </p>
-
+                    <h3>AUDIO</h3>
+                    <p>PLACEHOLDER DESCRIPTION OF YOUR MUSIC AND SOUND CONTRIBUTION.</p>
                 </div>
 
 
                 <div class="contribution-card">
-
-                    <h3>
-                        VOICE
-                    </h3>
-
-                    <p>
-                        PLACEHOLDER DESCRIPTION OF YOUR
-                        VOICE ACTING CONTRIBUTION.
-                    </p>
-
+                    <h3>VOICE</h3>
+                    <p>PLACEHOLDER DESCRIPTION OF YOUR VOICE ACTING CONTRIBUTION.</p>
                 </div>
 
 
                 <div class="contribution-card">
-
-                    <h3>
-                        DESIGN
-                    </h3>
-
-                    <p>
-                        PLACEHOLDER DESCRIPTION OF YOUR
-                        DESIGN AND DEVELOPMENT CONTRIBUTION.
-                    </p>
-
+                    <h3>DESIGN</h3>
+                    <p>PLACEHOLDER DESCRIPTION OF YOUR DESIGN AND DEVELOPMENT CONTRIBUTION.</p>
                 </div>
 
 
                 <div class="contribution-card">
-
-                    <h3>
-                        PRODUCTION
-                    </h3>
-
-                    <p>
-                        PLACEHOLDER DESCRIPTION OF YOUR
-                        PROJECT LEADERSHIP CONTRIBUTION.
-                    </p>
-
+                    <h3>PRODUCTION</h3>
+                    <p>PLACEHOLDER DESCRIPTION OF YOUR PROJECT LEADERSHIP CONTRIBUTION.</p>
                 </div>
 
 
@@ -1220,11 +1187,122 @@
             END OF PROJECT / BIBLIOCIDE
         </div>
 
+
         <a href="./index.html">
             BACK TO PORTFOLIO
         </a>
 
     </footer>
+
+
+    <div
+        class="popup"
+        id="imagePopup"
+    >
+
+        <div class="popup-box">
+
+            <button
+                class="popup-close"
+                id="popupClose"
+                aria-label="Close artwork"
+            >
+                ×
+            </button>
+
+
+            <div
+                class="popup-image"
+                id="popupImage"
+            >
+                IMAGE PLACEHOLDER
+            </div>
+
+
+            <h2
+                class="popup-title"
+                id="popupTitle"
+            >
+                Artwork Placeholder
+            </h2>
+
+
+            <p
+                class="popup-description"
+                id="popupDescription"
+            >
+                PLACEHOLDER DESCRIPTION.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const galleryImages =
+            document.querySelectorAll(".messy-image");
+
+        const popup =
+            document.getElementById("imagePopup");
+
+        const popupClose =
+            document.getElementById("popupClose");
+
+        const popupTitle =
+            document.getElementById("popupTitle");
+
+        const popupDescription =
+            document.getElementById("popupDescription");
+
+
+        galleryImages.forEach((image) => {
+
+            image.addEventListener("click", () => {
+
+                popupTitle.textContent =
+                    image.dataset.title;
+
+                popupDescription.textContent =
+                    image.dataset.description;
+
+                popup.classList.add("active");
+
+            });
+
+        });
+
+
+        popupClose.addEventListener("click", () => {
+
+            popup.classList.remove("active");
+
+        });
+
+
+        popup.addEventListener("click", (event) => {
+
+            if (event.target === popup) {
+
+                popup.classList.remove("active");
+
+            }
+
+        });
+
+
+        document.addEventListener("keydown", (event) => {
+
+            if (event.key === "Escape") {
+
+                popup.classList.remove("active");
+
+            }
+
+        });
+
+    </script>
 
 
 </body>
