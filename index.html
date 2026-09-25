@@ -7,7 +7,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Fish Heard - Game Designer & Artist</title>
+    <title>Fish Heard - Game Designer &amp; Artist</title>
 
     <style>
 
@@ -45,7 +45,7 @@
 
 
         /* ========================================
-           MOVING BACKGROUND
+           BACKGROUND BLOBS
            ======================================== */
 
         .blob {
@@ -99,63 +99,38 @@
 
 
         @keyframes pinkMovement {
-
             0% {
                 transform: translate(0, 0) scale(1);
-            }
-
-            25% {
-                transform: translate(180px, 80px) scale(1.15);
             }
 
             50% {
                 transform: translate(350px, 20px) scale(0.9);
             }
 
-            75% {
-                transform: translate(250px, 220px) scale(1.2);
-            }
-
             100% {
                 transform: translate(500px, 150px) scale(1);
             }
-
         }
 
 
         @keyframes tealMovement {
-
             0% {
                 transform: translate(0, 0) scale(1);
-            }
-
-            25% {
-                transform: translate(-160px, -100px) scale(1.15);
             }
 
             50% {
                 transform: translate(-350px, -40px) scale(0.9);
             }
 
-            75% {
-                transform: translate(-250px, -250px) scale(1.2);
-            }
-
             100% {
                 transform: translate(-500px, -120px) scale(1);
             }
-
         }
 
 
         @keyframes pinkSmallMovement {
-
             0% {
                 transform: translate(0, 0) scale(1);
-            }
-
-            30% {
-                transform: translate(-180px, 160px) scale(1.3);
             }
 
             60% {
@@ -165,18 +140,12 @@
             100% {
                 transform: translate(200px, 220px) scale(1.15);
             }
-
         }
 
 
         @keyframes tealSmallMovement {
-
             0% {
                 transform: translate(0, 0) scale(1);
-            }
-
-            30% {
-                transform: translate(200px, -120px) scale(1.25);
             }
 
             60% {
@@ -186,67 +155,6 @@
             100% {
                 transform: translate(100px, -350px) scale(1.2);
             }
-
-        }
-
-
-        /* ========================================
-           DECORATIVE SHAPES
-           ======================================== */
-
-        .decor-square {
-            position: absolute;
-            width: 90px;
-            height: 90px;
-            border: 2px solid rgba(232, 143, 166, 0.35);
-            transform: rotate(14deg);
-            pointer-events: none;
-        }
-
-
-        .decor-circle {
-            position: absolute;
-            width: 45px;
-            height: 45px;
-            border: 2px solid rgba(3, 108, 95, 0.55);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-
-        .decor-line {
-            position: absolute;
-            width: 100px;
-            height: 2px;
-            background: var(--pink);
-            opacity: 0.45;
-            transform: rotate(-25deg);
-            pointer-events: none;
-        }
-
-
-        .section-decoration {
-            position: absolute;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-
-        .section-decoration.one {
-            top: 120px;
-            left: 4%;
-        }
-
-
-        .section-decoration.two {
-            top: 55%;
-            right: 4%;
-        }
-
-
-        .section-decoration.three {
-            bottom: 100px;
-            left: 8%;
         }
 
 
@@ -264,7 +172,6 @@
             align-items: center;
             text-align: center;
             padding: 40px;
-            overflow: hidden;
         }
 
 
@@ -273,34 +180,27 @@
             position: absolute;
             width: 650px;
             height: 650px;
-            border: 1px solid rgba(232, 143, 166, 0.14);
+            border: 1px solid rgba(232, 143, 166, 0.15);
             border-radius: 50%;
-            z-index: -1;
-            animation: landingRing 18s linear infinite;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: -2;
         }
 
 
         .landing::after {
             content: "";
             position: absolute;
-            width: 430px;
-            height: 430px;
-            border: 1px solid rgba(3, 108, 95, 0.18);
-            transform: rotate(25deg);
+            width: 500px;
+            height: 500px;
+            border: 1px solid rgba(3, 108, 95, 0.16);
+            transform: translate(-50%, -50%) rotate(25deg);
+            left: 50%;
+            top: 50%;
+            pointer-events: none;
             z-index: -1;
-        }
-
-
-        @keyframes landingRing {
-
-            from {
-                transform: rotate(0deg) scale(1);
-            }
-
-            to {
-                transform: rotate(360deg) scale(1.08);
-            }
-
         }
 
 
@@ -311,9 +211,8 @@
             letter-spacing: -5px;
             -webkit-text-stroke: 1px var(--text);
             text-shadow:
-                5px 5px 0 var(--teal-dark),
+                4px 4px 0 var(--teal-dark),
                 0 0 25px rgba(3, 108, 95, 0.3);
-            position: relative;
         }
 
 
@@ -323,8 +222,6 @@
             color: var(--pink);
             letter-spacing: 2px;
             -webkit-text-stroke: 0.4px var(--text);
-            text-shadow:
-                0 0 12px rgba(232, 143, 166, 0.2);
         }
 
 
@@ -338,7 +235,7 @@
 
 
         /* ========================================
-           NAVIGATION
+           BUTTONS
            ======================================== */
 
         .navigation {
@@ -352,7 +249,6 @@
 
 
         .button {
-            position: relative;
             display: inline-block;
             padding: 14px 24px;
             background: var(--teal);
@@ -365,12 +261,11 @@
             letter-spacing: 1px;
             text-decoration: none;
             transition:
-                transform 0.25s ease,
-                background 0.25s ease,
-                color 0.25s ease,
-                border-color 0.25s ease,
-                box-shadow 0.25s ease;
-            box-shadow: 5px 5px 0 rgba(156, 63, 87, 0.35);
+                transform 0.2s ease,
+                background 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease;
+            box-shadow: 6px 6px 0 rgba(156, 63, 87, 0.5);
         }
 
 
@@ -381,12 +276,12 @@
             transform:
                 translateY(-5px)
                 rotate(-2deg);
-            box-shadow: 8px 8px 0 rgba(3, 108, 95, 0.45);
+            box-shadow: 8px 8px 0 rgba(3, 108, 95, 0.55);
         }
 
 
         /* ========================================
-           SOCIAL LINKS
+           SOCIALS
            ======================================== */
 
         .socials {
@@ -453,28 +348,12 @@
             z-index: 1;
             min-height: 100vh;
             padding: 120px 8%;
-            overflow: hidden;
         }
 
 
         .section-heading {
-            position: relative;
-            z-index: 2;
             text-align: center;
             margin-bottom: 70px;
-        }
-
-
-        .section-heading::before {
-            content: "";
-            position: absolute;
-            width: 85px;
-            height: 85px;
-            border: 1px solid rgba(232, 143, 166, 0.25);
-            transform: rotate(18deg);
-            left: calc(50% - 42px);
-            top: -20px;
-            z-index: -1;
         }
 
 
@@ -502,9 +381,22 @@
 
         #about {
             background:
-                radial-gradient(circle at 15% 20%, rgba(3, 108, 95, 0.12), transparent 35%),
-                radial-gradient(circle at 85% 80%, rgba(232, 143, 166, 0.08), transparent 35%),
-                linear-gradient(180deg, rgba(5, 7, 7, 0.2), rgba(156, 63, 87, 0.06));
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(3, 108, 95, 0.12),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 85% 80%,
+                    rgba(232, 143, 166, 0.08),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    180deg,
+                    rgba(5, 7, 7, 0.2),
+                    rgba(156, 63, 87, 0.06)
+                );
+            overflow: hidden;
         }
 
 
@@ -512,7 +404,6 @@
             max-width: 1200px;
             margin: 0 auto;
             position: relative;
-            z-index: 2;
         }
 
 
@@ -520,7 +411,6 @@
             display: none;
             min-height: 620px;
             animation: aboutSlideIn 0.55s ease;
-            position: relative;
         }
 
 
@@ -530,7 +420,6 @@
 
 
         @keyframes aboutSlideIn {
-
             from {
                 opacity: 0;
                 transform: translateX(35px);
@@ -540,7 +429,6 @@
                 opacity: 1;
                 transform: translateX(0);
             }
-
         }
 
 
@@ -555,8 +443,16 @@
             min-height: 500px;
             border: 2px solid var(--teal);
             background:
-                radial-gradient(circle at 70% 30%, rgba(232, 143, 166, 0.28), transparent 30%),
-                radial-gradient(circle at 30% 70%, rgba(3, 108, 95, 0.38), transparent 40%),
+                radial-gradient(
+                    circle at 70% 30%,
+                    rgba(232, 143, 166, 0.28),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 30% 70%,
+                    rgba(3, 108, 95, 0.38),
+                    transparent 40%
+                ),
                 #0A1514;
             display: flex;
             align-items: center;
@@ -567,8 +463,7 @@
             position: relative;
             overflow: hidden;
             box-shadow:
-                16px 16px 0 rgba(156, 63, 87, 0.28),
-                -8px -8px 0 rgba(3, 108, 95, 0.2);
+                14px 14px 0 rgba(156, 63, 87, 0.28);
         }
 
 
@@ -602,7 +497,6 @@
 
 
         @keyframes aboutBlob {
-
             from {
                 transform: translate(0, 0) scale(1);
             }
@@ -610,48 +504,6 @@
             to {
                 transform: translate(30px, 20px) scale(1.2);
             }
-
-        }
-
-
-        .image-corner {
-            position: absolute;
-            width: 55px;
-            height: 55px;
-            border-color: var(--pink);
-            border-style: solid;
-            opacity: 0.7;
-        }
-
-
-        .image-corner.top-left {
-            top: 18px;
-            left: 18px;
-            border-width: 2px 0 0 2px;
-        }
-
-
-        .image-corner.bottom-right {
-            bottom: 18px;
-            right: 18px;
-            border-width: 0 2px 2px 0;
-        }
-
-
-        .pronoun-box {
-            position: absolute;
-            bottom: 25px;
-            left: 25px;
-            padding: 10px 16px;
-            background: var(--pink);
-            color: var(--black);
-            border: 2px solid var(--text);
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            box-shadow: 5px 5px 0 var(--pink-dark);
-            transform: rotate(-3deg);
-            z-index: 3;
         }
 
 
@@ -714,26 +566,6 @@
         }
 
 
-        .style-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 20px 0 35px;
-        }
-
-
-        .style-tags span {
-            padding: 9px 14px;
-            border: 1px solid var(--pink-dark);
-            color: var(--pink);
-            background: rgba(232, 143, 166, 0.05);
-            font-size: 11px;
-            letter-spacing: 2px;
-            font-weight: bold;
-            box-shadow: 4px 4px 0 rgba(3, 108, 95, 0.18);
-        }
-
-
         .about-skills {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -742,28 +574,13 @@
 
 
         .about-skill {
-            position: relative;
             border: 1px solid rgba(3, 108, 95, 0.55);
             padding: 25px;
             background: rgba(3, 108, 95, 0.04);
             transition:
                 transform 0.3s ease,
                 border-color 0.3s ease,
-                background 0.3s ease,
-                box-shadow 0.3s ease;
-        }
-
-
-        .about-skill::before {
-            content: "";
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            top: 12px;
-            right: 12px;
-            border-radius: 50%;
-            background: var(--pink);
-            opacity: 0.6;
+                background 0.3s ease;
         }
 
 
@@ -771,7 +588,6 @@
             transform: translateY(-5px);
             border-color: var(--pink);
             background: rgba(232, 143, 166, 0.06);
-            box-shadow: 7px 7px 0 rgba(156, 63, 87, 0.2);
         }
 
 
@@ -798,34 +614,9 @@
 
 
         .timeline-item {
-            position: relative;
-            padding: 30px;
-            border: 1px solid rgba(3, 108, 95, 0.5);
-            border-left: 4px solid var(--teal);
+            padding: 25px;
+            border-left: 3px solid var(--teal);
             background: rgba(3, 108, 95, 0.04);
-            transition:
-                transform 0.3s ease,
-                border-color 0.3s ease,
-                box-shadow 0.3s ease;
-        }
-
-
-        .timeline-item:hover {
-            transform: translateY(-5px);
-            border-color: var(--pink);
-            box-shadow: 7px 7px 0 rgba(156, 63, 87, 0.18);
-        }
-
-
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 25px;
-            height: 25px;
-            border: 1px solid var(--pink-dark);
-            transform: rotate(45deg);
         }
 
 
@@ -853,10 +644,10 @@
 
         .about-highlight {
             margin-top: 30px;
-            padding: 30px;
+            padding: 25px;
             border: 1px solid var(--pink-dark);
             background: rgba(156, 63, 87, 0.06);
-            box-shadow: 8px 8px 0 rgba(3, 108, 95, 0.14);
+            box-shadow: 10px 10px 0 rgba(3, 108, 95, 0.12);
         }
 
 
@@ -895,26 +686,7 @@
         .about-work-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-
-        .about-work-grid > div {
-            padding: 28px;
-            border: 1px solid rgba(3, 108, 95, 0.45);
-            background: rgba(3, 108, 95, 0.035);
-            position: relative;
-            transition:
-                transform 0.3s ease,
-                border-color 0.3s ease,
-                box-shadow 0.3s ease;
-        }
-
-
-        .about-work-grid > div:hover {
-            transform: translateY(-5px);
-            border-color: var(--pink);
-            box-shadow: 7px 7px 0 rgba(156, 63, 87, 0.18);
+            gap: 35px 60px;
         }
 
 
@@ -956,17 +728,6 @@
             padding: 22px;
             border: 1px solid rgba(3, 108, 95, 0.5);
             background: rgba(3, 108, 95, 0.04);
-            transition:
-                transform 0.3s ease,
-                border-color 0.3s ease,
-                box-shadow 0.3s ease;
-        }
-
-
-        .about-favourites > div:hover {
-            transform: rotate(-1deg) translateY(-4px);
-            border-color: var(--pink);
-            box-shadow: 5px 5px 0 rgba(156, 63, 87, 0.18);
         }
 
 
@@ -993,47 +754,11 @@
         }
 
 
-        .dragon-card {
-            margin-top: 20px;
-            padding: 25px;
-            border: 2px solid var(--pink-dark);
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(232, 143, 166, 0.08),
-                    rgba(3, 108, 95, 0.06)
-                );
-            box-shadow: 8px 8px 0 rgba(3, 108, 95, 0.14);
-        }
-
-
-        .dragon-card span {
-            color: var(--teal-light);
-            font-size: 11px;
-            letter-spacing: 3px;
-            font-weight: bold;
-        }
-
-
-        .dragon-card h3 {
-            margin: 8px 0;
-            color: var(--pink);
-            font-size: 25px;
-        }
-
-
-        .dragon-card p {
-            margin: 0;
-            font-size: 14px !important;
-        }
-
-
         .about-personal {
             margin-top: 40px;
             padding: 30px;
             border-top: 1px solid var(--pink-dark);
             border-bottom: 1px solid var(--pink-dark);
-            background: rgba(232, 143, 166, 0.025);
         }
 
 
@@ -1058,21 +783,18 @@
 
 
         .future-item {
-            position: relative;
             padding: 25px;
             border: 1px solid rgba(3, 108, 95, 0.55);
             background: rgba(3, 108, 95, 0.04);
             transition:
                 transform 0.3s ease,
-                border-color 0.3s ease,
-                box-shadow 0.3s ease;
+                border-color 0.3s ease;
         }
 
 
         .future-item:hover {
             transform: translateY(-5px);
             border-color: var(--pink);
-            box-shadow: 7px 7px 0 rgba(156, 63, 87, 0.18);
         }
 
 
@@ -1099,10 +821,9 @@
 
         .about-final {
             margin-top: 40px;
-            padding: 30px;
-            border-left: 4px solid var(--pink);
+            padding: 25px;
+            border-left: 3px solid var(--pink);
             background: rgba(232, 143, 166, 0.04);
-            box-shadow: 8px 8px 0 rgba(3, 108, 95, 0.12);
         }
 
 
@@ -1132,8 +853,7 @@
             transition:
                 background 0.25s ease,
                 color 0.25s ease,
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
+                transform 0.25s ease;
         }
 
 
@@ -1141,7 +861,6 @@
             background: var(--teal);
             color: var(--text);
             transform: scale(1.08);
-            box-shadow: 5px 5px 0 rgba(232, 143, 166, 0.25);
         }
 
 
@@ -1174,6 +893,627 @@
 
 
         /* ========================================
+           PROJECTS
+           ======================================== */
+
+        #projects {
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(5, 7, 7, 0.2),
+                    rgba(2, 80, 67, 0.12)
+                );
+        }
+
+
+        .project-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+
+        .project-card {
+            position: relative;
+            min-height: 470px;
+            overflow: hidden;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+
+        .project-card:hover {
+            transform:
+                translateY(-10px)
+                rotate(-1deg);
+        }
+
+
+        .project-art {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+
+
+        .project-art::before {
+            content: "";
+            position: absolute;
+            width: 230px;
+            height: 230px;
+            border-radius: 50%;
+            filter: blur(45px);
+            opacity: 0.35;
+        }
+
+
+        .project-info {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 30px;
+            padding-top: 130px;
+            background:
+                linear-gradient(
+                    transparent,
+                    rgba(5, 7, 7, 0.98) 38%
+                );
+        }
+
+
+        .project-number {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+
+        .project-info h3 {
+            margin: 0;
+            font-size: 29px;
+            letter-spacing: 1px;
+        }
+
+
+        .project-info p {
+            margin: 8px 0 0;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+
+        /* BIBLIOCIDE */
+
+        .project-bibliocide {
+            background:
+                linear-gradient(
+                    135deg,
+                    #4b342b,
+                    #836957 48%,
+                    #91c4d1
+                );
+            border: 2px solid #b9dbe2;
+            box-shadow:
+                10px 10px 0 rgba(74, 45, 36, 0.5);
+        }
+
+
+        .project-bibliocide::before {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 360px;
+            left: 15%;
+            top: 8%;
+            background: #d8c2a7;
+            transform: rotate(-7deg);
+            box-shadow:
+                12px 15px 0 rgba(44, 30, 25, 0.35);
+        }
+
+
+        .project-bibliocide::after {
+            content: "";
+            position: absolute;
+            width: 220px;
+            height: 300px;
+            right: 5%;
+            top: 20%;
+            background: #91c4d1;
+            transform: rotate(9deg);
+            opacity: 0.85;
+        }
+
+
+        .project-bibliocide .project-art::before {
+            background: #c78f72;
+            left: 10%;
+            bottom: 20%;
+        }
+
+
+        .project-bibliocide .project-number {
+            color: #b9dbe2;
+        }
+
+
+        .project-bibliocide .project-info h3 {
+            color: #eadfd3;
+            text-shadow: 3px 3px 0 #49332b;
+        }
+
+
+        .project-bibliocide .project-info p {
+            color: #91c4d1;
+        }
+
+
+        /* GROUP PROJECT */
+
+        .project-group {
+            background:
+                linear-gradient(
+                    145deg,
+                    #17111d,
+                    #30203d
+                );
+            border: 2px solid #8f67aa;
+            box-shadow:
+                10px 10px 0 rgba(8, 5, 12, 0.65);
+        }
+
+
+        .project-group::before {
+            content: "";
+            position: absolute;
+            width: 240px;
+            height: 270px;
+            left: 13%;
+            top: 10%;
+            background: #e8c9ef;
+            transform: rotate(-7deg);
+            box-shadow:
+                8px 10px 0 rgba(0, 0, 0, 0.4);
+        }
+
+
+        .project-group::after {
+            content: "";
+            position: absolute;
+            width: 210px;
+            height: 245px;
+            right: 8%;
+            top: 17%;
+            background: #b99bd1;
+            transform: rotate(8deg);
+            box-shadow:
+                8px 10px 0 rgba(0, 0, 0, 0.35);
+        }
+
+
+        .project-group .project-art::before {
+            background: #8e55aa;
+            right: 8%;
+            bottom: 15%;
+        }
+
+
+        .project-group .project-number {
+            color: #d8a9e8;
+        }
+
+
+        .project-group .project-info h3 {
+            color: #f0dcf5;
+            text-shadow: 3px 3px 0 #4c315c;
+        }
+
+
+        .project-group .project-info p {
+            color: #c899df;
+        }
+
+
+        /* UNDER WOOL AND BRIAR */
+
+        .project-wool {
+            background:
+                linear-gradient(
+                    145deg,
+                    #383542,
+                    #60455c 55%,
+                    #d48aa4
+                );
+            border: 2px solid #e5b6c7;
+            box-shadow:
+                10px 10px 0 rgba(51, 43, 54, 0.55);
+        }
+
+
+        .project-wool::before {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 330px;
+            left: 12%;
+            top: 8%;
+            background: #d8d1d5;
+            transform: rotate(-5deg);
+            box-shadow:
+                10px 12px 0 rgba(40, 34, 43, 0.35);
+        }
+
+
+        .project-wool::after {
+            content: "";
+            position: absolute;
+            width: 230px;
+            height: 285px;
+            right: 5%;
+            top: 15%;
+            background: #a76c90;
+            transform: rotate(8deg);
+            opacity: 0.9;
+        }
+
+
+        .project-wool .project-art::before {
+            background: #ef9db6;
+            left: 25%;
+            bottom: 20%;
+        }
+
+
+        .project-wool .project-number {
+            color: #f1b5c8;
+        }
+
+
+        .project-wool .project-info h3 {
+            color: #f2e6ea;
+            text-shadow: 3px 3px 0 #684b61;
+        }
+
+
+        .project-wool .project-info p {
+            color: #ef9db6;
+        }
+
+
+        /* ========================================
+           PERSONAL ART
+           ======================================== */
+
+        #art {
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(232, 143, 166, 0.08),
+                    transparent 35%
+                ),
+                rgba(3, 108, 95, 0.04);
+        }
+
+
+        .art-page-header {
+            max-width: 1200px;
+            margin: 0 auto 45px;
+            position: relative;
+            text-align: center;
+        }
+
+
+        .art-page-header::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 1px solid rgba(232, 143, 166, 0.12);
+            border-radius: 50%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+
+        .art-eyebrow {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid var(--pink-dark);
+            background: rgba(156, 63, 87, 0.08);
+            color: var(--pink);
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            box-shadow:
+                6px 6px 0 rgba(156, 63, 87, 0.18);
+        }
+
+
+        .art-page-header h2 {
+            margin: 25px 0 0;
+            font-size: clamp(42px, 7vw, 80px);
+            color: var(--pink);
+            text-shadow:
+                4px 4px 0 var(--pink-dark);
+        }
+
+
+        .art-page-header p {
+            max-width: 650px;
+            margin: 20px auto 0;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+
+        .art-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+
+        .art-card {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border: 2px solid rgba(232, 143, 166, 0.45);
+            background:
+                radial-gradient(
+                    circle at 30% 20%,
+                    rgba(232, 143, 166, 0.25),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 70% 80%,
+                    rgba(3, 108, 95, 0.35),
+                    transparent 40%
+                ),
+                #0A1514;
+            cursor: pointer;
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+
+        .art-card::before {
+            content: "";
+            position: absolute;
+            width: 65%;
+            height: 65%;
+            left: -15%;
+            top: -20%;
+            border-radius: 50%;
+            background: rgba(232, 143, 166, 0.12);
+            filter: blur(35px);
+            transition: transform 0.5s ease;
+        }
+
+
+        .art-card::after {
+            content: "";
+            position: absolute;
+            width: 55%;
+            height: 55%;
+            right: -20%;
+            bottom: -20%;
+            border-radius: 50%;
+            background: rgba(3, 108, 95, 0.15);
+            filter: blur(30px);
+            transition: transform 0.5s ease;
+        }
+
+
+        .art-card:hover {
+            transform:
+                translateY(-8px)
+                rotate(1deg);
+            border-color: var(--pink);
+            box-shadow:
+                10px 10px 0 rgba(156, 63, 87, 0.22),
+                0 20px 45px rgba(0, 0, 0, 0.45);
+        }
+
+
+        .art-card:hover::before {
+            transform: translate(35px, 25px) scale(1.15);
+        }
+
+
+        .art-card:hover::after {
+            transform: translate(-25px, -25px) scale(1.2);
+        }
+
+
+        .art-placeholder {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            color: rgba(241, 232, 229, 0.4);
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-align: center;
+        }
+
+
+        .art-placeholder span {
+            padding: 10px 15px;
+            border: 1px solid rgba(232, 143, 166, 0.25);
+            background: rgba(5, 7, 7, 0.4);
+        }
+
+
+        .more-art {
+            display: flex;
+            justify-content: center;
+            margin-top: 45px;
+        }
+
+
+        /* ========================================
+           ART POPUP
+           ======================================== */
+
+        .art-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            background: rgba(5, 7, 7, 0.88);
+            backdrop-filter: blur(12px);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition:
+                opacity 0.3s ease,
+                visibility 0.3s ease;
+        }
+
+
+        .art-modal.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+
+        .modal-content {
+            position: relative;
+            width: min(1000px, 95vw);
+            max-height: 90vh;
+            overflow: auto;
+            padding: 25px;
+            border: 2px solid var(--teal);
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(3, 108, 95, 0.18),
+                    rgba(5, 7, 7, 0.98)
+                );
+            box-shadow:
+                14px 14px 0 rgba(156, 63, 87, 0.35),
+                0 30px 80px rgba(0, 0, 0, 0.7);
+            transform: translateY(25px) scale(0.97);
+            transition: transform 0.3s ease;
+        }
+
+
+        .art-modal.active .modal-content {
+            transform: translateY(0) scale(1);
+        }
+
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--pink);
+            background: rgba(5, 7, 7, 0.85);
+            color: var(--pink);
+            font-size: 22px;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+
+        .modal-close:hover {
+            background: var(--pink);
+            color: var(--black);
+        }
+
+
+        .modal-art {
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid rgba(232, 143, 166, 0.35);
+            background:
+                radial-gradient(
+                    circle at 30% 30%,
+                    rgba(232, 143, 166, 0.2),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 70% 70%,
+                    rgba(3, 108, 95, 0.3),
+                    transparent 40%
+                ),
+                #0A1514;
+        }
+
+
+        .modal-art span {
+            padding: 15px 20px;
+            color: rgba(241, 232, 229, 0.4);
+            border: 1px solid rgba(232, 143, 166, 0.3);
+            background: rgba(5, 7, 7, 0.5);
+            font-size: 14px;
+            letter-spacing: 3px;
+        }
+
+
+        .modal-info {
+            padding: 30px 5px 5px;
+        }
+
+
+        .modal-number {
+            color: var(--teal-light);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+
+
+        .modal-title {
+            margin: 0;
+            color: var(--pink);
+            font-size: clamp(32px, 5vw, 55px);
+            line-height: 1;
+            text-shadow:
+                3px 3px 0 var(--pink-dark);
+        }
+
+
+        .modal-description {
+            max-width: 800px;
+            margin: 20px 0 0;
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+
+        /* ========================================
            CONTACT
            ======================================== */
 
@@ -1185,33 +1525,6 @@
             border-top:
                 1px solid
                 rgba(232, 143, 166, 0.25);
-            position: relative;
-        }
-
-
-        .contact::before {
-            content: "";
-            position: absolute;
-            width: 160px;
-            height: 160px;
-            border: 1px solid rgba(232, 143, 166, 0.2);
-            transform: rotate(20deg);
-            top: 50px;
-            left: 5%;
-            z-index: -1;
-        }
-
-
-        .contact::after {
-            content: "";
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: rgba(3, 108, 95, 0.08);
-            right: 8%;
-            bottom: 50px;
-            z-index: -1;
         }
 
 
@@ -1219,8 +1532,6 @@
             margin: 0;
             font-size: clamp(40px, 6vw, 70px);
             color: var(--text);
-            text-shadow:
-                4px 4px 0 var(--teal-dark);
         }
 
 
@@ -1242,346 +1553,16 @@
                 2px solid
                 var(--pink);
             padding-bottom: 5px;
-            transition:
-                color 0.25s ease,
-                transform 0.25s ease;
         }
 
 
         .email:hover {
             color: var(--teal-light);
-            transform: translateY(-3px);
-        }
-
-
-        .contact .socials {
-            margin-top: 35px;
         }
 
 
         /* ========================================
-           PREVIOUS PROJECTS
-           ======================================== */
-
-        #projects {
-            background:
-                radial-gradient(circle at 10% 20%, rgba(232, 143, 166, 0.08), transparent 30%),
-                linear-gradient(
-                    180deg,
-                    rgba(5, 7, 7, 0.2),
-                    rgba(2, 80, 67, 0.12)
-                );
-        }
-
-
-        .project-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-
-        .project-card {
-            position: relative;
-            min-height: 430px;
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(3, 108, 95, 0.28),
-                    rgba(5, 7, 7, 0.9)
-                );
-            border: 2px solid rgba(3, 108, 95, 0.7);
-            overflow: hidden;
-            cursor: pointer;
-            transition:
-                transform 0.35s ease,
-                border-color 0.35s ease,
-                box-shadow 0.35s ease;
-        }
-
-
-        .project-card:nth-child(2) {
-            transform: translateY(25px);
-        }
-
-
-        .project-card:nth-child(2):hover {
-            transform: translateY(15px) rotate(1deg);
-        }
-
-
-        .project-card:nth-child(3) {
-            transform: translateY(-10px);
-        }
-
-
-        .project-card:nth-child(3):hover {
-            transform: translateY(-20px) rotate(-1deg);
-        }
-
-
-        .project-card::before {
-            content: "";
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            border: 1px solid rgba(232, 143, 166, 0.3);
-            transform: rotate(35deg);
-            top: -50px;
-            right: -50px;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-
-        .project-number {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 3;
-            padding: 7px 10px;
-            border: 1px solid var(--pink-dark);
-            background: rgba(5, 7, 7, 0.75);
-            color: var(--pink);
-            font-size: 11px;
-            letter-spacing: 2px;
-        }
-
-
-        .placeholder-art {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background:
-                radial-gradient(
-                    circle at 30% 30%,
-                    rgba(232, 143, 166, 0.2),
-                    transparent 35%
-                ),
-                radial-gradient(
-                    circle at 70% 70%,
-                    rgba(3, 108, 95, 0.3),
-                    transparent 40%
-                ),
-                #0A1514;
-            color: rgba(241, 232, 229, 0.35);
-            font-size: 16px;
-            letter-spacing: 3px;
-            transition:
-                transform 0.5s ease,
-                filter 0.5s ease;
-        }
-
-
-        .placeholder-art::before {
-            content: "";
-            width: 55%;
-            height: 55%;
-            border: 2px dashed rgba(232, 143, 166, 0.35);
-            transform: rotate(-4deg);
-            position: absolute;
-        }
-
-
-        .placeholder-art::after {
-            content: "";
-            width: 35px;
-            height: 35px;
-            border: 2px solid rgba(3, 108, 95, 0.6);
-            border-radius: 50%;
-            position: absolute;
-            top: 22%;
-            right: 20%;
-        }
-
-
-        .project-info {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            padding: 30px;
-            padding-top: 110px;
-            background:
-                linear-gradient(
-                    transparent,
-                    rgba(5, 7, 7, 0.98) 35%
-                );
-        }
-
-
-        .project-info h3 {
-            margin: 0;
-            color: var(--text);
-            font-size: 27px;
-            letter-spacing: 1px;
-        }
-
-
-        .project-info p {
-            margin: 8px 0 0;
-            color: var(--pink);
-            font-size: 13px;
-            letter-spacing: 1px;
-        }
-
-
-        .project-card:hover {
-            border-color: var(--pink);
-            box-shadow:
-                12px 15px 0 rgba(156, 63, 87, 0.2),
-                0 20px 50px rgba(0, 0, 0, 0.5),
-                0 0 25px rgba(232, 143, 166, 0.15);
-        }
-
-
-        .project-card:hover .placeholder-art {
-            transform:
-                scale(1.06)
-                rotate(1deg);
-            filter: saturate(1.15);
-        }
-
-
-        /* ========================================
-           PERSONAL ART
-           ======================================== */
-
-        #art {
-            background:
-                radial-gradient(circle at 80% 20%, rgba(232, 143, 166, 0.1), transparent 30%),
-                radial-gradient(circle at 15% 75%, rgba(3, 108, 95, 0.12), transparent 30%),
-                rgba(3, 108, 95, 0.04);
-        }
-
-
-        .art-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-
-        .art-card {
-            aspect-ratio: 1 / 1;
-            position: relative;
-            border: 2px solid rgba(232, 143, 166, 0.45);
-            background:
-                radial-gradient(
-                    circle at 30% 20%,
-                    rgba(232, 143, 166, 0.25),
-                    transparent 35%
-                ),
-                radial-gradient(
-                    circle at 70% 80%,
-                    rgba(3, 108, 95, 0.35),
-                    transparent 40%
-                ),
-                #0A1514;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(241, 232, 229, 0.35);
-            letter-spacing: 2px;
-            transition:
-                transform 0.3s ease,
-                border-color 0.3s ease,
-                box-shadow 0.3s ease;
-            overflow: hidden;
-        }
-
-
-        .art-card:nth-child(1) {
-            transform: rotate(-1deg);
-        }
-
-
-        .art-card:nth-child(2) {
-            transform: rotate(1.5deg);
-        }
-
-
-        .art-card:nth-child(3) {
-            transform: rotate(-0.5deg);
-        }
-
-
-        .art-card:nth-child(4) {
-            transform: rotate(1deg);
-        }
-
-
-        .art-card:nth-child(5) {
-            transform: rotate(-1.5deg);
-        }
-
-
-        .art-card:nth-child(6) {
-            transform: rotate(0.5deg);
-        }
-
-
-        .art-card::before {
-            content: "";
-            position: absolute;
-            inset: 12px;
-            border: 1px solid rgba(241, 232, 229, 0.12);
-            pointer-events: none;
-        }
-
-
-        .art-card::after {
-            content: "";
-            position: absolute;
-            width: 70px;
-            height: 70px;
-            border: 2px solid rgba(232, 143, 166, 0.25);
-            border-radius: 50%;
-            right: -20px;
-            top: -20px;
-        }
-
-
-        .art-card:hover {
-            transform:
-                translateY(-8px)
-                rotate(0deg)
-                scale(1.02);
-            border-color: var(--pink);
-            box-shadow:
-                8px 8px 0 rgba(3, 108, 95, 0.3),
-                0 15px 35px rgba(0, 0, 0, 0.35);
-        }
-
-
-        .art-label {
-            position: absolute;
-            bottom: 15px;
-            left: 15px;
-            padding: 7px 10px;
-            background: rgba(5, 7, 7, 0.75);
-            border: 1px solid var(--teal);
-            color: var(--teal-light);
-            font-size: 10px;
-            letter-spacing: 2px;
-        }
-
-
-        .more-art {
-            display: flex;
-            justify-content: center;
-            margin-top: 55px;
-        }
-
-
-        /* ========================================
-           MOBILE
+           RESPONSIVE
            ======================================== */
 
         @media (max-width: 900px) {
@@ -1592,15 +1573,8 @@
             }
 
 
-            .project-card:nth-child(2),
-            .project-card:nth-child(3) {
-                transform: none;
-            }
-
-
-            .project-card:nth-child(2):hover,
-            .project-card:nth-child(3):hover {
-                transform: translateY(-8px) rotate(1deg);
+            .art-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
 
@@ -1631,19 +1605,20 @@
 
         @media (max-width: 700px) {
 
-            .blob {
-                filter: blur(70px);
-            }
-
-
             .landing {
                 padding: 25px;
             }
 
 
             .landing::before {
-                width: 400px;
-                height: 400px;
+                width: 430px;
+                height: 430px;
+            }
+
+
+            .landing::after {
+                width: 350px;
+                height: 350px;
             }
 
 
@@ -1694,24 +1669,8 @@
             }
 
 
-            .section-heading {
-                margin-bottom: 50px;
-            }
-
-
-            .section-heading h2 {
-                font-size: 45px;
-            }
-
-
-            .project-grid,
             .art-grid {
                 grid-template-columns: 1fr;
-            }
-
-
-            .art-card {
-                transform: none !important;
             }
 
 
@@ -1722,8 +1681,6 @@
 
             .about-image {
                 min-height: 280px;
-                box-shadow:
-                    10px 10px 0 rgba(156, 63, 87, 0.28);
             }
 
 
@@ -1761,20 +1718,13 @@
             }
 
 
-            .contact {
-                padding:
-                    80px
-                    10px;
+            .modal-art {
+                min-height: 300px;
             }
 
 
-            .contact::before {
-                left: -50px;
-            }
-
-
-            .contact::after {
-                right: -20px;
+            .modal-content {
+                padding: 15px;
             }
 
         }
@@ -1786,8 +1736,6 @@
 
 <body>
 
-
-    <!-- BACKGROUND -->
 
     <div class="blob blob-pink"></div>
 
@@ -1804,28 +1752,18 @@
 
     <section class="landing">
 
-        <div class="decor-square section-decoration one"></div>
-
-        <div class="decor-circle section-decoration two"></div>
-
-        <div class="decor-line section-decoration three"></div>
-
-
         <h1>
             FISH HEARD
         </h1>
-
 
         <div class="subtitle">
             GAME DESIGNER &amp; ARTIST
         </div>
 
-
         <p class="intro">
             I create games, characters and strange little worlds
             somewhere between cute, unsettling and a little bit weird.
         </p>
-
 
         <div class="navigation">
 
@@ -1837,7 +1775,6 @@
                 ABOUT ME
             </button>
 
-
             <button
                 type="button"
                 class="button"
@@ -1845,7 +1782,6 @@
             >
                 PREVIOUS PROJECTS
             </button>
-
 
             <button
                 type="button"
@@ -1860,38 +1796,19 @@
 
         <div class="socials">
 
-            <a
-                href="https://bsky.app/profile/fishcantplay.bsky.social"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
+            <a href="https://bsky.app/profile/fishcantplay.bsky.social" target="_blank" rel="noopener noreferrer">
                 Bluesky
             </a>
 
-
-            <a
-                href="https://www.tiktok.com/@fishcantplay"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
+            <a href="https://www.tiktok.com/@fishcantplay" target="_blank" rel="noopener noreferrer">
                 TikTok
             </a>
 
-
-            <a
-                href="https://www.youtube.com/channel/UCaDKDHI5PpZDd8WhXMEVYtQ"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
+            <a href="https://www.youtube.com/channel/UCaDKDHI5PpZDd8WhXMEVYtQ" target="_blank" rel="noopener noreferrer">
                 YouTube
             </a>
 
-
-            <a
-                href="https://www.artstation.com/fishcantdraw"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
+            <a href="https://www.artstation.com/fishcantdraw" target="_blank" rel="noopener noreferrer">
                 ArtStation
             </a>
 
@@ -1911,11 +1828,6 @@
         class="section"
         id="about"
     >
-
-        <div class="section-decoration decor-square one"></div>
-
-        <div class="section-decoration decor-circle two"></div>
-
 
         <div class="section-heading">
 
@@ -1937,19 +1849,11 @@
 
             <div class="about-slide active">
 
-                <div class="about-image about-image-main">
-
-                    <div class="image-corner top-left"></div>
-
-                    <div class="image-corner bottom-right"></div>
+                <div class="about-image">
 
                     <span>
                         YOUR ARTWORK HERE
                     </span>
-
-                    <div class="pronoun-box">
-                        THEY / THEM
-                    </div>
 
                 </div>
 
@@ -1960,42 +1864,33 @@
                         01 / 06
                     </p>
 
-
                     <h2>
                         HI, I'M FISH.
                     </h2>
-
 
                     <p class="about-role">
                         GAME DESIGNER · CHARACTER ARTIST · STORYTELLER
                     </p>
 
-
-                    <div class="style-tags">
-
-                        <span>CHARACTER FOCUSED</span>
-
-                        <span>FANTASY</span>
-
-                        <span>CUTE / UNSETTLING</span>
-
-                        <span>STORY DRIVEN</span>
-
-                    </div>
-
-
                     <p>
-                        I'm Fish Heard, a nonbinary Game Design and Production student at the University of Salford, specialising primarily in character art, concept development and visual storytelling.
+                        I'm Fish Heard, a nonbinary Game Design and Production
+                        student at the University of Salford, specialising
+                        primarily in character art, concept development and
+                        visual storytelling.
                     </p>
 
-
                     <p>
-                        I've always been drawn to creating characters and worlds that feel like they have a life beyond what the player immediately sees. I particularly enjoy designing characters that can sit somewhere between charming and subtly unsettling, depending on what the project needs.
+                        I've always been drawn to creating characters and worlds
+                        that feel like they have a life beyond what the player
+                        immediately sees. I particularly enjoy designing
+                        characters that can sit somewhere between charming and
+                        subtly unsettling.
                     </p>
 
-
                     <p>
-                        Art has been a constant part of my life for as long as I can remember, and games have become the place where all of those interests come together.
+                        Art has been a constant part of my life for as long as
+                        I can remember, and games have become the place where
+                        all of those interests come together.
                     </p>
 
                 </div>
@@ -2013,113 +1908,85 @@
                         02 / 06
                     </p>
 
-
                     <h2>
                         WHAT I DO.
                     </h2>
 
-
                     <p class="about-intro">
-                        My main focus is character art, but I enjoy working across different parts of game development and understanding how they connect.
+                        My main focus is character art, but I enjoy working
+                        across different parts of game development and
+                        understanding how they connect.
                     </p>
-
-
-                    <div class="style-tags">
-
-                        <span>2D</span>
-                        <span>3D</span>
-                        <span>DESIGN</span>
-                        <span>NARRATIVE</span>
-                        <span>ANIMATION</span>
-                        <span>AUDIO</span>
-
-                    </div>
 
 
                     <div class="about-skills">
 
                         <div class="about-skill">
-
-                            <h3>
-                                CHARACTER ART
-                            </h3>
-
+                            <h3>CHARACTER ART</h3>
                             <p>
-                                Character concepts, visual development, silhouettes, colour exploration and taking an idea from an early sketch into a finished design.
+                                Character concepts, visual development,
+                                silhouettes, colour exploration and taking an
+                                idea from an early sketch into a finished design.
                             </p>
-
                         </div>
 
-
                         <div class="about-skill">
-
-                            <h3>
-                                3D ART
-                            </h3>
-
+                            <h3>3D ART</h3>
                             <p>
-                                3D modelling and asset creation, primarily using Maya, while currently expanding my skills in Blender and ZBrush.
+                                3D modelling and asset creation, primarily using
+                                Maya, while currently expanding my skills in
+                                Blender and ZBrush.
                             </p>
-
                         </div>
 
-
                         <div class="about-skill">
-
-                            <h3>
-                                NARRATIVE
-                            </h3>
-
+                            <h3>NARRATIVE</h3>
                             <p>
-                                Character writing, dialogue, game scripts and narrative-focused design. I particularly enjoy writing characters with distinct personalities and relationships.
+                                Character writing, dialogue, game scripts and
+                                narrative-focused design. I particularly enjoy
+                                writing characters with distinct personalities
+                                and relationships.
                             </p>
-
                         </div>
 
-
                         <div class="about-skill">
-
-                            <h3>
-                                GAME DESIGN
-                            </h3>
-
+                            <h3>GAME DESIGN</h3>
                             <p>
-                                Developing gameplay concepts, mechanics and player experiences, particularly where gameplay and narrative can support one another.
+                                Developing gameplay concepts, mechanics and
+                                player experiences, particularly where gameplay
+                                and narrative can support one another.
                             </p>
-
                         </div>
 
-
                         <div class="about-skill">
-
-                            <h3>
-                                ANIMATION
-                            </h3>
-
+                            <h3>ANIMATION</h3>
                             <p>
-                                Experience with 2D and 3D animation fundamentals, with a particular interest in developing more advanced character animation.
+                                Experience with 2D and 3D animation fundamentals,
+                                with a particular interest in developing more
+                                advanced character animation.
                             </p>
-
                         </div>
 
-
                         <div class="about-skill">
-
-                            <h3>
-                                AUDIO &amp; VOICE
-                            </h3>
-
+                            <h3>AUDIO &amp; VOICE</h3>
                             <p>
-                                Music and sound experimentation, alongside an interest in exploring voice acting and performance for games.
+                                Music and sound experimentation, alongside an
+                                interest in exploring voice acting and
+                                performance for games.
                             </p>
-
                         </div>
 
                     </div>
 
 
                     <p class="about-closing">
-                        Programming isn't my favourite part of development, but I understand the fundamentals and enjoy knowing enough about the technical side of games to communicate with programmers and understand how my work will actually be used. I also coded this website myself, so apparently I can tolerate programming when there's a pretty website at the end of it.
+                        Programming isn't my favourite part of development,
+                        but I understand the fundamentals and enjoy knowing
+                        enough about the technical side of games to communicate
+                        with programmers and understand how my work will
+                        actually be used. I also coded this website myself,
+                        so apparently I can tolerate programming when there's
+                        a pretty website at the end of it.
                     </p>
 
                 </div>
@@ -2136,7 +2003,6 @@
                     <p class="about-number">
                         03 / 06
                     </p>
-
 
                     <h2>
                         MY CREATIVE BACKGROUND.
@@ -2156,7 +2022,10 @@
                             </h3>
 
                             <p>
-                                Art clubs, constant drawing and experimenting with anything I could get my hands on. Making things has always been something that came naturally to me.
+                                Art clubs, constant drawing and experimenting
+                                with anything I could get my hands on. Making
+                                things has always been something that came
+                                naturally to me.
                             </p>
 
                         </div>
@@ -2165,32 +2034,18 @@
                         <div class="timeline-item">
 
                             <span class="timeline-date">
-                                SECONDARY SCHOOL
+                                GCSE
                             </span>
 
                             <h3>
-                                ART + DRAMA.
+                                TAKING ART SERIOUSLY.
                             </h3>
 
                             <p>
-                                I attended after-school art clubs and continued developing my visual work. Alongside that, I spent six years at drama school and was part of the main cast every single year.
-                            </p>
-
-                        </div>
-
-
-                        <div class="timeline-item">
-
-                            <span class="timeline-date">
-                                STUDENT COUNCIL
-                            </span>
-
-                            <h3>
-                                LEARNING TO LEAD.
-                            </h3>
-
-                            <p>
-                                I led my secondary school's student council for five years, becoming the first student at the school to hold the role for that length of time. Leadership became something I naturally kept returning to throughout my education.
+                                Studying Art at GCSE gave me the opportunity to
+                                develop my visual skills while beginning to
+                                think more seriously about creative work as
+                                something I wanted to continue pursuing.
                             </p>
 
                         </div>
@@ -2203,28 +2058,14 @@
                             </span>
 
                             <h3>
-                                TWO VERY DIFFERENT PATHS.
+                                EXPANDING MY SKILLS.
                             </h3>
 
                             <p>
-                                I attended two colleges, studying Games Design and Art at one and Patisserie at the other. The contrast gave me experience in both digital creative work and a very hands-on form of making.
-                            </p>
-
-                        </div>
-
-
-                        <div class="timeline-item">
-
-                            <span class="timeline-date">
-                                PATISSERIE
-                            </span>
-
-                            <h3>
-                                MORE THAN BAKING.
-                            </h3>
-
-                            <p>
-                                During my patisserie studies, I effectively worked as a teaching assistant. I handled stock, organised the entire kitchen, marked work, helped plan lessons and taught other students.
+                                I attended two colleges, studying Games Design
+                                and Art at one and Patisserie at the other.
+                                Both gave me different creative disciplines
+                                and ways of thinking about making things.
                             </p>
 
                         </div>
@@ -2241,7 +2082,10 @@
                             </h3>
 
                             <p>
-                                I'm now studying Games Design and Production at the University of Salford, bringing together my interests in art, storytelling, games and technology.
+                                I'm now studying Games Design and Production
+                                at the University of Salford, bringing together
+                                my interests in art, storytelling, games and
+                                technology.
                             </p>
 
                         </div>
@@ -2256,7 +2100,14 @@
                         </span>
 
                         <p>
-                            Whenever I've been given the opportunity to lead a project, I've tended to take it. During college, I led a team working on an NHS project where we created VR assets intended for use within a game. University projects have allowed me to continue developing those leadership and production skills.
+                            I've taken leadership roles throughout my education.
+                            I led my student council in secondary school for
+                            five years, and was the first student at my school
+                            to hold that position for that long. I also
+                            regularly took leadership roles in creative projects.
+                            During college, I led a team working on an NHS
+                            project where we created VR assets intended for
+                            use within a game.
                         </p>
 
                     </div>
@@ -2275,7 +2126,6 @@
                     <p class="about-number">
                         04 / 06
                     </p>
-
 
                     <h2>
                         HOW I WORK.
@@ -2305,7 +2155,11 @@
                             </h3>
 
                             <p>
-                                I'm comfortable being trusted with a task and working independently to figure out how I want to approach it. I like having responsibility over my work and making sure things actually get finished.
+                                I'm comfortable being trusted with a task and
+                                working independently to figure out how I want
+                                to approach it. I like having responsibility
+                                over my work and making sure things actually
+                                get finished.
                             </p>
 
                         </div>
@@ -2318,7 +2172,10 @@
                             </h3>
 
                             <p>
-                                I enjoy leading projects and helping shape a team's direction, but I'm equally comfortable working alongside other people and contributing wherever I'm needed.
+                                I enjoy leading projects and helping shape a
+                                team's direction, but I'm equally comfortable
+                                working alongside other people and contributing
+                                wherever I'm needed.
                             </p>
 
                         </div>
@@ -2331,7 +2188,10 @@
                             </h3>
 
                             <p>
-                                If I don't know how to do something, I would rather learn it than immediately work around it. This is why I'm continually experimenting with new software, techniques and creative disciplines.
+                                If I don't know how to do something, I would
+                                rather learn it than immediately work around it.
+                                This is why I'm continually experimenting with
+                                new software, techniques and creative disciplines.
                             </p>
 
                         </div>
@@ -2344,7 +2204,10 @@
                             </h3>
 
                             <p>
-                                I enjoy figuring out how to turn an idea into something tangible, especially when there isn't an obvious answer. Experimentation is a big part of how I develop my work.
+                                I enjoy figuring out how to turn an idea into
+                                something tangible, especially when there isn't
+                                an obvious answer. Experimentation is a big part
+                                of how I develop my work.
                             </p>
 
                         </div>
@@ -2353,7 +2216,10 @@
 
 
                     <p class="about-closing">
-                        I'm also aware that being a creative means constantly having things to improve. I don't expect to know everything, and I'm comfortable recognising where I need to develop further.
+                        I'm also aware that being a creative means constantly
+                        having things to improve. I don't expect to know
+                        everything, and I'm comfortable recognising where I
+                        need to develop further.
                     </p>
 
                 </div>
@@ -2371,7 +2237,6 @@
                         05 / 06
                     </p>
 
-
                     <h2>
                         OUTSIDE THE WORK.
                     </h2>
@@ -2382,35 +2247,30 @@
                         <div class="about-life-text">
 
                             <p>
-                                I'm a massive fan of characters and stories, which is probably unsurprising considering what I ended up studying. I particularly love narrative-heavy games where the characters and their relationships are just as important as the gameplay itself.
+                                I'm a massive fan of characters and stories,
+                                which is probably unsurprising considering what
+                                I ended up studying. I particularly love
+                                narrative-heavy games where the characters and
+                                their relationships are just as important as
+                                the gameplay itself.
                             </p>
-
 
                             <p>
-                                Some of my favourite games include <em>Hades</em>, <em>Detroit: Become Human</em>, <em>Cult of the Lamb</em>, the <em>Sherlock Holmes</em> games and the <em>Batman: Arkham</em> series.
+                                Some of my favourite games include
+                                <em>Hades</em>,
+                                <em>Detroit: Become Human</em>,
+                                <em>Cult of the Lamb</em>,
+                                the <em>Sherlock Holmes</em> games and the
+                                <em>Batman: Arkham</em> series.
                             </p>
-
 
                             <p>
-                                I'm a huge fan of <em>Merlin</em>, as well as Spider-Man, <em>My Little Pony</em> and <em>Teenage Mutant Ninja Turtles</em>. I love fantasy and tend to gravitate towards worlds with strong characters, strange creatures and stories that let me completely disappear into them.
+                                Outside of games, I'm a lifelong Spider-Man fan
+                                and have a particular soft spot for
+                                <em>My Little Pony</em> and
+                                <em>Teenage Mutant Ninja Turtles</em>. I'm also
+                                a massive fan of <em>Merlin</em>.
                             </p>
-
-
-                            <div class="dragon-card">
-
-                                <span>
-                                    RESIDENT STUDIO SUPERVISOR
-                                </span>
-
-                                <h3>
-                                    LORD BARTHOLOMEW
-                                </h3>
-
-                                <p>
-                                    My bearded dragon, who has been around since around 2021 and has contributed absolutely nothing to the development of this portfolio.
-                                </p>
-
-                            </div>
 
                         </div>
 
@@ -2420,28 +2280,37 @@
                             <div>
                                 <span>01</span>
                                 <strong>GAMES</strong>
-                                <p>Stories, characters and worlds I can get completely lost in.</p>
+                                <p>
+                                    Stories, characters and worlds I can get
+                                    completely lost in.
+                                </p>
                             </div>
-
 
                             <div>
                                 <span>02</span>
                                 <strong>ART</strong>
-                                <p>Digital painting, drawing, sketching and experimenting with different mediums.</p>
+                                <p>
+                                    Digital painting, drawing, sketching and
+                                    experimenting with different mediums.
+                                </p>
                             </div>
-
 
                             <div>
                                 <span>03</span>
-                                <strong>BAKING</strong>
-                                <p>Something I got a lot more serious about during my time studying patisserie.</p>
+                                <strong>MAKING THINGS</strong>
+                                <p>
+                                    Baking, gardening and generally finding
+                                    excuses to make something.
+                                </p>
                             </div>
-
 
                             <div>
                                 <span>04</span>
-                                <strong>GARDENING</strong>
-                                <p>A quieter creative outlet and an excuse to keep making things grow.</p>
+                                <strong>LORD BARTHOLOMEW</strong>
+                                <p>
+                                    My bearded dragon, who I've had since around
+                                    2021 and who is usually watching me work.
+                                </p>
                             </div>
 
                         </div>
@@ -2456,7 +2325,13 @@
                         </h3>
 
                         <p>
-                            I'm autistic, and I've found that one of the things I value most about myself is how deeply I can engage with the things I'm passionate about. When something captures my attention, I want to understand it, experiment with it and keep pushing it further. That curiosity is something I try to bring into my creative work.
+                            I'm autistic, and I've found that one of the things
+                            I value most about myself is how deeply I can engage
+                            with the things I'm passionate about. When something
+                            captures my attention, I want to understand it,
+                            experiment with it and keep pushing it further.
+                            That curiosity is something I try to bring into
+                            my creative work.
                         </p>
 
                     </div>
@@ -2476,14 +2351,14 @@
                         06 / 06
                     </p>
 
-
                     <h2>
                         WHERE I'M GOING.
                     </h2>
 
-
                     <p class="about-intro">
-                        I'm still figuring out exactly where I want my career to take me, but I know I want to keep working where art, characters, storytelling and games overlap.
+                        I'm still figuring out exactly where I want my career
+                        to take me, but I know I want to keep working where art,
+                        characters, storytelling and games overlap.
                     </p>
 
 
@@ -2492,42 +2367,61 @@
                         <div class="future-item">
                             <span>01</span>
                             <h3>HIGH-POLY MODELLING</h3>
-                            <p>Developing my sculpting and modelling skills and becoming more confident working with detailed character models.</p>
+                            <p>
+                                Developing my sculpting and modelling skills
+                                and becoming more confident working with
+                                detailed character models.
+                            </p>
                         </div>
-
 
                         <div class="future-item">
                             <span>02</span>
                             <h3>BLENDER &amp; ZBRUSH</h3>
-                            <p>Expanding beyond my existing Maya experience and becoming comfortable with more industry-standard workflows.</p>
+                            <p>
+                                Expanding beyond my existing Maya experience
+                                and becoming comfortable with more industry
+                                standard workflows.
+                            </p>
                         </div>
-
 
                         <div class="future-item">
                             <span>03</span>
                             <h3>CHARACTER ANIMATION</h3>
-                            <p>Pushing my animation skills further and learning how movement can communicate personality and emotion.</p>
+                            <p>
+                                Pushing my animation skills further and learning
+                                how movement can communicate personality and
+                                emotion.
+                            </p>
                         </div>
-
 
                         <div class="future-item">
                             <span>04</span>
                             <h3>MOTION CAPTURE</h3>
-                            <p>I'd love the opportunity to work with mocap and explore the relationship between performance, animation and character design.</p>
+                            <p>
+                                I'd love the opportunity to work with mocap and
+                                explore the relationship between performance,
+                                animation and character design.
+                            </p>
                         </div>
-
 
                         <div class="future-item">
                             <span>05</span>
                             <h3>VOICE ACTING</h3>
-                            <p>Exploring voice acting and learning more about how voice, writing and animation can work together to create stronger characters.</p>
+                            <p>
+                                Exploring voice acting and learning more about
+                                how voice, writing and animation can work
+                                together to create stronger characters.
+                            </p>
                         </div>
-
 
                         <div class="future-item">
                             <span>06</span>
                             <h3>KEEP MAKING</h3>
-                            <p>Continuing to grow as a versatile game developer while developing a stronger specialism in character art and narrative.</p>
+                            <p>
+                                Continuing to grow as a versatile game developer
+                                while developing a stronger specialism in
+                                character art and narrative.
+                            </p>
                         </div>
 
                     </div>
@@ -2536,7 +2430,12 @@
                     <div class="about-final">
 
                         <p>
-                            Ultimately, I want to make things that people remember. Whether that's a character, a story, a strange little game mechanic or an entire world, I'm most interested in the parts of game development that make something feel like it has a personality of its own.
+                            Ultimately, I want to make things that people
+                            remember. Whether that's a character, a story,
+                            a strange little game mechanic or an entire world,
+                            I'm most interested in the parts of game development
+                            that make something feel like it has a personality
+                            of its own.
                         </p>
 
                     </div>
@@ -2546,7 +2445,7 @@
             </div>
 
 
-            <!-- CONTROLS -->
+            <!-- ABOUT CONTROLS -->
 
             <div class="about-controls">
 
@@ -2561,17 +2460,12 @@
 
                 <div class="about-dots">
 
-                    <button class="about-dot active" data-slide="0" aria-label="Go to About Me slide 1"></button>
-
-                    <button class="about-dot" data-slide="1" aria-label="Go to About Me slide 2"></button>
-
-                    <button class="about-dot" data-slide="2" aria-label="Go to About Me slide 3"></button>
-
-                    <button class="about-dot" data-slide="3" aria-label="Go to About Me slide 4"></button>
-
-                    <button class="about-dot" data-slide="4" aria-label="Go to About Me slide 5"></button>
-
-                    <button class="about-dot" data-slide="5" aria-label="Go to About Me slide 6"></button>
+                    <button class="about-dot active" data-slide="0"></button>
+                    <button class="about-dot" data-slide="1"></button>
+                    <button class="about-dot" data-slide="2"></button>
+                    <button class="about-dot" data-slide="3"></button>
+                    <button class="about-dot" data-slide="4"></button>
+                    <button class="about-dot" data-slide="5"></button>
 
                 </div>
 
@@ -2597,11 +2491,9 @@
                 LET'S TALK
             </h3>
 
-
             <p>
                 Have a project, opportunity, question, or just want to say hi?
             </p>
-
 
             <a
                 class="email"
@@ -2613,13 +2505,21 @@
 
             <div class="socials">
 
-                <a href="https://bsky.app/profile/fishcantplay.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a>
+                <a href="https://bsky.app/profile/fishcantplay.bsky.social" target="_blank" rel="noopener noreferrer">
+                    Bluesky
+                </a>
 
-                <a href="https://www.tiktok.com/@fishcantplay" target="_blank" rel="noopener noreferrer">TikTok</a>
+                <a href="https://www.tiktok.com/@fishcantplay" target="_blank" rel="noopener noreferrer">
+                    TikTok
+                </a>
 
-                <a href="https://www.youtube.com/channel/UCaDKDHI5PpZDd8WhXMEVYtQ" target="_blank" rel="noopener noreferrer">YouTube</a>
+                <a href="https://www.youtube.com/channel/UCaDKDHI5PpZDd8WhXMEVYtQ" target="_blank" rel="noopener noreferrer">
+                    YouTube
+                </a>
 
-                <a href="https://www.artstation.com/fishcantdraw" target="_blank" rel="noopener noreferrer">ArtStation</a>
+                <a href="https://www.artstation.com/fishcantdraw" target="_blank" rel="noopener noreferrer">
+                    ArtStation
+                </a>
 
             </div>
 
@@ -2637,11 +2537,6 @@
         id="projects"
     >
 
-        <div class="section-decoration decor-square one"></div>
-
-        <div class="section-decoration decor-circle two"></div>
-
-
         <div class="section-heading">
 
             <h2>
@@ -2658,17 +2553,20 @@
         <div class="project-grid">
 
 
-            <div class="project-card">
+            <!-- BIBLIOCIDE -->
 
-                <div class="project-number">
-                    01
-                </div>
+            <a
+                href="./bibliocide.html"
+                class="project-card project-bibliocide"
+            >
 
-                <div class="placeholder-art">
-                    ARTWORK PLACEHOLDER
-                </div>
+                <div class="project-art"></div>
 
                 <div class="project-info">
+
+                    <span class="project-number">
+                        01 / 03
+                    </span>
 
                     <h3>
                         BIBLIOCIDE
@@ -2680,20 +2578,23 @@
 
                 </div>
 
-            </div>
+            </a>
 
 
-            <div class="project-card">
+            <!-- GROUP PROJECT -->
 
-                <div class="project-number">
-                    02
-                </div>
+            <a
+                href="./group-project.html"
+                class="project-card project-group"
+            >
 
-                <div class="placeholder-art">
-                    ARTWORK PLACEHOLDER
-                </div>
+                <div class="project-art"></div>
 
                 <div class="project-info">
+
+                    <span class="project-number">
+                        02 / 03
+                    </span>
 
                     <h3>
                         GROUP PROJECT
@@ -2705,20 +2606,23 @@
 
                 </div>
 
-            </div>
+            </a>
 
 
-            <div class="project-card">
+            <!-- UNDER WOOL AND BRIAR -->
 
-                <div class="project-number">
-                    03
-                </div>
+            <a
+                href="./under-wool-and-briar.html"
+                class="project-card project-wool"
+            >
 
-                <div class="placeholder-art">
-                    ARTWORK PLACEHOLDER
-                </div>
+                <div class="project-art"></div>
 
                 <div class="project-info">
+
+                    <span class="project-number">
+                        03 / 03
+                    </span>
 
                     <h3>
                         UNDER WOOL AND BRIAR
@@ -2730,8 +2634,7 @@
 
                 </div>
 
-            </div>
-
+            </a>
 
         </div>
 
@@ -2747,19 +2650,19 @@
         id="art"
     >
 
-        <div class="section-decoration decor-circle one"></div>
+        <div class="art-page-header">
 
-        <div class="section-decoration decor-square two"></div>
-
-
-        <div class="section-heading">
+            <span class="art-eyebrow">
+                PERSONAL WORK
+            </span>
 
             <h2>
                 PERSONAL ART
             </h2>
 
             <p>
-                CHARACTERS · ILLUSTRATION · ANIMATION · EXPERIMENTS
+                A small selection of character work, illustrations,
+                3D pieces, animation and whatever else I've been making.
             </p>
 
         </div>
@@ -2767,39 +2670,106 @@
 
         <div class="art-grid">
 
-            <div class="art-card">
-                ARTWORK PLACEHOLDER
-                <span class="art-label">2D ART</span>
+
+            <div
+                class="art-card"
+                onclick="openArtModal(
+                    '01',
+                    'ARTWORK TITLE',
+                    'This is placeholder description text for this artwork. Replace this with whatever you want to say about the piece.',
+                    'ARTWORK PLACEHOLDER'
+                )"
+            >
+
+                <div class="art-placeholder">
+                    <span>ARTWORK PLACEHOLDER</span>
+                </div>
+
             </div>
 
 
-            <div class="art-card">
-                ARTWORK PLACEHOLDER
-                <span class="art-label">CHARACTER</span>
+            <div
+                class="art-card"
+                onclick="openArtModal(
+                    '02',
+                    'ARTWORK TITLE',
+                    'This is placeholder description text for this artwork. Replace this with whatever you want to say about the piece.',
+                    'ARTWORK PLACEHOLDER'
+                )"
+            >
+
+                <div class="art-placeholder">
+                    <span>ARTWORK PLACEHOLDER</span>
+                </div>
+
             </div>
 
 
-            <div class="art-card">
-                ARTWORK PLACEHOLDER
-                <span class="art-label">ILLUSTRATION</span>
+            <div
+                class="art-card"
+                onclick="openArtModal(
+                    '03',
+                    'ARTWORK TITLE',
+                    'This is placeholder description text for this artwork. Replace this with whatever you want to say about the piece.',
+                    'ARTWORK PLACEHOLDER'
+                )"
+            >
+
+                <div class="art-placeholder">
+                    <span>ARTWORK PLACEHOLDER</span>
+                </div>
+
             </div>
 
 
-            <div class="art-card">
-                ARTWORK PLACEHOLDER
-                <span class="art-label">3D</span>
+            <div
+                class="art-card"
+                onclick="openArtModal(
+                    '04',
+                    'ARTWORK TITLE',
+                    'This is placeholder description text for this artwork. Replace this with whatever you want to say about the piece.',
+                    'ARTWORK PLACEHOLDER'
+                )"
+            >
+
+                <div class="art-placeholder">
+                    <span>ARTWORK PLACEHOLDER</span>
+                </div>
+
             </div>
 
 
-            <div class="art-card">
-                ARTWORK PLACEHOLDER
-                <span class="art-label">ANIMATION</span>
+            <div
+                class="art-card"
+                onclick="openArtModal(
+                    '05',
+                    'ARTWORK TITLE',
+                    'This is placeholder description text for this artwork. Replace this with whatever you want to say about the piece.',
+                    'ARTWORK PLACEHOLDER'
+                )"
+            >
+
+                <div class="art-placeholder">
+                    <span>ARTWORK PLACEHOLDER</span>
+                </div>
+
             </div>
 
 
-            <div class="art-card">
-                ARTWORK PLACEHOLDER
-                <span class="art-label">EXPERIMENT</span>
+            <div
+                class="art-card"
+                onclick="openArtModal(
+                    '06',
+                    'ARTWORK TITLE',
+                    'This is placeholder description text for this artwork. Replace this with whatever you want to say about the piece.',
+                    'ARTWORK PLACEHOLDER'
+                )"
+            >
+
+                <div class="art-placeholder">
+                    <span>ARTWORK PLACEHOLDER</span>
+                </div>
+
             </div>
 
         </div>
@@ -2820,10 +2790,73 @@
 
 
     <!-- ========================================
+         ART POPUP
+         ======================================== -->
+
+    <div
+        class="art-modal"
+        id="artModal"
+        aria-hidden="true"
+    >
+
+        <div class="modal-content">
+
+            <button
+                class="modal-close"
+                id="modalClose"
+                type="button"
+                aria-label="Close artwork"
+            >
+                ×
+            </button>
+
+
+            <div class="modal-art">
+
+                <span id="modalArtwork">
+                    ARTWORK PLACEHOLDER
+                </span>
+
+            </div>
+
+
+            <div class="modal-info">
+
+                <div
+                    class="modal-number"
+                    id="modalNumber"
+                >
+                    01
+                </div>
+
+                <h2
+                    class="modal-title"
+                    id="modalTitle"
+                >
+                    ARTWORK TITLE
+                </h2>
+
+                <p
+                    class="modal-description"
+                    id="modalDescription"
+                >
+                    Placeholder description text.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================
          JAVASCRIPT
          ======================================== -->
 
     <script>
+
+        /* ABOUT SLIDESHOW */
 
         const aboutSlides =
             document.querySelectorAll(".about-slide");
@@ -2846,14 +2879,11 @@
                 index = aboutSlides.length - 1;
             }
 
-
             if (index >= aboutSlides.length) {
                 index = 0;
             }
 
-
             currentAboutSlide = index;
-
 
             aboutSlides.forEach((slide, i) => {
 
@@ -2901,11 +2931,12 @@
         });
 
 
+        /* SECTION NAVIGATION */
+
         function goToSection(sectionId) {
 
             const section =
                 document.getElementById(sectionId);
-
 
             if (section) {
 
@@ -2918,8 +2949,99 @@
 
         }
 
-    </script>
 
+        /* PERSONAL ART POPUP */
+
+        const artModal =
+            document.getElementById("artModal");
+
+        const modalClose =
+            document.getElementById("modalClose");
+
+        const modalNumber =
+            document.getElementById("modalNumber");
+
+        const modalTitle =
+            document.getElementById("modalTitle");
+
+        const modalDescription =
+            document.getElementById("modalDescription");
+
+        const modalArtwork =
+            document.getElementById("modalArtwork");
+
+
+        function openArtModal(
+            number,
+            title,
+            description,
+            artworkText
+        ) {
+
+            modalNumber.textContent = number;
+
+            modalTitle.textContent = title;
+
+            modalDescription.textContent = description;
+
+            modalArtwork.textContent = artworkText;
+
+            artModal.classList.add("active");
+
+            artModal.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+            document.body.style.overflow = "hidden";
+
+        }
+
+
+        function closeArtModal() {
+
+            artModal.classList.remove("active");
+
+            artModal.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            document.body.style.overflow = "";
+
+        }
+
+
+        modalClose.addEventListener(
+            "click",
+            closeArtModal
+        );
+
+
+        artModal.addEventListener(
+            "click",
+            function(event) {
+
+                if (event.target === artModal) {
+                    closeArtModal();
+                }
+
+            }
+        );
+
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Escape") {
+                    closeArtModal();
+                }
+
+            }
+        );
+
+    </script>
 
 </body>
 
