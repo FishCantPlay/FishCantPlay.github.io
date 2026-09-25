@@ -12,233 +12,458 @@
     <style>
 
         :root {
-            --brown-dark: #30211d;
-            --brown: #594039;
-            --brown-light: #8b6859;
-            --paper: #dfcdb7;
-            --paper-light: #eee2d2;
-            --blue: #9bcbd7;
-            --blue-dark: #5c98a8;
-            --ink: #30282a;
-            --background: #211a19;
+            --brown-dark: #241914;
+            --brown: #4B3025;
+            --brown-light: #795849;
+            --blue-dark: #476B78;
+            --blue: #8FB9C5;
+            --blue-light: #C7E0E5;
+            --cream: #F0E4D2;
+            --paper: #E7D5B9;
+            --ink: #211914;
+            --white: #F8F1E7;
         }
-
 
         * {
             box-sizing: border-box;
         }
 
-
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
             margin: 0;
-            background: var(--background);
-            color: var(--paper-light);
+            background:
+                radial-gradient(
+                    circle at 15% 15%,
+                    rgba(143, 185, 197, 0.18),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 85% 75%,
+                    rgba(75, 48, 37, 0.3),
+                    transparent 35%
+                ),
+                var(--brown-dark);
+            color: var(--cream);
             font-family: Arial, sans-serif;
             overflow-x: hidden;
         }
 
-
-        .page {
-            min-height: 100vh;
-            position: relative;
-            padding: 70px 7% 100px;
-            overflow: hidden;
-        }
-
-
-        .page::before {
+        body::before {
             content: "";
             position: fixed;
-            width: 650px;
-            height: 650px;
-            border-radius: 50%;
-            background: rgba(155, 203, 215, 0.13);
-            filter: blur(100px);
-            right: -250px;
-            bottom: -250px;
+            inset: 0;
             pointer-events: none;
+            opacity: 0.08;
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 3px,
+                    rgba(255,255,255,0.2) 4px
+                );
+            z-index: 20;
         }
 
-
-        .container {
-            max-width: 1150px;
-            margin: 0 auto;
+        .page {
+            position: relative;
+            max-width: 1400px;
+            margin: auto;
+            padding: 50px 6% 120px;
         }
 
-
-        .back {
+        .back-button {
             display: inline-block;
             padding: 13px 22px;
-            background: var(--blue-dark);
-            color: white;
-            border: 2px solid var(--blue);
+            color: var(--cream);
             text-decoration: none;
+            border: 2px solid var(--blue);
+            background: var(--blue-dark);
+            box-shadow: 6px 6px 0 var(--brown-light);
+            transition: 0.25s ease;
+            font-size: 13px;
             letter-spacing: 1px;
-            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
-            transition: 0.2s ease;
         }
 
-
-        .back:hover {
-            transform: translateY(-4px) rotate(-2deg);
+        .back-button:hover {
+            transform: translate(-3px, -3px) rotate(-1deg);
             background: var(--blue);
             color: var(--ink);
+            box-shadow: 9px 9px 0 var(--brown-light);
         }
-
 
         .hero {
-            position: relative;
-            min-height: 620px;
+            min-height: 75vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            text-align: center;
-        }
-
-
-        .paper {
-            position: absolute;
-            width: 70%;
-            height: 70%;
-            background: var(--paper);
-            transform: rotate(-4deg);
-            box-shadow: 15px 18px 0 rgba(0, 0, 0, 0.35);
-        }
-
-
-        .paper-two {
-            position: absolute;
-            width: 62%;
-            height: 67%;
-            background: var(--blue);
-            transform: rotate(7deg);
-            opacity: 0.9;
-        }
-
-
-        .hero-content {
             position: relative;
-            z-index: 2;
-            max-width: 850px;
-            padding: 60px 30px;
+            padding: 80px 4%;
         }
 
-
-        .eyebrow {
-            color: var(--blue-dark);
-            font-weight: bold;
-            letter-spacing: 5px;
+        .hero-note {
+            display: inline-block;
+            width: fit-content;
+            padding: 10px 18px;
+            background: var(--blue);
+            color: var(--ink);
+            transform: rotate(-3deg);
+            box-shadow: 7px 7px 0 rgba(0,0,0,0.25);
             font-size: 12px;
+            letter-spacing: 3px;
+            font-weight: bold;
         }
 
-
-        h1 {
-            margin: 20px 0;
-            color: var(--brown);
-            font-size: clamp(55px, 10vw, 120px);
-            letter-spacing: -5px;
+        .hero h1 {
+            max-width: 1000px;
+            margin: 35px 0 15px;
+            color: var(--cream);
+            font-family: Georgia, serif;
+            font-size: clamp(65px, 12vw, 155px);
+            line-height: 0.8;
+            letter-spacing: -7px;
             text-shadow:
-                5px 5px 0 var(--blue);
+                6px 6px 0 var(--brown-light),
+                -2px -2px 0 var(--blue);
+            transform: rotate(-1deg);
         }
 
-
-        .subtitle {
-            color: var(--ink);
-            font-size: 19px;
-            line-height: 1.7;
-        }
-
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 35px;
-            margin-top: 60px;
-        }
-
-
-        .note {
-            position: relative;
-            padding: 40px;
-            background: var(--paper-light);
-            color: var(--ink);
-            box-shadow: 10px 12px 0 rgba(0, 0, 0, 0.3);
-        }
-
-
-        .note:nth-child(2) {
-            transform: rotate(2deg);
-            background: var(--blue);
-        }
-
-
-        .note:nth-child(3) {
-            transform: rotate(-2deg);
-            background: var(--paper);
-        }
-
-
-        .note:nth-child(4) {
+        .hero-subtitle {
+            max-width: 720px;
+            color: var(--blue-light);
+            font-size: 22px;
+            line-height: 1.5;
             transform: rotate(1deg);
-            background: var(--blue);
         }
 
-
-        .note h2 {
-            margin-top: 0;
-            color: var(--brown);
-        }
-
-
-        .note p {
+        .hero-description {
+            max-width: 720px;
+            color: var(--cream);
+            opacity: 0.75;
+            font-size: 17px;
             line-height: 1.8;
         }
 
+        .scribble {
+            position: absolute;
+            border: 2px solid rgba(143,185,197,0.35);
+            pointer-events: none;
+        }
 
-        .placeholder {
-            min-height: 350px;
-            margin-top: 70px;
+        .scribble.one {
+            width: 300px;
+            height: 180px;
+            right: 5%;
+            top: 15%;
+            transform: rotate(12deg);
+        }
+
+        .scribble.two {
+            width: 180px;
+            height: 280px;
+            left: 2%;
+            bottom: 5%;
+            transform: rotate(-8deg);
+        }
+
+        .section {
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .section-title {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 3px dashed var(--blue);
-            background: rgba(0, 0, 0, 0.12);
-            color: var(--paper);
+            align-items: baseline;
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .section-title span {
+            color: var(--blue);
+            font-size: 12px;
             letter-spacing: 4px;
             font-weight: bold;
         }
 
+        .section-title h2 {
+            margin: 0;
+            font-family: Georgia, serif;
+            font-size: clamp(35px, 6vw, 70px);
+            color: var(--cream);
+        }
 
-        @media (max-width: 700px) {
+        .story {
+            max-width: 900px;
+            padding: 40px;
+            background: var(--paper);
+            color: var(--ink);
+            transform: rotate(-1deg);
+            box-shadow: 14px 14px 0 var(--brown-light);
+            border: 3px solid var(--brown);
+        }
 
-            .page {
-                padding: 40px 20px;
+        .story p {
+            font-family: Georgia, serif;
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 0 0 20px;
+        }
+
+        .story p:last-child {
+            margin-bottom: 0;
+        }
+
+        .scattered-gallery {
+            position: relative;
+            min-height: 850px;
+            margin-top: 30px;
+        }
+
+        .art-piece {
+            position: absolute;
+            width: 280px;
+            height: 340px;
+            background: var(--paper);
+            padding: 15px;
+            color: var(--ink);
+            cursor: pointer;
+            box-shadow: 10px 12px 0 rgba(0,0,0,0.25);
+            transition: transform 0.3s ease, z-index 0s;
+        }
+
+        .art-piece:hover {
+            transform: scale(1.04) rotate(0deg) !important;
+            z-index: 10;
+        }
+
+        .art-placeholder {
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 25% 20%, rgba(143,185,197,0.7), transparent 30%),
+                radial-gradient(circle at 70% 75%, rgba(75,48,37,0.35), transparent 40%),
+                #D7C4A8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: Georgia, serif;
+            font-size: 16px;
+            color: var(--brown);
+        }
+
+        .art-piece.one {
+            left: 5%;
+            top: 40px;
+            transform: rotate(-7deg);
+        }
+
+        .art-piece.two {
+            left: 35%;
+            top: 180px;
+            transform: rotate(5deg);
+        }
+
+        .art-piece.three {
+            right: 5%;
+            top: 40px;
+            transform: rotate(8deg);
+        }
+
+        .art-piece.four {
+            left: 17%;
+            bottom: 10px;
+            transform: rotate(4deg);
+        }
+
+        .art-piece.five {
+            right: 25%;
+            bottom: 30px;
+            transform: rotate(-6deg);
+        }
+
+        .scribble-note {
+            position: absolute;
+            max-width: 220px;
+            padding: 18px;
+            background: var(--blue-light);
+            color: var(--ink);
+            font-family: Georgia, serif;
+            box-shadow: 7px 7px 0 rgba(0,0,0,0.2);
+        }
+
+        .note-one {
+            top: 20px;
+            left: 50%;
+            transform: rotate(-8deg);
+        }
+
+        .note-two {
+            bottom: 170px;
+            right: 5%;
+            transform: rotate(7deg);
+        }
+
+        .video-room {
+            margin-top: 70px;
+            padding: 25px;
+            background: var(--brown);
+            border: 3px solid var(--blue);
+            box-shadow: 12px 12px 0 var(--blue-dark);
+            transform: rotate(1deg);
+        }
+
+        .video-room h3 {
+            margin: 0 0 20px;
+            color: var(--blue-light);
+            font-family: Georgia, serif;
+            font-size: 30px;
+        }
+
+        .video-placeholder {
+            min-height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(143,185,197,0.18),
+                    rgba(0,0,0,0.35)
+                ),
+                #201714;
+            border: 2px dashed rgba(199,224,229,0.5);
+            color: var(--blue-light);
+            font-size: 18px;
+        }
+
+        .roles {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 60px;
+        }
+
+        .role-card {
+            padding: 25px;
+            background: var(--paper);
+            color: var(--ink);
+            border: 3px solid var(--brown);
+            box-shadow: 8px 8px 0 var(--blue-dark);
+        }
+
+        .role-card:nth-child(2) {
+            transform: rotate(2deg);
+        }
+
+        .role-card:nth-child(3) {
+            transform: rotate(-2deg);
+        }
+
+        .role-card h3 {
+            margin: 0 0 10px;
+            font-family: Georgia, serif;
+        }
+
+        .role-card p {
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .popup {
+            position: fixed;
+            inset: 0;
+            background: rgba(10,7,6,0.88);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            z-index: 100;
+        }
+
+        .popup.active {
+            display: flex;
+        }
+
+        .popup-inner {
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+            background: var(--paper);
+            padding: 25px;
+            color: var(--ink);
+            box-shadow: 18px 18px 0 var(--blue-dark);
+        }
+
+        .popup-image {
+            min-height: 600px;
+            background:
+                radial-gradient(circle at 30% 30%, var(--blue), transparent 30%),
+                radial-gradient(circle at 70% 70%, var(--brown-light), transparent 35%),
+                #CDB99B;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: Georgia, serif;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: -18px;
+            right: -18px;
+            width: 45px;
+            height: 45px;
+            border: 2px solid var(--cream);
+            background: var(--brown);
+            color: var(--cream);
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .popup p {
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 800px) {
+
+            .hero h1 {
+                letter-spacing: -3px;
             }
 
-
-            .hero {
-                min-height: 520px;
-            }
-
-
-            .paper {
-                width: 92%;
-                height: 70%;
-            }
-
-
-            .paper-two {
-                width: 84%;
-            }
-
-
-            .content-grid {
+            .scattered-gallery {
+                min-height: auto;
+                display: grid;
                 grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .art-piece {
+                position: relative;
+                inset: auto !important;
+                width: 100%;
+                height: 350px;
+                transform: none !important;
+            }
+
+            .scribble-note {
+                display: none;
+            }
+
+            .roles {
+                grid-template-columns: 1fr;
+            }
+
+            .video-placeholder {
+                min-height: 300px;
+            }
+
+            .popup-image {
+                min-height: 350px;
             }
 
         }
@@ -247,104 +472,244 @@
 
 </head>
 
-
 <body>
 
     <main class="page">
 
-        <div class="container">
+        <a class="back-button" href="./index.html">← BACK TO PORTFOLIO</a>
 
-            <a
-                href="./index.html"
-                class="back"
-            >
-                BACK TO PORTFOLIO
-            </a>
+        <section class="hero">
 
+            <div class="scribble one"></div>
+            <div class="scribble two"></div>
 
-            <section class="hero">
+            <span class="hero-note">PROJECT / BIBLIOCIDE</span>
 
-                <div class="paper"></div>
+            <h1>BIBLIOCIDE</h1>
 
-                <div class="paper-two"></div>
+            <p class="hero-subtitle">
+                A first-person puzzle game about escapism,
+                twisted fairytales and choosing whether to face reality.
+            </p>
 
+            <p class="hero-description">
+                A world built from familiar stories that have become
+                something much darker. Bibliocide explores the comfort
+                of escaping into fiction and what happens when that
+                comfort becomes impossible to leave.
+            </p>
 
-                <div class="hero-content">
+        </section>
 
-                    <div class="eyebrow">
-                        PROJECT 01 / 03
-                    </div>
+        <section class="section">
 
-                    <h1>
-                        BIBLIOCIDE
-                    </h1>
-
-                    <p class="subtitle">
-                        FIRST-PERSON PUZZLE GAME
-                    </p>
-
-                    <p class="subtitle">
-                        PLACEHOLDER PROJECT DESCRIPTION.
-                        THIS AREA CAN BE USED TO EXPLAIN THE GAME,
-                        YOUR ROLE AND THE CORE IDEA.
-                    </p>
-
-                </div>
-
-            </section>
-
-
-            <section class="content-grid">
-
-                <div class="note">
-                    <h2>PROJECT OVERVIEW</h2>
-                    <p>
-                        Placeholder text for the project overview.
-                        Explain what Bibliocide is, what the player does
-                        and what makes the project distinctive.
-                    </p>
-                </div>
-
-
-                <div class="note">
-                    <h2>MY ROLE</h2>
-                    <p>
-                        Placeholder text for your role on the project.
-                        This could include art, game design, writing,
-                        music, voice acting and production.
-                    </p>
-                </div>
-
-
-                <div class="note">
-                    <h2>DEVELOPMENT</h2>
-                    <p>
-                        Placeholder text for the development process.
-                        This could eventually contain images, concept art,
-                        development screenshots and iteration work.
-                    </p>
-                </div>
-
-
-                <div class="note">
-                    <h2>FINAL RESULT</h2>
-                    <p>
-                        Placeholder text for the finished project.
-                        This could eventually include a trailer,
-                        gameplay images or a playable build.
-                    </p>
-                </div>
-
-            </section>
-
-
-            <div class="placeholder">
-                PROJECT ARTWORK / SCREENSHOTS HERE
+            <div class="section-title">
+                <span>01</span>
+                <h2>THE IDEA</h2>
             </div>
+
+            <div class="story">
+
+                <p>
+                    Bibliocide places the player inside a distorted
+                    fairytale world where familiar stories have been
+                    twisted into something unsettling.
+                </p>
+
+                <p>
+                    The game follows an escape through these spaces,
+                    solving puzzles and uncovering the uncomfortable
+                    relationship between fantasy and reality.
+                </p>
+
+                <p>
+                    At its centre is the idea of escapism. Sometimes
+                    somewhere fictional can feel safer than reality,
+                    but staying there forever comes with its own cost.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section class="section">
+
+            <div class="section-title">
+                <span>02</span>
+                <h2>THE WORLD</h2>
+            </div>
+
+            <div class="scattered-gallery">
+
+                <div class="scribble-note note-one">
+                    PLACEHOLDER NOTE<br><br>
+                    Something important goes here.
+                </div>
+
+                <div class="scribble-note note-two">
+                    PLACEHOLDER<br>
+                    STORY NOTE
+                </div>
+
+                <div class="art-piece one" onclick="openPopup('Artwork Placeholder 01')">
+                    <div class="art-placeholder">
+                        ARTWORK<br>PLACEHOLDER
+                    </div>
+                </div>
+
+                <div class="art-piece two" onclick="openPopup('Artwork Placeholder 02')">
+                    <div class="art-placeholder">
+                        CHARACTER<br>ART PLACEHOLDER
+                    </div>
+                </div>
+
+                <div class="art-piece three" onclick="openPopup('Artwork Placeholder 03')">
+                    <div class="art-placeholder">
+                        ENVIRONMENT<br>PLACEHOLDER
+                    </div>
+                </div>
+
+                <div class="art-piece four" onclick="openPopup('Artwork Placeholder 04')">
+                    <div class="art-placeholder">
+                        PROP<br>PLACEHOLDER
+                    </div>
+                </div>
+
+                <div class="art-piece five" onclick="openPopup('Artwork Placeholder 05')">
+                    <div class="art-placeholder">
+                        CONCEPT<br>PLACEHOLDER
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="section">
+
+            <div class="section-title">
+                <span>03</span>
+                <h2>GAMEPLAY</h2>
+            </div>
+
+            <div class="roles">
+
+                <div class="role-card">
+                    <h3>PUZZLES</h3>
+                    <p>
+                        Placeholder description for the game's puzzles,
+                        exploration and environmental interactions.
+                    </p>
+                </div>
+
+                <div class="role-card">
+                    <h3>FAIRYTALES</h3>
+                    <p>
+                        Placeholder description for the twisted
+                        fairytale environments and their stories.
+                    </p>
+                </div>
+
+                <div class="role-card">
+                    <h3>ESCAPISM</h3>
+                    <p>
+                        Placeholder description for the themes,
+                        choices and relationship between fiction and reality.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="section">
+
+            <div class="section-title">
+                <span>04</span>
+                <h2>VIDEO</h2>
+            </div>
+
+            <div class="video-room">
+
+                <h3>PROJECT VIDEO</h3>
+
+                <div class="video-placeholder">
+                    VIDEO PLACEHOLDER
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="section">
+
+            <div class="section-title">
+                <span>05</span>
+                <h2>MY ROLE</h2>
+            </div>
+
+            <div class="story">
+
+                <p>
+                    Project Lead · Main Artist · Composer · Voice Actor
+                </p>
+
+                <p>
+                    Placeholder space for a longer breakdown of the
+                    work completed on Bibliocide, including concept
+                    development, visual direction, dialogue, music,
+                    voice work and game development.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <div class="popup" id="popup" onclick="closePopup(event)">
+
+        <div class="popup-inner">
+
+            <button class="popup-close" onclick="closePopup()">×</button>
+
+            <div class="popup-image" id="popupImage">
+                ARTWORK PLACEHOLDER
+            </div>
+
+            <p>
+                Placeholder description for this artwork. Replace this
+                with information about the piece whenever you are ready.
+            </p>
 
         </div>
 
-    </main>
+    </div>
+
+    <script>
+
+        function openPopup(title) {
+            document.getElementById("popup").classList.add("active");
+            document.getElementById("popupImage").innerHTML = title;
+        }
+
+        function closePopup(event) {
+
+            if (!event || event.target.id === "popup" || event.target.classList.contains("popup-close")) {
+                document.getElementById("popup").classList.remove("active");
+            }
+
+        }
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+                document.getElementById("popup").classList.remove("active");
+            }
+
+        });
+
+    </script>
 
 </body>
 
