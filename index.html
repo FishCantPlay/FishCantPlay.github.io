@@ -21,7 +21,6 @@
             --pink: #E88FA6;
             --text: #F1E8E5;
             --text-muted: #B6C0BD;
-            --card: rgba(8, 13, 13, 0.78);
         }
 
 
@@ -46,7 +45,7 @@
 
 
         /* ========================================
-           GLOBAL BACKGROUND
+           MOVING BACKGROUND
            ======================================== */
 
         .blob {
@@ -286,7 +285,7 @@
             position: absolute;
             width: 430px;
             height: 430px;
-            border: 1px solid rgba(3, 108, 95, 0.2);
+            border: 1px solid rgba(3, 108, 95, 0.18);
             transform: rotate(25deg);
             z-index: -1;
         }
@@ -305,46 +304,6 @@
         }
 
 
-        .landing-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 22px;
-            padding: 8px 15px;
-            border: 1px solid var(--pink-dark);
-            background: rgba(232, 143, 166, 0.06);
-            color: var(--pink);
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 3px;
-            box-shadow: 5px 5px 0 rgba(156, 63, 87, 0.25);
-            animation: labelFloat 4s ease-in-out infinite;
-        }
-
-
-        .landing-label::before {
-            content: "";
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--teal-light);
-            box-shadow: 0 0 10px rgba(7, 140, 124, 0.7);
-        }
-
-
-        @keyframes labelFloat {
-
-            0%, 100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-5px);
-            }
-
-        }
-
-
         h1 {
             margin: 0;
             font-size: clamp(60px, 10vw, 140px);
@@ -355,17 +314,6 @@
                 5px 5px 0 var(--teal-dark),
                 0 0 25px rgba(3, 108, 95, 0.3);
             position: relative;
-        }
-
-
-        h1::after {
-            content: "FISH HEARD";
-            position: absolute;
-            left: 8px;
-            top: 8px;
-            color: transparent;
-            -webkit-text-stroke: 1px rgba(232, 143, 166, 0.28);
-            z-index: -1;
         }
 
 
@@ -390,7 +338,7 @@
 
 
         /* ========================================
-           NAVIGATION BUTTONS
+           NAVIGATION
            ======================================== */
 
         .navigation {
@@ -436,6 +384,10 @@
             box-shadow: 8px 8px 0 rgba(3, 108, 95, 0.45);
         }
 
+
+        /* ========================================
+           SOCIAL LINKS
+           ======================================== */
 
         .socials {
             display: flex;
@@ -662,13 +614,6 @@
         }
 
 
-        .about-image-main::before {
-            box-shadow:
-                120px 80px 0 rgba(232, 143, 166, 0.07),
-                -120px 160px 0 rgba(3, 108, 95, 0.07);
-        }
-
-
         .image-corner {
             position: absolute;
             width: 55px;
@@ -769,8 +714,6 @@
         }
 
 
-        /* ABOUT VISUAL TAGS */
-
         .style-tags {
             display: flex;
             flex-wrap: wrap;
@@ -790,8 +733,6 @@
             box-shadow: 4px 4px 0 rgba(3, 108, 95, 0.18);
         }
 
-
-        /* ABOUT SKILLS */
 
         .about-skills {
             display: grid;
@@ -848,8 +789,6 @@
             margin: 0;
         }
 
-
-        /* TIMELINE */
 
         .about-timeline {
             display: grid;
@@ -934,8 +873,6 @@
         }
 
 
-        /* HOW I WORK */
-
         .about-traits {
             display: flex;
             flex-wrap: wrap;
@@ -993,8 +930,6 @@
             font-size: 15px !important;
         }
 
-
-        /* OUTSIDE THE WORK */
 
         .about-life-grid {
             display: grid;
@@ -1115,8 +1050,6 @@
         }
 
 
-        /* FUTURE */
-
         .future-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -1179,8 +1112,6 @@
         }
 
 
-        /* ABOUT CONTROLS */
-
         .about-controls {
             display: flex;
             align-items: center;
@@ -1239,6 +1170,92 @@
             background: var(--pink);
             border-color: var(--pink);
             transform: scale(1.35);
+        }
+
+
+        /* ========================================
+           CONTACT
+           ======================================== */
+
+        .contact {
+            max-width: 1200px;
+            margin: 100px auto 0;
+            padding: 100px 20px;
+            text-align: center;
+            border-top:
+                1px solid
+                rgba(232, 143, 166, 0.25);
+            position: relative;
+        }
+
+
+        .contact::before {
+            content: "";
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            border: 1px solid rgba(232, 143, 166, 0.2);
+            transform: rotate(20deg);
+            top: 50px;
+            left: 5%;
+            z-index: -1;
+        }
+
+
+        .contact::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(3, 108, 95, 0.08);
+            right: 8%;
+            bottom: 50px;
+            z-index: -1;
+        }
+
+
+        .contact h3 {
+            margin: 0;
+            font-size: clamp(40px, 6vw, 70px);
+            color: var(--text);
+            text-shadow:
+                4px 4px 0 var(--teal-dark);
+        }
+
+
+        .contact p {
+            color: var(--text-muted);
+            font-size: 18px;
+            margin:
+                20px auto
+                30px;
+        }
+
+
+        .email {
+            display: inline-block;
+            color: var(--pink);
+            font-size: 24px;
+            text-decoration: none;
+            border-bottom:
+                2px solid
+                var(--pink);
+            padding-bottom: 5px;
+            transition:
+                color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+
+        .email:hover {
+            color: var(--teal-light);
+            transform: translateY(-3px);
+        }
+
+
+        .contact .socials {
+            margin-top: 35px;
         }
 
 
@@ -1564,92 +1581,6 @@
 
 
         /* ========================================
-           CONTACT
-           ======================================== */
-
-        .contact {
-            max-width: 1200px;
-            margin: 100px auto 0;
-            padding: 100px 20px;
-            text-align: center;
-            border-top:
-                1px solid
-                rgba(232, 143, 166, 0.25);
-            position: relative;
-        }
-
-
-        .contact::before {
-            content: "";
-            position: absolute;
-            width: 160px;
-            height: 160px;
-            border: 1px solid rgba(232, 143, 166, 0.2);
-            transform: rotate(20deg);
-            top: 50px;
-            left: 5%;
-            z-index: -1;
-        }
-
-
-        .contact::after {
-            content: "";
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: rgba(3, 108, 95, 0.08);
-            right: 8%;
-            bottom: 50px;
-            z-index: -1;
-        }
-
-
-        .contact h3 {
-            margin: 0;
-            font-size: clamp(40px, 6vw, 70px);
-            color: var(--text);
-            text-shadow:
-                4px 4px 0 var(--teal-dark);
-        }
-
-
-        .contact p {
-            color: var(--text-muted);
-            font-size: 18px;
-            margin:
-                20px auto
-                30px;
-        }
-
-
-        .email {
-            display: inline-block;
-            color: var(--pink);
-            font-size: 24px;
-            text-decoration: none;
-            border-bottom:
-                2px solid
-                var(--pink);
-            padding-bottom: 5px;
-            transition:
-                color 0.25s ease,
-                transform 0.25s ease;
-        }
-
-
-        .email:hover {
-            color: var(--teal-light);
-            transform: translateY(-3px);
-        }
-
-
-        .contact .socials {
-            margin-top: 35px;
-        }
-
-
-        /* ========================================
            MOBILE
            ======================================== */
 
@@ -1856,9 +1787,7 @@
 <body>
 
 
-    <!-- ========================================
-         MOVING BACKGROUND
-         ======================================== -->
+    <!-- BACKGROUND -->
 
     <div class="blob blob-pink"></div>
 
@@ -1870,19 +1799,16 @@
 
 
     <!-- ========================================
-         LANDING PAGE
+         LANDING
          ======================================== -->
 
     <section class="landing">
 
         <div class="decor-square section-decoration one"></div>
+
         <div class="decor-circle section-decoration two"></div>
+
         <div class="decor-line section-decoration three"></div>
-
-
-        <div class="landing-label">
-            PORTFOLIO / 2026
-        </div>
 
 
         <h1>
@@ -1896,10 +1822,8 @@
 
 
         <p class="intro">
-
             I create games, characters and strange little worlds
             somewhere between cute, unsettling and a little bit weird.
-
         </p>
 
 
@@ -1989,14 +1913,19 @@
     >
 
         <div class="section-decoration decor-square one"></div>
+
         <div class="section-decoration decor-circle two"></div>
 
 
         <div class="section-heading">
 
-            <h2>ABOUT ME</h2>
+            <h2>
+                ABOUT ME
+            </h2>
 
-            <p>WHO IS FISH?</p>
+            <p>
+                WHO IS FISH?
+            </p>
 
         </div>
 
@@ -2004,9 +1933,7 @@
         <div class="about-slideshow">
 
 
-            <!-- ========================================
-                 SLIDE 1
-                 ======================================== -->
+            <!-- SLIDE 1 -->
 
             <div class="about-slide active">
 
@@ -2016,7 +1943,9 @@
 
                     <div class="image-corner bottom-right"></div>
 
-                    <span>YOUR ARTWORK HERE</span>
+                    <span>
+                        YOUR ARTWORK HERE
+                    </span>
 
                     <div class="pronoun-box">
                         THEY / THEM
@@ -2074,9 +2003,7 @@
             </div>
 
 
-            <!-- ========================================
-                 SLIDE 2
-                 ======================================== -->
+            <!-- SLIDE 2 -->
 
             <div class="about-slide">
 
@@ -2110,7 +2037,6 @@
 
 
                     <div class="about-skills">
-
 
                         <div class="about-skill">
 
@@ -2189,7 +2115,6 @@
 
                         </div>
 
-
                     </div>
 
 
@@ -2202,9 +2127,7 @@
             </div>
 
 
-            <!-- ========================================
-                 SLIDE 3
-                 ======================================== -->
+            <!-- SLIDE 3 -->
 
             <div class="about-slide">
 
@@ -2221,7 +2144,6 @@
 
 
                     <div class="about-timeline">
-
 
                         <div class="timeline-item">
 
@@ -2324,7 +2246,6 @@
 
                         </div>
 
-
                     </div>
 
 
@@ -2345,9 +2266,7 @@
             </div>
 
 
-            <!-- ========================================
-                 SLIDE 4
-                 ======================================== -->
+            <!-- SLIDE 4 -->
 
             <div class="about-slide">
 
@@ -2378,7 +2297,6 @@
 
 
                     <div class="about-work-grid">
-
 
                         <div>
 
@@ -2431,7 +2349,6 @@
 
                         </div>
 
-
                     </div>
 
 
@@ -2444,9 +2361,7 @@
             </div>
 
 
-            <!-- ========================================
-                 SLIDE 5
-                 ======================================== -->
+            <!-- SLIDE 5 -->
 
             <div class="about-slide">
 
@@ -2463,7 +2378,6 @@
 
 
                     <div class="about-life-grid">
-
 
                         <div class="about-life-text">
 
@@ -2503,74 +2417,32 @@
 
                         <div class="about-favourites">
 
-
                             <div>
-
-                                <span>
-                                    01
-                                </span>
-
-                                <strong>
-                                    GAMES
-                                </strong>
-
-                                <p>
-                                    Stories, characters and worlds I can get completely lost in.
-                                </p>
-
+                                <span>01</span>
+                                <strong>GAMES</strong>
+                                <p>Stories, characters and worlds I can get completely lost in.</p>
                             </div>
 
 
                             <div>
-
-                                <span>
-                                    02
-                                </span>
-
-                                <strong>
-                                    ART
-                                </strong>
-
-                                <p>
-                                    Digital painting, drawing, sketching and experimenting with different mediums.
-                                </p>
-
+                                <span>02</span>
+                                <strong>ART</strong>
+                                <p>Digital painting, drawing, sketching and experimenting with different mediums.</p>
                             </div>
 
 
                             <div>
-
-                                <span>
-                                    03
-                                </span>
-
-                                <strong>
-                                    BAKING
-                                </strong>
-
-                                <p>
-                                    Something I got a lot more serious about during my time studying patisserie.
-                                </p>
-
+                                <span>03</span>
+                                <strong>BAKING</strong>
+                                <p>Something I got a lot more serious about during my time studying patisserie.</p>
                             </div>
 
 
                             <div>
-
-                                <span>
-                                    04
-                                </span>
-
-                                <strong>
-                                    GARDENING
-                                </strong>
-
-                                <p>
-                                    A quieter creative outlet and an excuse to keep making things grow.
-                                </p>
-
+                                <span>04</span>
+                                <strong>GARDENING</strong>
+                                <p>A quieter creative outlet and an excuse to keep making things grow.</p>
                             </div>
-
 
                         </div>
 
@@ -2594,9 +2466,7 @@
             </div>
 
 
-            <!-- ========================================
-                 SLIDE 6
-                 ======================================== -->
+            <!-- SLIDE 6 -->
 
             <div class="about-slide">
 
@@ -2619,108 +2489,46 @@
 
                     <div class="future-grid">
 
-
                         <div class="future-item">
-
-                            <span>
-                                01
-                            </span>
-
-                            <h3>
-                                HIGH-POLY MODELLING
-                            </h3>
-
-                            <p>
-                                Developing my sculpting and modelling skills and becoming more confident working with detailed character models.
-                            </p>
-
+                            <span>01</span>
+                            <h3>HIGH-POLY MODELLING</h3>
+                            <p>Developing my sculpting and modelling skills and becoming more confident working with detailed character models.</p>
                         </div>
 
 
                         <div class="future-item">
-
-                            <span>
-                                02
-                            </span>
-
-                            <h3>
-                                BLENDER &amp; ZBRUSH
-                            </h3>
-
-                            <p>
-                                Expanding beyond my existing Maya experience and becoming comfortable with more industry-standard workflows.
-                            </p>
-
+                            <span>02</span>
+                            <h3>BLENDER &amp; ZBRUSH</h3>
+                            <p>Expanding beyond my existing Maya experience and becoming comfortable with more industry-standard workflows.</p>
                         </div>
 
 
                         <div class="future-item">
-
-                            <span>
-                                03
-                            </span>
-
-                            <h3>
-                                CHARACTER ANIMATION
-                            </h3>
-
-                            <p>
-                                Pushing my animation skills further and learning how movement can communicate personality and emotion.
-                            </p>
-
+                            <span>03</span>
+                            <h3>CHARACTER ANIMATION</h3>
+                            <p>Pushing my animation skills further and learning how movement can communicate personality and emotion.</p>
                         </div>
 
 
                         <div class="future-item">
-
-                            <span>
-                                04
-                            </span>
-
-                            <h3>
-                                MOTION CAPTURE
-                            </h3>
-
-                            <p>
-                                I'd love the opportunity to work with mocap and explore the relationship between performance, animation and character design.
-                            </p>
-
+                            <span>04</span>
+                            <h3>MOTION CAPTURE</h3>
+                            <p>I'd love the opportunity to work with mocap and explore the relationship between performance, animation and character design.</p>
                         </div>
 
 
                         <div class="future-item">
-
-                            <span>
-                                05
-                            </span>
-
-                            <h3>
-                                VOICE ACTING
-                            </h3>
-
-                            <p>
-                                Exploring voice acting and learning more about how voice, writing and animation can work together to create stronger characters.
-                            </p>
-
+                            <span>05</span>
+                            <h3>VOICE ACTING</h3>
+                            <p>Exploring voice acting and learning more about how voice, writing and animation can work together to create stronger characters.</p>
                         </div>
 
 
                         <div class="future-item">
-
-                            <span>
-                                06
-                            </span>
-
-                            <h3>
-                                KEEP MAKING
-                            </h3>
-
-                            <p>
-                                Continuing to grow as a versatile game developer while developing a stronger specialism in character art and narrative.
-                            </p>
-
+                            <span>06</span>
+                            <h3>KEEP MAKING</h3>
+                            <p>Continuing to grow as a versatile game developer while developing a stronger specialism in character art and narrative.</p>
                         </div>
-
 
                     </div>
 
@@ -2738,9 +2546,7 @@
             </div>
 
 
-            <!-- ========================================
-                 ABOUT CONTROLS
-                 ======================================== -->
+            <!-- CONTROLS -->
 
             <div class="about-controls">
 
@@ -2755,41 +2561,17 @@
 
                 <div class="about-dots">
 
-                    <button
-                        class="about-dot active"
-                        data-slide="0"
-                        aria-label="Go to About Me slide 1"
-                    ></button>
+                    <button class="about-dot active" data-slide="0" aria-label="Go to About Me slide 1"></button>
 
-                    <button
-                        class="about-dot"
-                        data-slide="1"
-                        aria-label="Go to About Me slide 2"
-                    ></button>
+                    <button class="about-dot" data-slide="1" aria-label="Go to About Me slide 2"></button>
 
-                    <button
-                        class="about-dot"
-                        data-slide="2"
-                        aria-label="Go to About Me slide 3"
-                    ></button>
+                    <button class="about-dot" data-slide="2" aria-label="Go to About Me slide 3"></button>
 
-                    <button
-                        class="about-dot"
-                        data-slide="3"
-                        aria-label="Go to About Me slide 4"
-                    ></button>
+                    <button class="about-dot" data-slide="3" aria-label="Go to About Me slide 4"></button>
 
-                    <button
-                        class="about-dot"
-                        data-slide="4"
-                        aria-label="Go to About Me slide 5"
-                    ></button>
+                    <button class="about-dot" data-slide="4" aria-label="Go to About Me slide 5"></button>
 
-                    <button
-                        class="about-dot"
-                        data-slide="5"
-                        aria-label="Go to About Me slide 6"
-                    ></button>
+                    <button class="about-dot" data-slide="5" aria-label="Go to About Me slide 6"></button>
 
                 </div>
 
@@ -2807,9 +2589,7 @@
         </div>
 
 
-        <!-- ========================================
-             CONTACT
-             ======================================== -->
+        <!-- CONTACT -->
 
         <div class="contact">
 
@@ -2833,40 +2613,13 @@
 
             <div class="socials">
 
-                <a
-                    href="https://bsky.app/profile/fishcantplay.bsky.social"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Bluesky
-                </a>
+                <a href="https://bsky.app/profile/fishcantplay.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a>
 
+                <a href="https://www.tiktok.com/@fishcantplay" target="_blank" rel="noopener noreferrer">TikTok</a>
 
-                <a
-                    href="https://www.tiktok.com/@fishcantplay"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    TikTok
-                </a>
+                <a href="https://www.youtube.com/channel/UCaDKDHI5PpZDd8WhXMEVYtQ" target="_blank" rel="noopener noreferrer">YouTube</a>
 
-
-                <a
-                    href="https://www.youtube.com/channel/UCaDKDHI5PpZDd8WhXMEVYtQ"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    YouTube
-                </a>
-
-
-                <a
-                    href="https://www.artstation.com/fishcantdraw"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    ArtStation
-                </a>
+                <a href="https://www.artstation.com/fishcantdraw" target="_blank" rel="noopener noreferrer">ArtStation</a>
 
             </div>
 
@@ -2885,6 +2638,7 @@
     >
 
         <div class="section-decoration decor-square one"></div>
+
         <div class="section-decoration decor-circle two"></div>
 
 
@@ -2994,6 +2748,7 @@
     >
 
         <div class="section-decoration decor-circle one"></div>
+
         <div class="section-decoration decor-square two"></div>
 
 
@@ -3012,72 +2767,40 @@
 
         <div class="art-grid">
 
-
             <div class="art-card">
-
                 ARTWORK PLACEHOLDER
-
-                <span class="art-label">
-                    2D ART
-                </span>
-
+                <span class="art-label">2D ART</span>
             </div>
 
 
             <div class="art-card">
-
                 ARTWORK PLACEHOLDER
-
-                <span class="art-label">
-                    CHARACTER
-                </span>
-
+                <span class="art-label">CHARACTER</span>
             </div>
 
 
             <div class="art-card">
-
                 ARTWORK PLACEHOLDER
-
-                <span class="art-label">
-                    ILLUSTRATION
-                </span>
-
+                <span class="art-label">ILLUSTRATION</span>
             </div>
 
 
             <div class="art-card">
-
                 ARTWORK PLACEHOLDER
-
-                <span class="art-label">
-                    3D
-                </span>
-
+                <span class="art-label">3D</span>
             </div>
 
 
             <div class="art-card">
-
                 ARTWORK PLACEHOLDER
-
-                <span class="art-label">
-                    ANIMATION
-                </span>
-
+                <span class="art-label">ANIMATION</span>
             </div>
 
 
             <div class="art-card">
-
                 ARTWORK PLACEHOLDER
-
-                <span class="art-label">
-                    EXPERIMENT
-                </span>
-
+                <span class="art-label">EXPERIMENT</span>
             </div>
-
 
         </div>
 
