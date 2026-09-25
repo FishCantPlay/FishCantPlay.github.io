@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bibliocide - Fish Heard</title>
+
+    <style>
+
+        :root {
+            --brown-dark: #30211d;
+            --brown: #594039;
+            --brown-light: #8b6859;
+            --paper: #dfcdb7;
+            --paper-light: #eee2d2;
+            --blue: #9bcbd7;
+            --blue-dark: #5c98a8;
+            --ink: #30282a;
+            --background: #211a19;
+        }
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            margin: 0;
+            background: var(--background);
+            color: var(--paper-light);
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+
+        .page {
+            min-height: 100vh;
+            position: relative;
+            padding: 70px 7% 100px;
+            overflow: hidden;
+        }
+
+
+        .page::before {
+            content: "";
+            position: fixed;
+            width: 650px;
+            height: 650px;
+            border-radius: 50%;
+            background: rgba(155, 203, 215, 0.13);
+            filter: blur(100px);
+            right: -250px;
+            bottom: -250px;
+            pointer-events: none;
+        }
+
+
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+
+        .back {
+            display: inline-block;
+            padding: 13px 22px;
+            background: var(--blue-dark);
+            color: white;
+            border: 2px solid var(--blue);
+            text-decoration: none;
+            letter-spacing: 1px;
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
+            transition: 0.2s ease;
+        }
+
+
+        .back:hover {
+            transform: translateY(-4px) rotate(-2deg);
+            background: var(--blue);
+            color: var(--ink);
+        }
+
+
+        .hero {
+            position: relative;
+            min-height: 620px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+
+        .paper {
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            background: var(--paper);
+            transform: rotate(-4deg);
+            box-shadow: 15px 18px 0 rgba(0, 0, 0, 0.35);
+        }
+
+
+        .paper-two {
+            position: absolute;
+            width: 62%;
+            height: 67%;
+            background: var(--blue);
+            transform: rotate(7deg);
+            opacity: 0.9;
+        }
+
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+            padding: 60px 30px;
+        }
+
+
+        .eyebrow {
+            color: var(--blue-dark);
+            font-weight: bold;
+            letter-spacing: 5px;
+            font-size: 12px;
+        }
+
+
+        h1 {
+            margin: 20px 0;
+            color: var(--brown);
+            font-size: clamp(55px, 10vw, 120px);
+            letter-spacing: -5px;
+            text-shadow:
+                5px 5px 0 var(--blue);
+        }
+
+
+        .subtitle {
+            color: var(--ink);
+            font-size: 19px;
+            line-height: 1.7;
+        }
+
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            margin-top: 60px;
+        }
+
+
+        .note {
+            position: relative;
+            padding: 40px;
+            background: var(--paper-light);
+            color: var(--ink);
+            box-shadow: 10px 12px 0 rgba(0, 0, 0, 0.3);
+        }
+
+
+        .note:nth-child(2) {
+            transform: rotate(2deg);
+            background: var(--blue);
+        }
+
+
+        .note:nth-child(3) {
+            transform: rotate(-2deg);
+            background: var(--paper);
+        }
+
+
+        .note:nth-child(4) {
+            transform: rotate(1deg);
+            background: var(--blue);
+        }
+
+
+        .note h2 {
+            margin-top: 0;
+            color: var(--brown);
+        }
+
+
+        .note p {
+            line-height: 1.8;
+        }
+
+
+        .placeholder {
+            min-height: 350px;
+            margin-top: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px dashed var(--blue);
+            background: rgba(0, 0, 0, 0.12);
+            color: var(--paper);
+            letter-spacing: 4px;
+            font-weight: bold;
+        }
+
+
+        @media (max-width: 700px) {
+
+            .page {
+                padding: 40px 20px;
+            }
+
+
+            .hero {
+                min-height: 520px;
+            }
+
+
+            .paper {
+                width: 92%;
+                height: 70%;
+            }
+
+
+            .paper-two {
+                width: 84%;
+            }
+
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <main class="page">
+
+        <div class="container">
+
+            <a
+                href="./index.html"
+                class="back"
+            >
+                BACK TO PORTFOLIO
+            </a>
+
+
+            <section class="hero">
+
+                <div class="paper"></div>
+
+                <div class="paper-two"></div>
+
+
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        PROJECT 01 / 03
+                    </div>
+
+                    <h1>
+                        BIBLIOCIDE
+                    </h1>
+
+                    <p class="subtitle">
+                        FIRST-PERSON PUZZLE GAME
+                    </p>
+
+                    <p class="subtitle">
+                        PLACEHOLDER PROJECT DESCRIPTION.
+                        THIS AREA CAN BE USED TO EXPLAIN THE GAME,
+                        YOUR ROLE AND THE CORE IDEA.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <section class="content-grid">
+
+                <div class="note">
+                    <h2>PROJECT OVERVIEW</h2>
+                    <p>
+                        Placeholder text for the project overview.
+                        Explain what Bibliocide is, what the player does
+                        and what makes the project distinctive.
+                    </p>
+                </div>
+
+
+                <div class="note">
+                    <h2>MY ROLE</h2>
+                    <p>
+                        Placeholder text for your role on the project.
+                        This could include art, game design, writing,
+                        music, voice acting and production.
+                    </p>
+                </div>
+
+
+                <div class="note">
+                    <h2>DEVELOPMENT</h2>
+                    <p>
+                        Placeholder text for the development process.
+                        This could eventually contain images, concept art,
+                        development screenshots and iteration work.
+                    </p>
+                </div>
+
+
+                <div class="note">
+                    <h2>FINAL RESULT</h2>
+                    <p>
+                        Placeholder text for the finished project.
+                        This could eventually include a trailer,
+                        gameplay images or a playable build.
+                    </p>
+                </div>
+
+            </section>
+
+
+            <div class="placeholder">
+                PROJECT ARTWORK / SCREENSHOTS HERE
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
