@@ -35,258 +35,475 @@
 
 
         body {
+
             margin: 0;
+
             min-height: 100vh;
+
             background: var(--background);
+
             color: var(--text);
+
             font-family: Arial, sans-serif;
+
             overflow-x: hidden;
+
         }
 
 
         /* ========================================
-           BACKGROUND BLOBS
+           BACKGROUND
            ======================================== */
 
-        .blob {
+        .background-shape {
+
             position: fixed;
-            border-radius: 50%;
+
             pointer-events: none;
+
             z-index: 0;
-            filter: blur(90px);
-            opacity: 0.7;
+
         }
 
 
-        .blob-pink {
+        .shape-pink {
+
             width: 520px;
+
             height: 520px;
-            background: rgba(232, 143, 166, 0.35);
+
+            border-radius: 50%;
+
+            background: rgba(232, 143, 166, 0.22);
+
+            filter: blur(100px);
+
             top: -180px;
-            left: -160px;
-            animation: pinkMovement 18s ease-in-out infinite alternate;
+
+            left: -180px;
+
+            animation: pinkFloat 18s ease-in-out infinite alternate;
+
         }
 
 
-        .blob-teal {
-            width: 600px;
-            height: 600px;
-            background: rgba(3, 108, 95, 0.4);
-            right: -200px;
-            bottom: -220px;
-            animation: tealMovement 22s ease-in-out infinite alternate;
+        .shape-teal {
+
+            width: 620px;
+
+            height: 620px;
+
+            border-radius: 50%;
+
+            background: rgba(3, 108, 95, 0.25);
+
+            filter: blur(110px);
+
+            right: -250px;
+
+            bottom: -280px;
+
+            animation: tealFloat 22s ease-in-out infinite alternate;
+
         }
 
 
-        .blob-pink-small {
-            width: 300px;
-            height: 300px;
-            background: rgba(156, 63, 87, 0.25);
+        .shape-pink-small {
+
+            width: 280px;
+
+            height: 280px;
+
+            border-radius: 50%;
+
+            background: rgba(156, 63, 87, 0.16);
+
+            filter: blur(80px);
+
             right: 15%;
-            top: 15%;
-            animation: pinkSmallMovement 25s ease-in-out infinite alternate;
+
+            top: 20%;
+
+            animation: smallPinkFloat 20s ease-in-out infinite alternate;
+
         }
 
 
-        .blob-teal-small {
-            width: 350px;
-            height: 350px;
-            background: rgba(2, 80, 67, 0.3);
-            left: 20%;
-            bottom: 5%;
-            animation: tealSmallMovement 20s ease-in-out infinite alternate;
-        }
+        @keyframes pinkFloat {
 
-
-        @keyframes pinkMovement {
-
-            0% {
+            from {
                 transform: translate(0, 0) scale(1);
             }
 
-            50% {
-                transform: translate(350px, 20px) scale(0.9);
-            }
-
-            100% {
-                transform: translate(500px, 150px) scale(1);
+            to {
+                transform: translate(240px, 170px) scale(1.15);
             }
 
         }
 
 
-        @keyframes tealMovement {
+        @keyframes tealFloat {
 
-            0% {
+            from {
                 transform: translate(0, 0) scale(1);
             }
 
-            50% {
-                transform: translate(-350px, -40px) scale(0.9);
-            }
-
-            100% {
-                transform: translate(-500px, -120px) scale(1);
+            to {
+                transform: translate(-220px, -180px) scale(1.12);
             }
 
         }
 
 
-        @keyframes pinkSmallMovement {
+        @keyframes smallPinkFloat {
 
-            0% {
+            from {
                 transform: translate(0, 0) scale(1);
             }
 
-            50% {
-                transform: translate(-80px, 350px) scale(0.8);
-            }
-
-            100% {
-                transform: translate(200px, 220px) scale(1.15);
-            }
-
-        }
-
-
-        @keyframes tealSmallMovement {
-
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            50% {
-                transform: translate(350px, -250px) scale(0.85);
-            }
-
-            100% {
-                transform: translate(100px, -350px) scale(1.2);
+            to {
+                transform: translate(-180px, 180px) scale(1.2);
             }
 
         }
 
 
         /* ========================================
-           DECORATIONS
+           PAGE
            ======================================== */
 
-        .decor-square {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            border: 1px solid rgba(232, 143, 166, 0.25);
-            transform: rotate(18deg);
-            pointer-events: none;
+        .page {
+
+            position: relative;
+
+            z-index: 1;
+
+            min-height: 100vh;
+
+            padding: 90px 7% 120px;
+
         }
 
 
-        .decor-circle {
-            position: absolute;
-            width: 55px;
-            height: 55px;
-            border: 2px solid rgba(3, 108, 95, 0.5);
-            border-radius: 50%;
-            pointer-events: none;
-        }
+        .page-inner {
 
+            max-width: 1250px;
 
-        .decor-line {
-            position: absolute;
-            width: 120px;
-            height: 2px;
-            background: var(--pink);
-            opacity: 0.4;
-            transform: rotate(-25deg);
-            pointer-events: none;
+            margin: 0 auto;
+
         }
 
 
         /* ========================================
-           HEADER
+           DECORATIVE HEADER
            ======================================== */
 
         .art-header {
+
             position: relative;
-            z-index: 2;
-            min-height: 55vh;
-            padding: 80px 8% 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+
             text-align: center;
-            overflow: hidden;
+
+            padding: 50px 20px 80px;
+
+            overflow: visible;
+
         }
 
 
         .art-header::before {
+
             content: "";
+
             position: absolute;
-            width: 560px;
-            height: 560px;
-            border: 1px solid rgba(232, 143, 166, 0.14);
+
+            width: 600px;
+
+            height: 600px;
+
+            border: 1px solid rgba(232, 143, 166, 0.15);
+
             border-radius: 50%;
-            z-index: -1;
-            animation: headerCircle 20s linear infinite;
+
+            left: 50%;
+
+            top: 50%;
+
+            transform: translate(-50%, -43%);
+
+            pointer-events: none;
+
+            z-index: -2;
+
         }
 
 
         .art-header::after {
+
             content: "";
+
             position: absolute;
-            width: 360px;
-            height: 360px;
+
+            width: 470px;
+
+            height: 470px;
+
             border: 1px solid rgba(3, 108, 95, 0.18);
-            transform: rotate(30deg);
+
+            transform: translate(-50%, -43%) rotate(28deg);
+
+            left: 50%;
+
+            top: 50%;
+
+            pointer-events: none;
+
             z-index: -1;
-        }
-
-
-        @keyframes headerCircle {
-
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
 
         }
 
 
-        .header-label {
-            color: var(--teal-light);
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 4px;
+        /* ========================================
+           HEADER DECORATIVE CIRCLE
+           ======================================== */
+
+        .header-circle {
+
+            position: absolute;
+
+            width: 52px;
+
+            height: 52px;
+
+            border: 2px solid var(--teal);
+
+            border-radius: 50%;
+
+            left: 50%;
+
+            top: 58%;
+
+            transform: translate(-50%, -50%);
+
+            opacity: 0.8;
+
+            z-index: -1;
+
+        }
+
+
+        .header-circle::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 8px;
+
+            height: 8px;
+
+            background: var(--pink);
+
+            border-radius: 50%;
+
+            top: -5px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            box-shadow: 0 0 12px rgba(232, 143, 166, 0.5);
+
+        }
+
+
+        /* ========================================
+           HEADER LABEL
+           ======================================== */
+
+        .eyebrow {
+
+            display: inline-block;
+
+            position: relative;
+
             margin-bottom: 20px;
-        }
 
+            padding: 8px 18px;
 
-        .art-header h1 {
-            margin: 0;
-            font-size: clamp(55px, 9vw, 110px);
+            border: 1px solid var(--pink-dark);
+
             color: var(--pink);
-            letter-spacing: -4px;
-            -webkit-text-stroke: 1px var(--text);
+
+            background: rgba(156, 63, 87, 0.08);
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            box-shadow:
+                6px 6px 0 rgba(156, 63, 87, 0.18);
+
+        }
+
+
+        .eyebrow::before {
+
+            content: "";
+
+            width: 7px;
+
+            height: 7px;
+
+            display: inline-block;
+
+            margin-right: 10px;
+
+            border-radius: 50%;
+
+            background: var(--teal-light);
+
+            box-shadow: 0 0 10px rgba(7, 140, 124, 0.6);
+
+        }
+
+
+        /* ========================================
+           MAIN TITLE
+           ======================================== */
+
+        .art-title {
+
+            position: relative;
+
+            margin: 0;
+
+            font-size: clamp(60px, 10vw, 125px);
+
+            line-height: 0.95;
+
+            letter-spacing: -5px;
+
+            color: var(--pink);
+
+            -webkit-text-stroke: 2px var(--text);
+
             text-shadow:
-                5px 5px 0 var(--pink-dark),
-                0 0 25px rgba(232, 143, 166, 0.12);
+                7px 7px 0 var(--pink-dark),
+                0 0 30px rgba(232, 143, 166, 0.15);
+
         }
 
 
-        .art-header p {
-            max-width: 650px;
-            margin: 25px auto 0;
+        .art-title::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 35%;
+
+            height: 4px;
+
+            left: 50%;
+
+            bottom: -18px;
+
+            transform: translateX(-50%);
+
+            background: var(--teal);
+
+            box-shadow:
+                0 0 15px rgba(3, 108, 95, 0.4);
+
+        }
+
+
+        .art-intro {
+
+            max-width: 720px;
+
+            margin: 45px auto 0;
+
             color: var(--text-muted);
+
             font-size: 18px;
+
             line-height: 1.7;
+
         }
 
 
-        .back-button {
+        /* ========================================
+           BACK BUTTON
+           ======================================== */
+
+        .back-button-wrapper {
+
+            display: flex;
+
+            justify-content: center;
+
             margin-top: 35px;
+
+        }
+
+
+        .button {
+
+            display: inline-block;
+
+            padding: 14px 24px;
+
+            background: var(--teal);
+
+            color: var(--text);
+
+            border: 2px solid var(--teal-light);
+
+            border-radius: 3px;
+
+            cursor: pointer;
+
+            font-family: inherit;
+
+            font-size: 14px;
+
+            letter-spacing: 1px;
+
+            text-decoration: none;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease;
+
+            box-shadow:
+                6px 6px 0 rgba(156, 63, 87, 0.55);
+
+        }
+
+
+        .button:hover {
+
+            background: var(--pink);
+
+            color: var(--black);
+
+            border-color: var(--text);
+
+            transform:
+                translateY(-5px)
+                rotate(-2deg);
+
+            box-shadow:
+                8px 8px 0 rgba(3, 108, 95, 0.6);
+
         }
 
 
@@ -295,40 +512,59 @@
            ======================================== */
 
         .art-navigation {
-            position: relative;
-            z-index: 2;
+
             display: flex;
+
             justify-content: center;
+
             flex-wrap: wrap;
+
             gap: 12px;
-            padding: 0 20px 80px;
+
+            margin: 10px 0 80px;
+
         }
 
 
-        .art-navigation a {
-            padding: 10px 18px;
-            border: 1px solid var(--teal);
+        .art-nav-button {
+
+            padding: 12px 22px;
+
+            background: rgba(3, 108, 95, 0.06);
+
             color: var(--teal-light);
-            text-decoration: none;
+
+            border: 1px solid var(--teal);
+
+            cursor: pointer;
+
+            font-family: inherit;
+
             font-size: 12px;
+
             font-weight: bold;
-            letter-spacing: 2px;
-            background: rgba(3, 108, 95, 0.04);
+
+            letter-spacing: 3px;
+
             transition:
                 background 0.25s ease,
                 color 0.25s ease,
-                border-color 0.25s ease,
                 transform 0.25s ease,
-                box-shadow 0.25s ease;
+                border-color 0.25s ease;
+
         }
 
 
-        .art-navigation a:hover {
-            background: var(--pink);
-            color: var(--black);
-            border-color: var(--text);
+        .art-nav-button:hover {
+
+            background: var(--teal);
+
+            color: var(--text);
+
             transform: translateY(-4px);
-            box-shadow: 5px 5px 0 var(--pink-dark);
+
+            border-color: var(--teal-light);
+
         }
 
 
@@ -337,202 +573,510 @@
            ======================================== */
 
         .art-section {
+
             position: relative;
-            z-index: 1;
-            padding: 100px 8%;
-            overflow: hidden;
+
+            margin-bottom: 120px;
+
+            scroll-margin-top: 50px;
+
         }
 
 
-        .art-section:nth-of-type(even) {
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(3, 108, 95, 0.025),
-                    rgba(156, 63, 87, 0.04)
-                );
+        .section-heading {
+
+            display: flex;
+
+            align-items: flex-end;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+            margin-bottom: 35px;
+
+            padding-bottom: 18px;
+
+            border-bottom: 1px solid rgba(232, 143, 166, 0.22);
+
         }
 
 
-        .art-section-heading {
-            max-width: 1200px;
-            margin: 0 auto 55px;
+        .section-heading-left {
+
             position: relative;
+
         }
 
 
-        .art-section-heading::before {
-            content: "";
-            position: absolute;
-            width: 75px;
-            height: 75px;
-            border: 1px solid rgba(232, 143, 166, 0.25);
-            transform: rotate(18deg);
-            left: -15px;
-            top: -20px;
-            z-index: -1;
-        }
+        .section-number {
 
+            display: block;
 
-        .art-section-number {
+            margin-bottom: 8px;
+
             color: var(--teal-light);
+
             font-size: 12px;
+
             font-weight: bold;
+
             letter-spacing: 4px;
-            margin-bottom: 12px;
+
         }
 
 
-        .art-section-heading h2 {
+        .section-heading h2 {
+
             margin: 0;
-            font-size: clamp(45px, 7vw, 80px);
+
             color: var(--text);
+
+            font-size: clamp(35px, 5vw, 58px);
+
             letter-spacing: -2px;
+
             text-shadow:
-                4px 4px 0 var(--teal-dark);
+                3px 3px 0 var(--teal-dark);
+
         }
 
 
-        .art-section-heading p {
-            max-width: 650px;
-            margin: 15px 0 0;
-            color: var(--pink);
+        .section-heading p {
+
+            max-width: 380px;
+
+            margin: 0;
+
+            color: var(--text-muted);
+
             font-size: 14px;
-            letter-spacing: 2px;
+
             line-height: 1.6;
+
+            text-align: right;
+
         }
 
 
         /* ========================================
-           GALLERY
+           ART GRID
            ======================================== */
 
-        .gallery {
-            max-width: 1200px;
-            margin: 0 auto;
+        .art-grid {
+
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+
+            gap: 24px;
+
         }
 
 
-        .gallery-card {
+        .art-card {
+
             position: relative;
+
             aspect-ratio: 1 / 1;
+
             overflow: hidden;
-            border: 2px solid rgba(232, 143, 166, 0.4);
+
+            border: 2px solid rgba(3, 108, 95, 0.55);
+
             background:
                 radial-gradient(
-                    circle at 30% 20%,
+                    circle at 25% 25%,
                     rgba(232, 143, 166, 0.22),
-                    transparent 35%
+                    transparent 32%
                 ),
                 radial-gradient(
-                    circle at 70% 80%,
+                    circle at 75% 75%,
                     rgba(3, 108, 95, 0.3),
-                    transparent 40%
+                    transparent 38%
                 ),
                 #0A1514;
+
+            cursor: pointer;
+
             transition:
                 transform 0.35s ease,
                 border-color 0.35s ease,
                 box-shadow 0.35s ease;
+
         }
 
 
-        .gallery-card:nth-child(3n + 1) {
-            transform: rotate(-0.8deg);
-        }
+        .art-card::before {
 
-
-        .gallery-card:nth-child(3n + 2) {
-            transform: rotate(1deg);
-        }
-
-
-        .gallery-card:nth-child(3n) {
-            transform: rotate(-0.4deg);
-        }
-
-
-        .gallery-card::before {
             content: "";
-            position: absolute;
-            inset: 12px;
-            border: 1px solid rgba(241, 232, 229, 0.12);
-            pointer-events: none;
-            z-index: 2;
-        }
 
-
-        .gallery-card::after {
-            content: "";
             position: absolute;
-            width: 70px;
-            height: 70px;
-            border: 2px solid rgba(3, 108, 95, 0.35);
+
+            width: 65%;
+
+            height: 65%;
+
+            left: -15%;
+
+            top: -20%;
+
             border-radius: 50%;
-            right: -25px;
-            top: -25px;
-            pointer-events: none;
-        }
 
+            background: rgba(232, 143, 166, 0.12);
 
-        .gallery-card:hover {
-            transform:
-                translateY(-8px)
-                rotate(0deg)
-                scale(1.015);
-            border-color: var(--pink);
-            box-shadow:
-                9px 9px 0 rgba(156, 63, 87, 0.25),
-                0 20px 40px rgba(0, 0, 0, 0.35);
-        }
+            filter: blur(35px);
 
-
-        .placeholder {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(241, 232, 229, 0.35);
-            font-size: 13px;
-            letter-spacing: 3px;
-            text-align: center;
             transition:
-                transform 0.5s ease,
-                filter 0.5s ease;
+                transform 0.5s ease;
+
         }
 
 
-        .placeholder::before {
+        .art-card::after {
+
             content: "";
+
             position: absolute;
+
             width: 55%;
+
             height: 55%;
-            border: 2px dashed rgba(232, 143, 166, 0.3);
-            transform: rotate(-5deg);
+
+            right: -20%;
+
+            bottom: -20%;
+
+            border-radius: 50%;
+
+            background: rgba(3, 108, 95, 0.15);
+
+            filter: blur(30px);
+
+            transition:
+                transform 0.5s ease;
+
         }
 
 
-        .gallery-card:hover .placeholder {
-            transform: scale(1.05);
-            filter: saturate(1.15);
-        }
+        .art-placeholder {
 
-
-        .gallery-label {
             position: absolute;
-            z-index: 3;
-            left: 18px;
-            bottom: 18px;
-            padding: 7px 10px;
-            border: 1px solid var(--teal);
-            background: rgba(5, 7, 7, 0.8);
+
+            inset: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: rgba(241, 232, 229, 0.35);
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+            text-align: center;
+
+            z-index: 2;
+
+        }
+
+
+        .art-placeholder span {
+
+            padding: 10px 15px;
+
+            border: 1px solid rgba(232, 143, 166, 0.25);
+
+            background: rgba(5, 7, 7, 0.35);
+
+        }
+
+
+        .art-card:hover {
+
+            transform:
+                translateY(-9px)
+                rotate(-1deg);
+
+            border-color: var(--pink);
+
+            box-shadow:
+                10px 10px 0 rgba(156, 63, 87, 0.25),
+                0 20px 45px rgba(0, 0, 0, 0.45);
+
+        }
+
+
+        .art-card:hover::before {
+
+            transform: translate(35px, 25px) scale(1.15);
+
+        }
+
+
+        .art-card:hover::after {
+
+            transform: translate(-25px, -25px) scale(1.2);
+
+        }
+
+
+        /* ========================================
+           POPUP / LIGHTBOX
+           ======================================== */
+
+        .art-modal {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 100;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px;
+
+            background: rgba(5, 7, 7, 0.88);
+
+            backdrop-filter: blur(12px);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
+
+            transition:
+                opacity 0.3s ease,
+                visibility 0.3s ease;
+
+        }
+
+
+        .art-modal.active {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            pointer-events: auto;
+
+        }
+
+
+        .modal-content {
+
+            position: relative;
+
+            width: min(1000px, 95vw);
+
+            max-height: 90vh;
+
+            overflow: auto;
+
+            padding: 25px;
+
+            border: 2px solid var(--teal);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(3, 108, 95, 0.18),
+                    rgba(5, 7, 7, 0.98)
+                );
+
+            box-shadow:
+                14px 14px 0 rgba(156, 63, 87, 0.35),
+                0 30px 80px rgba(0, 0, 0, 0.7);
+
+            transform: translateY(25px) scale(0.97);
+
+            transition:
+                transform 0.3s ease;
+
+        }
+
+
+        .art-modal.active .modal-content {
+
+            transform: translateY(0) scale(1);
+
+        }
+
+
+        .modal-close {
+
+            position: absolute;
+
+            top: 15px;
+
+            right: 15px;
+
+            width: 42px;
+
+            height: 42px;
+
+            border: 1px solid var(--pink);
+
+            background: rgba(5, 7, 7, 0.85);
+
+            color: var(--pink);
+
+            font-size: 22px;
+
+            cursor: pointer;
+
+            z-index: 5;
+
+            transition:
+                background 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+
+        }
+
+
+        .modal-close:hover {
+
+            background: var(--pink);
+
+            color: var(--black);
+
+            transform: rotate(5deg);
+
+        }
+
+
+        .modal-art {
+
+            position: relative;
+
+            min-height: 500px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+            border: 1px solid rgba(232, 143, 166, 0.35);
+
+            background:
+                radial-gradient(
+                    circle at 30% 30%,
+                    rgba(232, 143, 166, 0.2),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 70% 70%,
+                    rgba(3, 108, 95, 0.3),
+                    transparent 40%
+                ),
+                #0A1514;
+
+        }
+
+
+        .modal-art::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 400px;
+
+            height: 400px;
+
+            border: 1px solid rgba(232, 143, 166, 0.15);
+
+            border-radius: 50%;
+
+        }
+
+
+        .modal-art span {
+
+            position: relative;
+
+            z-index: 2;
+
+            padding: 15px 20px;
+
+            color: rgba(241, 232, 229, 0.4);
+
+            border: 1px solid rgba(232, 143, 166, 0.3);
+
+            background: rgba(5, 7, 7, 0.5);
+
+            font-size: 14px;
+
+            letter-spacing: 3px;
+
+        }
+
+
+        .modal-info {
+
+            padding: 30px 5px 5px;
+
+        }
+
+
+        .modal-number {
+
             color: var(--teal-light);
-            font-size: 10px;
-            letter-spacing: 2px;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .modal-title {
+
+            margin: 0;
+
+            color: var(--pink);
+
+            font-size: clamp(32px, 5vw, 55px);
+
+            line-height: 1;
+
+            text-shadow:
+                3px 3px 0 var(--pink-dark);
+
+        }
+
+
+        .modal-description {
+
+            max-width: 800px;
+
+            margin: 20px 0 0;
+
+            color: var(--text-muted);
+
+            font-size: 16px;
+
+            line-height: 1.8;
+
         }
 
 
@@ -541,63 +1085,94 @@
            ======================================== */
 
         .art-footer {
-            position: relative;
-            z-index: 2;
-            padding: 100px 20px;
-            text-align: center;
+
+            margin-top: 100px;
+
+            padding-top: 35px;
+
             border-top: 1px solid rgba(232, 143, 166, 0.2);
-            overflow: hidden;
-        }
 
+            text-align: center;
 
-        .art-footer::before {
-            content: "";
-            position: absolute;
-            width: 180px;
-            height: 180px;
-            border: 1px solid rgba(232, 143, 166, 0.15);
-            transform: rotate(25deg);
-            left: 8%;
-            top: 60px;
-        }
-
-
-        .art-footer::after {
-            content: "";
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: rgba(3, 108, 95, 0.08);
-            right: 10%;
-            bottom: 60px;
-        }
-
-
-        .art-footer h2 {
-            margin: 0;
-            font-size: clamp(38px, 6vw, 65px);
-            color: var(--text);
-            text-shadow:
-                4px 4px 0 var(--teal-dark);
         }
 
 
         .art-footer p {
+
+            margin: 0;
+
             color: var(--text-muted);
-            margin: 20px auto 30px;
-            font-size: 17px;
+
+            font-size: 13px;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .footer-line {
+
+            width: 100px;
+
+            height: 3px;
+
+            margin: 20px auto 0;
+
+            background: var(--pink);
+
+            box-shadow:
+                0 0 15px rgba(232, 143, 166, 0.25);
+
         }
 
 
         /* ========================================
-           RESPONSIVE
+           MOBILE
            ======================================== */
 
         @media (max-width: 900px) {
 
-            .gallery {
+            .page {
+                padding: 60px 5% 90px;
+            }
+
+
+            .art-header {
+                padding-top: 35px;
+                padding-bottom: 65px;
+            }
+
+
+            .art-header::before {
+                width: 470px;
+                height: 470px;
+            }
+
+
+            .art-header::after {
+                width: 360px;
+                height: 360px;
+            }
+
+
+            .art-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+
+            .section-heading {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+
+            .section-heading p {
+                text-align: left;
+            }
+
+
+            .modal-art {
+                min-height: 400px;
             }
 
         }
@@ -605,85 +1180,103 @@
 
         @media (max-width: 600px) {
 
-            .blob {
-                filter: blur(70px);
+            .page {
+                padding: 45px 20px 70px;
             }
 
 
             .art-header {
-                min-height: 60vh;
-                padding:
-                    70px
-                    20px
-                    50px;
+                padding: 25px 5px 55px;
             }
 
 
-            .art-header h1 {
-                font-size: 55px;
-                letter-spacing: -2px;
+            .art-header::before {
+                width: 340px;
+                height: 340px;
             }
 
 
-            .art-header p {
+            .art-header::after {
+                width: 280px;
+                height: 280px;
+            }
+
+
+            .art-title {
+
+                font-size: clamp(48px, 15vw, 80px);
+
+                letter-spacing: -3px;
+
+                -webkit-text-stroke: 1px var(--text);
+
+                text-shadow:
+                    4px 4px 0 var(--pink-dark);
+
+            }
+
+
+            .art-intro {
                 font-size: 16px;
             }
 
 
-            .art-section {
-                padding:
-                    80px
-                    20px;
-            }
-
-
-            .art-section-heading {
-                margin-bottom: 40px;
-            }
-
-
-            .art-section-heading h2 {
-                font-size: 48px;
-            }
-
-
-            .gallery {
-                grid-template-columns: 1fr;
-            }
-
-
-            .gallery-card {
-                transform: none !important;
-            }
-
-
-            .gallery-card:hover {
-                transform:
-                    translateY(-6px)
-                    rotate(0deg)
-                    scale(1.01);
+            .eyebrow {
+                font-size: 10px;
+                letter-spacing: 3px;
             }
 
 
             .art-navigation {
-                padding-bottom: 50px;
+                margin-bottom: 60px;
             }
 
 
-            .art-navigation a {
-                width: 100%;
-                max-width: 280px;
-                text-align: center;
+            .art-grid {
+                grid-template-columns: 1fr;
             }
 
 
-            .art-footer::before {
-                left: -70px;
+            .art-section {
+                margin-bottom: 80px;
             }
 
 
-            .art-footer::after {
-                right: -20px;
+            .section-heading h2 {
+                font-size: 40px;
+            }
+
+
+            .art-modal {
+                padding: 15px;
+            }
+
+
+            .modal-content {
+                padding: 15px;
+                box-shadow:
+                    8px 8px 0 rgba(156, 63, 87, 0.35),
+                    0 20px 50px rgba(0, 0, 0, 0.7);
+            }
+
+
+            .modal-art {
+                min-height: 300px;
+            }
+
+
+            .modal-info {
+                padding-top: 25px;
+            }
+
+
+            .modal-title {
+                font-size: 36px;
+            }
+
+
+            .modal-description {
+                font-size: 15px;
             }
 
         }
@@ -697,480 +1290,652 @@
 
 
     <!-- ========================================
-         BACKGROUND
+         BACKGROUND SHAPES
          ======================================== -->
 
-    <div class="blob blob-pink"></div>
+    <div class="background-shape shape-pink"></div>
 
-    <div class="blob blob-teal"></div>
+    <div class="background-shape shape-teal"></div>
 
-    <div class="blob blob-pink-small"></div>
-
-    <div class="blob blob-teal-small"></div>
+    <div class="background-shape shape-pink-small"></div>
 
 
     <!-- ========================================
-         HEADER
+         PAGE
          ======================================== -->
 
-    <header class="art-header">
+    <main class="page">
 
-        <div class="decor-square"></div>
-
-        <div class="decor-circle"></div>
+        <div class="page-inner">
 
 
-        <div class="header-label">
-            PERSONAL WORK
+            <!-- ========================================
+                 HEADER
+                 ======================================== -->
+
+            <header class="art-header">
+
+                <div class="header-circle"></div>
+
+                <div class="eyebrow">
+                    PERSONAL WORK
+                </div>
+
+                <h1 class="art-title">
+                    PERSONAL ART
+                </h1>
+
+                <p class="art-intro">
+                    A collection of character work, illustrations, 3D pieces,
+                    animation and whatever else I've been making.
+                </p>
+
+                <div class="back-button-wrapper">
+
+                    <a
+                        href="./index.html"
+                        class="button"
+                    >
+                        BACK TO PORTFOLIO
+                    </a>
+
+                </div>
+
+            </header>
+
+
+            <!-- ========================================
+                 ART NAVIGATION
+                 ======================================== -->
+
+            <nav class="art-navigation">
+
+                <button
+                    class="art-nav-button"
+                    type="button"
+                    onclick="scrollToSection('art-2d')"
+                >
+                    2D ART
+                </button>
+
+                <button
+                    class="art-nav-button"
+                    type="button"
+                    onclick="scrollToSection('art-3d')"
+                >
+                    3D ART
+                </button>
+
+                <button
+                    class="art-nav-button"
+                    type="button"
+                    onclick="scrollToSection('art-other')"
+                >
+                    OTHER
+                </button>
+
+            </nav>
+
+
+            <!-- ========================================
+                 2D ART
+                 ======================================== -->
+
+            <section
+                class="art-section"
+                id="art-2d"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-heading-left">
+
+                        <span class="section-number">
+                            01 / 03
+                        </span>
+
+                        <h2>
+                            2D ART
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        Illustrations, character designs, experiments
+                        and anything else from my 2D work.
+                    </p>
+
+                </div>
+
+
+                <div class="art-grid">
+
+                    <div
+                        class="art-card"
+                        onclick="openModal(
+                            '01',
+                            'ARTWORK TITLE',
+                            'This is placeholder description text for the artwork. Replace this with whatever you want to say about the piece, or remove the description entirely if you prefer.',
+                            '2D ARTWORK PLACEHOLDER'
+                        )"
+                    >
+                        <div class="art-placeholder">
+                            <span>ARTWORK PLACEHOLDER</span>
+                        </div>
+                    </div>
+
+
+                    <div
+                        class="art-card"
+                        onclick="openModal(
+                            '02',
+                            'ARTWORK TITLE',
+                            'This is placeholder description text for the artwork. Replace this with whatever you want to say about the piece, or remove the description entirely if you prefer.',
+                            '2D ARTWORK PLACEHOLDER'
+                        )"
+                    >
+                        <div class="art-placeholder">
+                            <span>ARTWORK PLACEHOLDER</span>
+                        </div>
+                    </div>
+
+
+                    <div
+                        class="art-card"
+                        onclick="openModal(
+                            '03',
+                            'ARTWORK TITLE',
+                            'This is placeholder description text for the artwork. Replace this with whatever you want to say about the piece, or remove the description entirely if you prefer.',
+                            '2D ARTWORK PLACEHOLDER'
+                        )"
+                    >
+                        <div class="art-placeholder">
+                            <span>ARTWORK PLACEHOLDER</span>
+                        </div>
+                    </div>
+
+
+                    <div
+                        class="art-card"
+                        onclick="openModal(
+                            '04',
+                            'ARTWORK TITLE',
+                            'This is placeholder description text for the artwork. Replace this with whatever you want to say about the piece, or remove the description entirely if you prefer.',
+                            '2D ARTWORK PLACEHOLDER'
+                        )"
+                    >
+                        <div class="art-placeholder">
+                            <span>ARTWORK PLACEHOLDER</span>
+                        </div>
+                    </div>
+
+
+                    <div
+                        class="art-card"
+                        onclick="openModal(
+                            '05',
+                            'ARTWORK TITLE',
+                            'This is placeholder description text for the artwork. Replace this with whatever you want to say about the piece, or remove the description entirely if you prefer.',
+                            '2D ARTWORK PLACEHOLDER'
+                        )"
+                    >
+                        <div class="art-placeholder">
+                            <span>ARTWORK PLACEHOLDER</span>
+                        </div>
+                    </div>
+
+
+                    <div
+                        class="art-card"
+                        onclick="openModal(
+                            '06',
+                            'ARTWORK TITLE',
+                            'This is placeholder description text for the artwork. Replace this with whatever you want to say about the piece, or remove the description entirely if you prefer.',
+                            '2D ARTWORK PLACEHOLDER'
+                        )"
+                    >
+                        <div class="art-placeholder">
+                            <span>ARTWORK PLACEHOLDER</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ========================================
+                 3D ART
+                 ======================================== -->
+
+            <section
+                class="art-section"
+                id="art-3d"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-heading-left">
+
+                        <span class="section-number">
+                            02 / 03
+                        </span>
+
+                        <h2>
+                            3D ART
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        Character models, environments, props and
+                        other 3D work.
+                    </p>
+
+                </div>
+
+
+                <div class="art-grid">
+
+                    <div
+                        class="art-card"
+                        onclick="openModal(
+                            '07',
+                            '3D ARTWORK TITLE',
+                            'This is placeholder description text for the artwork. Replace this with information about the piece, your process, or anything else you want visitors to know.',
+                            '3D ARTWORK PLACEHOLDER'
+                        )"
+                    >
+                        <div class="art-placeholder">
+                            <span>ARTWORK PLACEHOLDER</span>
+                        </div>
+                    </div>
+
+
+                    <div
+                        class="art-card"
+                        onclick="openModal(
+                            '08',
+                            '3D ARTWORK TITLE',
+                            'This is placeholder description text for the artwork. Replace this with information about the piece, your process, or anything else you want visitors to know.',
+                            '3D ARTWORK PLACEHOLDER'
+                        )"
+                    >
+                        <div class="art-placeholder">
+                            <span>ARTWORK PLACEHOLDER</span>
+                        </div>
+                    </div>
+
+
+                    <div
+                        class="art-card"
+                        onclick="openModal(
+                            '09',
+                            '3D ARTWORK TITLE',
+                            'This is placeholder description text for the artwork. Replace this with information about the piece, your process, or anything else you want visitors to know.',
+                            '3D ARTWORK PLACEHOLDER'
+                        )"
+                    >
+                        <div class="art-placeholder">
+                            <span>ARTWORK PLACEHOLDER</span>
+                        </div>
+                    </div>
+
+
+                    <div
+                        class="art-card"
+                        onclick="openModal(
+                            '10',
+                            '3D ARTWORK TITLE',
+                            'This is placeholder description text for the artwork. Replace this with information about the piece, your process, or anything else you want visitors to know.',
+                            '3D ARTWORK PLACEHOLDER'
+                        )"
+                    >
+                        <div class="art-placeholder">
+                            <span>ARTWORK PLACEHOLDER</span>
+                        </div>
+                    </div>
+
+
+                    <div
+                        class="art-card"
+                        onclick="openModal(
+                            '11',
+                            '3D ARTWORK TITLE',
+                            'This is placeholder description text for the artwork. Replace this with information about the piece, your process, or anything else you want visitors to know.',
+                            '3D ARTWORK PLACEHOLDER'
+                        )"
+                    >
+                        <div class="art-placeholder">
+                            <span>ARTWORK PLACEHOLDER</span>
+                        </div>
+                    </div>
+
+
+                    <div
+                        class="art-card"
+                        onclick="openModal(
+                            '12',
+                            '3D ARTWORK TITLE',
+                            'This is placeholder description text for the artwork. Replace this with information about the piece, your process, or anything else you want visitors to know.',
+                            '3D ARTWORK PLACEHOLDER'
+                        )"
+                    >
+                        <div class="art-placeholder">
+                            <span>ARTWORK PLACEHOLDER</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ========================================
+                 OTHER
+                 ======================================== -->
+
+            <section
+                class="art-section"
+                id="art-other"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-heading-left">
+
+                        <span class="section-number">
+                            03 / 03
+                        </span>
+
+                        <h2>
+                            OTHER
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        Animation, experiments, motion work, audio,
+                        photography and anything that doesn't fit elsewhere.
+                    </p>
+
+                </div>
+
+
+                <div class="art-grid">
+
+                    <div
+                        class="art-card"
+                        onclick="openModal(
+                            '13',
+                            'OTHER WORK TITLE',
+                            'This is placeholder description text for the artwork. Replace this with information about the piece, what it is, or why you wanted to make it.',
+                            'OTHER WORK PLACEHOLDER'
+                        )"
+                    >
+                        <div class="art-placeholder">
+                            <span>ARTWORK PLACEHOLDER</span>
+                        </div>
+                    </div>
+
+
+                    <div
+                        class="art-card"
+                        onclick="openModal(
+                            '14',
+                            'OTHER WORK TITLE',
+                            'This is placeholder description text for the artwork. Replace this with information about the piece, what it is, or why you wanted to make it.',
+                            'OTHER WORK PLACEHOLDER'
+                        )"
+                    >
+                        <div class="art-placeholder">
+                            <span>ARTWORK PLACEHOLDER</span>
+                        </div>
+                    </div>
+
+
+                    <div
+                        class="art-card"
+                        onclick="openModal(
+                            '15',
+                            'OTHER WORK TITLE',
+                            'This is placeholder description text for the artwork. Replace this with information about the piece, what it is, or why you wanted to make it.',
+                            'OTHER WORK PLACEHOLDER'
+                        )"
+                    >
+                        <div class="art-placeholder">
+                            <span>ARTWORK PLACEHOLDER</span>
+                        </div>
+                    </div>
+
+
+                    <div
+                        class="art-card"
+                        onclick="openModal(
+                            '16',
+                            'OTHER WORK TITLE',
+                            'This is placeholder description text for the artwork. Replace this with information about the piece, what it is, or why you wanted to make it.',
+                            'OTHER WORK PLACEHOLDER'
+                        )"
+                    >
+                        <div class="art-placeholder">
+                            <span>ARTWORK PLACEHOLDER</span>
+                        </div>
+                    </div>
+
+
+                    <div
+                        class="art-card"
+                        onclick="openModal(
+                            '17',
+                            'OTHER WORK TITLE',
+                            'This is placeholder description text for the artwork. Replace this with information about the piece, what it is, or why you wanted to make it.',
+                            'OTHER WORK PLACEHOLDER'
+                        )"
+                    >
+                        <div class="art-placeholder">
+                            <span>ARTWORK PLACEHOLDER</span>
+                        </div>
+                    </div>
+
+
+                    <div
+                        class="art-card"
+                        onclick="openModal(
+                            '18',
+                            'OTHER WORK TITLE',
+                            'This is placeholder description text for the artwork. Replace this with information about the piece, what it is, or why you wanted to make it.',
+                            'OTHER WORK PLACEHOLDER'
+                        )"
+                    >
+                        <div class="art-placeholder">
+                            <span>ARTWORK PLACEHOLDER</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ========================================
+                 FOOTER
+                 ======================================== -->
+
+            <footer class="art-footer">
+
+                <p>
+                    FISH HEARD · PERSONAL WORK
+                </p>
+
+                <div class="footer-line"></div>
+
+            </footer>
+
         </div>
 
-
-        <h1>
-            PERSONAL ART
-        </h1>
+    </main>
 
 
-        <p>
-            A collection of character work, illustrations, 3D pieces,
-            animation and whatever else I've been making.
-        </p>
+    <!-- ========================================
+         ARTWORK POPUP
+         ======================================== -->
 
+    <div
+        class="art-modal"
+        id="artModal"
+        aria-hidden="true"
+    >
 
-        <a
-            href="./index.html"
-            class="button back-button"
+        <div
+            class="modal-content"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalTitle"
         >
-            ← BACK TO PORTFOLIO
-        </a>
 
-    </header>
+            <button
+                class="modal-close"
+                id="modalClose"
+                type="button"
+                aria-label="Close artwork"
+            >
+                ×
+            </button>
+
+
+            <div class="modal-art">
+
+                <span id="modalArtwork">
+                    ARTWORK PLACEHOLDER
+                </span>
+
+            </div>
+
+
+            <div class="modal-info">
+
+                <div
+                    class="modal-number"
+                    id="modalNumber"
+                >
+                    01
+                </div>
+
+                <h2
+                    class="modal-title"
+                    id="modalTitle"
+                >
+                    ARTWORK TITLE
+                </h2>
+
+                <p
+                    class="modal-description"
+                    id="modalDescription"
+                >
+                    This is placeholder description text for the artwork.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 
 
     <!-- ========================================
-         ART NAVIGATION
+         JAVASCRIPT
          ======================================== -->
 
-    <nav class="art-navigation">
+    <script>
 
-        <a href="#two-d">
-            2D ART
-        </a>
+        const artModal = document.getElementById("artModal");
 
+        const modalClose = document.getElementById("modalClose");
 
-        <a href="#three-d">
-            3D ART
-        </a>
+        const modalNumber = document.getElementById("modalNumber");
 
+        const modalTitle = document.getElementById("modalTitle");
 
-        <a href="#other">
-            OTHER
-        </a>
+        const modalDescription = document.getElementById("modalDescription");
 
-    </nav>
+        const modalArtwork = document.getElementById("modalArtwork");
 
 
-    <!-- ========================================
-         2D ART
-         ======================================== -->
+        function openModal(number, title, description, artworkText) {
 
-    <section
-        class="art-section"
-        id="two-d"
-    >
+            modalNumber.textContent = number;
 
-        <div class="art-section-heading">
+            modalTitle.textContent = title;
 
-            <div class="art-section-number">
-                01 / 03
-            </div>
+            modalDescription.textContent = description;
 
+            modalArtwork.textContent = artworkText;
 
-            <h2>
-                2D ART
-            </h2>
+            artModal.classList.add("active");
 
+            artModal.setAttribute("aria-hidden", "false");
 
-            <p>
-                CHARACTER DESIGN · ILLUSTRATION · CONCEPT ART · DIGITAL PAINTING
-            </p>
+            document.body.style.overflow = "hidden";
 
-        </div>
+        }
 
 
-        <div class="gallery">
+        function closeModal() {
 
+            artModal.classList.remove("active");
 
-            <div class="gallery-card">
+            artModal.setAttribute("aria-hidden", "true");
 
-                <div class="placeholder">
-                    2D ART 01
-                </div>
+            document.body.style.overflow = "";
 
-                <span class="gallery-label">
-                    CHARACTER
-                </span>
+        }
 
-            </div>
 
+        modalClose.addEventListener("click", closeModal);
 
-            <div class="gallery-card">
 
-                <div class="placeholder">
-                    2D ART 02
-                </div>
+        artModal.addEventListener("click", function(event) {
 
-                <span class="gallery-label">
-                    ILLUSTRATION
-                </span>
+            if (event.target === artModal) {
 
-            </div>
+                closeModal();
 
+            }
 
-            <div class="gallery-card">
+        });
 
-                <div class="placeholder">
-                    2D ART 03
-                </div>
 
-                <span class="gallery-label">
-                    CONCEPT
-                </span>
+        document.addEventListener("keydown", function(event) {
 
-            </div>
+            if (event.key === "Escape") {
 
+                closeModal();
 
-            <div class="gallery-card">
+            }
 
-                <div class="placeholder">
-                    2D ART 04
-                </div>
+        });
 
-                <span class="gallery-label">
-                    CHARACTER
-                </span>
 
-            </div>
+        function scrollToSection(sectionId) {
 
+            const section = document.getElementById(sectionId);
 
-            <div class="gallery-card">
+            if (section) {
 
-                <div class="placeholder">
-                    2D ART 05
-                </div>
+                section.scrollIntoView({
 
-                <span class="gallery-label">
-                    PAINTING
-                </span>
+                    behavior: "smooth",
 
-            </div>
+                    block: "start"
 
+                });
 
-            <div class="gallery-card">
+            }
 
-                <div class="placeholder">
-                    2D ART 06
-                </div>
+        }
 
-                <span class="gallery-label">
-                    DESIGN
-                </span>
-
-            </div>
-
-
-            <div class="gallery-card">
-
-                <div class="placeholder">
-                    2D ART 07
-                </div>
-
-                <span class="gallery-label">
-                    ILLUSTRATION
-                </span>
-
-            </div>
-
-
-            <div class="gallery-card">
-
-                <div class="placeholder">
-                    2D ART 08
-                </div>
-
-                <span class="gallery-label">
-                    CHARACTER
-                </span>
-
-            </div>
-
-
-            <div class="gallery-card">
-
-                <div class="placeholder">
-                    2D ART 09
-                </div>
-
-                <span class="gallery-label">
-                    EXPERIMENT
-                </span>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ========================================
-         3D ART
-         ======================================== -->
-
-    <section
-        class="art-section"
-        id="three-d"
-    >
-
-        <div class="art-section-heading">
-
-            <div class="art-section-number">
-                02 / 03
-            </div>
-
-
-            <h2>
-                3D ART
-            </h2>
-
-
-            <p>
-                CHARACTER MODELS · ENVIRONMENTS · ASSETS · TEXTURING
-            </p>
-
-        </div>
-
-
-        <div class="gallery">
-
-
-            <div class="gallery-card">
-
-                <div class="placeholder">
-                    3D ART 01
-                </div>
-
-                <span class="gallery-label">
-                    CHARACTER
-                </span>
-
-            </div>
-
-
-            <div class="gallery-card">
-
-                <div class="placeholder">
-                    3D ART 02
-                </div>
-
-                <span class="gallery-label">
-                    MAYA
-                </span>
-
-            </div>
-
-
-            <div class="gallery-card">
-
-                <div class="placeholder">
-                    3D ART 03
-                </div>
-
-                <span class="gallery-label">
-                    ENVIRONMENT
-                </span>
-
-            </div>
-
-
-            <div class="gallery-card">
-
-                <div class="placeholder">
-                    3D ART 04
-                </div>
-
-                <span class="gallery-label">
-                    TEXTURING
-                </span>
-
-            </div>
-
-
-            <div class="gallery-card">
-
-                <div class="placeholder">
-                    3D ART 05
-                </div>
-
-                <span class="gallery-label">
-                    ASSET
-                </span>
-
-            </div>
-
-
-            <div class="gallery-card">
-
-                <div class="placeholder">
-                    3D ART 06
-                </div>
-
-                <span class="gallery-label">
-                    EXPERIMENT
-                </span>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ========================================
-         OTHER
-         ======================================== -->
-
-    <section
-        class="art-section"
-        id="other"
-    >
-
-        <div class="art-section-heading">
-
-            <div class="art-section-number">
-                03 / 03
-            </div>
-
-
-            <h2>
-                OTHER
-            </h2>
-
-
-            <p>
-                ANIMATION · AUDIO · EXPERIMENTS · EVERYTHING ELSE
-            </p>
-
-        </div>
-
-
-        <div class="gallery">
-
-
-            <div class="gallery-card">
-
-                <div class="placeholder">
-                    OTHER 01
-                </div>
-
-                <span class="gallery-label">
-                    ANIMATION
-                </span>
-
-            </div>
-
-
-            <div class="gallery-card">
-
-                <div class="placeholder">
-                    OTHER 02
-                </div>
-
-                <span class="gallery-label">
-                    AUDIO
-                </span>
-
-            </div>
-
-
-            <div class="gallery-card">
-
-                <div class="placeholder">
-                    OTHER 03
-                </div>
-
-                <span class="gallery-label">
-                    EXPERIMENT
-                </span>
-
-            </div>
-
-
-            <div class="gallery-card">
-
-                <div class="placeholder">
-                    OTHER 04
-                </div>
-
-                <span class="gallery-label">
-                    DESIGN
-                </span>
-
-            </div>
-
-
-            <div class="gallery-card">
-
-                <div class="placeholder">
-                    OTHER 05
-                </div>
-
-                <span class="gallery-label">
-                    ANIMATION
-                </span>
-
-            </div>
-
-
-            <div class="gallery-card">
-
-                <div class="placeholder">
-                    OTHER 06
-                </div>
-
-                <span class="gallery-label">
-                    EXPERIMENT
-                </span>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ========================================
-         FOOTER
-         ======================================== -->
-
-    <footer class="art-footer">
-
-        <h2>
-            THAT'S THE LOT.
-        </h2>
-
-
-        <p>
-            Want to see the rest of the portfolio?
-        </p>
-
-
-        <a
-            href="./index.html"
-            class="button"
-        >
-            BACK TO PORTFOLIO
-        </a>
-
-    </footer>
+    </script>
 
 
 </body>
