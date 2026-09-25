@@ -5,42 +5,24 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Personal Art | Fish Heard</title>
-
+    <title>Personal Art - Fish Heard</title>
 
     <style>
 
-        /* ========================================
-           COLOURS
-        ======================================== */
-
         :root {
-
+            --black: #050707;
+            --background: #080D0D;
             --teal-dark: #025043;
-
-            --teal: #036c5f;
-
-            --pink: #E88FA6;
-
+            --teal: #036C5F;
+            --teal-light: #078C7C;
             --pink-dark: #9C3F57;
-
-            --black: #080909;
-
-            --dark: #101313;
-
-            --text: #f4e9ec;
-
+            --pink: #E88FA6;
+            --text: #F1E8E5;
+            --text-muted: #B6C0BD;
         }
 
-
-        /* ========================================
-           BASIC PAGE
-        ======================================== */
 
         * {
             box-sizing: border-box;
@@ -53,489 +35,655 @@
 
 
         body {
-
             margin: 0;
-
-            background: var(--black);
-
+            min-height: 100vh;
+            background: var(--background);
             color: var(--text);
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
+            font-family: Arial, sans-serif;
             overflow-x: hidden;
-
         }
 
 
         /* ========================================
-           MOVING BACKGROUND BLOBS
-        ======================================== */
-
-        .background {
-
-            position: fixed;
-
-            inset: 0;
-
-            overflow: hidden;
-
-            z-index: -1;
-
-            pointer-events: none;
-
-        }
-
+           BACKGROUND BLOBS
+           ======================================== */
 
         .blob {
-
-            position: absolute;
-
+            position: fixed;
             border-radius: 50%;
-
-            filter: blur(80px);
-
-            opacity: 0.18;
-
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(90px);
+            opacity: 0.7;
         }
 
 
-        .blob-one {
-
-            width: 500px;
-
-            height: 500px;
-
-            background: var(--pink);
-
-            top: -150px;
-
-            left: -150px;
-
-            animation: floatOne 12s ease-in-out infinite;
-
+        .blob-pink {
+            width: 520px;
+            height: 520px;
+            background: rgba(232, 143, 166, 0.35);
+            top: -180px;
+            left: -160px;
+            animation: pinkMovement 18s ease-in-out infinite alternate;
         }
 
 
-        .blob-two {
-
-            width: 550px;
-
-            height: 550px;
-
-            background: var(--teal);
-
-            right: -180px;
-
-            top: 30%;
-
-            animation: floatTwo 15s ease-in-out infinite;
-
+        .blob-teal {
+            width: 600px;
+            height: 600px;
+            background: rgba(3, 108, 95, 0.4);
+            right: -200px;
+            bottom: -220px;
+            animation: tealMovement 22s ease-in-out infinite alternate;
         }
 
 
-        .blob-three {
-
-            width: 450px;
-
-            height: 450px;
-
-            background: var(--pink-dark);
-
-            bottom: -150px;
-
-            left: 25%;
-
-            animation: floatThree 18s ease-in-out infinite;
-
+        .blob-pink-small {
+            width: 300px;
+            height: 300px;
+            background: rgba(156, 63, 87, 0.25);
+            right: 15%;
+            top: 15%;
+            animation: pinkSmallMovement 25s ease-in-out infinite alternate;
         }
 
 
-        @keyframes floatOne {
+        .blob-teal-small {
+            width: 350px;
+            height: 350px;
+            background: rgba(2, 80, 67, 0.3);
+            left: 20%;
+            bottom: 5%;
+            animation: tealSmallMovement 20s ease-in-out infinite alternate;
+        }
 
-            0%, 100% {
-                transform: translate(0, 0);
+
+        @keyframes pinkMovement {
+
+            0% {
+                transform: translate(0, 0) scale(1);
             }
 
             50% {
-                transform: translate(100px, 80px);
+                transform: translate(350px, 20px) scale(0.9);
+            }
+
+            100% {
+                transform: translate(500px, 150px) scale(1);
             }
 
         }
 
 
-        @keyframes floatTwo {
+        @keyframes tealMovement {
 
-            0%, 100% {
-                transform: translate(0, 0);
+            0% {
+                transform: translate(0, 0) scale(1);
             }
 
             50% {
-                transform: translate(-100px, -70px);
+                transform: translate(-350px, -40px) scale(0.9);
+            }
+
+            100% {
+                transform: translate(-500px, -120px) scale(1);
             }
 
         }
 
 
-        @keyframes floatThree {
+        @keyframes pinkSmallMovement {
 
-            0%, 100% {
-                transform: translate(0, 0);
+            0% {
+                transform: translate(0, 0) scale(1);
             }
 
             50% {
-                transform: translate(80px, -100px);
+                transform: translate(-80px, 350px) scale(0.8);
+            }
+
+            100% {
+                transform: translate(200px, 220px) scale(1.15);
+            }
+
+        }
+
+
+        @keyframes tealSmallMovement {
+
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(350px, -250px) scale(0.85);
+            }
+
+            100% {
+                transform: translate(100px, -350px) scale(1.2);
             }
 
         }
 
 
         /* ========================================
-           MAIN CONTAINER
-        ======================================== */
+           DECORATIONS
+           ======================================== */
 
-        .container {
+        .decor-square {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 1px solid rgba(232, 143, 166, 0.25);
+            transform: rotate(18deg);
+            pointer-events: none;
+        }
 
-            width: min(1200px, 90%);
 
-            margin: 0 auto;
+        .decor-circle {
+            position: absolute;
+            width: 55px;
+            height: 55px;
+            border: 2px solid rgba(3, 108, 95, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+        }
 
-            padding-bottom: 100px;
 
+        .decor-line {
+            position: absolute;
+            width: 120px;
+            height: 2px;
+            background: var(--pink);
+            opacity: 0.4;
+            transform: rotate(-25deg);
+            pointer-events: none;
         }
 
 
         /* ========================================
            HEADER
-        ======================================== */
+           ======================================== */
 
-        header {
-
+        .art-header {
+            position: relative;
+            z-index: 2;
             min-height: 55vh;
-
+            padding: 80px 8% 60px;
             display: flex;
-
             flex-direction: column;
-
             justify-content: center;
-
             align-items: center;
-
             text-align: center;
+            overflow: hidden;
+        }
 
-            padding: 80px 20px 60px;
+
+        .art-header::before {
+            content: "";
+            position: absolute;
+            width: 560px;
+            height: 560px;
+            border: 1px solid rgba(232, 143, 166, 0.14);
+            border-radius: 50%;
+            z-index: -1;
+            animation: headerCircle 20s linear infinite;
+        }
+
+
+        .art-header::after {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            border: 1px solid rgba(3, 108, 95, 0.18);
+            transform: rotate(30deg);
+            z-index: -1;
+        }
+
+
+        @keyframes headerCircle {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
 
         }
 
 
-        header h1 {
+        .header-label {
+            color: var(--teal-light);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
 
+
+        .art-header h1 {
             margin: 0;
-
-            font-size: clamp(50px, 9vw, 110px);
-
-            letter-spacing: 5px;
-
+            font-size: clamp(55px, 9vw, 110px);
             color: var(--pink);
-
+            letter-spacing: -4px;
+            -webkit-text-stroke: 1px var(--text);
             text-shadow:
-                2px 2px 0 var(--pink-dark),
-                -1px -1px 0 var(--teal-dark);
-
+                5px 5px 0 var(--pink-dark),
+                0 0 25px rgba(232, 143, 166, 0.12);
         }
 
 
-        header p {
-
-            margin-top: 20px;
-
-            max-width: 700px;
-
-            font-size: 16px;
-
+        .art-header p {
+            max-width: 650px;
+            margin: 25px auto 0;
+            color: var(--text-muted);
+            font-size: 18px;
             line-height: 1.7;
+        }
 
-            letter-spacing: 2px;
 
-            opacity: 0.8;
-
+        .back-button {
+            margin-top: 35px;
         }
 
 
         /* ========================================
-           BUTTON
-        ======================================== */
+           ART NAVIGATION
+           ======================================== */
 
-        .button {
-
-            display: inline-block;
-
-            margin-top: 35px;
-
-            padding: 15px 28px;
-
-            border: 2px solid var(--teal);
-
-            background: var(--teal-dark);
-
-            color: var(--text);
-
-            text-decoration: none;
-
-            font-size: 14px;
-
-            letter-spacing: 2px;
-
-            transition:
-                transform 0.25s ease,
-                background 0.25s ease,
-                border-color 0.25s ease,
-                box-shadow 0.25s ease;
-
+        .art-navigation {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 0 20px 80px;
         }
 
 
-        .button:hover {
+        .art-navigation a {
+            padding: 10px 18px;
+            border: 1px solid var(--teal);
+            color: var(--teal-light);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            background: rgba(3, 108, 95, 0.04);
+            transition:
+                background 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
 
+
+        .art-navigation a:hover {
+            background: var(--pink);
+            color: var(--black);
+            border-color: var(--text);
             transform: translateY(-4px);
-
-            background: var(--pink-dark);
-
-            border-color: var(--pink);
-
-            box-shadow:
-                0 8px 25px rgba(232, 143, 166, 0.2);
-
+            box-shadow: 5px 5px 0 var(--pink-dark);
         }
 
 
         /* ========================================
            ART SECTIONS
-        ======================================== */
+           ======================================== */
 
         .art-section {
-
-            padding: 70px 0;
-
-            scroll-margin-top: 30px;
-
+            position: relative;
+            z-index: 1;
+            padding: 100px 8%;
+            overflow: hidden;
         }
 
 
-        .section-title {
+        .art-section:nth-of-type(even) {
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(3, 108, 95, 0.025),
+                    rgba(156, 63, 87, 0.04)
+                );
+        }
 
-            text-align: center;
 
-            margin-bottom: 15px;
+        .art-section-heading {
+            max-width: 1200px;
+            margin: 0 auto 55px;
+            position: relative;
+        }
 
-            font-size: 42px;
 
-            letter-spacing: 5px;
+        .art-section-heading::before {
+            content: "";
+            position: absolute;
+            width: 75px;
+            height: 75px;
+            border: 1px solid rgba(232, 143, 166, 0.25);
+            transform: rotate(18deg);
+            left: -15px;
+            top: -20px;
+            z-index: -1;
+        }
 
-            color: var(--pink);
 
+        .art-section-number {
+            color: var(--teal-light);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-bottom: 12px;
+        }
+
+
+        .art-section-heading h2 {
+            margin: 0;
+            font-size: clamp(45px, 7vw, 80px);
+            color: var(--text);
+            letter-spacing: -2px;
             text-shadow:
-                2px 2px 0 var(--pink-dark),
-                -1px -1px 0 var(--teal-dark);
-
+                4px 4px 0 var(--teal-dark);
         }
 
 
-        .section-description {
-
-            text-align: center;
-
+        .art-section-heading p {
             max-width: 650px;
-
-            margin: 0 auto 45px;
-
-            line-height: 1.7;
-
-            opacity: 0.7;
-
+            margin: 15px 0 0;
+            color: var(--pink);
+            font-size: 14px;
+            letter-spacing: 2px;
+            line-height: 1.6;
         }
 
 
         /* ========================================
            GALLERY
-        ======================================== */
+           ======================================== */
 
         .gallery {
-
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
+            grid-template-columns: repeat(3, 1fr);
             gap: 25px;
-
         }
 
 
         .gallery-card {
-
             position: relative;
-
             aspect-ratio: 1 / 1;
-
-            background: var(--dark);
-
-            border: 1px solid var(--teal);
-
             overflow: hidden;
-
+            border: 2px solid rgba(232, 143, 166, 0.4);
+            background:
+                radial-gradient(
+                    circle at 30% 20%,
+                    rgba(232, 143, 166, 0.22),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 70% 80%,
+                    rgba(3, 108, 95, 0.3),
+                    transparent 40%
+                ),
+                #0A1514;
             transition:
-                transform 0.3s ease,
-                border-color 0.3s ease,
-                box-shadow 0.3s ease;
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+        }
 
+
+        .gallery-card:nth-child(3n + 1) {
+            transform: rotate(-0.8deg);
+        }
+
+
+        .gallery-card:nth-child(3n + 2) {
+            transform: rotate(1deg);
+        }
+
+
+        .gallery-card:nth-child(3n) {
+            transform: rotate(-0.4deg);
+        }
+
+
+        .gallery-card::before {
+            content: "";
+            position: absolute;
+            inset: 12px;
+            border: 1px solid rgba(241, 232, 229, 0.12);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+
+        .gallery-card::after {
+            content: "";
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            border: 2px solid rgba(3, 108, 95, 0.35);
+            border-radius: 50%;
+            right: -25px;
+            top: -25px;
+            pointer-events: none;
         }
 
 
         .gallery-card:hover {
-
-            transform: translateY(-7px);
-
+            transform:
+                translateY(-8px)
+                rotate(0deg)
+                scale(1.015);
             border-color: var(--pink);
-
             box-shadow:
-                0 12px 30px rgba(232, 143, 166, 0.15);
-
+                9px 9px 0 rgba(156, 63, 87, 0.25),
+                0 20px 40px rgba(0, 0, 0, 0.35);
         }
 
-
-        /* ========================================
-           PLACEHOLDER
-        ======================================== */
 
         .placeholder {
-
-            width: 100%;
-
-            height: 100%;
-
+            position: absolute;
+            inset: 0;
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
+            color: rgba(241, 232, 229, 0.35);
+            font-size: 13px;
+            letter-spacing: 3px;
             text-align: center;
-
-            padding: 20px;
-
-            color: var(--teal);
-
-            font-size: 14px;
-
-            letter-spacing: 2px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(3, 108, 95, 0.08),
-                    rgba(232, 143, 166, 0.05)
-                );
-
-        }
-
-
-        /* ========================================
-           ACTUAL IMAGES
-        ======================================== */
-
-        .gallery-card img {
-
-            width: 100%;
-
-            height: 100%;
-
-            display: block;
-
-            object-fit: cover;
-
             transition:
-                transform 0.4s ease;
-
+                transform 0.5s ease,
+                filter 0.5s ease;
         }
 
 
-        .gallery-card:hover img {
+        .placeholder::before {
+            content: "";
+            position: absolute;
+            width: 55%;
+            height: 55%;
+            border: 2px dashed rgba(232, 143, 166, 0.3);
+            transform: rotate(-5deg);
+        }
 
-            transform: scale(1.04);
 
+        .gallery-card:hover .placeholder {
+            transform: scale(1.05);
+            filter: saturate(1.15);
+        }
+
+
+        .gallery-label {
+            position: absolute;
+            z-index: 3;
+            left: 18px;
+            bottom: 18px;
+            padding: 7px 10px;
+            border: 1px solid var(--teal);
+            background: rgba(5, 7, 7, 0.8);
+            color: var(--teal-light);
+            font-size: 10px;
+            letter-spacing: 2px;
         }
 
 
         /* ========================================
-           BOTTOM BUTTON
-        ======================================== */
+           FOOTER
+           ======================================== */
 
-        .bottom-navigation {
+        .art-footer {
+            position: relative;
+            z-index: 2;
+            padding: 100px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(232, 143, 166, 0.2);
+            overflow: hidden;
+        }
 
-            display: flex;
 
-            justify-content: center;
+        .art-footer::before {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border: 1px solid rgba(232, 143, 166, 0.15);
+            transform: rotate(25deg);
+            left: 8%;
+            top: 60px;
+        }
 
-            padding: 70px 0 20px;
 
+        .art-footer::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(3, 108, 95, 0.08);
+            right: 10%;
+            bottom: 60px;
+        }
+
+
+        .art-footer h2 {
+            margin: 0;
+            font-size: clamp(38px, 6vw, 65px);
+            color: var(--text);
+            text-shadow:
+                4px 4px 0 var(--teal-dark);
+        }
+
+
+        .art-footer p {
+            color: var(--text-muted);
+            margin: 20px auto 30px;
+            font-size: 17px;
         }
 
 
         /* ========================================
-           MOBILE
-        ======================================== */
+           RESPONSIVE
+           ======================================== */
 
-        @media (max-width: 800px) {
+        @media (max-width: 900px) {
 
             .gallery {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-
-                gap: 15px;
-
-            }
-
-
-            header {
-
-                min-height: 50vh;
-
-            }
-
-
-            .section-title {
-
-                font-size: 32px;
-
+                grid-template-columns: repeat(2, 1fr);
             }
 
         }
 
 
-        @media (max-width: 500px) {
+        @media (max-width: 600px) {
+
+            .blob {
+                filter: blur(70px);
+            }
+
+
+            .art-header {
+                min-height: 60vh;
+                padding:
+                    70px
+                    20px
+                    50px;
+            }
+
+
+            .art-header h1 {
+                font-size: 55px;
+                letter-spacing: -2px;
+            }
+
+
+            .art-header p {
+                font-size: 16px;
+            }
+
+
+            .art-section {
+                padding:
+                    80px
+                    20px;
+            }
+
+
+            .art-section-heading {
+                margin-bottom: 40px;
+            }
+
+
+            .art-section-heading h2 {
+                font-size: 48px;
+            }
+
 
             .gallery {
-
                 grid-template-columns: 1fr;
-
             }
 
 
-            header h1 {
-
-                font-size: 45px;
-
+            .gallery-card {
+                transform: none !important;
             }
 
 
-            header p {
+            .gallery-card:hover {
+                transform:
+                    translateY(-6px)
+                    rotate(0deg)
+                    scale(1.01);
+            }
 
-                font-size: 14px;
 
+            .art-navigation {
+                padding-bottom: 50px;
+            }
+
+
+            .art-navigation a {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+
+
+            .art-footer::before {
+                left: -70px;
+            }
+
+
+            .art-footer::after {
+                right: -20px;
             }
 
         }
@@ -549,339 +697,480 @@
 
 
     <!-- ========================================
-         MOVING BACKGROUND
-    ======================================== -->
+         BACKGROUND
+         ======================================== -->
 
-    <div class="background">
+    <div class="blob blob-pink"></div>
 
-        <div class="blob blob-one"></div>
+    <div class="blob blob-teal"></div>
 
-        <div class="blob blob-two"></div>
+    <div class="blob blob-pink-small"></div>
 
-        <div class="blob blob-three"></div>
-
-    </div>
+    <div class="blob blob-teal-small"></div>
 
 
+    <!-- ========================================
+         HEADER
+         ======================================== -->
 
-    <div class="container">
+    <header class="art-header">
+
+        <div class="decor-square"></div>
+
+        <div class="decor-circle"></div>
 
 
-        <!-- ========================================
-             HEADER
-        ======================================== -->
+        <div class="header-label">
+            PERSONAL WORK
+        </div>
 
-        <header>
 
-            <h1>PERSONAL ART</h1>
+        <h1>
+            PERSONAL ART
+        </h1>
+
+
+        <p>
+            A collection of character work, illustrations, 3D pieces,
+            animation and whatever else I've been making.
+        </p>
+
+
+        <a
+            href="./index.html"
+            class="button back-button"
+        >
+            ← BACK TO PORTFOLIO
+        </a>
+
+    </header>
+
+
+    <!-- ========================================
+         ART NAVIGATION
+         ======================================== -->
+
+    <nav class="art-navigation">
+
+        <a href="#two-d">
+            2D ART
+        </a>
+
+
+        <a href="#three-d">
+            3D ART
+        </a>
+
+
+        <a href="#other">
+            OTHER
+        </a>
+
+    </nav>
+
+
+    <!-- ========================================
+         2D ART
+         ======================================== -->
+
+    <section
+        class="art-section"
+        id="two-d"
+    >
+
+        <div class="art-section-heading">
+
+            <div class="art-section-number">
+                01 / 03
+            </div>
+
+
+            <h2>
+                2D ART
+            </h2>
+
 
             <p>
-                A collection of my artwork, experiments,
-                characters, models and other creative work.
+                CHARACTER DESIGN · ILLUSTRATION · CONCEPT ART · DIGITAL PAINTING
             </p>
-
-            <a
-                href="index.html"
-                class="button"
-            >
-                ← BACK TO PORTFOLIO
-            </a>
-
-        </header>
-
-
-
-        <!-- ========================================
-             2D ART
-        ======================================== -->
-
-        <section
-            class="art-section"
-            id="two-d"
-        >
-
-            <h2 class="section-title">
-                2D
-            </h2>
-
-            <p class="section-description">
-                Character art, illustrations, animation,
-                concept work and other 2D artwork.
-            </p>
-
-
-            <div class="gallery">
-
-
-                <div class="gallery-card">
-
-                    <div class="placeholder">
-                        2D ART 01
-                    </div>
-
-                </div>
-
-
-                <div class="gallery-card">
-
-                    <div class="placeholder">
-                        2D ART 02
-                    </div>
-
-                </div>
-
-
-                <div class="gallery-card">
-
-                    <div class="placeholder">
-                        2D ART 03
-                    </div>
-
-                </div>
-
-
-                <div class="gallery-card">
-
-                    <div class="placeholder">
-                        2D ART 04
-                    </div>
-
-                </div>
-
-
-                <div class="gallery-card">
-
-                    <div class="placeholder">
-                        2D ART 05
-                    </div>
-
-                </div>
-
-
-                <div class="gallery-card">
-
-                    <div class="placeholder">
-                        2D ART 06
-                    </div>
-
-                </div>
-
-
-                <div class="gallery-card">
-
-                    <div class="placeholder">
-                        2D ART 07
-                    </div>
-
-                </div>
-
-
-                <div class="gallery-card">
-
-                    <div class="placeholder">
-                        2D ART 08
-                    </div>
-
-                </div>
-
-
-                <div class="gallery-card">
-
-                    <div class="placeholder">
-                        2D ART 09
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ========================================
-             3D ART
-        ======================================== -->
-
-        <section
-            class="art-section"
-            id="three-d"
-        >
-
-            <h2 class="section-title">
-                3D
-            </h2>
-
-            <p class="section-description">
-                3D models, environments, props,
-                textures and other 3D work.
-            </p>
-
-
-            <div class="gallery">
-
-
-                <div class="gallery-card">
-
-                    <div class="placeholder">
-                        3D ART 01
-                    </div>
-
-                </div>
-
-
-                <div class="gallery-card">
-
-                    <div class="placeholder">
-                        3D ART 02
-                    </div>
-
-                </div>
-
-
-                <div class="gallery-card">
-
-                    <div class="placeholder">
-                        3D ART 03
-                    </div>
-
-                </div>
-
-
-                <div class="gallery-card">
-
-                    <div class="placeholder">
-                        3D ART 04
-                    </div>
-
-                </div>
-
-
-                <div class="gallery-card">
-
-                    <div class="placeholder">
-                        3D ART 05
-                    </div>
-
-                </div>
-
-
-                <div class="gallery-card">
-
-                    <div class="placeholder">
-                        3D ART 06
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ========================================
-             OTHER
-        ======================================== -->
-
-        <section
-            class="art-section"
-            id="other"
-        >
-
-            <h2 class="section-title">
-                OTHER
-            </h2>
-
-            <p class="section-description">
-                Experiments, animation, design work,
-                personal projects and anything that
-                doesn't quite fit into the other categories.
-            </p>
-
-
-            <div class="gallery">
-
-
-                <div class="gallery-card">
-
-                    <div class="placeholder">
-                        OTHER 01
-                    </div>
-
-                </div>
-
-
-                <div class="gallery-card">
-
-                    <div class="placeholder">
-                        OTHER 02
-                    </div>
-
-                </div>
-
-
-                <div class="gallery-card">
-
-                    <div class="placeholder">
-                        OTHER 03
-                    </div>
-
-                </div>
-
-
-                <div class="gallery-card">
-
-                    <div class="placeholder">
-                        OTHER 04
-                    </div>
-
-                </div>
-
-
-                <div class="gallery-card">
-
-                    <div class="placeholder">
-                        OTHER 05
-                    </div>
-
-                </div>
-
-
-                <div class="gallery-card">
-
-                    <div class="placeholder">
-                        OTHER 06
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ========================================
-             BACK TO PORTFOLIO
-        ======================================== -->
-
-        <div class="bottom-navigation">
-
-            <a
-                href="index.html"
-                class="button"
-            >
-                ← BACK TO PORTFOLIO
-            </a>
 
         </div>
 
 
-    </div>
+        <div class="gallery">
+
+
+            <div class="gallery-card">
+
+                <div class="placeholder">
+                    2D ART 01
+                </div>
+
+                <span class="gallery-label">
+                    CHARACTER
+                </span>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="placeholder">
+                    2D ART 02
+                </div>
+
+                <span class="gallery-label">
+                    ILLUSTRATION
+                </span>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="placeholder">
+                    2D ART 03
+                </div>
+
+                <span class="gallery-label">
+                    CONCEPT
+                </span>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="placeholder">
+                    2D ART 04
+                </div>
+
+                <span class="gallery-label">
+                    CHARACTER
+                </span>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="placeholder">
+                    2D ART 05
+                </div>
+
+                <span class="gallery-label">
+                    PAINTING
+                </span>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="placeholder">
+                    2D ART 06
+                </div>
+
+                <span class="gallery-label">
+                    DESIGN
+                </span>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="placeholder">
+                    2D ART 07
+                </div>
+
+                <span class="gallery-label">
+                    ILLUSTRATION
+                </span>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="placeholder">
+                    2D ART 08
+                </div>
+
+                <span class="gallery-label">
+                    CHARACTER
+                </span>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="placeholder">
+                    2D ART 09
+                </div>
+
+                <span class="gallery-label">
+                    EXPERIMENT
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         3D ART
+         ======================================== -->
+
+    <section
+        class="art-section"
+        id="three-d"
+    >
+
+        <div class="art-section-heading">
+
+            <div class="art-section-number">
+                02 / 03
+            </div>
+
+
+            <h2>
+                3D ART
+            </h2>
+
+
+            <p>
+                CHARACTER MODELS · ENVIRONMENTS · ASSETS · TEXTURING
+            </p>
+
+        </div>
+
+
+        <div class="gallery">
+
+
+            <div class="gallery-card">
+
+                <div class="placeholder">
+                    3D ART 01
+                </div>
+
+                <span class="gallery-label">
+                    CHARACTER
+                </span>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="placeholder">
+                    3D ART 02
+                </div>
+
+                <span class="gallery-label">
+                    MAYA
+                </span>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="placeholder">
+                    3D ART 03
+                </div>
+
+                <span class="gallery-label">
+                    ENVIRONMENT
+                </span>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="placeholder">
+                    3D ART 04
+                </div>
+
+                <span class="gallery-label">
+                    TEXTURING
+                </span>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="placeholder">
+                    3D ART 05
+                </div>
+
+                <span class="gallery-label">
+                    ASSET
+                </span>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="placeholder">
+                    3D ART 06
+                </div>
+
+                <span class="gallery-label">
+                    EXPERIMENT
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         OTHER
+         ======================================== -->
+
+    <section
+        class="art-section"
+        id="other"
+    >
+
+        <div class="art-section-heading">
+
+            <div class="art-section-number">
+                03 / 03
+            </div>
+
+
+            <h2>
+                OTHER
+            </h2>
+
+
+            <p>
+                ANIMATION · AUDIO · EXPERIMENTS · EVERYTHING ELSE
+            </p>
+
+        </div>
+
+
+        <div class="gallery">
+
+
+            <div class="gallery-card">
+
+                <div class="placeholder">
+                    OTHER 01
+                </div>
+
+                <span class="gallery-label">
+                    ANIMATION
+                </span>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="placeholder">
+                    OTHER 02
+                </div>
+
+                <span class="gallery-label">
+                    AUDIO
+                </span>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="placeholder">
+                    OTHER 03
+                </div>
+
+                <span class="gallery-label">
+                    EXPERIMENT
+                </span>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="placeholder">
+                    OTHER 04
+                </div>
+
+                <span class="gallery-label">
+                    DESIGN
+                </span>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="placeholder">
+                    OTHER 05
+                </div>
+
+                <span class="gallery-label">
+                    ANIMATION
+                </span>
+
+            </div>
+
+
+            <div class="gallery-card">
+
+                <div class="placeholder">
+                    OTHER 06
+                </div>
+
+                <span class="gallery-label">
+                    EXPERIMENT
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+
+    <footer class="art-footer">
+
+        <h2>
+            THAT'S THE LOT.
+        </h2>
+
+
+        <p>
+            Want to see the rest of the portfolio?
+        </p>
+
+
+        <a
+            href="./index.html"
+            class="button"
+        >
+            BACK TO PORTFOLIO
+        </a>
+
+    </footer>
 
 
 </body>
