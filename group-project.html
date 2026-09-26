@@ -12,598 +12,882 @@
     <style>
 
         :root {
-            --black: #08060B;
-            --background: #100C14;
-            --purple-dark: #34203F;
-            --purple: #6B4387;
-            --purple-light: #A879C2;
-            --pink: #E88FA6;
-            --pink-light: #F3B5C5;
-            --paper: #D9D0DC;
-            --paper-dark: #B8A8BD;
-            --text: #F2EDF3;
-            --muted: #B8AFBA;
+            --black: #09080d;
+            --black-light: #15121c;
+            --purple: #7b4ca8;
+            --purple-light: #b98ad8;
+            --purple-dark: #4d286d;
+            --paper: #eee7d5;
+            --yellow: #f0d879;
+            --pink: #e49bb8;
+            --ink: #27222d;
         }
+
 
         * {
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
             margin: 0;
-            min-height: 100vh;
+
             background:
                 radial-gradient(
-                    circle at 10% 10%,
-                    rgba(107, 67, 135, 0.22),
-                    transparent 32%
+                    circle at 20% 10%,
+                    rgba(123,76,168,0.22),
+                    transparent 30%
                 ),
                 radial-gradient(
                     circle at 90% 80%,
-                    rgba(232, 143, 166, 0.10),
-                    transparent 30%
+                    rgba(228,155,184,0.1),
+                    transparent 25%
                 ),
-                var(--background);
-            color: var(--text);
+                var(--black);
+
+            color: #eee;
+
             font-family: Arial, sans-serif;
+
             overflow-x: hidden;
         }
 
-        button {
-            font-family: inherit;
-        }
 
-        /* =========================
-           MOVING BACKGROUND
-        ========================= */
+        body::before {
+            content: "";
 
-        .blob {
             position: fixed;
-            border-radius: 50%;
+
+            inset: 0;
+
             pointer-events: none;
-            z-index: 0;
-            filter: blur(90px);
+
+            opacity: 0.08;
+
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 80px,
+                    rgba(255,255,255,0.03) 81px
+                );
         }
 
-        .blob-purple {
-            width: 500px;
-            height: 500px;
-            background: rgba(107, 67, 135, 0.24);
-            top: -180px;
-            left: -170px;
-            animation: purpleMovement 18s ease-in-out infinite alternate;
-        }
 
-        .blob-pink {
-            width: 420px;
-            height: 420px;
-            background: rgba(232, 143, 166, 0.13);
-            right: -140px;
-            bottom: -120px;
-            animation: pinkMovement 21s ease-in-out infinite alternate;
-        }
+        /* ========================================
+           NAV
+           ======================================== */
 
-        @keyframes purpleMovement {
-
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            50% {
-                transform: translate(220px, 150px) scale(1.15);
-            }
-
-            100% {
-                transform: translate(420px, 40px) scale(0.9);
-            }
-
-        }
-
-        @keyframes pinkMovement {
-
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            50% {
-                transform: translate(-180px, -150px) scale(1.15);
-            }
-
-            100% {
-                transform: translate(-350px, -40px) scale(0.9);
-            }
-
-        }
-
-        /* =========================
-           PAGE
-        ========================= */
-
-        .page {
+        .top-nav {
             position: relative;
-            z-index: 1;
+
+            z-index: 10;
+
+            padding: 25px 6%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
         }
 
-        /* =========================
+
+        .back-button {
+            display: inline-block;
+
+            padding: 12px 20px;
+
+            color: white;
+
+            text-decoration: none;
+
+            border:
+                2px solid
+                var(--purple-light);
+
+            background:
+                var(--black-light);
+
+            box-shadow:
+                6px 6px 0
+                var(--purple-dark);
+
+            transition:
+                transform 0.2s ease;
+        }
+
+
+        .back-button:hover {
+            transform:
+                translate(-3px, -3px)
+                rotate(-1deg);
+        }
+
+
+        .nav-label {
+            color: var(--purple-light);
+
+            font-size: 12px;
+
+            letter-spacing: 4px;
+        }
+
+
+        /* ========================================
            HERO
-        ========================= */
+           ======================================== */
 
         .hero {
+            position: relative;
+
             min-height: 85vh;
-            padding: 70px 8%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-        }
 
-        .back-link {
-            position: absolute;
-            top: 30px;
-            left: 35px;
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 13px;
-            letter-spacing: 2px;
-            transition: color 0.25s ease;
-        }
+            padding:
+                70px
+                7%
+                120px;
 
-        .back-link:hover {
-            color: var(--pink);
-        }
-
-        .project-label {
-            color: var(--pink);
-            font-size: 13px;
-            letter-spacing: 4px;
-            margin-bottom: 22px;
-            font-weight: bold;
-        }
-
-        .hero h1 {
-            margin: 0;
-            font-size: clamp(60px, 11vw, 145px);
-            line-height: 0.85;
-            letter-spacing: -5px;
-            color: var(--purple-light);
-            -webkit-text-stroke: 1px var(--text);
-            text-shadow:
-                5px 5px 0 var(--purple-dark),
-                0 0 30px rgba(107, 67, 135, 0.3);
-        }
-
-        .hero p {
-            max-width: 680px;
-            margin: 35px auto 0;
-            color: var(--muted);
-            font-size: 18px;
-            line-height: 1.7;
-        }
-
-        .hero-line {
-            width: 110px;
-            height: 3px;
-            background: var(--pink);
-            margin-top: 40px;
-        }
-
-        /* =========================
-           SECTIONS
-        ========================= */
-
-        .section {
-            width: min(1200px, 84%);
-            margin: 0 auto;
-            padding: 100px 0;
-        }
-
-        .section-heading {
-            margin-bottom: 45px;
-        }
-
-        .section-number {
-            color: var(--pink);
-            font-size: 12px;
-            letter-spacing: 4px;
-            font-weight: bold;
-            margin-bottom: 12px;
-        }
-
-        .section-heading h2 {
-            margin: 0;
-            font-size: clamp(42px, 7vw, 78px);
-            color: var(--text);
-            line-height: 0.95;
-            text-shadow: 4px 4px 0 var(--purple-dark);
-        }
-
-        /* =========================
-           PROJECT OVERVIEW
-           NOT CLICKABLE
-        ========================= */
-
-        .overview {
-            border-top: 2px solid rgba(107, 67, 135, 0.8);
-        }
-
-        .overview-layout {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 55px;
-            align-items: center;
-        }
-
-        .overview-text p {
-            color: var(--muted);
-            font-size: 16px;
-            line-height: 1.8;
-            margin: 0 0 22px;
-        }
-
-        .overview-text p:last-child {
-            margin-bottom: 0;
-        }
-
-        .overview-art {
-            min-height: 430px;
-            position: relative;
-            border: 2px solid var(--purple);
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(107, 67, 135, 0.2),
-                    rgba(232, 143, 166, 0.06)
-                ),
-                #151017;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             overflow: hidden;
         }
 
-        .overview-art::before {
-            content: "";
-            position: absolute;
-            inset: 35px;
-            border: 2px dashed rgba(217, 208, 220, 0.18);
-        }
 
-        .overview-art span {
+        .hero-inner {
+            max-width: 1200px;
+
+            margin: auto;
+
             position: relative;
-            z-index: 1;
-            color: rgba(242, 237, 243, 0.35);
-            letter-spacing: 3px;
+
+            z-index: 3;
+        }
+
+
+        .small-label {
+            display: inline-block;
+
+            padding: 8px 15px;
+
+            color: var(--ink);
+
+            background: var(--yellow);
+
             font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            transform: rotate(-3deg);
+
+            box-shadow:
+                5px 6px 0
+                rgba(0,0,0,0.4);
         }
 
-        /* =========================
-           VIDEO
-        ========================= */
 
-        .video-section {
-            padding-top: 30px;
+        .hero h1 {
+            margin:
+                40px
+                0
+                10px;
+
+            font-size:
+                clamp(
+                    65px,
+                    12vw,
+                    150px
+                );
+
+            line-height: 0.82;
+
+            letter-spacing: -7px;
+
+            color: white;
+
+            text-shadow:
+                5px 5px 0
+                var(--purple-dark);
         }
 
-        .video-placeholder {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            border: 2px solid var(--purple);
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(107, 67, 135, 0.2),
-                    transparent 45%
-                ),
-                #0D0A10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        .hero-subtitle {
+            font-size:
+                clamp(
+                    20px,
+                    3vw,
+                    30px
+                );
+
+            color:
+                var(--purple-light);
+
+            margin-top: 25px;
         }
 
-        .video-placeholder span {
-            color: rgba(242, 237, 243, 0.3);
-            letter-spacing: 4px;
-            font-size: 12px;
-        }
 
-        /* =========================
-           STUFF I MADE
-        ========================= */
+        .hero-description {
+            max-width: 700px;
 
-        .made-section {
-            border-top: 2px solid var(--pink);
-        }
+            margin-top: 35px;
 
-        .made-intro {
-            max-width: 800px;
-            color: var(--muted);
-            font-size: 16px;
+            font-size: 18px;
+
             line-height: 1.8;
-            margin-bottom: 50px;
+
+            color: #c9c4ce;
         }
 
-        .made-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+
+        .floating-note {
+            position: absolute;
+
+            width: 190px;
+
+            padding: 25px;
+
+            background:
+                var(--yellow);
+
+            color:
+                var(--ink);
+
+            font-family:
+                "Comic Sans MS",
+                cursive;
+
+            line-height: 1.5;
+
+            box-shadow:
+                8px 9px 0
+                rgba(0,0,0,0.4);
         }
 
-        /*
-            These are the ONLY expandable items.
-        */
 
-        .made-card {
+        .note-one {
+            right: 8%;
+            top: 22%;
+
+            transform:
+                rotate(8deg);
+        }
+
+
+        .note-two {
+            right: 20%;
+            bottom: 15%;
+
+            transform:
+                rotate(-5deg);
+
+            background:
+                var(--pink);
+        }
+
+
+        .paper-corner {
+            position: absolute;
+
+            width: 400px;
+            height: 400px;
+
+            right: -120px;
+            bottom: -180px;
+
+            border:
+                2px solid
+                rgba(185,138,216,0.25);
+
+            transform:
+                rotate(25deg);
+        }
+
+
+        /* ========================================
+           MAIN
+           ======================================== */
+
+        main {
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding:
+                0
+                25px
+                100px;
+        }
+
+
+        .board {
             position: relative;
-            min-height: 300px;
-            border: 0;
-            padding: 35px;
-            background: var(--paper);
-            color: #241C28;
-            text-align: left;
+
+            margin-bottom: 80px;
+
+            padding: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #1a1520,
+                    #0e0c12
+                );
+
+            border:
+                2px solid
+                rgba(185,138,216,0.3);
+
+            box-shadow:
+                0 20px 60px
+                rgba(0,0,0,0.4);
+        }
+
+
+        .section-label {
+            color:
+                var(--purple-light);
+
+            font-size: 12px;
+
+            letter-spacing: 4px;
+
+            font-weight: bold;
+        }
+
+
+        .section-title {
+            margin:
+                12px
+                0
+                35px;
+
+            font-size:
+                clamp(
+                    38px,
+                    6vw,
+                    70px
+                );
+
+            line-height: 0.9;
+
+            color: white;
+        }
+
+
+        /* ========================================
+           POST ITS
+           ======================================== */
+
+        .post-it-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .post-it {
+            min-height: 230px;
+
+            padding: 28px;
+
+            color: var(--ink);
+
+            background:
+                var(--yellow);
+
+            box-shadow:
+                7px 8px 0
+                rgba(0,0,0,0.3);
+
+            transform:
+                rotate(-1deg);
+
             cursor: pointer;
-            box-shadow: 10px 10px 0 rgba(52, 32, 63, 0.7);
+
             transition:
                 transform 0.25s ease,
                 box-shadow 0.25s ease;
         }
 
-        .made-card:nth-child(1) {
-            background: #DCC7E6;
+
+        .post-it:nth-child(2n) {
+            transform:
+                rotate(2deg);
+
+            background:
+                var(--paper);
         }
 
-        .made-card:nth-child(2) {
-            background: #E4C5D0;
+
+        .post-it:nth-child(3n) {
+            transform:
+                rotate(-2deg);
+
+            background:
+                var(--pink);
         }
 
-        .made-card:nth-child(3) {
-            background: #C9D8D5;
+
+        .post-it:hover {
+            transform:
+                translateY(-8px)
+                rotate(0deg)
+                scale(1.02);
+
+            box-shadow:
+                12px 14px 0
+                rgba(0,0,0,0.35);
         }
 
-        .made-card:nth-child(4) {
-            background: #E2D6C2;
+
+        .post-it h3 {
+            margin:
+                0
+                0
+                15px;
+
+            font-size: 20px;
         }
 
-        .made-card:nth-child(5) {
-            background: #D5C9E0;
-        }
 
-        .made-card:nth-child(6) {
-            background: #E3C5D1;
-        }
-
-        .made-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 10px 18px 0 rgba(52, 32, 63, 0.75);
-        }
-
-        .made-card::after {
-            content: "CLICK TO EXPAND";
-            position: absolute;
-            right: 25px;
-            bottom: 20px;
-            color: rgba(36, 28, 40, 0.55);
-            font-size: 10px;
-            letter-spacing: 2px;
-            font-weight: bold;
-        }
-
-        .made-number {
-            font-size: 12px;
-            letter-spacing: 3px;
-            font-weight: bold;
-            color: var(--purple-dark);
-            margin-bottom: 55px;
-        }
-
-        .made-card h3 {
-            margin: 0 0 12px;
-            font-size: 27px;
-            color: #241C28;
-        }
-
-        .made-card p {
-            margin: 0;
-            max-width: 400px;
-            color: rgba(36, 28, 40, 0.72);
-            font-size: 14px;
+        .post-it p {
             line-height: 1.6;
         }
 
-        /* =========================
-           POPUP
-        ========================= */
 
-        .modal {
-            position: fixed;
-            inset: 0;
-            z-index: 100;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 25px;
-            background: rgba(8, 6, 11, 0.88);
-            backdrop-filter: blur(8px);
+        .click-hint {
+            display: block;
+
+            margin-top: 18px;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            opacity: 0.55;
         }
 
-        .modal.active {
+
+        /* ========================================
+           VIDEO
+           ======================================== */
+
+        .video-room {
+            padding: 18px;
+
+            background: #050408;
+
+            border:
+                3px solid
+                var(--purple);
+
+            box-shadow:
+                12px 12px 0
+                var(--purple-dark);
+        }
+
+
+        .video-screen {
+            aspect-ratio: 16 / 9;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border:
+                2px dashed
+                var(--purple-light);
+
+            color:
+                var(--purple-light);
+
+            letter-spacing: 4px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(123,76,168,0.18),
+                    transparent 55%
+                );
+        }
+
+
+        .video-caption {
+            margin-top: 15px;
+
+            color: #aaa2b2;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+        }
+
+
+        /* ========================================
+           STUDENT DESK
+           ======================================== */
+
+        .desk {
+            display: grid;
+
+            grid-template-columns:
+                1.3fr
+                0.7fr;
+
+            gap: 35px;
+        }
+
+
+        .notebook {
+            padding: 40px;
+
+            color: var(--ink);
+
+            background:
+                repeating-linear-gradient(
+                    #eee7d5,
+                    #eee7d5 39px,
+                    #b5bcd0 40px
+                );
+
+            box-shadow:
+                8px 10px 0
+                rgba(0,0,0,0.4);
+
+            transform:
+                rotate(-1deg);
+        }
+
+
+        .notebook h3 {
+            font-family: Georgia, serif;
+
+            font-size: 28px;
+
+            margin-top: 0;
+        }
+
+
+        .notebook p {
+            line-height: 2;
+        }
+
+
+        .folder {
+            padding: 35px;
+
+            background:
+                var(--purple-dark);
+
+            border:
+                3px solid
+                var(--purple-light);
+
+            box-shadow:
+                8px 8px 0
+                rgba(0,0,0,0.4);
+        }
+
+
+        .folder h3 {
+            margin-top: 0;
+
+            color:
+                var(--purple-light);
+        }
+
+
+        .folder p {
+            color:
+                #d7cedf;
+
+            line-height: 1.7;
+        }
+
+
+        /* ========================================
+           IMAGE WALL
+           ======================================== */
+
+        .image-wall {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .image-placeholder {
+            min-height: 230px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 20px;
+
+            background:
+                var(--paper);
+
+            color:
+                var(--ink);
+
+            box-shadow:
+                5px 6px 0
+                rgba(0,0,0,0.3);
+
+            transform:
+                rotate(-1deg);
+        }
+
+
+        .image-placeholder:nth-child(2n) {
+            transform:
+                rotate(2deg);
+
+            background:
+                var(--yellow);
+        }
+
+
+        .image-placeholder:nth-child(3n) {
+            transform:
+                rotate(-3deg);
+
+            background:
+                var(--pink);
+        }
+
+
+        /* ========================================
+           POPUP
+           ======================================== */
+
+        .popup {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 100;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+
+            background:
+                rgba(5,4,8,0.86);
+
+            backdrop-filter:
+                blur(8px);
+        }
+
+
+        .popup.active {
             display: flex;
         }
 
-        .modal-content {
-            width: min(780px, 100%);
-            max-height: 85vh;
-            overflow-y: auto;
-            background: #171119;
-            border: 2px solid var(--pink);
-            padding: 45px;
+
+        .popup-box {
             position: relative;
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.65);
-            animation: modalAppear 0.25s ease;
+
+            width:
+                min(900px, 100%);
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            padding: 28px;
+
+            background:
+                var(--paper);
+
+            color:
+                var(--ink);
+
+            box-shadow:
+                14px 15px 0
+                var(--purple-dark);
+
+            transform:
+                rotate(-0.6deg);
         }
 
-        @keyframes modalAppear {
 
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+        .popup-image {
+            min-height: 430px;
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            display: flex;
 
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background:
+                #d7cfc0;
+
+            border:
+                2px dashed
+                var(--purple);
+
+            color:
+                var(--ink);
+
+            letter-spacing: 3px;
         }
 
-        .modal-close {
-            position: absolute;
-            top: 18px;
-            right: 18px;
-            width: 40px;
-            height: 40px;
-            border: 1px solid var(--purple);
-            background: transparent;
-            color: var(--text);
-            cursor: pointer;
-            font-size: 21px;
+
+        .popup-title {
+            margin:
+                25px
+                0
+                10px;
+
+            font-size: 32px;
         }
 
-        .modal-close:hover {
-            background: var(--pink);
-            color: #08060B;
-            border-color: var(--pink);
-        }
 
-        .modal-number {
-            color: var(--pink);
-            font-size: 12px;
-            letter-spacing: 4px;
-            font-weight: bold;
-            margin-bottom: 12px;
-        }
+        .popup-description {
+            font-size: 17px;
 
-        .modal-content h2 {
-            margin: 0 0 25px;
-            color: var(--purple-light);
-            font-size: clamp(36px, 6vw, 60px);
-            text-shadow: 3px 3px 0 var(--purple-dark);
-        }
-
-        .modal-description {
-            color: var(--muted);
-            font-size: 16px;
             line-height: 1.8;
         }
 
-        .modal-image {
-            margin-top: 30px;
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            border: 1px solid rgba(232, 143, 166, 0.4);
+
+        .popup-close {
+            position: absolute;
+
+            top: 10px;
+            right: 10px;
+
+            width: 42px;
+            height: 42px;
+
+            border: 0;
+
             background:
-                radial-gradient(
-                    circle at center,
-                    rgba(107, 67, 135, 0.2),
-                    transparent 45%
-                ),
-                #0E0B10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(242, 237, 243, 0.25);
-            letter-spacing: 3px;
-            font-size: 11px;
+                var(--purple);
+
+            color: white;
+
+            cursor: pointer;
+
+            font-size: 22px;
+
+            z-index: 2;
         }
 
-        /* =========================
+
+        /* ========================================
            FOOTER
-        ========================= */
+           ======================================== */
 
         footer {
-            width: min(1200px, 84%);
-            margin: 0 auto;
-            padding: 70px 0 50px;
-            border-top: 1px solid rgba(107, 67, 135, 0.5);
+            padding:
+                70px
+                20px;
+
             text-align: center;
+
+            background:
+                #050408;
+
+            border-top:
+                1px solid
+                var(--purple-dark);
         }
 
-        footer p {
-            color: var(--muted);
-            font-size: 13px;
-        }
 
         footer a {
-            color: var(--pink);
+            display: inline-block;
+
+            margin-top: 20px;
+
+            padding: 13px 22px;
+
+            color: white;
+
+            border:
+                2px solid
+                var(--purple-light);
+
             text-decoration: none;
         }
 
-        /* =========================
-           MOBILE
-        ========================= */
 
         @media (max-width: 850px) {
 
-            .overview-layout {
+            .post-it-grid,
+            .image-wall {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .desk {
                 grid-template-columns: 1fr;
             }
 
-            .made-grid {
-                grid-template-columns: 1fr;
+
+            .floating-note {
+                display: none;
             }
 
         }
 
-        @media (max-width: 600px) {
+
+        @media (max-width: 550px) {
 
             .hero {
-                padding: 90px 25px 60px;
+                padding:
+                    60px
+                    25px
+                    90px;
             }
 
-            .back-link {
-                top: 20px;
-                left: 20px;
-            }
 
             .hero h1 {
-                letter-spacing: -3px;
-                -webkit-text-stroke: 0;
-                text-shadow:
-                    -1px -1px 0 var(--text),
-                    1px -1px 0 var(--text),
-                    -1px 1px 0 var(--text),
-                    1px 1px 0 var(--text),
-                    4px 4px 0 var(--purple-dark);
+                letter-spacing: -4px;
             }
 
-            .hero p {
-                font-size: 16px;
+
+            .board {
+                padding:
+                    30px
+                    20px;
             }
 
-            .section {
-                width: 88%;
-                padding: 75px 0;
+
+            .post-it-grid,
+            .image-wall {
+                grid-template-columns: 1fr;
             }
 
-            .overview-art {
+
+            .popup-image {
                 min-height: 280px;
-            }
-
-            .made-card {
-                min-height: 260px;
-            }
-
-            .modal {
-                padding: 15px;
-            }
-
-            .modal-content {
-                padding: 35px 25px;
             }
 
         }
@@ -612,357 +896,385 @@
 
 </head>
 
+
 <body>
 
-    <div class="blob blob-purple"></div>
-    <div class="blob blob-pink"></div>
 
-    <main class="page">
+    <nav class="top-nav">
 
-        <section class="hero">
+        <a
+            href="./index.html"
+            class="back-button"
+        >
+            ← BACK TO PORTFOLIO
+        </a>
 
-            <a href="./index.html" class="back-link">
-                ← BACK TO PORTFOLIO
-            </a>
 
-            <div class="project-label">
+        <span class="nav-label">
+            PROJECT / 02
+        </span>
+
+    </nav>
+
+
+    <header class="hero">
+
+        <div class="hero-inner">
+
+            <span class="small-label">
                 UNIVERSITY GROUP PROJECT
+            </span>
+
+
+            <h1>
+                GROUP<br>PROJECT
+            </h1>
+
+
+            <div class="hero-subtitle">
+                Making a game is easier when everyone agrees.
             </div>
 
-            <h1>GROUP PROJECT</h1>
 
-            <p>
-                A relationship management game about a group of students
-                trying to make a game together, while their personalities,
-                opinions and relationships constantly get in the way.
+            <p class="hero-description">
+
+                PLACEHOLDER PROJECT INTRODUCTION.
+                Describe the student team, the game and the
+                relationship-management concept here.
+
             </p>
 
-            <div class="hero-line"></div>
+        </div>
+
+
+        <div class="floating-note note-one">
+            REMEMBER TO<br>
+            COMMUNICATE!!!
+        </div>
+
+
+        <div class="floating-note note-two">
+            THIS WAS<br>
+            DEFINITELY<br>
+            THE PLAN.
+        </div>
+
+
+        <div class="paper-corner"></div>
+
+    </header>
+
+
+    <main>
+
+
+        <section class="board">
+
+            <span class="section-label">
+                PROJECT OVERVIEW
+            </span>
+
+
+            <h2 class="section-title">
+                THE ASSIGNMENT.
+            </h2>
+
+
+            <div class="post-it-grid">
+
+
+                <div
+                    class="post-it"
+                >
+
+                    <h3>THE GAME</h3>
+
+                    <p>
+                        PLACEHOLDER DESCRIPTION OF THE GAME
+                        AND ITS CORE IDEA.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="post-it"
+                >
+
+                    <h3>THE TEAM</h3>
+
+                    <p>
+                        PLACEHOLDER DESCRIPTION OF THE STUDENT
+                        TEAM AND HOW THE PROJECT WAS ORGANISED.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="post-it"
+                >
+
+                    <h3>THE GOAL</h3>
+
+                    <p>
+                        PLACEHOLDER DESCRIPTION OF WHAT THE
+                        PLAYER IS TRYING TO ACHIEVE.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="post-it"
+                >
+
+                    <h3>THE PROBLEM</h3>
+
+                    <p>
+                        PLACEHOLDER DESCRIPTION OF THE CENTRAL
+                        DESIGN CHALLENGE.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="post-it"
+                >
+
+                    <h3>THE CHARACTERS</h3>
+
+                    <p>
+                        Nott, Bam, Tang, Drip and Wilma can be
+                        introduced here.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="post-it"
+                >
+
+                    <h3>THE PLAYER</h3>
+
+                    <p>
+                        PLACEHOLDER DESCRIPTION OF HOW THE
+                        PLAYER'S CHOICES AFFECT THE TEAM.
+                    </p>
+
+                </div>
+
+
+            </div>
 
         </section>
 
 
-        <!-- PROJECT OVERVIEW
-             THIS IS NOW COMPLETELY STATIC -->
+        <section class="board">
 
-        <section class="section overview">
-
-            <div class="section-heading">
-
-                <div class="section-number">
-                    01 / PROJECT OVERVIEW
-                </div>
-
-                <h2>
-                    THE GAME
-                </h2>
-
-            </div>
-
-            <div class="overview-layout">
-
-                <div class="overview-text">
-
-                    <p>
-                        Group Project is a relationship management game
-                        centred around a group of students attempting to
-                        create a game together. The player takes control of
-                        Nott, a crow who acts as the group's programmer and
-                        mediator.
-                    </p>
-
-                    <p>
-                        Throughout the project, the player makes choices
-                        during conversations and situations involving the
-                        other members of the team. These choices affect
-                        relationships, with some characters becoming happier
-                        while others may become upset.
-                    </p>
-
-                    <p>
-                        The game focuses on the social side of group work,
-                        with each character having their own personality,
-                        opinions and approach to making games. Keeping
-                        everyone happy is not always possible.
-                    </p>
-
-                    <p>
-                        The visual style combines cute animal characters
-                        with a slightly messy student-project aesthetic.
-                        The writing focuses heavily on character personality
-                        and relationships.
-                    </p>
-
-                </div>
-
-                <div class="overview-art">
-
-                    <span>
-                        PROJECT ARTWORK<br>
-                        PLACEHOLDER
-                    </span>
-
-                </div>
-
-            </div>
-
-        </section>
+            <span class="section-label">
+                GAMEPLAY
+            </span>
 
 
-        <!-- GAMEPLAY VIDEO -->
+            <h2 class="section-title">
+                VIDEO / PLAYTHROUGH
+            </h2>
 
-        <section class="section video-section">
 
-            <div class="section-heading">
+            <div class="video-room">
 
-                <div class="section-number">
-                    02 / GAMEPLAY
-                </div>
-
-                <h2>
-                    GAMEPLAY VIDEO
-                </h2>
-
-            </div>
-
-            <div class="video-placeholder">
-
-                <span>
+                <div class="video-screen">
                     VIDEO PLACEHOLDER
-                </span>
-
-            </div>
-
-        </section>
-
-
-        <!-- STUFF I MADE
-             THIS IS THE ONLY EXPANDABLE SECTION -->
-
-        <section class="section made-section">
-
-            <div class="section-heading">
-
-                <div class="section-number">
-                    03 / MY CONTRIBUTIONS
                 </div>
 
-                <h2>
-                    STUFF I MADE
-                </h2>
 
-            </div>
-
-            <p class="made-intro">
-                My work on the project covered character design, modelling,
-                textures, animation, writing, audio and other visual work.
-                Click on the sections below to see more about each part of
-                my contribution.
-            </p>
-
-
-            <div class="made-grid">
-
-                <button
-                    type="button"
-                    class="made-card"
-                    data-number="01"
-                    data-title="CHARACTER DESIGN"
-                    data-description="PLACEHOLDER DESCRIPTION. Add information here about the character concepts, visual development and design work created for the project."
-                >
-
-                    <div class="made-number">
-                        01
-                    </div>
-
-                    <h3>
-                        CHARACTER DESIGN
-                    </h3>
-
-                    <p>
-                        Character concepts, visual development and design.
-                    </p>
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="made-card"
-                    data-number="02"
-                    data-title="3D MODELLING"
-                    data-description="PLACEHOLDER DESCRIPTION. Add information here about the 3D models created for the project, including modelling and preparing the characters for use in the game."
-                >
-
-                    <div class="made-number">
-                        02
-                    </div>
-
-                    <h3>
-                        3D MODELLING
-                    </h3>
-
-                    <p>
-                        Character modelling and 3D asset creation.
-                    </p>
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="made-card"
-                    data-number="03"
-                    data-title="TEXTURES & MATERIALS"
-                    data-description="PLACEHOLDER DESCRIPTION. Add information here about the texture and material work created for the characters and other assets."
-                >
-
-                    <div class="made-number">
-                        03
-                    </div>
-
-                    <h3>
-                        TEXTURES &amp; MATERIALS
-                    </h3>
-
-                    <p>
-                        Textures, materials and visual asset development.
-                    </p>
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="made-card"
-                    data-number="04"
-                    data-title="ANIMATION"
-                    data-description="PLACEHOLDER DESCRIPTION. Add information here about the animation work created for the project."
-                >
-
-                    <div class="made-number">
-                        04
-                    </div>
-
-                    <h3>
-                        ANIMATION
-                    </h3>
-
-                    <p>
-                        Character animation and movement.
-                    </p>
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="made-card"
-                    data-number="05"
-                    data-title="DIALOGUE & WRITING"
-                    data-description="PLACEHOLDER DESCRIPTION. Add information here about the dialogue, character writing and narrative work created for the project."
-                >
-
-                    <div class="made-number">
-                        05
-                    </div>
-
-                    <h3>
-                        DIALOGUE &amp; WRITING
-                    </h3>
-
-                    <p>
-                        Dialogue, character writing and narrative work.
-                    </p>
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="made-card"
-                    data-number="06"
-                    data-title="AUDIO & MUSIC"
-                    data-description="PLACEHOLDER DESCRIPTION. Add information here about the music, sound design, voice clips and other audio work created for the project."
-                >
-
-                    <div class="made-number">
-                        06
-                    </div>
-
-                    <h3>
-                        AUDIO &amp; MUSIC
-                    </h3>
-
-                    <p>
-                        Music, sound and audio experimentation.
-                    </p>
-
-                </button>
+                <div class="video-caption">
+                    GAMEPLAY VIDEO / TRAILER PLACEHOLDER
+                </div>
 
             </div>
 
         </section>
 
 
-        <footer>
+        <section class="board">
 
-            <p>
-                GROUP PROJECT ·
-                <a href="./index.html">
-                    FISH HEARD
-                </a>
-            </p>
+            <span class="section-label">
+                DEVELOPMENT DESK
+            </span>
 
-        </footer>
+
+            <h2 class="section-title">
+                THE WORK.
+            </h2>
+
+
+            <div class="desk">
+
+
+                <div class="notebook">
+
+                    <h3>
+                        PROJECT NOTES
+                    </h3>
+
+
+                    <p>
+                        PLACEHOLDER DEVELOPMENT NOTES.
+                    </p>
+
+
+                    <p>
+                        PLACEHOLDER TEXT ABOUT DESIGN,
+                        ART, CHARACTERS, WRITING AND
+                        DEVELOPMENT.
+                    </p>
+
+
+                    <p>
+                        PLACEHOLDER TEXT ABOUT YOUR OWN
+                        CONTRIBUTIONS TO THE PROJECT.
+                    </p>
+
+                </div>
+
+
+                <div class="folder">
+
+                    <h3>
+                        MY ROLE
+                    </h3>
+
+
+                    <p>Characters</p>
+                    <p>3D Models</p>
+                    <p>Textures</p>
+                    <p>Animation</p>
+                    <p>Dialogue</p>
+                    <p>Audio</p>
+                    <p>Game Design</p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <section class="board">
+
+            <span class="section-label">
+                DEVELOPMENT WALL
+            </span>
+
+
+            <h2 class="section-title">
+                STUFF I MADE.
+            </h2>
+
+
+            <div class="image-wall">
+
+                <div class="image-placeholder" data-title="Character Art" data-description="PLACEHOLDER DESCRIPTION FOR CHARACTER ART PLACEHOLDER. Add details about what you created, your process, software used and your contribution here.">
+                    CHARACTER ART PLACEHOLDER
+                    <span class="click-hint">Click to expand</span>
+                </div>
+
+                <div class="image-placeholder" data-title="Nott Model" data-description="PLACEHOLDER DESCRIPTION FOR NOTT MODEL PLACEHOLDER. Add details about what you created, your process, software used and your contribution here.">
+                    NOTT MODEL PLACEHOLDER
+                    <span class="click-hint">Click to expand</span>
+                </div>
+
+                <div class="image-placeholder" data-title="Tang Model" data-description="PLACEHOLDER DESCRIPTION FOR TANG MODEL PLACEHOLDER. Add details about what you created, your process, software used and your contribution here.">
+                    TANG MODEL PLACEHOLDER
+                    <span class="click-hint">Click to expand</span>
+                </div>
+
+                <div class="image-placeholder" data-title="Drip Model" data-description="PLACEHOLDER DESCRIPTION FOR DRIP MODEL PLACEHOLDER. Add details about what you created, your process, software used and your contribution here.">
+                    DRIP MODEL PLACEHOLDER
+                    <span class="click-hint">Click to expand</span>
+                </div>
+
+                <div class="image-placeholder" data-title="Concept Art" data-description="PLACEHOLDER DESCRIPTION FOR CONCEPT ART PLACEHOLDER. Add details about what you created, your process, software used and your contribution here.">
+                    CONCEPT ART PLACEHOLDER
+                    <span class="click-hint">Click to expand</span>
+                </div>
+
+                <div class="image-placeholder" data-title="Ui" data-description="PLACEHOLDER DESCRIPTION FOR UI PLACEHOLDER. Add details about what you created, your process, software used and your contribution here.">
+                    UI PLACEHOLDER
+                    <span class="click-hint">Click to expand</span>
+                </div>
+
+                <div class="image-placeholder" data-title="Animation" data-description="PLACEHOLDER DESCRIPTION FOR ANIMATION PLACEHOLDER. Add details about what you created, your process, software used and your contribution here.">
+                    ANIMATION PLACEHOLDER
+                    <span class="click-hint">Click to expand</span>
+                </div>
+
+                <div class="image-placeholder" data-title="Screenshot" data-description="PLACEHOLDER DESCRIPTION FOR SCREENSHOT PLACEHOLDER. Add details about what you created, your process, software used and your contribution here.">
+                    SCREENSHOT PLACEHOLDER
+                    <span class="click-hint">Click to expand</span>
+                </div>
+
+            </div>
+        </section>
+
 
     </main>
 
 
-    <!-- POPUP -->
+    <footer>
+
+        <div>
+            END OF PROJECT / GROUP PROJECT
+        </div>
+
+
+        <a href="./index.html">
+            BACK TO PORTFOLIO
+        </a>
+
+    </footer>
+
 
     <div
-        class="modal"
-        id="madeModal"
-        aria-hidden="true"
+        class="popup"
+        id="postPopup"
     >
 
-        <div
-            class="modal-content"
-            role="dialog"
-            aria-modal="true"
-        >
+        <div class="popup-box">
 
             <button
-                type="button"
-                class="modal-close"
-                id="modalClose"
-                aria-label="Close"
+                class="popup-close"
+                id="postPopupClose"
+                aria-label="Close note"
             >
                 ×
             </button>
 
-            <div
-                class="modal-number"
-                id="modalNumber"
-            >
-                01
+
+            <div class="popup-image">
+                IMAGE PLACEHOLDER
             </div>
 
-            <h2 id="modalTitle">
-                CHARACTER DESIGN
+
+            <h2
+                class="popup-title"
+                id="postPopupTitle"
+            >
+                Project Note
             </h2>
 
+
             <p
-                class="modal-description"
-                id="modalDescription"
+                class="popup-description"
+                id="postPopupDescription"
             >
                 PLACEHOLDER DESCRIPTION.
             </p>
-
-            <div class="modal-image">
-                IMAGE PLACEHOLDER
-            </div>
 
         </div>
 
@@ -971,63 +1283,69 @@
 
     <script>
 
-        const madeCards = document.querySelectorAll(".made-card");
+        const postIts =
+            document.querySelectorAll(".image-placeholder");
 
-        const modal = document.getElementById("madeModal");
-        const modalClose = document.getElementById("modalClose");
-        const modalNumber = document.getElementById("modalNumber");
-        const modalTitle = document.getElementById("modalTitle");
-        const modalDescription = document.getElementById("modalDescription");
+        const postPopup =
+            document.getElementById("postPopup");
 
-        function openMadePopup(card) {
+        const postPopupClose =
+            document.getElementById("postPopupClose");
 
-            modalNumber.textContent = card.dataset.number;
-            modalTitle.textContent = card.dataset.title;
-            modalDescription.textContent = card.dataset.description;
+        const postPopupTitle =
+            document.getElementById("postPopupTitle");
 
-            modal.classList.add("active");
-            modal.setAttribute("aria-hidden", "false");
+        const postPopupDescription =
+            document.getElementById("postPopupDescription");
 
-            document.body.style.overflow = "hidden";
 
-        }
+        postIts.forEach((note) => {
 
-        function closeMadePopup() {
+            note.addEventListener("click", () => {
 
-            modal.classList.remove("active");
-            modal.setAttribute("aria-hidden", "true");
+                postPopupTitle.textContent =
+                    note.dataset.title;
 
-            document.body.style.overflow = "";
+                postPopupDescription.textContent =
+                    note.dataset.description;
 
-        }
+                postPopup.classList.add("active");
 
-        madeCards.forEach((card) => {
-
-            card.addEventListener("click", () => {
-                openMadePopup(card);
             });
 
         });
 
-        modalClose.addEventListener("click", closeMadePopup);
 
-        modal.addEventListener("click", (event) => {
+        postPopupClose.addEventListener("click", () => {
 
-            if (event.target === modal) {
-                closeMadePopup();
+            postPopup.classList.remove("active");
+
+        });
+
+
+        postPopup.addEventListener("click", (event) => {
+
+            if (event.target === postPopup) {
+
+                postPopup.classList.remove("active");
+
             }
 
         });
 
+
         document.addEventListener("keydown", (event) => {
 
             if (event.key === "Escape") {
-                closeMadePopup();
+
+                postPopup.classList.remove("active");
+
             }
 
         });
 
     </script>
+
 
 </body>
 
