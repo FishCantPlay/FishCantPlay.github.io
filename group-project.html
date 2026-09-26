@@ -12,16 +12,17 @@
     <style>
 
         :root {
-            --black: #08070A;
-            --purple-dark: #352044;
-            --purple: #6F4A8E;
-            --purple-light: #A987C5;
+            --black: #08060B;
+            --background: #100C14;
+            --purple-dark: #34203F;
+            --purple: #6B4387;
+            --purple-light: #A879C2;
             --pink: #E88FA6;
-            --pink-light: #F3B8C8;
-            --white: #F2EDF3;
+            --pink-light: #F3B5C5;
+            --paper: #D9D0DC;
+            --paper-dark: #B8A8BD;
+            --text: #F2EDF3;
             --muted: #B8AFBA;
-            --paper: #D8CBE1;
-            --paper-dark: #BBA8C7;
         }
 
         * {
@@ -34,75 +35,88 @@
 
         body {
             margin: 0;
+            min-height: 100vh;
             background:
                 radial-gradient(
-                    circle at 15% 10%,
-                    rgba(111, 74, 142, 0.2),
-                    transparent 30%
+                    circle at 10% 10%,
+                    rgba(107, 67, 135, 0.22),
+                    transparent 32%
                 ),
                 radial-gradient(
-                    circle at 85% 80%,
-                    rgba(232, 143, 166, 0.1),
+                    circle at 90% 80%,
+                    rgba(232, 143, 166, 0.10),
                     transparent 30%
                 ),
-                var(--black);
-            color: var(--white);
+                var(--background);
+            color: var(--text);
             font-family: Arial, sans-serif;
             overflow-x: hidden;
         }
 
-        a {
-            color: inherit;
+        button {
+            font-family: inherit;
         }
 
         /* =========================
-           BACKGROUND
+           MOVING BACKGROUND
         ========================= */
 
-        .background-shape {
+        .blob {
             position: fixed;
+            border-radius: 50%;
             pointer-events: none;
             z-index: 0;
-            border-radius: 50%;
-            filter: blur(80px);
+            filter: blur(90px);
         }
 
-        .shape-one {
-            width: 450px;
-            height: 450px;
-            background: rgba(111, 74, 142, 0.22);
-            top: -180px;
-            left: -150px;
-            animation: floatOne 16s ease-in-out infinite alternate;
-        }
-
-        .shape-two {
+        .blob-purple {
             width: 500px;
             height: 500px;
-            background: rgba(232, 143, 166, 0.14);
-            right: -180px;
-            bottom: -150px;
-            animation: floatTwo 19s ease-in-out infinite alternate;
+            background: rgba(107, 67, 135, 0.24);
+            top: -180px;
+            left: -170px;
+            animation: purpleMovement 18s ease-in-out infinite alternate;
         }
 
-        @keyframes floatOne {
-            from {
-                transform: translate(0, 0);
-            }
-
-            to {
-                transform: translate(220px, 160px);
-            }
+        .blob-pink {
+            width: 420px;
+            height: 420px;
+            background: rgba(232, 143, 166, 0.13);
+            right: -140px;
+            bottom: -120px;
+            animation: pinkMovement 21s ease-in-out infinite alternate;
         }
 
-        @keyframes floatTwo {
-            from {
-                transform: translate(0, 0);
+        @keyframes purpleMovement {
+
+            0% {
+                transform: translate(0, 0) scale(1);
             }
 
-            to {
-                transform: translate(-180px, -140px);
+            50% {
+                transform: translate(220px, 150px) scale(1.15);
             }
+
+            100% {
+                transform: translate(420px, 40px) scale(0.9);
+            }
+
+        }
+
+        @keyframes pinkMovement {
+
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(-180px, -150px) scale(1.15);
+            }
+
+            100% {
+                transform: translate(-350px, -40px) scale(0.9);
+            }
+
         }
 
         /* =========================
@@ -120,12 +134,13 @@
 
         .hero {
             min-height: 85vh;
-            padding: 60px 8%;
+            padding: 70px 8%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             text-align: center;
+            position: relative;
         }
 
         .back-link {
@@ -136,53 +151,50 @@
             text-decoration: none;
             font-size: 13px;
             letter-spacing: 2px;
-            border-bottom: 1px solid transparent;
-            transition: color 0.25s ease, border-color 0.25s ease;
+            transition: color 0.25s ease;
         }
 
         .back-link:hover {
             color: var(--pink);
-            border-color: var(--pink);
         }
 
-        .project-tag {
+        .project-label {
             color: var(--pink);
             font-size: 13px;
             letter-spacing: 4px;
+            margin-bottom: 22px;
             font-weight: bold;
-            margin-bottom: 20px;
         }
 
         .hero h1 {
             margin: 0;
-            font-size: clamp(65px, 12vw, 150px);
+            font-size: clamp(60px, 11vw, 145px);
             line-height: 0.85;
-            letter-spacing: -6px;
+            letter-spacing: -5px;
             color: var(--purple-light);
-            -webkit-text-stroke: 1px var(--white);
+            -webkit-text-stroke: 1px var(--text);
             text-shadow:
-                6px 6px 0 var(--purple-dark),
-                0 0 35px rgba(111, 74, 142, 0.25);
+                5px 5px 0 var(--purple-dark),
+                0 0 30px rgba(107, 67, 135, 0.3);
         }
 
-        .hero-subtitle {
-            margin-top: 30px;
-            max-width: 650px;
+        .hero p {
+            max-width: 680px;
+            margin: 35px auto 0;
             color: var(--muted);
             font-size: 18px;
             line-height: 1.7;
         }
 
-        .hero-divider {
-            width: 100px;
+        .hero-line {
+            width: 110px;
             height: 3px;
             background: var(--pink);
             margin-top: 40px;
-            box-shadow: 0 0 20px rgba(232, 143, 166, 0.2);
         }
 
         /* =========================
-           GENERAL SECTIONS
+           SECTIONS
         ========================= */
 
         .section {
@@ -191,7 +203,11 @@
             padding: 100px 0;
         }
 
-        .section-label {
+        .section-heading {
+            margin-bottom: 45px;
+        }
+
+        .section-number {
             color: var(--pink);
             font-size: 12px;
             letter-spacing: 4px;
@@ -199,44 +215,34 @@
             margin-bottom: 12px;
         }
 
-        .section-title {
-            margin: 0 0 45px;
+        .section-heading h2 {
+            margin: 0;
             font-size: clamp(42px, 7vw, 78px);
+            color: var(--text);
             line-height: 0.95;
-            color: var(--white);
             text-shadow: 4px 4px 0 var(--purple-dark);
-        }
-
-        .section-intro {
-            max-width: 850px;
-            color: var(--muted);
-            font-size: 17px;
-            line-height: 1.8;
-            margin-bottom: 45px;
         }
 
         /* =========================
            PROJECT OVERVIEW
-           STATIC ONLY
+           NOT CLICKABLE
         ========================= */
 
         .overview {
-            border-top: 2px solid var(--purple);
-            border-bottom: 2px solid var(--purple);
-            padding: 70px 0;
+            border-top: 2px solid rgba(107, 67, 135, 0.8);
         }
 
         .overview-layout {
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
             gap: 55px;
-            align-items: start;
+            align-items: center;
         }
 
         .overview-text p {
             color: var(--muted);
             font-size: 16px;
-            line-height: 1.85;
+            line-height: 1.8;
             margin: 0 0 22px;
         }
 
@@ -244,45 +250,40 @@
             margin-bottom: 0;
         }
 
-        /* Static image. NOT clickable. */
-
-        .overview-image {
+        .overview-art {
             min-height: 430px;
+            position: relative;
             border: 2px solid var(--purple);
             background:
                 linear-gradient(
                     135deg,
-                    rgba(111, 74, 142, 0.2),
-                    rgba(232, 143, 166, 0.08)
+                    rgba(107, 67, 135, 0.2),
+                    rgba(232, 143, 166, 0.06)
                 ),
-                #111014;
+                #151017;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
             overflow: hidden;
         }
 
-        .overview-image::before {
+        .overview-art::before {
             content: "";
             position: absolute;
-            width: 75%;
-            height: 75%;
-            border: 2px dashed rgba(216, 203, 225, 0.25);
+            inset: 35px;
+            border: 2px dashed rgba(217, 208, 220, 0.18);
         }
 
-        .overview-placeholder {
+        .overview-art span {
             position: relative;
             z-index: 1;
             color: rgba(242, 237, 243, 0.35);
-            font-size: 12px;
             letter-spacing: 3px;
-            text-align: center;
+            font-size: 12px;
         }
 
         /* =========================
            VIDEO
-           STATIC ONLY
         ========================= */
 
         .video-section {
@@ -295,119 +296,127 @@
             border: 2px solid var(--purple);
             background:
                 radial-gradient(
-                    circle at 50% 50%,
-                    rgba(111, 74, 142, 0.2),
+                    circle at center,
+                    rgba(107, 67, 135, 0.2),
                     transparent 45%
                 ),
-                #0F0D11;
+                #0D0A10;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
         }
 
-        .video-placeholder::after {
-            content: "VIDEO PLACEHOLDER";
+        .video-placeholder span {
             color: rgba(242, 237, 243, 0.3);
             letter-spacing: 4px;
-            font-size: 13px;
+            font-size: 12px;
         }
 
         /* =========================
            STUFF I MADE
-           THIS IS THE INTERACTIVE SECTION
         ========================= */
 
         .made-section {
             border-top: 2px solid var(--pink);
-            padding-top: 80px;
         }
 
         .made-intro {
-            max-width: 760px;
+            max-width: 800px;
             color: var(--muted);
             font-size: 16px;
             line-height: 1.8;
-            margin-bottom: 45px;
+            margin-bottom: 50px;
         }
 
         .made-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 28px;
+            gap: 30px;
         }
+
+        /*
+            These are the ONLY expandable items.
+        */
 
         .made-card {
             position: relative;
-            min-height: 280px;
-            padding: 30px;
-            border: 2px solid rgba(111, 74, 142, 0.65);
-            background: #161219;
-            cursor: pointer;
+            min-height: 300px;
+            border: 0;
+            padding: 35px;
+            background: var(--paper);
+            color: #241C28;
             text-align: left;
-            color: var(--white);
-            font-family: inherit;
-            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 10px 10px 0 rgba(52, 32, 63, 0.7);
             transition:
                 transform 0.25s ease,
-                border-color 0.25s ease,
-                background 0.25s ease,
                 box-shadow 0.25s ease;
         }
 
-        .made-card::before {
-            content: "";
-            position: absolute;
-            top: 18px;
-            right: 20px;
-            width: 45px;
-            height: 45px;
-            background: rgba(232, 143, 166, 0.15);
-            border: 1px solid rgba(232, 143, 166, 0.35);
+        .made-card:nth-child(1) {
+            background: #DCC7E6;
+        }
+
+        .made-card:nth-child(2) {
+            background: #E4C5D0;
+        }
+
+        .made-card:nth-child(3) {
+            background: #C9D8D5;
+        }
+
+        .made-card:nth-child(4) {
+            background: #E2D6C2;
+        }
+
+        .made-card:nth-child(5) {
+            background: #D5C9E0;
+        }
+
+        .made-card:nth-child(6) {
+            background: #E3C5D1;
         }
 
         .made-card:hover {
             transform: translateY(-8px);
-            border-color: var(--pink);
-            background: #1C151E;
-            box-shadow:
-                0 18px 45px rgba(0, 0, 0, 0.4),
-                0 0 25px rgba(232, 143, 166, 0.08);
+            box-shadow: 10px 18px 0 rgba(52, 32, 63, 0.75);
+        }
+
+        .made-card::after {
+            content: "CLICK TO EXPAND";
+            position: absolute;
+            right: 25px;
+            bottom: 20px;
+            color: rgba(36, 28, 40, 0.55);
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: bold;
         }
 
         .made-number {
-            color: var(--pink);
             font-size: 12px;
             letter-spacing: 3px;
             font-weight: bold;
-            margin-bottom: 70px;
+            color: var(--purple-dark);
+            margin-bottom: 55px;
         }
 
         .made-card h3 {
             margin: 0 0 12px;
-            color: var(--white);
-            font-size: 26px;
-            letter-spacing: 1px;
+            font-size: 27px;
+            color: #241C28;
         }
 
         .made-card p {
             margin: 0;
-            color: var(--muted);
+            max-width: 400px;
+            color: rgba(36, 28, 40, 0.72);
             font-size: 14px;
             line-height: 1.6;
         }
 
-        .made-click {
-            position: absolute;
-            bottom: 25px;
-            right: 25px;
-            color: var(--purple-light);
-            font-size: 11px;
-            letter-spacing: 2px;
-        }
-
         /* =========================
-           MODAL
+           POPUP
         ========================= */
 
         .modal {
@@ -417,36 +426,29 @@
             display: none;
             align-items: center;
             justify-content: center;
-            padding: 30px;
-            background: rgba(5, 4, 7, 0.88);
-            backdrop-filter: blur(10px);
+            padding: 25px;
+            background: rgba(8, 6, 11, 0.88);
+            backdrop-filter: blur(8px);
         }
 
         .modal.active {
             display: flex;
         }
 
-        .modal-box {
-            width: min(760px, 100%);
+        .modal-content {
+            width: min(780px, 100%);
             max-height: 85vh;
             overflow-y: auto;
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(111, 74, 142, 0.16),
-                    rgba(232, 143, 166, 0.05)
-                ),
-                #121015;
+            background: #171119;
             border: 2px solid var(--pink);
             padding: 45px;
             position: relative;
-            box-shadow:
-                0 30px 80px rgba(0, 0, 0, 0.6),
-                0 0 35px rgba(232, 143, 166, 0.1);
-            animation: modalIn 0.25s ease;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.65);
+            animation: modalAppear 0.25s ease;
         }
 
-        @keyframes modalIn {
+        @keyframes modalAppear {
+
             from {
                 opacity: 0;
                 transform: translateY(20px);
@@ -456,42 +458,40 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+
         }
 
         .modal-close {
             position: absolute;
             top: 18px;
-            right: 20px;
+            right: 18px;
             width: 40px;
             height: 40px;
             border: 1px solid var(--purple);
             background: transparent;
-            color: var(--white);
+            color: var(--text);
             cursor: pointer;
-            font-size: 20px;
-            transition:
-                background 0.2s ease,
-                border-color 0.2s ease;
+            font-size: 21px;
         }
 
         .modal-close:hover {
             background: var(--pink);
+            color: #08060B;
             border-color: var(--pink);
-            color: var(--black);
         }
 
         .modal-number {
             color: var(--pink);
             font-size: 12px;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
-        .modal h2 {
+        .modal-content h2 {
             margin: 0 0 25px;
-            font-size: clamp(35px, 6vw, 60px);
             color: var(--purple-light);
+            font-size: clamp(36px, 6vw, 60px);
             text-shadow: 3px 3px 0 var(--purple-dark);
         }
 
@@ -502,23 +502,23 @@
         }
 
         .modal-image {
+            margin-top: 30px;
             width: 100%;
             aspect-ratio: 16 / 9;
-            margin-top: 30px;
-            border: 1px solid rgba(232, 143, 166, 0.35);
+            border: 1px solid rgba(232, 143, 166, 0.4);
             background:
                 radial-gradient(
-                    circle at 30% 30%,
-                    rgba(232, 143, 166, 0.15),
-                    transparent 35%
+                    circle at center,
+                    rgba(107, 67, 135, 0.2),
+                    transparent 45%
                 ),
-                #0D0B0F;
+                #0E0B10;
             display: flex;
             align-items: center;
             justify-content: center;
             color: rgba(242, 237, 243, 0.25);
-            font-size: 11px;
             letter-spacing: 3px;
+            font-size: 11px;
         }
 
         /* =========================
@@ -528,24 +528,19 @@
         footer {
             width: min(1200px, 84%);
             margin: 0 auto;
-            padding: 80px 0 50px;
-            border-top: 1px solid rgba(111, 74, 142, 0.45);
+            padding: 70px 0 50px;
+            border-top: 1px solid rgba(107, 67, 135, 0.5);
             text-align: center;
         }
 
         footer p {
             color: var(--muted);
             font-size: 13px;
-            letter-spacing: 1px;
         }
 
-        .footer-link {
+        footer a {
             color: var(--pink);
             text-decoration: none;
-        }
-
-        .footer-link:hover {
-            color: var(--purple-light);
         }
 
         /* =========================
@@ -562,17 +557,12 @@
                 grid-template-columns: 1fr;
             }
 
-            .overview-image {
-                min-height: 350px;
-            }
-
         }
 
         @media (max-width: 600px) {
 
             .hero {
-                min-height: 80vh;
-                padding: 80px 25px 50px;
+                padding: 90px 25px 60px;
             }
 
             .back-link {
@@ -584,14 +574,14 @@
                 letter-spacing: -3px;
                 -webkit-text-stroke: 0;
                 text-shadow:
-                    -1px -1px 0 var(--white),
-                    1px -1px 0 var(--white),
-                    -1px 1px 0 var(--white),
-                    1px 1px 0 var(--white),
+                    -1px -1px 0 var(--text),
+                    1px -1px 0 var(--text),
+                    -1px 1px 0 var(--text),
+                    1px 1px 0 var(--text),
                     4px 4px 0 var(--purple-dark);
             }
 
-            .hero-subtitle {
+            .hero p {
                 font-size: 16px;
             }
 
@@ -600,27 +590,19 @@
                 padding: 75px 0;
             }
 
-            .section-title {
-                font-size: 46px;
-            }
-
-            .overview {
-                padding: 60px 0;
-            }
-
-            .overview-image {
+            .overview-art {
                 min-height: 280px;
             }
 
             .made-card {
-                min-height: 250px;
+                min-height: 260px;
             }
 
             .modal {
                 padding: 15px;
             }
 
-            .modal-box {
+            .modal-content {
                 padding: 35px 25px;
             }
 
@@ -632,14 +614,10 @@
 
 <body>
 
-    <div class="background-shape shape-one"></div>
-    <div class="background-shape shape-two"></div>
+    <div class="blob blob-purple"></div>
+    <div class="blob blob-pink"></div>
 
     <main class="page">
-
-        <!-- =========================
-             HERO
-        ========================= -->
 
         <section class="hero">
 
@@ -647,37 +625,39 @@
                 ← BACK TO PORTFOLIO
             </a>
 
-            <div class="project-tag">
+            <div class="project-label">
                 UNIVERSITY GROUP PROJECT
             </div>
 
             <h1>GROUP PROJECT</h1>
 
-            <p class="hero-subtitle">
+            <p>
                 A relationship management game about a group of students
-                trying to make a game together without completely destroying
-                their friendships in the process.
+                trying to make a game together, while their personalities,
+                opinions and relationships constantly get in the way.
             </p>
 
-            <div class="hero-divider"></div>
+            <div class="hero-line"></div>
 
         </section>
 
 
-        <!-- =========================
-             PROJECT OVERVIEW
-             STATIC
-        ========================= -->
+        <!-- PROJECT OVERVIEW
+             THIS IS NOW COMPLETELY STATIC -->
 
         <section class="section overview">
 
-            <div class="section-label">
-                01 / PROJECT OVERVIEW
-            </div>
+            <div class="section-heading">
 
-            <h2 class="section-title">
-                THE GAME
-            </h2>
+                <div class="section-number">
+                    01 / PROJECT OVERVIEW
+                </div>
+
+                <h2>
+                    THE GAME
+                </h2>
+
+            </div>
 
             <div class="overview-layout">
 
@@ -688,45 +668,39 @@
                         centred around a group of students attempting to
                         create a game together. The player takes control of
                         Nott, a crow who acts as the group's programmer and
-                        general mediator.
+                        mediator.
                     </p>
 
                     <p>
-                        Throughout the project, the player makes choices in
-                        conversations and situations involving the rest of
-                        the team. These decisions affect the relationships
-                        between Nott and the other characters, with different
-                        choices causing some characters to become happier
-                        while potentially upsetting others.
+                        Throughout the project, the player makes choices
+                        during conversations and situations involving the
+                        other members of the team. These choices affect
+                        relationships, with some characters becoming happier
+                        while others may become upset.
                     </p>
 
                     <p>
-                        The game focuses on the messy social side of group
-                        work rather than traditional combat or progression.
-                        Characters have different personalities, opinions
-                        and ways of approaching the project, meaning that
-                        keeping everyone happy is not always possible.
+                        The game focuses on the social side of group work,
+                        with each character having their own personality,
+                        opinions and approach to making games. Keeping
+                        everyone happy is not always possible.
                     </p>
 
                     <p>
-                        The visual direction combines cute animal characters
+                        The visual style combines cute animal characters
                         with a slightly messy student-project aesthetic.
-                        The writing takes inspiration from character-driven
-                        games such as Night in the Woods, while the animal
-                        characters use distinct speech patterns and
-                        personalities to make each member of the group feel
-                        different.
+                        The writing focuses heavily on character personality
+                        and relationships.
                     </p>
 
                 </div>
 
-                <!-- STATIC IMAGE PLACEHOLDER -->
-                <div class="overview-image">
+                <div class="overview-art">
 
-                    <div class="overview-placeholder">
+                    <span>
                         PROJECT ARTWORK<br>
                         PLACEHOLDER
-                    </div>
+                    </span>
 
                 </div>
 
@@ -735,46 +709,55 @@
         </section>
 
 
-        <!-- =========================
-             VIDEO
-             STATIC
-        ========================= -->
+        <!-- GAMEPLAY VIDEO -->
 
         <section class="section video-section">
 
-            <div class="section-label">
-                02 / GAMEPLAY
+            <div class="section-heading">
+
+                <div class="section-number">
+                    02 / GAMEPLAY
+                </div>
+
+                <h2>
+                    GAMEPLAY VIDEO
+                </h2>
+
             </div>
 
-            <h2 class="section-title">
-                GAMEPLAY VIDEO
-            </h2>
+            <div class="video-placeholder">
 
-            <div class="video-placeholder"></div>
+                <span>
+                    VIDEO PLACEHOLDER
+                </span>
+
+            </div>
 
         </section>
 
 
-        <!-- =========================
-             STUFF I MADE
-             INTERACTIVE
-        ========================= -->
+        <!-- STUFF I MADE
+             THIS IS THE ONLY EXPANDABLE SECTION -->
 
         <section class="section made-section">
 
-            <div class="section-label">
-                03 / MY CONTRIBUTIONS
+            <div class="section-heading">
+
+                <div class="section-number">
+                    03 / MY CONTRIBUTIONS
+                </div>
+
+                <h2>
+                    STUFF I MADE
+                </h2>
+
             </div>
 
-            <h2 class="section-title">
-                STUFF I MADE
-            </h2>
-
             <p class="made-intro">
-                My work on the project covered a mixture of character
-                development, 3D assets, animation, writing, audio and
-                visual design. Click on the sections below to see more
-                about each part of my contribution.
+                My work on the project covered character design, modelling,
+                textures, animation, writing, audio and other visual work.
+                Click on the sections below to see more about each part of
+                my contribution.
             </p>
 
 
@@ -783,8 +766,8 @@
                 <button
                     type="button"
                     class="made-card"
-                    data-title="CHARACTER DESIGN"
                     data-number="01"
+                    data-title="CHARACTER DESIGN"
                     data-description="PLACEHOLDER DESCRIPTION. Add information here about the character concepts, visual development and design work created for the project."
                 >
 
@@ -800,19 +783,15 @@
                         Character concepts, visual development and design.
                     </p>
 
-                    <span class="made-click">
-                        CLICK TO EXPAND
-                    </span>
-
                 </button>
 
 
                 <button
                     type="button"
                     class="made-card"
-                    data-title="3D MODELLING"
                     data-number="02"
-                    data-description="PLACEHOLDER DESCRIPTION. Add information here about the 3D models created for the project, including modelling, topology and preparing the characters for use in the game."
+                    data-title="3D MODELLING"
+                    data-description="PLACEHOLDER DESCRIPTION. Add information here about the 3D models created for the project, including modelling and preparing the characters for use in the game."
                 >
 
                     <div class="made-number">
@@ -827,19 +806,15 @@
                         Character modelling and 3D asset creation.
                     </p>
 
-                    <span class="made-click">
-                        CLICK TO EXPAND
-                    </span>
-
                 </button>
 
 
                 <button
                     type="button"
                     class="made-card"
-                    data-title="TEXTURES & MATERIALS"
                     data-number="03"
-                    data-description="PLACEHOLDER DESCRIPTION. Add information here about the texturing and material work created for the characters and other project assets."
+                    data-title="TEXTURES & MATERIALS"
+                    data-description="PLACEHOLDER DESCRIPTION. Add information here about the texture and material work created for the characters and other assets."
                 >
 
                     <div class="made-number">
@@ -854,19 +829,15 @@
                         Textures, materials and visual asset development.
                     </p>
 
-                    <span class="made-click">
-                        CLICK TO EXPAND
-                    </span>
-
                 </button>
 
 
                 <button
                     type="button"
                     class="made-card"
-                    data-title="ANIMATION"
                     data-number="04"
-                    data-description="PLACEHOLDER DESCRIPTION. Add information here about the animation work created for the project, including character movement, idle animations and other gameplay animations."
+                    data-title="ANIMATION"
+                    data-description="PLACEHOLDER DESCRIPTION. Add information here about the animation work created for the project."
                 >
 
                     <div class="made-number">
@@ -881,18 +852,14 @@
                         Character animation and movement.
                     </p>
 
-                    <span class="made-click">
-                        CLICK TO EXPAND
-                    </span>
-
                 </button>
 
 
                 <button
                     type="button"
                     class="made-card"
-                    data-title="DIALOGUE & WRITING"
                     data-number="05"
+                    data-title="DIALOGUE & WRITING"
                     data-description="PLACEHOLDER DESCRIPTION. Add information here about the dialogue, character writing and narrative work created for the project."
                 >
 
@@ -908,18 +875,14 @@
                         Dialogue, character writing and narrative work.
                     </p>
 
-                    <span class="made-click">
-                        CLICK TO EXPAND
-                    </span>
-
                 </button>
 
 
                 <button
                     type="button"
                     class="made-card"
-                    data-title="AUDIO & MUSIC"
                     data-number="06"
+                    data-title="AUDIO & MUSIC"
                     data-description="PLACEHOLDER DESCRIPTION. Add information here about the music, sound design, voice clips and other audio work created for the project."
                 >
 
@@ -935,10 +898,6 @@
                         Music, sound and audio experimentation.
                     </p>
 
-                    <span class="made-click">
-                        CLICK TO EXPAND
-                    </span>
-
                 </button>
 
             </div>
@@ -946,15 +905,11 @@
         </section>
 
 
-        <!-- =========================
-             FOOTER
-        ========================= -->
-
         <footer>
 
             <p>
                 GROUP PROJECT ·
-                <a href="./index.html" class="footer-link">
+                <a href="./index.html">
                     FISH HEARD
                 </a>
             </p>
@@ -964,9 +919,7 @@
     </main>
 
 
-    <!-- =========================
-         POPUP
-    ========================= -->
+    <!-- POPUP -->
 
     <div
         class="modal"
@@ -975,17 +928,16 @@
     >
 
         <div
-            class="modal-box"
+            class="modal-content"
             role="dialog"
             aria-modal="true"
-            aria-labelledby="modalTitle"
         >
 
             <button
                 type="button"
                 class="modal-close"
                 id="modalClose"
-                aria-label="Close popup"
+                aria-label="Close"
             >
                 ×
             </button>
@@ -1020,13 +972,14 @@
     <script>
 
         const madeCards = document.querySelectorAll(".made-card");
+
         const modal = document.getElementById("madeModal");
         const modalClose = document.getElementById("modalClose");
         const modalNumber = document.getElementById("modalNumber");
         const modalTitle = document.getElementById("modalTitle");
         const modalDescription = document.getElementById("modalDescription");
 
-        function openModal(card) {
+        function openMadePopup(card) {
 
             modalNumber.textContent = card.dataset.number;
             modalTitle.textContent = card.dataset.title;
@@ -1036,30 +989,32 @@
             modal.setAttribute("aria-hidden", "false");
 
             document.body.style.overflow = "hidden";
+
         }
 
-        function closeModal() {
+        function closeMadePopup() {
 
             modal.classList.remove("active");
             modal.setAttribute("aria-hidden", "true");
 
             document.body.style.overflow = "";
+
         }
 
         madeCards.forEach((card) => {
 
             card.addEventListener("click", () => {
-                openModal(card);
+                openMadePopup(card);
             });
 
         });
 
-        modalClose.addEventListener("click", closeModal);
+        modalClose.addEventListener("click", closeMadePopup);
 
         modal.addEventListener("click", (event) => {
 
             if (event.target === modal) {
-                closeModal();
+                closeMadePopup();
             }
 
         });
@@ -1067,7 +1022,7 @@
         document.addEventListener("keydown", (event) => {
 
             if (event.key === "Escape") {
-                closeModal();
+                closeMadePopup();
             }
 
         });
