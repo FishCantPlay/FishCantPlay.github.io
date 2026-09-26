@@ -12,15 +12,16 @@
     <style>
 
         :root {
-            --paper: #d8c29c;
-            --paper-light: #ead9b7;
-            --paper-dark: #a88d62;
-            --brown: #4a3025;
-            --brown-dark: #2d1d18;
-            --blue: #6d9daf;
-            --blue-dark: #3d6574;
-            --ink: #30251f;
-            --red: #9b4d43;
+            --brown-dark: #211713;
+            --brown: #4A3025;
+            --brown-light: #765344;
+            --paper: #D8C39A;
+            --paper-light: #E8D9B8;
+            --blue: #8FAFC1;
+            --blue-dark: #526F7E;
+            --red: #8B3029;
+            --ink: #241B18;
+            --cream: #EEE2C7;
         }
 
 
@@ -35,97 +36,122 @@
 
 
         body {
+
             margin: 0;
+
             min-height: 100vh;
-            color: var(--ink);
-            font-family: Georgia, "Times New Roman", serif;
 
             background:
                 radial-gradient(
-                    circle at 10% 20%,
-                    rgba(109, 157, 175, 0.18),
-                    transparent 25%
+                    circle at 20% 10%,
+                    rgba(139, 48, 41, 0.2),
+                    transparent 30%
                 ),
                 radial-gradient(
-                    circle at 90% 80%,
-                    rgba(155, 77, 67, 0.12),
-                    transparent 25%
+                    circle at 85% 70%,
+                    rgba(143, 175, 193, 0.15),
+                    transparent 35%
                 ),
-                #382923;
+                var(--brown-dark);
+
+            color: var(--cream);
+
+            font-family: Georgia, "Times New Roman", serif;
 
             overflow-x: hidden;
+
         }
 
 
+        /* ========================================
+           BACKGROUND PAPER
+           ======================================== */
+
         body::before {
+
             content: "";
+
             position: fixed;
+
             inset: 0;
+
             pointer-events: none;
-            opacity: 0.15;
-            z-index: 30;
+
+            opacity: 0.12;
 
             background-image:
                 repeating-linear-gradient(
                     0deg,
                     transparent,
-                    transparent 3px,
-                    rgba(255,255,255,0.04) 4px
+                    transparent 5px,
+                    rgba(255, 255, 255, 0.08) 6px
                 );
+
+            z-index: 0;
+
         }
 
 
         /* ========================================
-           NAVIGATION
+           GENERAL
            ======================================== */
 
-        .top-nav {
+        .page {
+
             position: relative;
-            z-index: 10;
 
-            padding: 22px 6%;
+            z-index: 1;
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            width: min(1250px, 92%);
+
+            margin: 0 auto;
+
         }
 
 
-        .back-button {
+        .button {
+
             display: inline-block;
 
-            padding: 12px 20px;
+            padding: 13px 23px;
 
-            color: var(--paper-light);
-            text-decoration: none;
+            background: var(--blue-dark);
+
+            color: var(--cream);
 
             border: 2px solid var(--blue);
 
-            background: var(--brown-dark);
+            text-decoration: none;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
 
             box-shadow: 5px 5px 0 var(--red);
 
             transition:
                 transform 0.2s ease,
-                background 0.2s ease;
+                background 0.2s ease,
+                box-shadow 0.2s ease;
+
         }
 
 
-        .back-button:hover {
+        .button:hover {
+
+            background: var(--red);
+
             transform:
                 translate(-3px, -3px)
                 rotate(-1deg);
 
-            background: var(--blue-dark);
-        }
+            box-shadow:
+                8px 8px 0 var(--blue-dark);
 
-
-        .nav-label {
-            color: var(--paper);
-
-            font-size: 12px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
         }
 
 
@@ -134,196 +160,138 @@
            ======================================== */
 
         .hero {
-            position: relative;
 
-            min-height: 74vh;
+            min-height: 70vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
 
             padding:
-                45px
-                7%
-                75px;
+                65px
+                20px
+                45px;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--paper),
-                    var(--paper-light)
-                );
-
-            overflow: hidden;
         }
 
 
-        .hero::before {
-            content: "";
+        .hero-label {
 
-            position: absolute;
-
-            width: 650px;
-            height: 650px;
-
-            border:
-                2px solid
-                rgba(61, 101, 116, 0.3);
-
-            border-radius: 50%;
-
-            right: -180px;
-            top: -180px;
-        }
-
-
-        .hero::after {
-            content: "";
-
-            position: absolute;
-
-            width: 500px;
-            height: 500px;
-
-            border:
-                2px solid
-                rgba(155, 77, 67, 0.2);
-
-            transform: rotate(14deg);
-
-            left: -180px;
-            bottom: -230px;
-        }
-
-
-        .scribble {
-            position: absolute;
-
-            width: 300px;
-            height: 120px;
-
-            border-top: 3px solid var(--blue-dark);
-            border-bottom: 2px solid var(--red);
-
-            transform: rotate(-8deg);
-
-            opacity: 0.45;
-        }
-
-
-        .scribble.one {
-            right: 10%;
-            top: 28%;
-        }
-
-
-        .scribble.two {
-            left: 8%;
-            top: 15%;
-
-            transform: rotate(12deg);
-        }
-
-
-        .hero-inner {
-            position: relative;
-            z-index: 2;
-
-            max-width: 1200px;
-            margin: auto;
-        }
-
-
-        .project-label {
             display: inline-block;
 
-            padding: 8px 15px;
+            margin-bottom: 18px;
 
-            background: var(--blue);
-            color: white;
+            padding: 7px 16px;
+
+            color: var(--blue);
+
+            border: 1px solid var(--blue);
+
+            background: rgba(33, 23, 19, 0.8);
+
+            font-family: Arial, sans-serif;
 
             font-size: 12px;
+
             letter-spacing: 3px;
-            text-transform: uppercase;
 
             transform: rotate(-2deg);
 
-            box-shadow: 5px 5px 0 var(--brown);
         }
 
 
         .hero h1 {
-            max-width: 1000px;
 
-            margin:
-                30px
-                0
-                12px;
+            margin: 0;
 
-            font-size: clamp(65px, 13vw, 170px);
+            max-width: 1100px;
 
-            line-height: 0.8;
+            color: var(--paper-light);
 
-            color: var(--brown);
+            font-size: clamp(58px, 10vw, 135px);
 
-            letter-spacing: -8px;
+            line-height: 0.82;
+
+            letter-spacing: -6px;
 
             text-shadow:
-                5px 5px 0 var(--blue),
-                9px 9px 0 rgba(74, 48, 37, 0.15);
+                6px 6px 0 var(--red),
+                -2px -2px 0 var(--brown-dark);
 
             transform: rotate(-1deg);
+
         }
 
 
         .hero-subtitle {
-            font-size: clamp(20px, 3vw, 32px);
 
-            color: var(--blue-dark);
-
-            font-style: italic;
+            margin-top: 30px;
 
             max-width: 700px;
+
+            color: var(--blue);
+
+            font-family: Arial, sans-serif;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
         }
 
 
-        .hero-description {
-            max-width: 650px;
+        .hero-tag {
 
-            margin-top: 28px;
+            margin-top: 20px;
 
-            font-size: 18px;
+            color: var(--cream);
 
-            line-height: 1.8;
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
         }
 
 
-        .hero-stamp {
+        .hero-decoration {
+
             position: absolute;
 
-            right: 8%;
-            bottom: 12%;
+            width: 260px;
 
-            width: 150px;
-            height: 150px;
+            height: 330px;
 
-            border:
-                4px solid
-                var(--red);
+            border: 2px solid rgba(143, 175, 193, 0.35);
 
-            border-radius: 50%;
+            transform:
+                rotate(8deg)
+                translate(350px, 30px);
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            pointer-events: none;
 
-            text-align: center;
+        }
 
-            color: var(--red);
 
-            font-weight: bold;
-            font-size: 13px;
-            letter-spacing: 2px;
+        .hero-decoration::before {
 
-            transform: rotate(13deg);
+            content: "";
 
-            opacity: 0.7;
+            position: absolute;
+
+            inset: 25px;
+
+            border: 1px dashed rgba(139, 48, 41, 0.5);
+
+            transform: rotate(-4deg);
+
         }
 
 
@@ -331,93 +299,228 @@
            CONTENT
            ======================================== */
 
-        main {
-            position: relative;
-            z-index: 3;
+        .section {
 
-            max-width: 1250px;
-
-            margin:
-                -65px
-                auto
-                0;
-
-            padding:
-                0
-                30px
-                100px;
-        }
-
-
-        .paper-section {
             position: relative;
 
-            margin-bottom: 75px;
+            margin: 80px 0;
 
-            padding: 55px;
-
-            background: var(--paper-light);
-
-            box-shadow:
-                12px 14px 0 rgba(0,0,0,0.3),
-                -5px 4px 0 rgba(109,157,175,0.35);
         }
 
 
-        .paper-section:nth-child(2) {
-            transform: rotate(0.6deg);
+        .section-heading {
+
+            display: flex;
+
+            align-items: end;
+
+            gap: 20px;
+
+            margin-bottom: 35px;
+
         }
 
 
-        .paper-section:nth-child(3) {
-            transform: rotate(-0.4deg);
-        }
+        .section-heading h2 {
 
+            margin: 0;
 
-        .section-title {
-            margin:
-                0
-                0
-                25px;
+            color: var(--paper-light);
 
-            font-size: clamp(35px, 5vw, 65px);
-
-            color: var(--brown);
+            font-size: clamp(38px, 6vw, 72px);
 
             line-height: 0.9;
 
             text-shadow:
-                3px 3px 0 rgba(109,157,175,0.5);
+                4px 4px 0 var(--red);
+
         }
 
 
-        .section-label {
-            color: var(--red);
+        .section-heading span {
 
-            font-size: 12px;
+            color: var(--blue);
 
-            letter-spacing: 4px;
+            font-family: Arial, sans-serif;
 
-            text-transform: uppercase;
+            font-size: 11px;
 
-            font-weight: bold;
+            letter-spacing: 3px;
+
+            padding-bottom: 7px;
+
         }
 
 
-        .text-columns {
-            display: grid;
+        .intro-card {
 
-            grid-template-columns:
-                1fr
-                1fr;
+            max-width: 900px;
 
-            gap: 50px;
+            padding: 35px;
+
+            background: var(--paper);
+
+            color: var(--ink);
+
+            transform: rotate(-1deg);
+
+            box-shadow:
+                12px 12px 0 var(--red),
+                -5px -5px 0 var(--blue-dark);
+
         }
 
 
-        .text-columns p {
-            font-size: 17px;
+        .intro-card p {
+
+            margin: 0;
+
+            font-size: 18px;
+
             line-height: 1.8;
+
+        }
+
+
+        /* ========================================
+           MESSY IMAGE WALL
+           ======================================== */
+
+        .image-wall {
+
+            position: relative;
+
+            min-height: 650px;
+
+            margin-top: 70px;
+
+        }
+
+
+        .wall-image {
+
+            position: absolute;
+
+            overflow: hidden;
+
+            border: 8px solid var(--paper-light);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--blue-dark),
+                    var(--brown)
+                );
+
+            box-shadow:
+                8px 10px 0 rgba(0, 0, 0, 0.35);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: rgba(238, 226, 199, 0.55);
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            cursor: default;
+
+        }
+
+
+        .wall-image::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 12px;
+
+            border: 1px dashed rgba(238, 226, 199, 0.35);
+
+            pointer-events: none;
+
+        }
+
+
+        .wall-image:nth-child(1) {
+
+            width: 310px;
+
+            height: 390px;
+
+            left: 3%;
+
+            top: 30px;
+
+            transform: rotate(-6deg);
+
+        }
+
+
+        .wall-image:nth-child(2) {
+
+            width: 360px;
+
+            height: 250px;
+
+            left: 34%;
+
+            top: 10px;
+
+            transform: rotate(3deg);
+
+        }
+
+
+        .wall-image:nth-child(3) {
+
+            width: 290px;
+
+            height: 370px;
+
+            right: 4%;
+
+            top: 80px;
+
+            transform: rotate(7deg);
+
+        }
+
+
+        .wall-image:nth-child(4) {
+
+            width: 330px;
+
+            height: 230px;
+
+            left: 19%;
+
+            bottom: 10px;
+
+            transform: rotate(-3deg);
+
+        }
+
+
+        .wall-image:nth-child(5) {
+
+            width: 270px;
+
+            height: 220px;
+
+            right: 20%;
+
+            bottom: 0;
+
+            transform: rotate(-7deg);
+
         }
 
 
@@ -425,238 +528,286 @@
            VIDEO
            ======================================== */
 
-        .video-room {
-            position: relative;
+        .video-section {
 
-            padding: 20px;
+            margin:
+                100px
+                auto;
 
-            background: var(--brown);
+            max-width: 900px;
 
-            transform: rotate(-0.8deg);
-
-            box-shadow:
-                10px 10px 0
-                var(--blue-dark);
         }
 
 
-        .video-screen {
+        .video-frame {
+
+            width: 100%;
+
             aspect-ratio: 16 / 9;
+
+            border: 8px solid var(--paper-light);
+
+            background:
+                repeating-linear-gradient(
+                    -45deg,
+                    var(--brown),
+                    var(--brown) 12px,
+                    var(--brown-light) 12px,
+                    var(--brown-light) 24px
+                );
 
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
-            background:
-                repeating-linear-gradient(
-                    45deg,
-                    #1d1714,
-                    #1d1714 10px,
-                    #27201c 10px,
-                    #27201c 20px
-                );
+            box-shadow:
+                12px 12px 0 var(--red);
 
-            border:
-                3px solid
-                var(--paper);
+            transform: rotate(1deg);
 
-            color: var(--paper);
-
-            text-align: center;
-
-            font-size: 18px;
-
-            letter-spacing: 3px;
         }
 
 
-        .video-caption {
-            color: var(--paper-light);
+        .video-placeholder {
 
-            margin-top: 15px;
+            color: var(--cream);
+
+            font-family: Arial, sans-serif;
 
             font-size: 13px;
 
-            letter-spacing: 2px;
+            letter-spacing: 3px;
 
-            text-transform: uppercase;
+            text-align: center;
+
         }
 
 
         /* ========================================
-           MESSY GALLERY
+           STUFF I WORKED ON
            ======================================== */
 
-        .messy-gallery {
-            position: relative;
+        .worked-section {
 
-            min-height: 760px;
+            margin-top: 130px;
 
-            margin-top: 40px;
         }
 
 
-        .messy-image {
-            position: absolute;
+        .worked-intro {
 
-            width: 250px;
-            height: 310px;
+            max-width: 750px;
 
-            display: flex;
+            margin-bottom: 45px;
 
-            align-items: center;
-            justify-content: center;
+            color: var(--cream);
 
-            text-align: center;
+            font-size: 18px;
 
-            padding: 20px;
+            line-height: 1.7;
 
-            background: #eee2c5;
+        }
 
-            border:
-                8px solid
-                #f2e8d0;
 
-            box-shadow:
-                6px 8px 0
-                rgba(45,29,24,0.35);
+        .worked-grid {
 
-            color: var(--brown);
+            display: grid;
 
-            font-size: 13px;
+            grid-template-columns: repeat(2, 1fr);
 
-            letter-spacing: 2px;
+            gap: 45px;
+
+        }
+
+
+        .worked-card {
+
+            position: relative;
+
+            min-height: 360px;
+
+            padding: 12px;
+
+            border: 2px solid var(--blue);
+
+            background: var(--paper);
+
+            color: var(--ink);
 
             cursor: pointer;
 
             transition:
                 transform 0.25s ease,
                 box-shadow 0.25s ease;
+
         }
 
 
-        .messy-image:hover {
+        .worked-card:nth-child(odd) {
+
+            transform: rotate(-2deg);
+
+        }
+
+
+        .worked-card:nth-child(even) {
+
+            transform: rotate(2deg);
+
+        }
+
+
+        .worked-card:hover {
+
             transform:
-                translateY(-10px)
-                rotate(0deg)
-                scale(1.03);
+                translateY(-8px)
+                rotate(0deg);
 
             box-shadow:
-                10px 14px 0
-                rgba(45,29,24,0.35);
+                12px 12px 0 var(--red);
+
         }
 
 
-        .messy-image::before {
-            content: "";
+        .worked-image {
+
+            width: 100%;
+
+            height: 260px;
+
+            background:
+                radial-gradient(
+                    circle at 30% 30%,
+                    rgba(143, 175, 193, 0.8),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    var(--brown-light),
+                    var(--blue-dark)
+                );
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: rgba(238, 226, 199, 0.65);
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .worked-card-content {
+
+            padding:
+                18px
+                12px
+                10px;
+
+        }
+
+
+        .worked-card-content h3 {
+
+            margin: 0;
+
+            font-size: 25px;
+
+            color: var(--brown-dark);
+
+        }
+
+
+        .worked-card-content p {
+
+            margin: 7px 0 0;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+
+            color: var(--red);
+
+        }
+
+
+        .click-label {
 
             position: absolute;
 
-            width: 100px;
-            height: 25px;
+            right: -13px;
 
-            top: -17px;
-            left: 50%;
+            top: -16px;
 
-            transform:
-                translateX(-50%)
-                rotate(-4deg);
+            padding: 7px 12px;
 
-            background:
-                rgba(109,157,175,0.7);
-        }
+            background: var(--red);
 
+            color: var(--cream);
 
-        .messy-image:nth-child(1) {
-            left: 2%;
-            top: 40px;
-            transform: rotate(-7deg);
-        }
+            font-family: Arial, sans-serif;
 
+            font-size: 10px;
 
-        .messy-image:nth-child(2) {
-            right: 3%;
-            top: 10px;
-            transform: rotate(6deg);
-        }
+            letter-spacing: 2px;
 
+            transform: rotate(5deg);
 
-        .messy-image:nth-child(3) {
-            left: 31%;
-            top: 150px;
-            transform: rotate(3deg);
-        }
+            box-shadow: 3px 3px 0 var(--brown-dark);
 
-
-        .messy-image:nth-child(4) {
-            left: 8%;
-            top: 420px;
-            transform: rotate(8deg);
-        }
-
-
-        .messy-image:nth-child(5) {
-            right: 30%;
-            top: 490px;
-            transform: rotate(-5deg);
-        }
-
-
-        .messy-image:nth-child(6) {
-            right: 2%;
-            top: 390px;
-            transform: rotate(9deg);
         }
 
 
         /* ========================================
-           CONTRIBUTION
+           FOOTER
            ======================================== */
 
-        .contribution-grid {
-            display: grid;
+        .footer {
 
-            grid-template-columns:
-                repeat(3, 1fr);
+            margin-top: 130px;
 
-            gap: 20px;
+            padding:
+                70px
+                20px
+                100px;
+
+            text-align: center;
+
+            border-top: 2px solid rgba(143, 175, 193, 0.35);
+
         }
 
 
-        .contribution-card {
-            min-height: 180px;
+        .footer h2 {
 
-            padding: 25px;
+            margin: 0 0 20px;
 
-            border:
-                3px solid
-                var(--brown);
+            color: var(--paper-light);
 
-            background: var(--paper);
+            font-size: clamp(40px, 7vw, 75px);
 
-            transform: rotate(-1deg);
         }
 
 
-        .contribution-card:nth-child(even) {
-            transform: rotate(1.5deg);
+        .footer p {
 
-            background: #d0e0df;
-        }
+            color: var(--blue);
 
+            font-family: Arial, sans-serif;
 
-        .contribution-card h3 {
-            margin-top: 0;
+            margin-bottom: 30px;
 
-            color: var(--red);
-
-            font-size: 18px;
-        }
-
-
-        .contribution-card p {
-            line-height: 1.6;
         }
 
 
@@ -664,7 +815,8 @@
            POPUP
            ======================================== */
 
-        .popup {
+        .modal {
+
             position: fixed;
 
             inset: 0;
@@ -674,229 +826,307 @@
             display: none;
 
             align-items: center;
+
             justify-content: center;
 
             padding: 30px;
 
-            background:
-                rgba(20, 12, 10, 0.82);
+            background: rgba(20, 13, 11, 0.88);
 
-            backdrop-filter: blur(7px);
+            backdrop-filter: blur(8px);
+
         }
 
 
-        .popup.active {
+        .modal.active {
+
             display: flex;
+
         }
 
 
-        .popup-box {
+        .modal-content {
+
             position: relative;
 
-            width: min(900px, 100%);
+            width: min(950px, 95vw);
 
             max-height: 90vh;
 
             overflow-y: auto;
 
-            padding: 25px;
+            padding: 20px;
 
-            background: var(--paper-light);
+            background: var(--paper);
 
-            border:
-                3px solid
-                var(--brown);
+            color: var(--ink);
+
+            border: 4px solid var(--blue-dark);
 
             box-shadow:
-                15px 15px 0
-                var(--blue-dark);
+                15px 15px 0 var(--red);
 
-            transform: rotate(-0.5deg);
+            transform: rotate(-1deg);
+
+            animation: modalIn 0.25s ease;
+
         }
 
 
-        .popup-image {
-            min-height: 430px;
+        @keyframes modalIn {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(0.9)
+                    rotate(-3deg);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1)
+                    rotate(-1deg);
+
+            }
+
+        }
+
+
+        .modal-image {
+
+            width: 100%;
+
+            min-height: 400px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--brown-light),
+                    var(--blue-dark)
+                );
 
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
-            background:
-                radial-gradient(
-                    circle at 30% 30%,
-                    rgba(109,157,175,0.25),
-                    transparent 35%
-                ),
-                #c7b58f;
+            color: rgba(238, 226, 199, 0.65);
 
-            border:
-                2px dashed
-                var(--brown);
+            font-family: Arial, sans-serif;
 
-            color: var(--brown);
+            font-size: 12px;
 
             letter-spacing: 3px;
 
-            text-align: center;
         }
 
 
-        .popup-title {
-            margin:
-                25px
-                0
-                10px;
+        .modal-text {
 
-            color: var(--brown);
+            padding: 25px 10px 10px;
 
-            font-size: 32px;
         }
 
 
-        .popup-description {
-            color: var(--ink);
+        .modal-text h2 {
 
-            line-height: 1.8;
+            margin: 0 0 12px;
 
-            font-size: 17px;
+            color: var(--brown-dark);
+
+            font-size: 34px;
+
         }
 
 
-        .popup-close {
+        .modal-text p {
+
+            margin: 0;
+
+            font-family: Arial, sans-serif;
+
+            color: #493C36;
+
+            font-size: 15px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .modal-close {
+
             position: absolute;
 
-            top: 10px;
-            right: 10px;
+            top: -18px;
 
-            width: 42px;
-            height: 42px;
+            right: -18px;
 
-            border:
-                2px solid
-                var(--brown);
+            width: 45px;
 
-            background:
-                var(--red);
+            height: 45px;
 
-            color: white;
+            border: 2px solid var(--cream);
 
-            cursor: pointer;
+            background: var(--red);
+
+            color: var(--cream);
 
             font-size: 22px;
 
-            z-index: 2;
+            cursor: pointer;
+
+            box-shadow: 4px 4px 0 var(--brown-dark);
+
+        }
+
+
+        .modal-close:hover {
+
+            background: var(--blue-dark);
+
         }
 
 
         /* ========================================
-           FOOTER
+           MOBILE
            ======================================== */
-
-        footer {
-            padding: 70px 20px;
-
-            text-align: center;
-
-            color: var(--paper);
-
-            background: var(--brown-dark);
-        }
-
-
-        footer a {
-            display: inline-block;
-
-            margin-top: 20px;
-
-            padding: 13px 22px;
-
-            color: var(--paper);
-
-            border:
-                2px solid
-                var(--blue);
-
-            text-decoration: none;
-        }
-
 
         @media (max-width: 800px) {
 
             .hero {
-                padding:
-                    40px
-                    25px
-                    70px;
+
+                min-height: 65vh;
+
+                padding-top: 45px;
+
             }
 
 
             .hero h1 {
-                letter-spacing: -4px;
+
+                letter-spacing: -3px;
+
             }
 
 
-            .hero-stamp {
+            .hero-decoration {
+
                 display: none;
+
             }
 
 
-            main {
-                padding:
-                    0
-                    15px
-                    70px;
+            .section-heading {
+
+                display: block;
+
             }
 
 
-            .paper-section {
-                padding: 30px 22px;
+            .section-heading span {
+
+                display: block;
+
+                margin-top: 12px;
+
             }
 
 
-            .text-columns,
-            .contribution-grid {
-                grid-template-columns: 1fr;
-            }
+            .image-wall {
 
-
-            .messy-gallery {
                 min-height: auto;
 
                 display: grid;
 
-                grid-template-columns:
-                    1fr
-                    1fr;
+                grid-template-columns: 1fr 1fr;
 
-                gap: 25px;
+                gap: 20px;
+
             }
 
 
-            .messy-image {
-                position: relative;
+            .wall-image {
 
-                width: 100%;
-                height: 280px;
+                position: relative !important;
 
                 inset: auto !important;
 
+                width: 100% !important;
+
+                height: 260px !important;
+
                 transform: none !important;
+
             }
 
 
-            .popup-image {
+            .worked-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .worked-card {
+
+                transform: none !important;
+
+            }
+
+
+            .modal {
+
+                padding: 15px;
+
+            }
+
+
+            .modal-image {
+
                 min-height: 280px;
+
             }
 
         }
 
 
-        @media (max-width: 500px) {
+        @media (max-width: 550px) {
 
-            .messy-gallery {
+            .image-wall {
+
                 grid-template-columns: 1fr;
+
+            }
+
+
+            .wall-image {
+
+                height: 320px !important;
+
+            }
+
+
+            .intro-card {
+
+                padding: 25px;
+
+            }
+
+
+            .video-section {
+
+                margin:
+                    70px
+                    auto;
+
             }
 
         }
@@ -909,211 +1139,286 @@
 <body>
 
 
-    <nav class="top-nav">
-
-        <a
-            href="./index.html"
-            class="back-button"
-        >
-            ← BACK TO PORTFOLIO
-        </a>
+    <main class="page">
 
 
-        <span class="nav-label">
-            PROJECT / 01
-        </span>
+        <!-- ========================================
+             HERO
+             ======================================== -->
 
-    </nav>
+        <section class="hero">
 
+            <div class="hero-decoration"></div>
 
-    <header class="hero">
-
-        <div class="scribble one"></div>
-
-        <div class="scribble two"></div>
-
-
-        <div class="hero-inner">
-
-            <span class="project-label">
+            <div class="hero-label">
                 UNIVERSITY GROUP PROJECT
-            </span>
-
+            </div>
 
             <h1>
                 BIBLIOCIDE
             </h1>
 
+            <p class="hero-subtitle">
+                A first-person puzzle game about escaping twisted
+                fairytales, confronting escapism and deciding what
+                happens when the story is no longer enough.
+            </p>
 
-            <div class="hero-subtitle">
-                A storybook that was never meant to be opened.
+            <div class="hero-tag">
+                PUZZLES · FAIRYTALES · ESCAPISM · STORYTELLING
+            </div>
+
+            <a
+                href="./index.html"
+                class="button"
+                style="margin-top: 30px;"
+            >
+                BACK TO PORTFOLIO
+            </a>
+
+        </section>
+
+
+
+        <!-- ========================================
+             ABOUT THE GAME
+             ======================================== -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <h2>
+                    THE GAME
+                </h2>
+
+                <span>
+                    A STORY THAT DOESN'T WANT TO END
+                </span>
+
             </div>
 
 
-            <p class="hero-description">
+            <div class="intro-card">
 
-                A first-person puzzle game about escaping twisted
-                fairytales, confronting escapism and deciding whether
-                reality is actually worth returning to.
+                <p>
+                    Bibliocide is a first-person puzzle game centred around
+                    the idea of escapism and the comfort of stories. The player
+                    finds themselves trapped within a distorted fairytale world,
+                    moving through familiar stories that have become increasingly
+                    unsettling. What initially appears comforting gradually becomes
+                    something much harder to leave behind.
+                </p>
+
+            </div>
+
+
+            <div class="image-wall">
+
+                <div class="wall-image">
+                    IMAGE PLACEHOLDER
+                </div>
+
+                <div class="wall-image">
+                    IMAGE PLACEHOLDER
+                </div>
+
+                <div class="wall-image">
+                    IMAGE PLACEHOLDER
+                </div>
+
+                <div class="wall-image">
+                    IMAGE PLACEHOLDER
+                </div>
+
+                <div class="wall-image">
+                    IMAGE PLACEHOLDER
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             VIDEO
+             ======================================== -->
+
+        <section class="video-section">
+
+            <div class="section-heading">
+
+                <h2>
+                    VIDEO
+                </h2>
+
+                <span>
+                    GAMEPLAY / PRESENTATION
+                </span>
+
+            </div>
+
+            <div class="video-frame">
+
+                <div class="video-placeholder">
+                    VIDEO PLACEHOLDER<br><br>
+                    ADD GAMEPLAY OR PROJECT VIDEO HERE
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             STUFF I WORKED ON
+             ======================================== -->
+
+        <section class="section worked-section">
+
+            <div class="section-heading">
+
+                <h2>
+                    STUFF I WORKED ON
+                </h2>
+
+                <span>
+                    CLICK TO EXPAND
+                </span>
+
+            </div>
+
+
+            <p class="worked-intro">
+
+                These are the parts of Bibliocide that I worked on during
+                development. Click an item to view a larger image and add
+                a description of what I contributed to the project.
 
             </p>
 
 
-            <div class="hero-stamp">
-                STORY<br>
-                PUZZLES<br>
-                ESCAPISM
-            </div>
-
-        </div>
-
-    </header>
-
-
-    <main>
-
-
-        <section class="paper-section">
-
-            <span class="section-label">
-                THE PROJECT
-            </span>
-
-
-            <h2 class="section-title">
-                A BOOK FALLING APART.
-            </h2>
-
-
-            <div class="text-columns">
-
-                <div>
-
-                    <p>
-                        PLACEHOLDER PROJECT DESCRIPTION.
-                    </p>
-
-                    <p>
-                        PLACEHOLDER TEXT ABOUT THE GAME'S PREMISE,
-                        SETTING AND PLAYER EXPERIENCE.
-                    </p>
-
-                </div>
-
-
-                <div>
-
-                    <p>
-                        PLACEHOLDER TEXT ABOUT THE FAIRYTALE WORLDS,
-                        ESCAPISM AND THE CENTRAL THEMES OF THE GAME.
-                    </p>
-
-                    <p>
-                        PLACEHOLDER TEXT ABOUT WHAT THE PLAYER IS
-                        TRYING TO ACHIEVE.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <section class="paper-section">
-
-            <span class="section-label">
-                GAMEPLAY
-            </span>
-
-
-            <h2 class="section-title">
-                VIDEO / PLAYTHROUGH
-            </h2>
-
-
-            <div class="video-room">
-
-                <div class="video-screen">
-                    VIDEO PLACEHOLDER
-                </div>
-
-
-                <div class="video-caption">
-                    GAMEPLAY VIDEO / TRAILER PLACEHOLDER
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <section class="paper-section">
-
-            <span class="section-label">
-                DEVELOPMENT
-            </span>
-
-
-            <h2 class="section-title">
-                THINGS I MADE.
-            </h2>
-
-
-            <div class="messy-gallery">
+            <div class="worked-grid">
 
 
                 <div
-                    class="messy-image"
-                    data-title="Artwork Placeholder"
-                    data-description="PLACEHOLDER DESCRIPTION FOR THIS ARTWORK. Add information about what the image shows, what you created and how it contributed to Bibliocide."
+                    class="worked-card"
+                    data-title="ART & VISUAL DEVELOPMENT"
+                    data-description="PLACEHOLDER DESCRIPTION: Add information here about the artwork, visual development, character work, environment design or other visual assets created for Bibliocide."
                 >
-                    ARTWORK PLACEHOLDER
+
+                    <div class="click-label">
+                        VIEW
+                    </div>
+
+                    <div class="worked-image">
+                        YOUR IMAGE HERE
+                    </div>
+
+                    <div class="worked-card-content">
+
+                        <h3>
+                            ART & VISUAL DEVELOPMENT
+                        </h3>
+
+                        <p>
+                            PLACEHOLDER
+                        </p>
+
+                    </div>
+
                 </div>
 
 
+
                 <div
-                    class="messy-image"
-                    data-title="Character Art Placeholder"
-                    data-description="PLACEHOLDER DESCRIPTION FOR THIS CHARACTER ART. Explain the character, your design process and your contribution."
+                    class="worked-card"
+                    data-title="MUSIC & AUDIO"
+                    data-description="PLACEHOLDER DESCRIPTION: Add information here about the music, sound design, voice work or other audio created for Bibliocide."
                 >
-                    CHARACTER ART PLACEHOLDER
+
+                    <div class="click-label">
+                        VIEW
+                    </div>
+
+                    <div class="worked-image">
+                        YOUR IMAGE HERE
+                    </div>
+
+                    <div class="worked-card-content">
+
+                        <h3>
+                            MUSIC & AUDIO
+                        </h3>
+
+                        <p>
+                            PLACEHOLDER
+                        </p>
+
+                    </div>
+
                 </div>
 
 
+
                 <div
-                    class="messy-image"
-                    data-title="Environment Placeholder"
-                    data-description="PLACEHOLDER DESCRIPTION FOR THIS ENVIRONMENT. Explain what part of the game it represents and what you worked on."
+                    class="worked-card"
+                    data-title="VOICE ACTING"
+                    data-description="PLACEHOLDER DESCRIPTION: Add information here about any characters, narration or dialogue you performed for the project."
                 >
-                    ENVIRONMENT PLACEHOLDER
+
+                    <div class="click-label">
+                        VIEW
+                    </div>
+
+                    <div class="worked-image">
+                        YOUR IMAGE HERE
+                    </div>
+
+                    <div class="worked-card-content">
+
+                        <h3>
+                            VOICE ACTING
+                        </h3>
+
+                        <p>
+                            PLACEHOLDER
+                        </p>
+
+                    </div>
+
                 </div>
 
 
-                <div
-                    class="messy-image"
-                    data-title="Puzzle or Prop Placeholder"
-                    data-description="PLACEHOLDER DESCRIPTION FOR THIS PUZZLE OR PROP. Explain its purpose within the game and what you created."
-                >
-                    PUZZLE / PROP PLACEHOLDER
-                </div>
-
 
                 <div
-                    class="messy-image"
-                    data-title="Concept Art Placeholder"
-                    data-description="PLACEHOLDER DESCRIPTION FOR THIS CONCEPT ART. Explain how the concept developed and what decisions you made."
+                    class="worked-card"
+                    data-title="GAME DESIGN & DEVELOPMENT"
+                    data-description="PLACEHOLDER DESCRIPTION: Add information here about game design, puzzles, narrative development, level design or other development responsibilities."
                 >
-                    CONCEPT ART PLACEHOLDER
-                </div>
 
+                    <div class="click-label">
+                        VIEW
+                    </div>
 
-                <div
-                    class="messy-image"
-                    data-title="Gameplay Screenshot Placeholder"
-                    data-description="PLACEHOLDER DESCRIPTION FOR THIS SCREENSHOT. Explain what is happening in the image and what part you worked on."
-                >
-                    SCREENSHOT PLACEHOLDER
+                    <div class="worked-image">
+                        YOUR IMAGE HERE
+                    </div>
+
+                    <div class="worked-card-content">
+
+                        <h3>
+                            GAME DESIGN & DEVELOPMENT
+                        </h3>
+
+                        <p>
+                            PLACEHOLDER
+                        </p>
+
+                    </div>
+
                 </div>
 
 
@@ -1122,185 +1427,172 @@
         </section>
 
 
-        <section class="paper-section">
 
-            <span class="section-label">
-                MY ROLE
-            </span>
+        <!-- ========================================
+             FOOTER
+             ======================================== -->
 
+        <footer class="footer">
 
-            <h2 class="section-title">
-                WHAT I DID.
+            <h2>
+                THE END?
             </h2>
 
+            <p>
+                Maybe the story isn't finished yet.
+            </p>
 
-            <div class="contribution-grid">
+            <a
+                href="./index.html"
+                class="button"
+            >
+                BACK TO PORTFOLIO
+            </a>
 
-
-                <div class="contribution-card">
-                    <h3>ART</h3>
-                    <p>PLACEHOLDER DESCRIPTION OF YOUR ART CONTRIBUTION.</p>
-                </div>
-
-
-                <div class="contribution-card">
-                    <h3>WRITING</h3>
-                    <p>PLACEHOLDER DESCRIPTION OF YOUR WRITING AND NARRATIVE CONTRIBUTION.</p>
-                </div>
-
-
-                <div class="contribution-card">
-                    <h3>AUDIO</h3>
-                    <p>PLACEHOLDER DESCRIPTION OF YOUR MUSIC AND SOUND CONTRIBUTION.</p>
-                </div>
-
-
-                <div class="contribution-card">
-                    <h3>VOICE</h3>
-                    <p>PLACEHOLDER DESCRIPTION OF YOUR VOICE ACTING CONTRIBUTION.</p>
-                </div>
-
-
-                <div class="contribution-card">
-                    <h3>DESIGN</h3>
-                    <p>PLACEHOLDER DESCRIPTION OF YOUR DESIGN AND DEVELOPMENT CONTRIBUTION.</p>
-                </div>
-
-
-                <div class="contribution-card">
-                    <h3>PRODUCTION</h3>
-                    <p>PLACEHOLDER DESCRIPTION OF YOUR PROJECT LEADERSHIP CONTRIBUTION.</p>
-                </div>
-
-
-            </div>
-
-        </section>
+        </footer>
 
 
     </main>
 
 
-    <footer>
 
-        <div>
-            END OF PROJECT / BIBLIOCIDE
-        </div>
-
-
-        <a href="./index.html">
-            BACK TO PORTFOLIO
-        </a>
-
-    </footer>
-
+    <!-- ========================================
+         POPUP
+         ======================================== -->
 
     <div
-        class="popup"
-        id="imagePopup"
+        class="modal"
+        id="workModal"
+        aria-hidden="true"
     >
 
-        <div class="popup-box">
+        <div class="modal-content">
 
             <button
-                class="popup-close"
-                id="popupClose"
-                aria-label="Close artwork"
+                class="modal-close"
+                id="modalClose"
+                aria-label="Close"
             >
                 ×
             </button>
 
-
-            <div
-                class="popup-image"
-                id="popupImage"
-            >
-                IMAGE PLACEHOLDER
+            <div class="modal-image">
+                YOUR LARGE IMAGE HERE
             </div>
 
+            <div class="modal-text">
 
-            <h2
-                class="popup-title"
-                id="popupTitle"
-            >
-                Artwork Placeholder
-            </h2>
+                <h2 id="modalTitle">
+                    PROJECT WORK
+                </h2>
 
+                <p id="modalDescription">
+                    Placeholder description.
+                </p>
 
-            <p
-                class="popup-description"
-                id="popupDescription"
-            >
-                PLACEHOLDER DESCRIPTION.
-            </p>
+            </div>
 
         </div>
 
     </div>
 
 
+
+    <!-- ========================================
+         JAVASCRIPT
+         ======================================== -->
+
     <script>
 
-        const galleryImages =
-            document.querySelectorAll(".messy-image");
+        const workedCards =
+            document.querySelectorAll(".worked-card");
 
-        const popup =
-            document.getElementById("imagePopup");
+        const modal =
+            document.getElementById("workModal");
 
-        const popupClose =
-            document.getElementById("popupClose");
+        const modalTitle =
+            document.getElementById("modalTitle");
 
-        const popupTitle =
-            document.getElementById("popupTitle");
+        const modalDescription =
+            document.getElementById("modalDescription");
 
-        const popupDescription =
-            document.getElementById("popupDescription");
+        const modalClose =
+            document.getElementById("modalClose");
 
 
-        galleryImages.forEach((image) => {
+        workedCards.forEach((card) => {
 
-            image.addEventListener("click", () => {
+            card.addEventListener("click", () => {
 
-                popupTitle.textContent =
-                    image.dataset.title;
+                modalTitle.textContent =
+                    card.dataset.title;
 
-                popupDescription.textContent =
-                    image.dataset.description;
+                modalDescription.textContent =
+                    card.dataset.description;
 
-                popup.classList.add("active");
+                modal.classList.add("active");
+
+                modal.setAttribute(
+                    "aria-hidden",
+                    "false"
+                );
+
+                document.body.style.overflow = "hidden";
 
             });
 
         });
 
 
-        popupClose.addEventListener("click", () => {
+        function closeModal() {
 
-            popup.classList.remove("active");
+            modal.classList.remove("active");
 
-        });
+            modal.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            document.body.style.overflow = "";
+
+        }
 
 
-        popup.addEventListener("click", (event) => {
+        modalClose.addEventListener(
+            "click",
+            closeModal
+        );
 
-            if (event.target === popup) {
 
-                popup.classList.remove("active");
+        modal.addEventListener(
+            "click",
+            (event) => {
+
+                if (event.target === modal) {
+
+                    closeModal();
+
+                }
 
             }
+        );
 
-        });
 
+        document.addEventListener(
+            "keydown",
+            (event) => {
 
-        document.addEventListener("keydown", (event) => {
+                if (
+                    event.key === "Escape" &&
+                    modal.classList.contains("active")
+                ) {
 
-            if (event.key === "Escape") {
+                    closeModal();
 
-                popup.classList.remove("active");
+                }
 
             }
-
-        });
+        );
 
     </script>
 
