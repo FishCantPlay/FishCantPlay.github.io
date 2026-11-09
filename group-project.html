@@ -1,1352 +1,284 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Group Project - Fish Heard</title>
-
-    <style>
-
-        :root {
-            --black: #09080d;
-            --black-light: #15121c;
-            --purple: #7b4ca8;
-            --purple-light: #b98ad8;
-            --purple-dark: #4d286d;
-            --paper: #eee7d5;
-            --yellow: #f0d879;
-            --pink: #e49bb8;
-            --ink: #27222d;
-        }
-
-
-        * {
-            box-sizing: border-box;
-        }
-
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-
-        body {
-            margin: 0;
-
-            background:
-                radial-gradient(
-                    circle at 20% 10%,
-                    rgba(123,76,168,0.22),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 90% 80%,
-                    rgba(228,155,184,0.1),
-                    transparent 25%
-                ),
-                var(--black);
-
-            color: #eee;
-
-            font-family: Arial, sans-serif;
-
-            overflow-x: hidden;
-        }
-
-
-        body::before {
-            content: "";
-
-            position: fixed;
-
-            inset: 0;
-
-            pointer-events: none;
-
-            opacity: 0.08;
-
-            background:
-                repeating-linear-gradient(
-                    90deg,
-                    transparent,
-                    transparent 80px,
-                    rgba(255,255,255,0.03) 81px
-                );
-        }
-
-
-        /* ========================================
-           NAV
-           ======================================== */
-
-        .top-nav {
-            position: relative;
-
-            z-index: 10;
-
-            padding: 25px 6%;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-        }
-
-
-        .back-button {
-            display: inline-block;
-
-            padding: 12px 20px;
-
-            color: white;
-
-            text-decoration: none;
-
-            border:
-                2px solid
-                var(--purple-light);
-
-            background:
-                var(--black-light);
-
-            box-shadow:
-                6px 6px 0
-                var(--purple-dark);
-
-            transition:
-                transform 0.2s ease;
-        }
-
-
-        .back-button:hover {
-            transform:
-                translate(-3px, -3px)
-                rotate(-1deg);
-        }
-
-
-        .nav-label {
-            color: var(--purple-light);
-
-            font-size: 12px;
-
-            letter-spacing: 4px;
-        }
-
-
-        /* ========================================
-           HERO
-           ======================================== */
-
-        .hero {
-            position: relative;
-
-            min-height: 85vh;
-
-            padding:
-                70px
-                7%
-                120px;
-
-            overflow: hidden;
-        }
-
-
-        .hero-inner {
-            max-width: 1200px;
-
-            margin: auto;
-
-            position: relative;
-
-            z-index: 3;
-        }
-
-
-        .small-label {
-            display: inline-block;
-
-            padding: 8px 15px;
-
-            color: var(--ink);
-
-            background: var(--yellow);
-
-            font-size: 12px;
-
-            font-weight: bold;
-
-            letter-spacing: 2px;
-
-            transform: rotate(-3deg);
-
-            box-shadow:
-                5px 6px 0
-                rgba(0,0,0,0.4);
-        }
-
-
-        .hero h1 {
-            margin:
-                40px
-                0
-                10px;
-
-            font-size:
-                clamp(
-                    65px,
-                    12vw,
-                    150px
-                );
-
-            line-height: 0.82;
-
-            letter-spacing: -7px;
-
-            color: white;
-
-            text-shadow:
-                5px 5px 0
-                var(--purple-dark);
-        }
-
-
-        .hero-subtitle {
-            font-size:
-                clamp(
-                    20px,
-                    3vw,
-                    30px
-                );
-
-            color:
-                var(--purple-light);
-
-            margin-top: 25px;
-        }
-
-
-        .hero-description {
-            max-width: 700px;
-
-            margin-top: 35px;
-
-            font-size: 18px;
-
-            line-height: 1.8;
-
-            color: #c9c4ce;
-        }
-
-
-        .floating-note {
-            position: absolute;
-
-            width: 190px;
-
-            padding: 25px;
-
-            background:
-                var(--yellow);
-
-            color:
-                var(--ink);
-
-            font-family:
-                "Comic Sans MS",
-                cursive;
-
-            line-height: 1.5;
-
-            box-shadow:
-                8px 9px 0
-                rgba(0,0,0,0.4);
-        }
-
-
-        .note-one {
-            right: 8%;
-            top: 22%;
-
-            transform:
-                rotate(8deg);
-        }
-
-
-        .note-two {
-            right: 20%;
-            bottom: 15%;
-
-            transform:
-                rotate(-5deg);
-
-            background:
-                var(--pink);
-        }
-
-
-        .paper-corner {
-            position: absolute;
-
-            width: 400px;
-            height: 400px;
-
-            right: -120px;
-            bottom: -180px;
-
-            border:
-                2px solid
-                rgba(185,138,216,0.25);
-
-            transform:
-                rotate(25deg);
-        }
-
-
-        /* ========================================
-           MAIN
-           ======================================== */
-
-        main {
-            max-width: 1200px;
-
-            margin: auto;
-
-            padding:
-                0
-                25px
-                100px;
-        }
-
-
-        .board {
-            position: relative;
-
-            margin-bottom: 80px;
-
-            padding: 50px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #1a1520,
-                    #0e0c12
-                );
-
-            border:
-                2px solid
-                rgba(185,138,216,0.3);
-
-            box-shadow:
-                0 20px 60px
-                rgba(0,0,0,0.4);
-        }
-
-
-        .section-label {
-            color:
-                var(--purple-light);
-
-            font-size: 12px;
-
-            letter-spacing: 4px;
-
-            font-weight: bold;
-        }
-
-
-        .section-title {
-            margin:
-                12px
-                0
-                35px;
-
-            font-size:
-                clamp(
-                    38px,
-                    6vw,
-                    70px
-                );
-
-            line-height: 0.9;
-
-            color: white;
-        }
-
-
-        /* ========================================
-           POST ITS
-           ======================================== */
-
-        .post-it-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 25px;
-        }
-
-
-        .post-it {
-            min-height: 230px;
-
-            padding: 28px;
-
-            color: var(--ink);
-
-            background:
-                var(--yellow);
-
-            box-shadow:
-                7px 8px 0
-                rgba(0,0,0,0.3);
-
-            transform:
-                rotate(-1deg);
-
-            cursor: pointer;
-
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-        }
-
-
-        .post-it:nth-child(2n) {
-            transform:
-                rotate(2deg);
-
-            background:
-                var(--paper);
-        }
-
-
-        .post-it:nth-child(3n) {
-            transform:
-                rotate(-2deg);
-
-            background:
-                var(--pink);
-        }
-
-
-        .post-it:hover {
-            transform:
-                translateY(-8px)
-                rotate(0deg)
-                scale(1.02);
-
-            box-shadow:
-                12px 14px 0
-                rgba(0,0,0,0.35);
-        }
-
-
-        .post-it h3 {
-            margin:
-                0
-                0
-                15px;
-
-            font-size: 20px;
-        }
-
-
-        .post-it p {
-            line-height: 1.6;
-        }
-
-
-        .click-hint {
-            display: block;
-
-            margin-top: 18px;
-
-            font-size: 10px;
-
-            letter-spacing: 2px;
-
-            text-transform: uppercase;
-
-            opacity: 0.55;
-        }
-
-
-        /* ========================================
-           VIDEO
-           ======================================== */
-
-        .video-room {
-            padding: 18px;
-
-            background: #050408;
-
-            border:
-                3px solid
-                var(--purple);
-
-            box-shadow:
-                12px 12px 0
-                var(--purple-dark);
-        }
-
-
-        .video-screen {
-            aspect-ratio: 16 / 9;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border:
-                2px dashed
-                var(--purple-light);
-
-            color:
-                var(--purple-light);
-
-            letter-spacing: 4px;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(123,76,168,0.18),
-                    transparent 55%
-                );
-        }
-
-
-        .video-caption {
-            margin-top: 15px;
-
-            color: #aaa2b2;
-
-            font-size: 12px;
-
-            letter-spacing: 2px;
-        }
-
-
-        /* ========================================
-           STUDENT DESK
-           ======================================== */
-
-        .desk {
-            display: grid;
-
-            grid-template-columns:
-                1.3fr
-                0.7fr;
-
-            gap: 35px;
-        }
-
-
-        .notebook {
-            padding: 40px;
-
-            color: var(--ink);
-
-            background:
-                repeating-linear-gradient(
-                    #eee7d5,
-                    #eee7d5 39px,
-                    #b5bcd0 40px
-                );
-
-            box-shadow:
-                8px 10px 0
-                rgba(0,0,0,0.4);
-
-            transform:
-                rotate(-1deg);
-        }
-
-
-        .notebook h3 {
-            font-family: Georgia, serif;
-
-            font-size: 28px;
-
-            margin-top: 0;
-        }
-
-
-        .notebook p {
-            line-height: 2;
-        }
-
-
-        .folder {
-            padding: 35px;
-
-            background:
-                var(--purple-dark);
-
-            border:
-                3px solid
-                var(--purple-light);
-
-            box-shadow:
-                8px 8px 0
-                rgba(0,0,0,0.4);
-        }
-
-
-        .folder h3 {
-            margin-top: 0;
-
-            color:
-                var(--purple-light);
-        }
-
-
-        .folder p {
-            color:
-                #d7cedf;
-
-            line-height: 1.7;
-        }
-
-
-        /* ========================================
-           IMAGE WALL
-           ======================================== */
-
-        .image-wall {
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap: 20px;
-        }
-
-
-        .image-placeholder {
-            min-height: 230px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            text-align: center;
-
-            padding: 20px;
-
-            background:
-                var(--paper);
-
-            color:
-                var(--ink);
-
-            box-shadow:
-                5px 6px 0
-                rgba(0,0,0,0.3);
-
-            transform:
-                rotate(-1deg);
-        }
-
-
-        .image-placeholder:nth-child(2n) {
-            transform:
-                rotate(2deg);
-
-            background:
-                var(--yellow);
-        }
-
-
-        .image-placeholder:nth-child(3n) {
-            transform:
-                rotate(-3deg);
-
-            background:
-                var(--pink);
-        }
-
-
-        /* ========================================
-           POPUP
-           ======================================== */
-
-        .popup {
-            position: fixed;
-
-            inset: 0;
-
-            z-index: 100;
-
-            display: none;
-
-            align-items: center;
-            justify-content: center;
-
-            padding: 30px;
-
-            background:
-                rgba(5,4,8,0.86);
-
-            backdrop-filter:
-                blur(8px);
-        }
-
-
-        .popup.active {
-            display: flex;
-        }
-
-
-        .popup-box {
-            position: relative;
-
-            width:
-                min(900px, 100%);
-
-            max-height: 90vh;
-
-            overflow-y: auto;
-
-            padding: 28px;
-
-            background:
-                var(--paper);
-
-            color:
-                var(--ink);
-
-            box-shadow:
-                14px 15px 0
-                var(--purple-dark);
-
-            transform:
-                rotate(-0.6deg);
-        }
-
-
-        .popup-image {
-            min-height: 430px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            text-align: center;
-
-            background:
-                #d7cfc0;
-
-            border:
-                2px dashed
-                var(--purple);
-
-            color:
-                var(--ink);
-
-            letter-spacing: 3px;
-        }
-
-
-        .popup-title {
-            margin:
-                25px
-                0
-                10px;
-
-            font-size: 32px;
-        }
-
-
-        .popup-description {
-            font-size: 17px;
-
-            line-height: 1.8;
-        }
-
-
-        .popup-close {
-            position: absolute;
-
-            top: 10px;
-            right: 10px;
-
-            width: 42px;
-            height: 42px;
-
-            border: 0;
-
-            background:
-                var(--purple);
-
-            color: white;
-
-            cursor: pointer;
-
-            font-size: 22px;
-
-            z-index: 2;
-        }
-
-
-        /* ========================================
-           FOOTER
-           ======================================== */
-
-        footer {
-            padding:
-                70px
-                20px;
-
-            text-align: center;
-
-            background:
-                #050408;
-
-            border-top:
-                1px solid
-                var(--purple-dark);
-        }
-
-
-        footer a {
-            display: inline-block;
-
-            margin-top: 20px;
-
-            padding: 13px 22px;
-
-            color: white;
-
-            border:
-                2px solid
-                var(--purple-light);
-
-            text-decoration: none;
-        }
-
-
-        @media (max-width: 850px) {
-
-            .post-it-grid,
-            .image-wall {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-
-            .desk {
-                grid-template-columns: 1fr;
-            }
-
-
-            .floating-note {
-                display: none;
-            }
-
-        }
-
-
-        @media (max-width: 550px) {
-
-            .hero {
-                padding:
-                    60px
-                    25px
-                    90px;
-            }
-
-
-            .hero h1 {
-                letter-spacing: -4px;
-            }
-
-
-            .board {
-                padding:
-                    30px
-                    20px;
-            }
-
-
-            .post-it-grid,
-            .image-wall {
-                grid-template-columns: 1fr;
-            }
-
-
-            .popup-image {
-                min-height: 280px;
-            }
-
-        }
-
-    </style>
-
+    <title>Group Project | Fish Heard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
-
-
 <body>
 
-
-    <nav class="top-nav">
-
-        <a
-            href="./index.html"
-            class="back-button"
-        >
-            ← BACK TO PORTFOLIO
-        </a>
-
-
-        <span class="nav-label">
-            PROJECT / 02
-        </span>
-
-    </nav>
-
-
-    <header class="hero">
-
-        <div class="hero-inner">
-
-            <span class="small-label">
-                UNIVERSITY GROUP PROJECT
-            </span>
-
-
-            <h1>
-                GROUP<br>PROJECT
-            </h1>
-
-
-            <div class="hero-subtitle">
-                Making a game is easier when everyone agrees.
-            </div>
-
-
-            <p class="hero-description">
-
-                PLACEHOLDER PROJECT INTRODUCTION.
-                Describe the student team, the game and the
-                relationship-management concept here.
-
-            </p>
-
-        </div>
-
-
-        <div class="floating-note note-one">
-            REMEMBER TO<br>
-            COMMUNICATE!!!
-        </div>
-
-
-        <div class="floating-note note-two">
-            THIS WAS<br>
-            DEFINITELY<br>
-            THE PLAN.
-        </div>
-
-
-        <div class="paper-corner"></div>
-
-    </header>
-
-
-    <main>
-
-
-        <section class="board">
-
-            <span class="section-label">
-                PROJECT OVERVIEW
-            </span>
-
-
-            <h2 class="section-title">
-                THE ASSIGNMENT.
-            </h2>
-
-
-            <div class="post-it-grid">
-
-
-                <div
-                    class="post-it"
-                >
-
-                    <h3>THE GAME</h3>
-
-                    <p>
-                        PLACEHOLDER DESCRIPTION OF THE GAME
-                        AND ITS CORE IDEA.
-                    </p>
-
-                </div>
-
-
-                <div
-                    class="post-it"
-                >
-
-                    <h3>THE TEAM</h3>
-
-                    <p>
-                        PLACEHOLDER DESCRIPTION OF THE STUDENT
-                        TEAM AND HOW THE PROJECT WAS ORGANISED.
-                    </p>
-
-                </div>
-
-
-                <div
-                    class="post-it"
-                >
-
-                    <h3>THE GOAL</h3>
-
-                    <p>
-                        PLACEHOLDER DESCRIPTION OF WHAT THE
-                        PLAYER IS TRYING TO ACHIEVE.
-                    </p>
-
-                </div>
-
-
-                <div
-                    class="post-it"
-                >
-
-                    <h3>THE PROBLEM</h3>
-
-                    <p>
-                        PLACEHOLDER DESCRIPTION OF THE CENTRAL
-                        DESIGN CHALLENGE.
-                    </p>
-
-                </div>
-
-
-                <div
-                    class="post-it"
-                >
-
-                    <h3>THE CHARACTERS</h3>
-
-                    <p>
-                        Nott, Bam, Tang, Drip and Wilma can be
-                        introduced here.
-                    </p>
-
-                </div>
-
-
-                <div
-                    class="post-it"
-                >
-
-                    <h3>THE PLAYER</h3>
-
-                    <p>
-                        PLACEHOLDER DESCRIPTION OF HOW THE
-                        PLAYER'S CHOICES AFFECT THE TEAM.
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-        <section class="board">
-
-            <span class="section-label">
-                GAMEPLAY
-            </span>
-
-
-            <h2 class="section-title">
-                VIDEO / PLAYTHROUGH
-            </h2>
-
-
-            <div class="video-room">
-
-                <div class="video-screen">
-                    VIDEO PLACEHOLDER
-                </div>
-
-
-                <div class="video-caption">
-                    GAMEPLAY VIDEO / TRAILER PLACEHOLDER
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <section class="board">
-
-            <span class="section-label">
-                DEVELOPMENT DESK
-            </span>
-
-
-            <h2 class="section-title">
-                THE WORK.
-            </h2>
-
-
-            <div class="desk">
-
-
-                <div class="notebook">
-
-                    <h3>
-                        PROJECT NOTES
-                    </h3>
-
-
-                    <p>
-                        PLACEHOLDER DEVELOPMENT NOTES.
-                    </p>
-
-
-                    <p>
-                        PLACEHOLDER TEXT ABOUT DESIGN,
-                        ART, CHARACTERS, WRITING AND
-                        DEVELOPMENT.
-                    </p>
-
-
-                    <p>
-                        PLACEHOLDER TEXT ABOUT YOUR OWN
-                        CONTRIBUTIONS TO THE PROJECT.
-                    </p>
-
-                </div>
-
-
-                <div class="folder">
-
-                    <h3>
-                        MY ROLE
-                    </h3>
-
-
-                    <p>Characters</p>
-                    <p>3D Models</p>
-                    <p>Textures</p>
-                    <p>Animation</p>
-                    <p>Dialogue</p>
-                    <p>Audio</p>
-                    <p>Game Design</p>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-        <section class="board">
-
-            <span class="section-label">
-                DEVELOPMENT WALL
-            </span>
-
-
-            <h2 class="section-title">
-                STUFF I MADE.
-            </h2>
-
-
-            <div class="image-wall">
-
-                <div class="image-placeholder" data-title="Character Art" data-description="PLACEHOLDER DESCRIPTION FOR CHARACTER ART PLACEHOLDER. Add details about what you created, your process, software used and your contribution here.">
-                    CHARACTER ART PLACEHOLDER
-                    <span class="click-hint">Click to expand</span>
-                </div>
-
-                <div class="image-placeholder" data-title="Nott Model" data-description="PLACEHOLDER DESCRIPTION FOR NOTT MODEL PLACEHOLDER. Add details about what you created, your process, software used and your contribution here.">
-                    NOTT MODEL PLACEHOLDER
-                    <span class="click-hint">Click to expand</span>
-                </div>
-
-                <div class="image-placeholder" data-title="Tang Model" data-description="PLACEHOLDER DESCRIPTION FOR TANG MODEL PLACEHOLDER. Add details about what you created, your process, software used and your contribution here.">
-                    TANG MODEL PLACEHOLDER
-                    <span class="click-hint">Click to expand</span>
-                </div>
-
-                <div class="image-placeholder" data-title="Drip Model" data-description="PLACEHOLDER DESCRIPTION FOR DRIP MODEL PLACEHOLDER. Add details about what you created, your process, software used and your contribution here.">
-                    DRIP MODEL PLACEHOLDER
-                    <span class="click-hint">Click to expand</span>
-                </div>
-
-                <div class="image-placeholder" data-title="Concept Art" data-description="PLACEHOLDER DESCRIPTION FOR CONCEPT ART PLACEHOLDER. Add details about what you created, your process, software used and your contribution here.">
-                    CONCEPT ART PLACEHOLDER
-                    <span class="click-hint">Click to expand</span>
-                </div>
-
-                <div class="image-placeholder" data-title="Ui" data-description="PLACEHOLDER DESCRIPTION FOR UI PLACEHOLDER. Add details about what you created, your process, software used and your contribution here.">
-                    UI PLACEHOLDER
-                    <span class="click-hint">Click to expand</span>
-                </div>
-
-                <div class="image-placeholder" data-title="Animation" data-description="PLACEHOLDER DESCRIPTION FOR ANIMATION PLACEHOLDER. Add details about what you created, your process, software used and your contribution here.">
-                    ANIMATION PLACEHOLDER
-                    <span class="click-hint">Click to expand</span>
-                </div>
-
-                <div class="image-placeholder" data-title="Screenshot" data-description="PLACEHOLDER DESCRIPTION FOR SCREENSHOT PLACEHOLDER. Add details about what you created, your process, software used and your contribution here.">
-                    SCREENSHOT PLACEHOLDER
-                    <span class="click-hint">Click to expand</span>
-                </div>
-
-            </div>
-        </section>
-
-
-    </main>
-
-
-    <footer>
-
-        <div>
-            END OF PROJECT / GROUP PROJECT
-        </div>
-
-
-        <a href="./index.html">
-            BACK TO PORTFOLIO
-        </a>
-
-    </footer>
-
-
-    <div
-        class="popup"
-        id="postPopup"
-    >
-
-        <div class="popup-box">
-
-            <button
-                class="popup-close"
-                id="postPopupClose"
-                aria-label="Close note"
-            >
-                ×
-            </button>
-
-
-            <div class="popup-image">
-                IMAGE PLACEHOLDER
-            </div>
-
-
-            <h2
-                class="popup-title"
-                id="postPopupTitle"
-            >
-                Project Note
-            </h2>
-
-
-            <p
-                class="popup-description"
-                id="postPopupDescription"
-            >
-                PLACEHOLDER DESCRIPTION.
-            </p>
-
-        </div>
-
+<nav class="site-nav">
+    <a href="index.html" class="logo">Fish Heard ✦</a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="art.html">Art Portfolio</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#contact">Contact</a>
     </div>
+</nav>
 
+<header class="case-hero">
+    <div class="container">
+        <span class="eyebrow">University group project / 02</span>
+        <h1>Group Project</h1>
+        <p class="hero-subtitle">Characters, relationships and player choices.</p>
 
-    <script>
+        <p class="lead">
+            A collaborative relationship-management game project
+            involving characters, player decisions and the
+            development of a shared game experience.
+        </p>
 
-        const postIts =
-            document.querySelectorAll(".image-placeholder");
+        <p><a href="index.html" class="button">← Back to portfolio</a></p>
+    </div>
+</header>
 
-        const postPopup =
-            document.getElementById("postPopup");
+<main class="container">
 
-        const postPopupClose =
-            document.getElementById("postPopupClose");
+    <section class="section">
+        <span class="eyebrow">01 / Project overview</span>
+        <h2>The game</h2>
 
-        const postPopupTitle =
-            document.getElementById("postPopupTitle");
+        <div class="case-layout">
+            <div>
+                <p>
+                    This was a university group project focused
+                    on creating a relationship-management game.
+                    The project involved developing a game concept
+                    around a group of characters and the way
+                    their relationships could change through
+                    player choices.
+                </p>
 
-        const postPopupDescription =
-            document.getElementById("postPopupDescription");
+                <p>
+                    The project gave me the opportunity to work
+                    collaboratively and explore different areas
+                    of game development.
+                </p>
 
+                <p>
+                    The final page should explain the actual
+                    mechanics, team structure and project goals
+                    once the relevant development evidence
+                    has been added.
+                </p>
+            </div>
 
-        postIts.forEach((note) => {
+            <div class="image-placeholder">
+                <strong>Game Screenshot</strong>
+                <small>
+                    Add an actual screenshot of the game,
+                    its interface or a representative scene.
+                </small>
+            </div>
+        </div>
+    </section>
 
-            note.addEventListener("click", () => {
+    <section class="section">
+        <span class="eyebrow">02 / Characters</span>
+        <h2>The characters</h2>
 
-                postPopupTitle.textContent =
-                    note.dataset.title;
+        <p>
+            The project included Nott, Bam, Tang, Drip and Wilma.
+            Use this section to show the characters and explain
+            how they fit into the game.
+        </p>
 
-                postPopupDescription.textContent =
-                    note.dataset.description;
+        <div class="art-grid">
 
-                postPopup.classList.add("active");
+            <article class="art-item">
+                <div class="image-placeholder">
+                    <strong>Nott</strong>
+                    <small>
+                        Add Nott's actual concept art and
+                        3D model if available.
+                    </small>
+                </div>
+                <h3>Nott</h3>
+                <p>
+                    Add a short description of the character's
+                    personality, role and your contribution.
+                </p>
+            </article>
 
-            });
+            <article class="art-item">
+                <div class="image-placeholder">
+                    <strong>Bam</strong>
+                    <small>
+                        Add Bam's actual concept art and
+                        3D model if available.
+                    </small>
+                </div>
+                <h3>Bam</h3>
+                <p>
+                    Add a short description of the character's
+                    personality, role and your contribution.
+                </p>
+            </article>
 
-        });
+            <article class="art-item">
+                <div class="image-placeholder">
+                    <strong>Tang</strong>
+                    <small>
+                        Add Tang's actual concept art and
+                        3D model if available.
+                    </small>
+                </div>
+                <h3>Tang</h3>
+                <p>
+                    Add a short description of the character's
+                    personality, role and your contribution.
+                </p>
+            </article>
 
+            <article class="art-item">
+                <div class="image-placeholder">
+                    <strong>Drip</strong>
+                    <small>
+                        Add Drip's actual concept art and
+                        3D model if available.
+                    </small>
+                </div>
+                <h3>Drip</h3>
+                <p>
+                    Add a short description of the character's
+                    personality, role and your contribution.
+                </p>
+            </article>
 
-        postPopupClose.addEventListener("click", () => {
+            <article class="art-item">
+                <div class="image-placeholder">
+                    <strong>Wilma</strong>
+                    <small>
+                        Add Wilma's actual concept art and
+                        3D model if available.
+                    </small>
+                </div>
+                <h3>Wilma</h3>
+                <p>
+                    Add a short description of the character's
+                    personality, role and your contribution.
+                </p>
+            </article>
 
-            postPopup.classList.remove("active");
+        </div>
+    </section>
 
-        });
+    <section class="section">
+        <span class="eyebrow">03 / My role</span>
+        <h2>What I contributed</h2>
 
+        <div class="note">
+            Be specific about what you personally completed.
+            Separate your own work from the work produced
+            by other team members.
+        </div>
 
-        postPopup.addEventListener("click", (event) => {
+        <div class="card-grid">
 
-            if (event.target === postPopup) {
+            <article class="card">
+                <h3>3D Modelling</h3>
+                <p>
+                    List the models you personally created.
+                    Include screenshots of the modelling process,
+                    final models and any technical development.
+                </p>
+            </article>
 
-                postPopup.classList.remove("active");
+            <article class="card">
+                <h3>Character Art</h3>
+                <p>
+                    Add the character concepts, sketches
+                    and illustrations that you personally
+                    produced.
+                </p>
+            </article>
 
-            }
+            <article class="card">
+                <h3>Other Contributions</h3>
+                <p>
+                    Add any dialogue, audio, animation,
+                    game design or other work you genuinely
+                    completed during the project.
+                </p>
+            </article>
 
-        });
+        </div>
+    </section>
 
+    <section class="section">
+        <span class="eyebrow">04 / Development evidence</span>
+        <h2>From idea to game</h2>
 
-        document.addEventListener("keydown", (event) => {
+        <div class="process-grid">
 
-            if (event.key === "Escape") {
+            <div class="process-step">
+                <span class="number">01</span>
+                <h3>Initial ideas</h3>
+                <p>
+                    Add early sketches, planning documents
+                    and concept development.
+                </p>
+            </div>
 
-                postPopup.classList.remove("active");
+            <div class="process-step">
+                <span class="number">02</span>
+                <h3>Production</h3>
+                <p>
+                    Add modelling screenshots, character
+                    development, interface work or other
+                    production evidence.
+                </p>
+            </div>
 
-            }
+            <div class="process-step">
+                <span class="number">03</span>
+                <h3>Testing</h3>
+                <p>
+                    Add actual playtesting evidence,
+                    feedback and changes made in response.
+                </p>
+            </div>
 
-        });
+            <div class="process-step">
+                <span class="number">04</span>
+                <h3>Final outcome</h3>
+                <p>
+                    Add the final game screenshots,
+                    presentation or gameplay recording.
+                </p>
+            </div>
 
-    </script>
+        </div>
+    </section>
 
+    <section class="section">
+        <span class="eyebrow">05 / Reflection</span>
+        <h2>What I learned</h2>
+
+        <p>
+            Reflect on collaboration, communication,
+            managing responsibilities and developing
+            your practical skills.
+        </p>
+
+        <p>
+            Explain how the project influenced your current
+            interest in 3D character modelling and what
+            you would approach differently next time.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    <p>FISH HEARD ✦ GROUP PROJECT</p>
+    <p><a href="index.html">Back to portfolio</a></p>
+</footer>
 
 </body>
-
 </html>
