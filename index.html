@@ -816,6 +816,135 @@ a {
 }
 
 /* ========================================
+   BUSINESS CARD
+   ======================================== */
+
+.business-card-section {
+    max-width:850px;
+    margin:90px auto 0;
+    padding:45px 20px 20px;
+    text-align:center;
+    border-top:1px solid rgba(232,143,166,.25);
+}
+
+.business-card-section h3 {
+    margin:0;
+    color:var(--pink);
+    font-size:clamp(28px,4vw,40px);
+    font-weight:normal;
+    font-style:italic;
+    text-shadow:2px 2px 0 var(--pink-dark);
+}
+
+.business-card-intro {
+    color:var(--text-muted);
+    font-size:15px;
+    margin:12px 0 30px;
+}
+
+.business-card-flipper {
+    display:block;
+    width:min(100%,520px);
+    aspect-ratio:1.75 / 1;
+    margin:0 auto;
+    padding:0;
+    border:0;
+    background:transparent;
+    cursor:pointer;
+    perspective:1200px;
+    -webkit-tap-highlight-color:transparent;
+}
+
+.business-card-inner {
+    display:block;
+    width:100%;
+    height:100%;
+    position:relative;
+    transform-style:preserve-3d;
+    transition:transform .8s ease;
+}
+
+.business-card-flipper.flipped .business-card-inner {
+    transform:rotateY(180deg);
+}
+
+.business-card-face {
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    border-radius:8px;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+    border:2px solid var(--teal-light);
+    box-shadow:
+        0 0 12px rgba(7,140,124,.4),
+        0 0 25px rgba(232,143,166,.2),
+        8px 8px 0 var(--pink-dark);
+    background:#0A1514;
+}
+
+.business-card-face img {
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    background:#0A1514;
+}
+
+.business-card-back {
+    transform:rotateY(180deg);
+}
+
+.business-card-placeholder {
+    display:grid;
+    place-content:center;
+    gap:12px;
+    width:100%;
+    height:100%;
+    color:var(--teal-light);
+    font-size:clamp(12px,2vw,18px);
+    letter-spacing:2px;
+    background:
+        radial-gradient(circle,rgba(232,143,166,.12),transparent 65%),
+        #0A1514;
+}
+
+.business-card-placeholder small {
+    color:var(--pink);
+    font-size:12px;
+    letter-spacing:0;
+}
+
+.business-card-hint {
+    margin-top:30px;
+    color:var(--pink);
+    font-size:14px;
+    font-style:italic;
+    letter-spacing:1px;
+    animation:cardHintGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes cardHintGlow {
+    from {
+        text-shadow:0 0 3px rgba(232,143,166,.3);
+    }
+    to {
+        text-shadow:0 0 12px rgba(232,143,166,.8);
+    }
+}
+
+.business-card-flipper:focus-visible {
+    outline:3px solid var(--pink);
+    outline-offset:12px;
+}
+
+.business-card-flipper:hover .business-card-face {
+    border-color:var(--pink);
+}
+
+/* ========================================
    FOOTER
    ======================================== */
 
@@ -929,6 +1058,11 @@ footer {
         min-height:350px;
     }
 
+    .business-card-section {
+        margin-top:65px;
+        padding:35px 5px 10px;
+    }
+
 }
 
 @media(prefers-reduced-motion:reduce) {
@@ -936,6 +1070,14 @@ footer {
         animation-duration:.01ms !important;
         animation-iteration-count:1 !important;
         scroll-behavior:auto !important;
+    }
+
+    .business-card-inner {
+        transition:none;
+    }
+
+    .business-card-hint {
+        animation:none;
     }
 }
 
@@ -971,251 +1113,8 @@ footer {
 <div class="top-contact">
     <span>✦ CONTACT ME ✦</span>
     <a href="mailto:courtneyrosealice@gmail.com">EMAIL</a>
-    <a href="https://linktr.ee/fishcantdraw" target="_blank">ALL MY LINKS</a>
+    <a href="https://linktr.ee/fishcantdraw" target="_blank" rel="noopener noreferrer">ALL MY LINKS</a>
 </div>
-
-<!-- BUSINESS CARD SECTION -->
-<section class="business-card-section">
-
-    <h2>My Business Card</h2>
-
-    <p class="business-card-intro">
-        A little something to take with you!
-    </p>
-
-    <button
-        class="business-card-flipper"
-        id="businessCard"
-        type="button"
-        aria-label="Flip business card to show the back"
-        aria-pressed="false"
-    >
-        <span class="business-card-inner">
-
-            <!-- FRONT OF CARD -->
-            <span class="business-card-face business-card-front">
-
-                <img
-                    src="images/business-card-front.png"
-                    alt="Front of my business card"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
-                >
-
-                <span class="business-card-placeholder">
-                    FRONT OF BUSINESS CARD
-                    <small>Add business-card-front.png here</small>
-                </span>
-
-            </span>
-
-            <!-- BACK OF CARD -->
-            <span class="business-card-face business-card-back">
-
-                <img
-                    src="images/business-card-back.png"
-                    alt="Back of my business card"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
-                >
-
-                <span class="business-card-placeholder">
-                    BACK OF BUSINESS CARD
-                    <small>Add business-card-back.png here</small>
-                </span>
-
-            </span>
-
-        </span>
-    </button>
-
-    <p class="business-card-hint">
-        ✦ click the card to flip it ✦
-    </p>
-
-</section>
-
-
-<style>
-
-/* BUSINESS CARD SECTION */
-
-.business-card-section {
-    width: 100%;
-    padding: 55px 20px;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-.business-card-section h2 {
-    font-family: 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
-    font-size: 2rem;
-    color: #f4a6d7;
-    text-shadow: 0 0 12px rgba(244, 166, 215, 0.55);
-    margin-bottom: 10px;
-}
-
-.business-card-intro {
-    color: #b9f4ed;
-    margin-bottom: 30px;
-    font-size: 1rem;
-}
-
-/* CLICKABLE FLIP CARD */
-
-.business-card-flipper {
-    display: block;
-    width: min(100%, 520px);
-    aspect-ratio: 1.75 / 1;
-    margin: 0 auto;
-    padding: 0;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    perspective: 1200px;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.business-card-inner {
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.8s ease;
-}
-
-.business-card-flipper.flipped .business-card-inner {
-    transform: rotateY(180deg);
-}
-
-/* BOTH SIDES */
-
-.business-card-face {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: 14px;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    border: 2px solid #65e9dc;
-    box-shadow:
-        0 0 12px rgba(101, 233, 220, 0.45),
-        0 0 25px rgba(244, 166, 215, 0.2);
-    background: #171923;
-}
-
-.business-card-face img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    background: #171923;
-}
-
-/* BACK */
-
-.business-card-back {
-    transform: rotateY(180deg);
-}
-
-/* IMAGE PLACEHOLDER */
-
-.business-card-placeholder {
-    display: grid;
-    place-content: center;
-    gap: 12px;
-    width: 100%;
-    height: 100%;
-    color: #65e9dc;
-    font-family: 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-    background:
-        radial-gradient(circle, rgba(244, 166, 215, 0.12), transparent 65%),
-        #171923;
-}
-
-.business-card-placeholder small {
-    color: #f4a6d7;
-    font-family: Georgia, serif;
-    font-size: 0.8rem;
-    letter-spacing: 0;
-}
-
-/* LITTLE INSTRUCTION */
-
-.business-card-hint {
-    margin-top: 22px;
-    color: #f4a6d7;
-    font-family: 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
-    font-size: 0.95rem;
-    font-style: italic;
-    animation: cardHintGlow 2.5s ease-in-out infinite alternate;
-}
-
-@keyframes cardHintGlow {
-    from {
-        text-shadow: 0 0 3px rgba(244, 166, 215, 0.3);
-    }
-
-    to {
-        text-shadow: 0 0 12px rgba(244, 166, 215, 0.8);
-    }
-}
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-    .business-card-section {
-        padding: 40px 15px;
-    }
-
-    .business-card-section h2 {
-        font-size: 1.7rem;
-    }
-
-    .business-card-flipper {
-        width: 100%;
-    }
-}
-
-/* REDUCE MOTION IF REQUESTED BY THE VISITOR */
-
-@media (prefers-reduced-motion: reduce) {
-    .business-card-inner {
-        transition: none;
-    }
-
-    .business-card-hint {
-        animation: none;
-    }
-}
-
-</style>
-
-
-<script>
-
-/* FLIP THE BUSINESS CARD */
-
-const businessCard = document.getElementById("businessCard");
-
-businessCard.addEventListener("click", function () {
-    this.classList.toggle("flipped");
-
-    const isFlipped = this.classList.contains("flipped");
-
-    this.setAttribute("aria-pressed", isFlipped);
-    this.setAttribute(
-        "aria-label",
-        isFlipped
-            ? "Flip business card to show the front"
-            : "Flip business card to show the back"
-    );
-});
-
-</script>
 
 <!-- LANDING PAGE -->
 
@@ -1254,16 +1153,16 @@ businessCard.addEventListener("click", function () {
     <div class="socials">
         <a href="https://linktr.ee/fishcantdraw"
            target="_blank" rel="noopener noreferrer">Linktree</a>
-    
+
         <a href="https://www.artstation.com/fishcantdraw"
            target="_blank" rel="noopener noreferrer">ArtStation</a>
-    
+
         <a href="https://www.tiktok.com/@fishcantplay"
            target="_blank" rel="noopener noreferrer">TikTok</a>
-    
+
         <a href="https://bsky.app/profile/fishcantplay.bsky.social"
            target="_blank" rel="noopener noreferrer">Bluesky</a>
-    
+
         <a href="https://www.linkedin.com/in/fish-heard-167040390/"
            target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
@@ -1781,6 +1680,70 @@ businessCard.addEventListener("click", function () {
 
     </div>
 
+    <!-- BUSINESS CARD -->
+
+    <div class="business-card-section">
+
+        <h3>MY BUSINESS CARD.</h3>
+
+        <p class="business-card-intro">
+            A little something to take with you!
+        </p>
+
+        <button
+            class="business-card-flipper"
+            id="businessCard"
+            type="button"
+            aria-label="Flip business card to show the back"
+            aria-pressed="false"
+        >
+
+            <span class="business-card-inner">
+
+                <!-- FRONT OF CARD -->
+
+                <span class="business-card-face business-card-front">
+
+                    <img
+                        src="images/business-card-front.png"
+                        alt="Front of my business card"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
+                    >
+
+                    <span class="business-card-placeholder">
+                        FRONT OF BUSINESS CARD
+                        <small>Add business-card-front.png here</small>
+                    </span>
+
+                </span>
+
+                <!-- BACK OF CARD -->
+
+                <span class="business-card-face business-card-back">
+
+                    <img
+                        src="images/business-card-back.png"
+                        alt="Back of my business card"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
+                    >
+
+                    <span class="business-card-placeholder">
+                        BACK OF BUSINESS CARD
+                        <small>Add business-card-back.png here</small>
+                    </span>
+
+                </span>
+
+            </span>
+
+        </button>
+
+        <p class="business-card-hint">
+            ✦ click the card to flip it ✦
+        </p>
+
+    </div>
+
     <div class="divider"></div>
 
 </section>
@@ -1908,6 +1871,30 @@ document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowLeft") {
         showAboutSlide(currentAboutSlide - 1);
     }
+
+});
+
+
+/* ========================================
+   BUSINESS CARD FLIP
+   ======================================== */
+
+const businessCard = document.getElementById("businessCard");
+
+businessCard.addEventListener("click", function () {
+
+    this.classList.toggle("flipped");
+
+    const isFlipped = this.classList.contains("flipped");
+
+    this.setAttribute("aria-pressed", isFlipped);
+
+    this.setAttribute(
+        "aria-label",
+        isFlipped
+            ? "Flip business card to show the front"
+            : "Flip business card to show the back"
+    );
 
 });
 
