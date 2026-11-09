@@ -2,207 +2,530 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bibliocide | Fish Heard</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bibliocide | Fish Heard</title>
+
+<style>
+:root {
+    --brown-dark:#211713;
+    --brown:#4A3025;
+    --brown-light:#765344;
+    --paper:#D8C39A;
+    --paper-light:#E8D9B8;
+    --blue:#8FAFC1;
+    --blue-dark:#526F7E;
+    --red:#8B3029;
+    --ink:#241B18;
+    --cream:#EEE2C7;
+}
+
+* {box-sizing:border-box;}
+html {scroll-behavior:smooth;}
+
+body {
+    margin:0;
+    background:
+        radial-gradient(circle at 20% 10%,rgba(139,48,41,.2),transparent 30%),
+        radial-gradient(circle at 80% 75%,rgba(143,175,193,.12),transparent 30%),
+        var(--brown-dark);
+    color:var(--cream);
+    font-family:Georgia,"Times New Roman",serif;
+}
+
+a {color:inherit;}
+
+.top-nav {
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    background:#1a110e;
+    border-bottom:1px solid var(--paper);
+}
+
+.back-button {
+    color:var(--paper);
+    text-decoration:none;
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+.nav-label {
+    color:var(--blue);
+    font-size:11px;
+    letter-spacing:3px;
+}
+
+.hero {
+    position:relative;
+    text-align:center;
+    padding:115px 7% 100px;
+    background:
+        linear-gradient(rgba(33,23,19,.45),rgba(33,23,19,.8)),
+        repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(232,217,184,.025) 81px),
+        var(--brown);
+    border-bottom:6px double var(--paper);
+}
+
+.hero::before,.hero::after {
+    content:"✦";
+    position:absolute;
+    color:var(--paper);
+    font-size:35px;
+}
+
+.hero::before {top:40px;left:15%;}
+.hero::after {bottom:35px;right:15%;}
+
+.chapter {
+    color:var(--blue);
+    letter-spacing:5px;
+    font-size:12px;
+}
+
+.hero h1 {
+    font-size:clamp(55px,10vw,105px);
+    font-weight:normal;
+    line-height:1;
+    margin:30px 0;
+    color:var(--paper-light);
+    text-shadow:3px 4px 0 var(--red);
+}
+
+.flourish {
+    color:var(--paper);
+    font-size:28px;
+    letter-spacing:12px;
+}
+
+.hero-subtitle {
+    max-width:650px;
+    margin:25px auto;
+    font-style:italic;
+    line-height:1.9;
+    color:var(--paper-light);
+    font-size:18px;
+}
+
+.hero-description {
+    color:#d2c2a5;
+    max-width:650px;
+    margin:20px auto;
+    line-height:1.8;
+}
+
+main {
+    max-width:1100px;
+    padding:50px 6%;
+    margin:auto;
+}
+
+.section {
+    margin:70px 0;
+    scroll-margin-top:30px;
+}
+
+.chapter-heading {
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.chapter-heading span {
+    color:var(--blue);
+    letter-spacing:4px;
+    font-size:11px;
+}
+
+.chapter-heading h2 {
+    font-size:34px;
+    font-weight:normal;
+    color:var(--paper);
+    margin:15px 0;
+}
+
+.ornament {
+    text-align:center;
+    color:var(--red);
+    letter-spacing:10px;
+    margin:20px;
+}
+
+.paper {
+    padding:40px;
+    background:
+        radial-gradient(circle at 10% 20%,rgba(255,255,255,.2),transparent 40%),
+        var(--paper);
+    color:var(--ink);
+    box-shadow:0 0 0 5px var(--brown-light),0 0 0 7px var(--paper);
+    line-height:1.9;
+}
+
+.paper h3 {
+    color:var(--red);
+    font-weight:normal;
+    font-size:24px;
+}
+
+.paper p {font-size:15px;}
+
+.two-column {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    align-items:center;
+}
+
+.image-placeholder {
+    min-height:280px;
+    padding:25px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+        linear-gradient(135deg,rgba(139,48,41,.2),transparent),
+        #32231d;
+    border:3px double var(--paper);
+    color:var(--paper);
+    font-size:12px;
+    line-height:1.7;
+}
+
+.image-placeholder strong {
+    display:block;
+    font-size:16px;
+    margin-bottom:12px;
+    color:var(--blue);
+}
+
+.image-placeholder img {
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.grid {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.card {
+    background:#30221b;
+    border:1px solid var(--paper);
+    padding:20px;
+    transition:.3s;
+}
+
+.card:hover {
+    transform:translateY(-5px);
+    border-color:var(--blue);
+}
+
+.card h3 {
+    color:var(--paper);
+    font-weight:normal;
+    font-size:21px;
+}
+
+.card p {
+    color:#d2c2a5;
+    font-size:14px;
+    line-height:1.8;
+}
+
+.process {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.process-card {
+    padding:22px;
+    background:rgba(118,83,68,.3);
+    border-top:2px solid var(--blue);
+}
+
+.process-card h3 {
+    color:var(--paper);
+    font-weight:normal;
+}
+
+.process-card p {
+    color:#d2c2a5;
+    line-height:1.7;
+    font-size:13px;
+}
+
+.tag {
+    display:inline-block;
+    border:1px solid var(--blue);
+    color:var(--blue);
+    padding:6px 10px;
+    font-family:Arial,sans-serif;
+    font-size:10px;
+    letter-spacing:2px;
+    margin:4px;
+}
+
+.reflection {
+    padding:35px;
+    background:rgba(139,48,41,.14);
+    border:1px solid var(--red);
+    line-height:1.9;
+}
+
+.button {
+    display:inline-block;
+    padding:13px 22px;
+    border:1px solid var(--paper);
+    color:var(--paper);
+    text-decoration:none;
+    font-size:11px;
+    letter-spacing:3px;
+}
+
+.button:hover {
+    background:var(--paper);
+    color:var(--ink);
+}
+
+footer {
+    text-align:center;
+    padding:40px;
+    border-top:4px double var(--paper);
+    color:var(--paper);
+    font-size:12px;
+    letter-spacing:3px;
+}
+
+footer a {color:var(--blue);}
+
+@media(max-width:750px) {
+    .two-column,.grid {grid-template-columns:1fr;}
+    .process {grid-template-columns:1fr 1fr;}
+    .hero {padding:80px 6%;}
+}
+
+@media(max-width:450px) {
+    .process {grid-template-columns:1fr;}
+    .paper {padding:22px;}
+}
+</style>
 </head>
+
 <body>
 
-<nav class="site-nav">
-    <a href="index.html" class="logo">Fish Heard ✦</a>
-    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="art.html">Art Portfolio</a>
-        <a href="index.html#projects">Projects</a>
-        <a href="index.html#contact">Contact</a>
-    </div>
+<nav class="top-nav">
+    <a class="back-button" href="index.html">← BACK TO PORTFOLIO</a>
+    <span class="nav-label">PROJECT / 01</span>
 </nav>
 
-<header class="case-hero">
-    <div class="container">
-        <span class="eyebrow">University project / 01</span>
-        <h1>Bibliocide</h1>
-        <p class="hero-subtitle">A story that doesn't want to end.</p>
-        <p class="lead">
-            Bibliocide is a first-person puzzle game about escaping
-            twisted fairytales, confronting escapism and deciding
-            what happens when the story is no longer enough.
-        </p>
-        <span class="tag">First-person puzzle game</span>
-        <span class="tag">Fairytales</span>
-        <span class="tag">Storytelling</span>
-        <p><a href="index.html" class="button">← Back to portfolio</a></p>
-    </div>
+<header class="hero">
+
+    <div class="chapter">A TALE THAT REFUSES TO END</div>
+
+    <h1>Bibliocide</h1>
+
+    <div class="flourish">✦ ❧ ✦</div>
+
+    <p class="hero-subtitle">
+        Every story has an ending. What happens when
+        someone refuses to let it happen?
+    </p>
+
+    <p class="hero-description">
+        A first-person puzzle game about escaping twisted
+        fairytales, confronting escapism and exploring
+        what happens when fiction becomes something
+        you cannot leave behind.
+    </p>
+
+    <a href="#story" class="button">TURN THE PAGE</a>
+
 </header>
 
-<main class="container">
+<main>
 
-    <section class="section">
-        <span class="eyebrow">01 / The project</span>
-        <h2>A story within a story</h2>
+<section class="section" id="story">
 
-        <div class="case-layout">
-            <div>
-                <p>
-                    Bibliocide is a first-person puzzle game centred
-                    around escapism and the comfort of stories.
-                    The player finds themselves trapped within
-                    a distorted fairytale world, moving through
-                    familiar stories that have become increasingly
-                    unsettling.
-                </p>
-                <p>
-                    What initially appears comforting gradually
-                    becomes something less familiar. The project
-                    explores the relationship between stories,
-                    escapism and the point at which a fictional
-                    world stops being a safe place.
-                </p>
-            </div>
+    <div class="chapter-heading">
+        <span>CHAPTER I</span>
+        <h2>The Story</h2>
+        <div class="ornament">❧ ✦ ❧</div>
+    </div>
 
+    <div class="two-column">
+
+        <div class="paper">
+            <h3>Once upon a time...</h3>
+            <p>
+                Bibliocide is a first-person puzzle game centred
+                around escapism and the comfort of stories.
+                The player finds themselves trapped within
+                a distorted fairytale world, moving through
+                familiar stories that have become increasingly
+                unsettling.
+            </p>
+            <p>
+                What initially appears comforting gradually
+                becomes something less familiar. The project
+                explores the relationship between stories,
+                escapism and the point at which a fictional
+                world stops being a safe place.
+            </p>
+        </div>
+
+        <div class="image-placeholder">
+            <strong>THE WORLD OF BIBLIOCIDE</strong>
+            Add your strongest game screenshot or key artwork
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section">
+
+    <div class="chapter-heading">
+        <span>CHAPTER II</span>
+        <h2>A World Between the Pages</h2>
+        <div class="ornament">✦ ❧ ✦</div>
+    </div>
+
+    <div class="grid">
+
+        <article class="card">
             <div class="image-placeholder">
-                <strong>Project Main Image</strong>
-                <small>
-                    Add an actual screenshot or piece of artwork
-                    from Bibliocide. Ideally use a strong image
-                    that communicates the game's atmosphere.
-                </small>
+                <strong>ENVIRONMENT</strong>
+                Add an environment screenshot
             </div>
-        </div>
-    </section>
+            <h3>The World</h3>
+            <p>
+                Show the game's environments and explain
+                how the visual atmosphere supports
+                the fairytale setting.
+            </p>
+        </article>
 
-    <section class="section">
-        <span class="eyebrow">02 / Development</span>
-        <h2>How it came together</h2>
-
-        <div class="process-grid">
-            <div class="process-step">
-                <span class="number">01</span>
-                <h3>Concept</h3>
-                <p>
-                    Add your actual early ideas, references and
-                    decisions about the game's fairytale setting.
-                </p>
+        <article class="card">
+            <div class="image-placeholder">
+                <strong>PUZZLE DESIGN</strong>
+                Add a puzzle or gameplay screenshot
             </div>
+            <h3>The Puzzles</h3>
+            <p>
+                Explain the actual puzzle mechanics,
+                their purpose and how they connect
+                to the game's narrative.
+            </p>
+        </article>
 
-            <div class="process-step">
-                <span class="number">02</span>
-                <h3>Design</h3>
-                <p>
-                    Show the development of the puzzles,
-                    environments, visual style or other systems
-                    you personally worked on.
-                </p>
-            </div>
+    </div>
 
-            <div class="process-step">
-                <span class="number">03</span>
-                <h3>Production</h3>
-                <p>
-                    Explain how your work was created, what
-                    software you used and any problems
-                    you had to solve.
-                </p>
-            </div>
+</section>
 
-            <div class="process-step">
-                <span class="number">04</span>
-                <h3>Evaluation</h3>
-                <p>
-                    Explain what worked, what didn't and
-                    what you would change if you developed
-                    the project again.
-                </p>
-            </div>
-        </div>
-    </section>
+<section class="section">
 
-    <section class="section">
-        <span class="eyebrow">03 / My contribution</span>
-        <h2>What I worked on</h2>
+    <div class="chapter-heading">
+        <span>CHAPTER III</span>
+        <h2>Making the Story</h2>
+        <div class="ornament">❧ ✦ ❧</div>
+    </div>
+
+    <div class="process">
+
+        <article class="process-card">
+            <h3>01. Research</h3>
+            <p>Add your fairytale, game and visual reference research.</p>
+        </article>
+
+        <article class="process-card">
+            <h3>02. Concept</h3>
+            <p>Show the early ideas, sketches and design decisions.</p>
+        </article>
+
+        <article class="process-card">
+            <h3>03. Production</h3>
+            <p>Show your actual development and implementation work.</p>
+        </article>
+
+        <article class="process-card">
+            <h3>04. Evaluation</h3>
+            <p>Show feedback, changes and what you learned.</p>
+        </article>
+
+    </div>
+
+</section>
+
+<section class="section">
+
+    <div class="chapter-heading">
+        <span>CHAPTER IV</span>
+        <h2>My Part in the Story</h2>
+        <div class="ornament">✦ ❧ ✦</div>
+    </div>
+
+    <div class="paper">
+
+        <h3>My contribution</h3>
 
         <p>
-            This section is about my individual contribution,
-            rather than everything the group produced.
+            This section documents the work I personally
+            completed for Bibliocide. It is important to
+            distinguish my own contribution from the
+            wider group project.
         </p>
-
-        <div class="card-grid">
-
-            <article class="card">
-                <div class="image-placeholder">
-                    <strong>Your Art Evidence</strong>
-                    <small>
-                        Add your actual concept art, drawings
-                        or visual development.
-                    </small>
-                </div>
-                <h3>Art & Visual Development</h3>
-                <p>
-                    Explain which artwork you personally made,
-                    what its purpose was and how it supported
-                    the game's visual direction.
-                </p>
-            </article>
-
-            <article class="card">
-                <div class="image-placeholder">
-                    <strong>Your Audio Evidence</strong>
-                    <small>
-                        Add audio samples, music or sound
-                        development only if you worked on them.
-                    </small>
-                </div>
-                <h3>Music & Audio</h3>
-                <p>
-                    If applicable, explain your actual
-                    contribution to audio, music or sound.
-                    Otherwise remove this section.
-                </p>
-            </article>
-
-            <article class="card">
-                <div class="image-placeholder">
-                    <strong>Your Character Evidence</strong>
-                    <small>
-                        Add your actual character artwork,
-                        voice work or character development.
-                    </small>
-                </div>
-                <h3>Characters & Performance</h3>
-                <p>
-                    Document any character design, writing
-                    or performance work you personally completed.
-                </p>
-            </article>
-
-        </div>
-    </section>
-
-    <section class="section">
-        <span class="eyebrow">04 / Reflection</span>
-        <h2>What I learned</h2>
 
         <p>
-            Write about the skills you developed during this project,
-            particularly those relevant to your current goal of
-            becoming a 3D character modeller.
+            Add your actual artwork, models, design work,
+            audio or other contributions here. Explain
+            what you made, why you made it and how
+            it supported the project.
         </p>
 
-        <div class="note">
-            Add a genuine reflection here. Discuss a specific
-            challenge, how you approached it, feedback you received
-            and what you would improve next time.
+        <div class="image-placeholder">
+            <strong>MY DEVELOPMENT EVIDENCE</strong>
+            Add screenshots of your actual work
         </div>
-    </section>
+
+    </div>
+
+</section>
+
+<section class="section">
+
+    <div class="chapter-heading">
+        <span>CHAPTER V</span>
+        <h2>What I Learned</h2>
+        <div class="ornament">❧ ✦ ❧</div>
+    </div>
+
+    <div class="reflection">
+        <p>
+            Reflect on the challenges you encountered,
+            the decisions you made and the feedback
+            you received.
+        </p>
+
+        <p>
+            Explain what you would improve, why those
+            changes would make a difference and how
+            the experience connects to your future
+            development as a character artist.
+        </p>
+    </div>
+
+</section>
 
 </main>
 
 <footer>
-    <p>FISH HEARD ✦ BIBLIOCIDE</p>
-    <p><a href="index.html">Back to portfolio</a></p>
+    <p>FIN.</p>
+    <p>✦ BIBLIOCIDE / FISH HEARD ✦</p>
+    <a href="index.html">RETURN TO THE PORTFOLIO</a>
 </footer>
 
 </body>
