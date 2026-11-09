@@ -2,243 +2,631 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Under Wool and Briar | Fish Heard</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Under Wool and Briar | Fish Heard</title>
+
+<style>
+:root {
+    --forest:#17141c;
+    --forest-deep:#0d0c11;
+    --purple:#55405f;
+    --purple-dark:#34263b;
+    --pink:#c9829b;
+    --pink-light:#e1b1bf;
+    --cream:#e7dcc5;
+    --cream-dark:#c9b99d;
+    --grey:#918c91;
+    --green:#435449;
+    --green-light:#758b70;
+    --ink:#302b30;
+}
+
+* {box-sizing:border-box;}
+html {scroll-behavior:smooth;}
+
+body {
+    margin:0;
+    min-height:100vh;
+    color:var(--cream);
+    font-family:Georgia,"Times New Roman",serif;
+    background:
+        radial-gradient(circle at 50% 10%,rgba(201,130,155,.12),transparent 28%),
+        radial-gradient(circle at 15% 65%,rgba(67,84,73,.22),transparent 30%),
+        radial-gradient(circle at 85% 70%,rgba(85,64,95,.25),transparent 30%),
+        var(--forest-deep);
+}
+
+a {color:inherit;}
+
+.top-nav {
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    background:rgba(13,12,17,.9);
+    border-bottom:1px solid rgba(201,130,155,.35);
+}
+
+.back-button {
+    color:var(--pink-light);
+    text-decoration:none;
+    font-size:11px;
+    letter-spacing:3px;
+}
+
+.nav-label {
+    color:var(--cream-dark);
+    font-size:11px;
+    letter-spacing:3px;
+}
+
+.hero {
+    min-height:650px;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:100px 7%;
+    background:
+        radial-gradient(ellipse at 50% 85%,rgba(67,84,73,.55),transparent 55%),
+        linear-gradient(180deg,#17141c,#211a27 60%,#121811);
+    border-bottom:1px solid rgba(201,130,155,.3);
+}
+
+.hero::before {
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    top:50px;
+    right:12%;
+    background:rgba(231,220,197,.07);
+    box-shadow:0 0 100px rgba(231,220,197,.08);
+}
+
+.moon {
+    position:absolute;
+    width:95px;
+    height:95px;
+    top:100px;
+    right:19%;
+    border-radius:50%;
+    background:var(--cream);
+    opacity:.8;
+    box-shadow:0 0 35px rgba(231,220,197,.3);
+}
+
+.stars {
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    color:var(--pink-light);
+}
+
+.star {
+    position:absolute;
+    animation:twinkle 4s ease-in-out infinite alternate;
+}
+
+.star:nth-child(1) {top:15%;left:15%;font-size:24px;}
+.star:nth-child(2) {top:35%;left:80%;font-size:18px;animation-delay:1s;}
+.star:nth-child(3) {top:65%;left:12%;font-size:20px;animation-delay:2s;}
+.star:nth-child(4) {top:75%;left:85%;font-size:15px;animation-delay:.5s;}
+.star:nth-child(5) {top:20%;left:65%;font-size:17px;animation-delay:1.5s;}
+.star:nth-child(6) {top:55%;left:90%;font-size:22px;animation-delay:2.5s;}
+
+@keyframes twinkle {
+    from {opacity:.25;transform:scale(.8);}
+    to {opacity:1;transform:scale(1.15);}
+}
+
+.hero-inner {
+    position:relative;
+    z-index:2;
+    max-width:850px;
+}
+
+.chapter {
+    color:var(--pink-light);
+    letter-spacing:6px;
+    font-size:11px;
+}
+
+.hero h1 {
+    font-size:clamp(55px,10vw,105px);
+    font-weight:normal;
+    line-height:1.05;
+    color:var(--cream);
+    text-shadow:0 0 25px rgba(201,130,155,.2);
+    margin:35px 0;
+}
+
+.flourish {
+    color:var(--pink);
+    font-size:27px;
+    letter-spacing:15px;
+}
+
+.hero-subtitle {
+    max-width:650px;
+    margin:30px auto;
+    color:var(--cream-dark);
+    font-style:italic;
+    font-size:18px;
+    line-height:1.8;
+}
+
+.hero-description {
+    color:var(--grey);
+    line-height:1.9;
+    max-width:650px;
+    margin:20px auto;
+}
+
+.button {
+    display:inline-block;
+    margin-top:20px;
+    padding:13px 25px;
+    color:var(--cream);
+    text-decoration:none;
+    border:1px solid var(--pink);
+    letter-spacing:3px;
+    font-size:11px;
+    transition:.3s;
+}
+
+.button:hover {
+    background:var(--purple-dark);
+    box-shadow:0 0 20px rgba(201,130,155,.2);
+}
+
+main {
+    max-width:1150px;
+    margin:auto;
+    padding:50px 6%;
+}
+
+.section {
+    margin:85px 0;
+    scroll-margin-top:30px;
+}
+
+.chapter-heading {
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.chapter-heading span {
+    color:var(--pink);
+    letter-spacing:5px;
+    font-size:11px;
+}
+
+.chapter-heading h2 {
+    font-weight:normal;
+    font-size:35px;
+    color:var(--cream);
+    margin:15px 0;
+}
+
+.ornament {
+    color:var(--pink);
+    letter-spacing:12px;
+    font-size:20px;
+}
+
+.story-panel {
+    padding:40px;
+    background:
+        radial-gradient(circle at 10% 20%,rgba(201,130,155,.08),transparent 35%),
+        rgba(52,38,59,.55);
+    border:1px solid rgba(201,130,155,.3);
+    box-shadow:0 0 35px rgba(0,0,0,.2);
+    line-height:1.9;
+}
+
+.story-panel h3 {
+    font-weight:normal;
+    color:var(--pink-light);
+    font-size:24px;
+}
+
+.story-panel p {
+    color:var(--cream-dark);
+    font-size:15px;
+}
+
+.two-column {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    align-items:center;
+}
+
+.image-placeholder {
+    min-height:290px;
+    padding:25px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+        radial-gradient(circle at 50% 30%,rgba(117,139,112,.3),transparent 50%),
+        linear-gradient(145deg,#27342a,#201927);
+    border:1px solid var(--green-light);
+    color:var(--cream-dark);
+    font-size:12px;
+    line-height:1.8;
+}
+
+.image-placeholder strong {
+    color:var(--pink-light);
+    font-size:17px;
+    margin-bottom:12px;
+}
+
+.image-placeholder img {
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.grid {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.card {
+    padding:20px;
+    background:rgba(39,48,39,.4);
+    border:1px solid rgba(117,139,112,.4);
+    transition:.3s;
+}
+
+.card:hover {
+    transform:translateY(-6px);
+    border-color:var(--pink);
+}
+
+.card h3 {
+    color:var(--pink-light);
+    font-weight:normal;
+    font-size:22px;
+}
+
+.card p {
+    color:var(--cream-dark);
+    line-height:1.8;
+    font-size:14px;
+}
+
+.process {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.process-card {
+    padding:23px;
+    border-top:1px solid var(--pink);
+    background:rgba(52,38,59,.45);
+}
+
+.process-card h3 {
+    color:var(--pink-light);
+    font-weight:normal;
+}
+
+.process-card p {
+    color:var(--cream-dark);
+    line-height:1.7;
+    font-size:13px;
+}
+
+.tag {
+    display:inline-block;
+    padding:6px 10px;
+    margin:4px;
+    border:1px solid var(--green-light);
+    color:var(--green-light);
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+.reflection {
+    padding:35px;
+    background:rgba(67,84,73,.2);
+    border:1px solid rgba(117,139,112,.5);
+    color:var(--cream-dark);
+    line-height:1.9;
+}
+
+footer {
+    padding:55px 20px;
+    text-align:center;
+    background:#0d0c11;
+    border-top:1px solid rgba(201,130,155,.3);
+    color:var(--pink-light);
+    letter-spacing:4px;
+    font-size:12px;
+}
+
+footer a {color:var(--cream-dark);}
+
+@media(max-width:750px) {
+    .two-column,.grid {grid-template-columns:1fr;}
+    .process {grid-template-columns:1fr 1fr;}
+    .moon {right:5%;width:65px;height:65px;}
+    .hero {min-height:550px;}
+}
+
+@media(max-width:450px) {
+    .process {grid-template-columns:1fr;}
+    .story-panel {padding:23px;}
+}
+</style>
 </head>
+
 <body>
 
-<nav class="site-nav">
-    <a href="index.html" class="logo">Fish Heard ✦</a>
-    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="art.html">Art Portfolio</a>
-        <a href="index.html#projects">Projects</a>
-        <a href="index.html#contact">Contact</a>
-    </div>
+<nav class="top-nav">
+    <a href="index.html" class="back-button">← BACK TO PORTFOLIO</a>
+    <span class="nav-label">PROJECT / 03</span>
 </nav>
 
-<header class="case-hero">
-    <div class="container">
-        <span class="eyebrow">Project / 03</span>
-        <h1>Under Wool and Briar</h1>
+<header class="hero">
+
+    <div class="moon"></div>
+
+    <div class="stars" aria-hidden="true">
+        <span class="star">✦</span>
+        <span class="star">·</span>
+        <span class="star">✧</span>
+        <span class="star">·</span>
+        <span class="star">✦</span>
+        <span class="star">✧</span>
+    </div>
+
+    <div class="hero-inner">
+
+        <div class="chapter">A TALE FROM THE WOODS</div>
+
+        <h1>Under Wool<br>and Briar</h1>
+
+        <div class="flourish">✦ ❧ ✦</div>
+
         <p class="hero-subtitle">
             A little tale of wool, briars, wandering,
             and the things that wait beneath the trees.
         </p>
-        <p class="lead">
-            A fairytale-inspired project exploring woodland
-            atmosphere, character design and storytelling.
+
+        <p class="hero-description">
+            A fairytale-inspired creative project exploring
+            woodland atmosphere, character design and
+            storytelling.
         </p>
-        <p><a href="index.html" class="button">← Back to portfolio</a></p>
+
+        <a href="#story" class="button">FOLLOW THE PATH ↓</a>
+
     </div>
+
 </header>
 
-<main class="container">
+<main>
 
-    <section class="section">
-        <span class="eyebrow">Chapter I / The idea</span>
-        <h2>Once upon a time...</h2>
+<section class="section" id="story">
 
-        <div class="case-layout">
-            <div>
-                <p>
-                    Under Wool and Briar is a project built around
-                    a woodland fairytale atmosphere. The title
-                    suggests a world of nature, wandering,
-                    hidden paths and things that might not be
-                    quite as friendly as they first appear.
-                </p>
+    <div class="chapter-heading">
+        <span>CHAPTER I</span>
+        <h2>Once Upon a Time</h2>
+        <div class="ornament">❧ ✦ ❧</div>
+    </div>
 
-                <p>
-                    This page will document the actual story,
-                    characters, world and creative decisions
-                    as the project develops.
-                </p>
+    <div class="two-column">
 
-                <p>
-                    I want the visual identity to feel a little
-                    whimsical but with something darker beneath
-                    the surface, which is an aesthetic I enjoy
-                    exploring in my personal artwork.
-                </p>
-            </div>
+        <div class="story-panel">
+            <h3>A world beneath the branches</h3>
 
+            <p>
+                Under Wool and Briar is a fairytale-inspired
+                project built around a woodland atmosphere.
+                The title suggests a world of nature,
+                wandering, hidden paths and things that
+                might not be quite as friendly as they
+                first appear.
+            </p>
+
+            <p>
+                I want the visual identity to feel a little
+                whimsical, but with something darker
+                beneath the surface. This is an aesthetic
+                I enjoy exploring in my personal artwork.
+            </p>
+
+            <p>
+                This page will document the actual story,
+                characters, world and creative decisions
+                as the project develops.
+            </p>
+        </div>
+
+        <div class="image-placeholder">
+            <strong>THE WOODLAND WORLD</strong>
+            Add your strongest project illustration or environment
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section">
+
+    <div class="chapter-heading">
+        <span>CHAPTER II</span>
+        <h2>Deep in the Woods</h2>
+        <div class="ornament">✦ ❧ ✦</div>
+    </div>
+
+    <div class="grid">
+
+        <article class="card">
             <div class="image-placeholder">
-                <strong>World / Key Artwork</strong>
-                <small>
-                    Add your strongest original illustration,
-                    environment concept or project artwork.
-                </small>
+                <strong>ENVIRONMENT DESIGN</strong>
+                Add forest concepts or environment artwork
             </div>
-        </div>
-    </section>
+            <h3>The Forest</h3>
+            <p>
+                Show the locations, plants, atmosphere
+                and environmental details that make
+                the world feel believable.
+            </p>
+        </article>
 
-    <section class="section">
-        <span class="eyebrow">Chapter II / The world</span>
-        <h2>Pages from the woods</h2>
+        <article class="card">
+            <div class="image-placeholder">
+                <strong>CHARACTER DESIGN</strong>
+                Add character artwork and development sheets
+            </div>
+            <h3>Those Who Wander</h3>
+            <p>
+                Introduce the characters and explain
+                how their designs communicate their
+                personalities and place in the world.
+            </p>
+        </article>
 
-        <p>
-            Show the visual development of the world.
-            This could include environments, colour studies,
-            props, character designs and other original artwork.
-        </p>
+        <article class="card">
+            <div class="image-placeholder">
+                <strong>PROPS & OBJECTS</strong>
+                Add props, botanical details and objects
+            </div>
+            <h3>Little Things</h3>
+            <p>
+                Show the smaller design details that
+                help make the world feel lived in.
+            </p>
+        </article>
 
-        <div class="art-grid">
+        <article class="card">
+            <div class="image-placeholder">
+                <strong>COLOUR & LIGHT</strong>
+                Add lighting tests and colour studies
+            </div>
+            <h3>Light Through the Leaves</h3>
+            <p>
+                Explain your choices around lighting,
+                palette and the mood of the environment.
+            </p>
+        </article>
 
-            <article class="art-item">
-                <div class="image-placeholder">
-                    <strong>Woodland Environment</strong>
-                    <small>
-                        Add a forest concept, environment
-                        illustration or finished scene.
-                    </small>
-                </div>
-                <h3>The Woods</h3>
-                <p>
-                    Explain the environment, atmosphere,
-                    references and visual choices.
-                </p>
-            </article>
+    </div>
 
-            <article class="art-item">
-                <div class="image-placeholder">
-                    <strong>Character Design</strong>
-                    <small>
-                        Add character concepts, turnarounds,
-                        expressions and colour exploration.
-                    </small>
-                </div>
-                <h3>The Characters</h3>
-                <p>
-                    Introduce the characters and explain
-                    their visual identities and personalities.
-                </p>
-            </article>
+</section>
 
-            <article class="art-item">
-                <div class="image-placeholder">
-                    <strong>Props and Details</strong>
-                    <small>
-                        Add original props, objects,
-                        botanical details or other assets.
-                    </small>
-                </div>
-                <h3>Little Details</h3>
-                <p>
-                    Show how smaller design elements
-                    help make the world feel believable.
-                </p>
-            </article>
+<section class="section">
 
-        </div>
-    </section>
+    <div class="chapter-heading">
+        <span>CHAPTER III</span>
+        <h2>Bringing it to Life</h2>
+        <div class="ornament">❧ ✦ ❧</div>
+    </div>
 
-    <section class="section">
-        <span class="eyebrow">Chapter III / The story</span>
-        <h2>Beneath the briars</h2>
+    <div class="process">
 
-        <p>
-            Use this section to explain the actual narrative,
-            the characters' motivations and the themes
-            explored in the project.
-        </p>
+        <article class="process-card">
+            <h3>01. Research</h3>
+            <p>Gather woodland, folklore, nature and character references.</p>
+        </article>
 
-        <div class="note">
-            Add a short piece of original dialogue, narration
-            or world-building here once the story is developed.
-            Only use writing that you have actually created.
-        </div>
-    </section>
+        <article class="process-card">
+            <h3>02. Design</h3>
+            <p>Develop character ideas, silhouettes, colours and shapes.</p>
+        </article>
 
-    <section class="section">
-        <span class="eyebrow">Chapter IV / My contribution</span>
-        <h2>My part in the tale</h2>
+        <article class="process-card">
+            <h3>03. Production</h3>
+            <p>Show the actual illustrations, models and assets you create.</p>
+        </article>
 
-        <div class="card-grid">
+        <article class="process-card">
+            <h3>04. Refinement</h3>
+            <p>Show feedback, improvements and final presentation.</p>
+        </article>
 
-            <article class="card">
-                <h3>Art & Illustration</h3>
-                <p>
-                    Add your own sketches, character artwork,
-                    concept art and visual development.
-                    Explain the decisions behind the designs.
-                </p>
-            </article>
+    </div>
 
-            <article class="card">
-                <h3>Character Design</h3>
-                <p>
-                    Show any original characters you designed,
-                    including silhouettes, colour studies,
-                    expressions and final designs.
-                </p>
-            </article>
+</section>
 
-            <article class="card">
-                <h3>3D Modelling</h3>
-                <p>
-                    Add any models you personally created.
-                    Show the original concept, blockout,
-                    finished model and technical breakdown.
-                </p>
-            </article>
+<section class="section">
 
-            <article class="card">
-                <h3>Writing & Narrative</h3>
-                <p>
-                    If you contributed to the writing,
-                    include your actual dialogue, narrative
-                    ideas or story development.
-                </p>
-            </article>
+    <div class="chapter-heading">
+        <span>CHAPTER IV</span>
+        <h2>My Part in the Story</h2>
+        <div class="ornament">✦ ❧ ✦</div>
+    </div>
 
-            <article class="card">
-                <h3>Game Development</h3>
-                <p>
-                    Explain any game design, development
-                    or implementation work you personally
-                    completed.
-                </p>
-            </article>
+    <div class="story-panel">
 
-            <article class="card">
-                <h3>Other Work</h3>
-                <p>
-                    Include any additional contribution
-                    that doesn't fit the other categories.
-                </p>
-            </article>
-
-        </div>
-    </section>
-
-    <section class="section">
-        <span class="eyebrow">Chapter V / Looking back</span>
-        <h2>What I learned</h2>
+        <h3>My contribution</h3>
 
         <p>
-            Reflect on the development of the project.
-            What worked well? What did you find difficult?
-            What would you change?
+            This section is for the parts of the project
+            I personally worked on. I'll use it to show
+            my own artwork, character development,
+            modelling and other creative contributions.
         </p>
 
         <p>
-            Explain how this project has helped you develop
-            your character design, modelling or storytelling
-            skills, and how you would approach similar work
-            in the future.
+            For each piece, explain the original idea,
+            the decisions behind it and what changed
+            during development.
         </p>
-    </section>
+
+        <div class="image-placeholder">
+            <strong>MY WORK</strong>
+            Add your actual project development screenshots here
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section">
+
+    <div class="chapter-heading">
+        <span>CHAPTER V</span>
+        <h2>Before the End</h2>
+        <div class="ornament">❧ ✦ ❧</div>
+    </div>
+
+    <div class="reflection">
+        <p>
+            Reflect on what worked well, what was difficult
+            and how you developed the project.
+        </p>
+
+        <p>
+            Include specific examples of decisions,
+            feedback and improvements. Explain what
+            you would do differently and how this
+            experience has helped develop your skills
+            as an artist and future character modeller.
+        </p>
+    </div>
+
+</section>
 
 </main>
 
 <footer>
-    <p>✦ UNDER WOOL AND BRIAR ✦</p>
-    <p><a href="index.html">Back to portfolio</a></p>
+    <p>✦ END OF THE TALE ✦</p>
+    <p>UNDER WOOL AND BRIAR / FISH HEARD</p>
+    <a href="index.html">RETURN TO THE PORTFOLIO</a>
 </footer>
 
 </body>
