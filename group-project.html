@@ -2,282 +2,493 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group Project | Fish Heard</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Group Project | Fish Heard</title>
+
+<style>
+:root {
+    --black:#09080d;
+    --purple:#7b4ca8;
+    --purple-light:#b98ad8;
+    --purple-dark:#4d286d;
+    --paper:#eee7d5;
+    --yellow:#f0d879;
+    --pink:#e49bb8;
+    --ink:#27222d;
+}
+
+* {box-sizing:border-box;}
+html {scroll-behavior:smooth;}
+
+body {
+    margin:0;
+    background:
+        radial-gradient(circle at 20% 10%,rgba(123,76,168,.22),transparent 30%),
+        radial-gradient(circle at 80% 70%,rgba(228,155,184,.12),transparent 35%),
+        var(--black);
+    color:var(--paper);
+    font-family:"Trebuchet MS",Arial,sans-serif;
+}
+
+a {color:inherit;}
+
+.top-nav {
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1px dashed var(--pink);
+    background:#100d16;
+}
+
+.back-button {
+    text-decoration:none;
+    color:var(--yellow);
+    letter-spacing:2px;
+    font-size:12px;
+}
+
+.nav-label {
+    color:var(--pink);
+    font-size:11px;
+    letter-spacing:2px;
+}
+
+.hero {
+    position:relative;
+    overflow:hidden;
+    padding:100px 8%;
+    background:
+        linear-gradient(130deg,rgba(123,76,168,.4),transparent 65%),
+        #17121e;
+    border-bottom:4px solid var(--yellow);
+}
+
+.hero-inner {max-width:850px;margin:auto;}
+
+.small-label {
+    color:var(--yellow);
+    letter-spacing:4px;
+    font-size:12px;
+}
+
+.hero h1 {
+    font-size:clamp(55px,10vw,110px);
+    line-height:.9;
+    margin:25px 0;
+    color:var(--paper);
+    text-shadow:5px 5px 0 var(--purple-dark);
+}
+
+.hero-subtitle {
+    font-family:"Segoe Print","Comic Sans MS",cursive;
+    color:var(--pink);
+    font-size:23px;
+}
+
+.hero-description {
+    max-width:600px;
+    line-height:1.9;
+    color:#d6cbdc;
+}
+
+.floating-note {
+    position:absolute;
+    padding:20px;
+    width:150px;
+    min-height:120px;
+    color:var(--ink);
+    background:var(--yellow);
+    font-family:"Segoe Print","Comic Sans MS",cursive;
+    font-size:14px;
+    text-align:center;
+    box-shadow:4px 7px 12px rgba(0,0,0,.4);
+    transform:rotate(8deg);
+}
+
+.note-one {right:12%;top:18%;}
+.note-two {
+    right:25%;
+    bottom:8%;
+    background:var(--pink);
+    transform:rotate(-7deg);
+}
+
+.paper-corner {
+    position:absolute;
+    right:0;
+    bottom:0;
+    border-style:solid;
+    border-width:0 0 100px 100px;
+    border-color:transparent transparent var(--yellow) transparent;
+}
+
+main {max-width:1150px;margin:auto;padding:50px 6%;}
+
+.section {
+    position:relative;
+    margin:65px 0;
+    scroll-margin-top:30px;
+}
+
+.section-heading {
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.section-heading h2 {
+    font-size:28px;
+    color:var(--pink);
+    margin:0;
+}
+
+.section-heading span {
+    color:var(--yellow);
+    font-size:12px;
+    letter-spacing:3px;
+}
+
+.paper {
+    background:var(--paper);
+    color:var(--ink);
+    padding:35px;
+    box-shadow:8px 9px 0 var(--purple-dark);
+    line-height:1.8;
+}
+
+.paper h3 {color:var(--purple-dark);}
+
+.paper p {font-size:14px;}
+
+.sticky {
+    background:var(--yellow);
+    color:var(--ink);
+    padding:25px;
+    box-shadow:4px 7px 12px rgba(0,0,0,.3);
+    transform:rotate(-1deg);
+    line-height:1.7;
+}
+
+.sticky.pink {background:var(--pink);transform:rotate(1.5deg);}
+.sticky.purple {background:var(--purple-light);transform:rotate(-1deg);}
+
+.grid {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.character-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.character-card {
+    background:#20182a;
+    border:2px dashed var(--purple-light);
+    padding:15px;
+    transform:rotate(-1deg);
+    transition:.3s;
+}
+
+.character-card:nth-child(even) {transform:rotate(1deg);}
+.character-card:hover {transform:rotate(0) translateY(-7px);}
+
+.character-card h3 {
+    color:var(--yellow);
+    font-family:"Segoe Print","Comic Sans MS",cursive;
+}
+
+.image-placeholder {
+    min-height:200px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    background:
+        repeating-linear-gradient(45deg,#30263a,#30263a 10px,#382b43 10px,#382b43 20px);
+    border:1px dashed var(--pink);
+    color:var(--pink);
+    font-size:12px;
+    line-height:1.6;
+}
+
+.image-placeholder img {
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.image-placeholder strong {
+    font-size:15px;
+    margin-bottom:10px;
+    color:var(--yellow);
+}
+
+.process {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.process-card {
+    padding:20px;
+    background:#21192b;
+    border-top:4px solid var(--pink);
+}
+
+.process-card:nth-child(even) {border-color:var(--yellow);}
+
+.process-card h3 {color:var(--pink);}
+.process-card p {font-size:13px;line-height:1.7;color:#d6cbdc;}
+
+.tag {
+    display:inline-block;
+    margin:5px 3px;
+    padding:5px 9px;
+    background:var(--purple-dark);
+    color:var(--paper);
+    font-size:10px;
+}
+
+.button {
+    display:inline-block;
+    padding:13px 22px;
+    background:var(--yellow);
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:bold;
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+.reflection {
+    padding:35px;
+    border:2px dashed var(--pink);
+    background:rgba(123,76,168,.12);
+    line-height:1.8;
+}
+
+footer {
+    text-align:center;
+    padding:40px;
+    color:var(--pink);
+    border-top:1px dashed var(--pink);
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+@media(max-width:750px) {
+    .floating-note {display:none;}
+    .grid,.character-grid {grid-template-columns:1fr;}
+    .process {grid-template-columns:1fr 1fr;}
+    .hero {padding:70px 7%;}
+}
+
+@media(max-width:450px) {
+    .process {grid-template-columns:1fr;}
+}
+</style>
 </head>
+
 <body>
 
-<nav class="site-nav">
-    <a href="index.html" class="logo">Fish Heard ✦</a>
-    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="art.html">Art Portfolio</a>
-        <a href="index.html#projects">Projects</a>
-        <a href="index.html#contact">Contact</a>
-    </div>
+<nav class="top-nav">
+    <a class="back-button" href="index.html">← BACK TO PORTFOLIO</a>
+    <span class="nav-label">PROJECT / 02</span>
 </nav>
 
-<header class="case-hero">
-    <div class="container">
-        <span class="eyebrow">University group project / 02</span>
-        <h1>Group Project</h1>
-        <p class="hero-subtitle">Characters, relationships and player choices.</p>
-
-        <p class="lead">
-            A collaborative relationship-management game project
-            involving characters, player decisions and the
-            development of a shared game experience.
+<header class="hero">
+    <div class="hero-inner">
+        <span class="small-label">UNIVERSITY GROUP PROJECT</span>
+        <h1>GROUP<br>PROJECT</h1>
+        <div class="hero-subtitle">Making a game is easier when everyone agrees.</div>
+        <p class="hero-description">
+            A collaborative game project involving characters,
+            relationships and player choices. This is where
+            I keep track of the ideas, development and work
+            I contributed along the way.
         </p>
-
-        <p><a href="index.html" class="button">← Back to portfolio</a></p>
+        <a href="#overview" class="button">TAKE A LOOK ↓</a>
     </div>
+
+    <div class="floating-note note-one">REMEMBER TO<br>COMMUNICATE!!! ✦</div>
+    <div class="floating-note note-two">THIS WAS<br>DEFINITELY<br>THE PLAN.</div>
+    <div class="paper-corner"></div>
 </header>
 
-<main class="container">
+<main>
 
-    <section class="section">
-        <span class="eyebrow">01 / Project overview</span>
-        <h2>The game</h2>
+<section class="section" id="overview">
+    <div class="section-heading">
+        <span>01 / THE BRIEF</span>
+        <h2>What's the project?</h2>
+    </div>
 
-        <div class="case-layout">
-            <div>
-                <p>
-                    This was a university group project focused
-                    on creating a relationship-management game.
-                    The project involved developing a game concept
-                    around a group of characters and the way
-                    their relationships could change through
-                    player choices.
-                </p>
+    <div class="paper">
+        <h3>A game made together</h3>
+        <p>
+            This was a university group project focused on
+            creating a relationship-management game. The project
+            involved developing a shared game concept around
+            a group of characters and the way their relationships
+            could change through player choices.
+        </p>
+        <p>
+            The aim of this page is to show the project as
+            a whole, but also make it clear which parts
+            I personally worked on.
+        </p>
+    </div>
+</section>
 
-                <p>
-                    The project gave me the opportunity to work
-                    collaboratively and explore different areas
-                    of game development.
-                </p>
+<section class="section">
+    <div class="section-heading">
+        <span>02 / THE CAST</span>
+        <h2>Meet the characters</h2>
+    </div>
 
-                <p>
-                    The final page should explain the actual
-                    mechanics, team structure and project goals
-                    once the relevant development evidence
-                    has been added.
-                </p>
-            </div>
+    <div class="character-grid">
 
+        <article class="character-card">
+            <div class="image-placeholder"><strong>NOTT</strong>Add character artwork here</div>
+            <h3>Nott</h3>
+            <p>Add their personality, role and your contribution to their design.</p>
+        </article>
+
+        <article class="character-card">
+            <div class="image-placeholder"><strong>BAM</strong>Add character artwork here</div>
+            <h3>Bam</h3>
+            <p>Add their personality, role and your contribution to their design.</p>
+        </article>
+
+        <article class="character-card">
+            <div class="image-placeholder"><strong>TANG</strong>Add character artwork here</div>
+            <h3>Tang</h3>
+            <p>Add their personality, role and your contribution to their design.</p>
+        </article>
+
+        <article class="character-card">
+            <div class="image-placeholder"><strong>DRIP</strong>Add character artwork here</div>
+            <h3>Drip</h3>
+            <p>Add their personality, role and your contribution to their design.</p>
+        </article>
+
+        <article class="character-card">
+            <div class="image-placeholder"><strong>WILMA</strong>Add character artwork here</div>
+            <h3>Wilma</h3>
+            <p>Add their personality, role and your contribution to their design.</p>
+        </article>
+
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-heading">
+        <span>03 / MY PART</span>
+        <h2>What I actually did</h2>
+    </div>
+
+    <div class="grid">
+        <div class="sticky">
+            <h3>✦ My contributions</h3>
+            <p>
+                List the characters, artwork, models, design
+                decisions or other work that you personally
+                completed.
+            </p>
+            <p>
+                Be specific about what you did rather than
+                describing the whole team's work as yours.
+            </p>
+        </div>
+
+        <div class="paper">
+            <h3>Evidence goes here</h3>
+            <p>
+                Add screenshots, sketches, model views,
+                development files and examples of your
+                own work.
+            </p>
             <div class="image-placeholder">
-                <strong>Game Screenshot</strong>
-                <small>
-                    Add an actual screenshot of the game,
-                    its interface or a representative scene.
-                </small>
+                <strong>MY WORK</strong>
+                Add a screenshot of your actual contribution
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="section">
-        <span class="eyebrow">02 / Characters</span>
-        <h2>The characters</h2>
+<section class="section">
+    <div class="section-heading">
+        <span>04 / THE PROCESS</span>
+        <h2>How it developed</h2>
+    </div>
 
-        <p>
-            The project included Nott, Bam, Tang, Drip and Wilma.
-            Use this section to show the characters and explain
-            how they fit into the game.
-        </p>
+    <div class="process">
 
-        <div class="art-grid">
+        <article class="process-card">
+            <h3>01. Ideas</h3>
+            <p>Show the early concepts, planning and research.</p>
+        </article>
 
-            <article class="art-item">
-                <div class="image-placeholder">
-                    <strong>Nott</strong>
-                    <small>
-                        Add Nott's actual concept art and
-                        3D model if available.
-                    </small>
-                </div>
-                <h3>Nott</h3>
-                <p>
-                    Add a short description of the character's
-                    personality, role and your contribution.
-                </p>
-            </article>
+        <article class="process-card">
+            <h3>02. Making</h3>
+            <p>Show your actual modelling, artwork or production process.</p>
+        </article>
 
-            <article class="art-item">
-                <div class="image-placeholder">
-                    <strong>Bam</strong>
-                    <small>
-                        Add Bam's actual concept art and
-                        3D model if available.
-                    </small>
-                </div>
-                <h3>Bam</h3>
-                <p>
-                    Add a short description of the character's
-                    personality, role and your contribution.
-                </p>
-            </article>
+        <article class="process-card">
+            <h3>03. Testing</h3>
+            <p>Show playtesting, feedback and the changes made.</p>
+        </article>
 
-            <article class="art-item">
-                <div class="image-placeholder">
-                    <strong>Tang</strong>
-                    <small>
-                        Add Tang's actual concept art and
-                        3D model if available.
-                    </small>
-                </div>
-                <h3>Tang</h3>
-                <p>
-                    Add a short description of the character's
-                    personality, role and your contribution.
-                </p>
-            </article>
+        <article class="process-card">
+            <h3>04. Final</h3>
+            <p>Show the finished game, presentation and outcome.</p>
+        </article>
 
-            <article class="art-item">
-                <div class="image-placeholder">
-                    <strong>Drip</strong>
-                    <small>
-                        Add Drip's actual concept art and
-                        3D model if available.
-                    </small>
-                </div>
-                <h3>Drip</h3>
-                <p>
-                    Add a short description of the character's
-                    personality, role and your contribution.
-                </p>
-            </article>
+    </div>
 
-            <article class="art-item">
-                <div class="image-placeholder">
-                    <strong>Wilma</strong>
-                    <small>
-                        Add Wilma's actual concept art and
-                        3D model if available.
-                    </small>
-                </div>
-                <h3>Wilma</h3>
-                <p>
-                    Add a short description of the character's
-                    personality, role and your contribution.
-                </p>
-            </article>
+    <div class="image-placeholder" style="margin-top:25px">
+        <strong>DEVELOPMENT BOARD</strong>
+        Add a selection of screenshots showing your project progressing
+    </div>
+</section>
 
-        </div>
-    </section>
-
-    <section class="section">
-        <span class="eyebrow">03 / My role</span>
-        <h2>What I contributed</h2>
-
-        <div class="note">
-            Be specific about what you personally completed.
-            Separate your own work from the work produced
-            by other team members.
-        </div>
-
-        <div class="card-grid">
-
-            <article class="card">
-                <h3>3D Modelling</h3>
-                <p>
-                    List the models you personally created.
-                    Include screenshots of the modelling process,
-                    final models and any technical development.
-                </p>
-            </article>
-
-            <article class="card">
-                <h3>Character Art</h3>
-                <p>
-                    Add the character concepts, sketches
-                    and illustrations that you personally
-                    produced.
-                </p>
-            </article>
-
-            <article class="card">
-                <h3>Other Contributions</h3>
-                <p>
-                    Add any dialogue, audio, animation,
-                    game design or other work you genuinely
-                    completed during the project.
-                </p>
-            </article>
-
-        </div>
-    </section>
-
-    <section class="section">
-        <span class="eyebrow">04 / Development evidence</span>
-        <h2>From idea to game</h2>
-
-        <div class="process-grid">
-
-            <div class="process-step">
-                <span class="number">01</span>
-                <h3>Initial ideas</h3>
-                <p>
-                    Add early sketches, planning documents
-                    and concept development.
-                </p>
-            </div>
-
-            <div class="process-step">
-                <span class="number">02</span>
-                <h3>Production</h3>
-                <p>
-                    Add modelling screenshots, character
-                    development, interface work or other
-                    production evidence.
-                </p>
-            </div>
-
-            <div class="process-step">
-                <span class="number">03</span>
-                <h3>Testing</h3>
-                <p>
-                    Add actual playtesting evidence,
-                    feedback and changes made in response.
-                </p>
-            </div>
-
-            <div class="process-step">
-                <span class="number">04</span>
-                <h3>Final outcome</h3>
-                <p>
-                    Add the final game screenshots,
-                    presentation or gameplay recording.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="section">
-        <span class="eyebrow">05 / Reflection</span>
+<section class="section">
+    <div class="section-heading">
+        <span>05 / LOOKING BACK</span>
         <h2>What I learned</h2>
+    </div>
 
+    <div class="reflection">
         <p>
-            Reflect on collaboration, communication,
-            managing responsibilities and developing
-            your practical skills.
+            Use this space to reflect on the project honestly.
+            Explain what worked, what was difficult and
+            how you responded to problems.
         </p>
-
         <p>
-            Explain how the project influenced your current
-            interest in 3D character modelling and what
-            you would approach differently next time.
+            Include an example of feedback you received,
+            what you changed because of it and what you
+            would do differently if you worked on the
+            project again.
         </p>
-    </section>
+        <p>
+            Link the skills you developed to your future
+            career in character modelling and game art.
+        </p>
+    </div>
+</section>
 
 </main>
 
 <footer>
-    <p>FISH HEARD ✦ GROUP PROJECT</p>
-    <p><a href="index.html">Back to portfolio</a></p>
+    ✦ GROUP PROJECT / FISH HEARD ✦
+    <p><a href="index.html">BACK TO THE PORTFOLIO</a></p>
 </footer>
 
 </body>
