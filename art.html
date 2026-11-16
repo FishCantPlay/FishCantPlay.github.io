@@ -1,318 +1,1682 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art Portfolio | Fish Heard</title>
-    <meta name="description" content="3D character modelling, 2D illustration and other creative work by Fish Heard.">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js" defer></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Personal Art - Fish Heard</title>
+
+<style>
+
+:root {
+    --black:#050707;
+    --background:#080D0D;
+    --teal-dark:#025043;
+    --teal:#036C5F;
+    --teal-light:#078C7C;
+    --pink-dark:#9C3F57;
+    --pink:#E88FA6;
+    --text:#F1E8E5;
+    --text-muted:#B6C0BD;
+}
+
+* {
+    box-sizing:border-box;
+}
+
+html {
+    scroll-behavior:smooth;
+}
+
+body {
+    margin:0;
+    min-height:100vh;
+    background:var(--background);
+    color:var(--text);
+    font-family:"Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+    overflow-x:hidden;
+}
+
+button {
+    font-family:inherit;
+}
+
+/* ========================================
+   BACKGROUND
+   ======================================== */
+
+.background-shape {
+    position:fixed;
+    pointer-events:none;
+    z-index:0;
+    border-radius:50%;
+    filter:blur(100px);
+}
+
+.shape-pink {
+    width:520px;
+    height:520px;
+    background:rgba(232,143,166,.22);
+    top:-180px;
+    left:-180px;
+    animation:pinkFloat 18s ease-in-out infinite alternate;
+}
+
+.shape-teal {
+    width:620px;
+    height:620px;
+    background:rgba(3,108,95,.25);
+    right:-250px;
+    bottom:-280px;
+    animation:tealFloat 22s ease-in-out infinite alternate;
+}
+
+.shape-pink-small {
+    width:280px;
+    height:280px;
+    background:rgba(156,63,87,.16);
+    right:15%;
+    top:20%;
+    animation:smallPinkFloat 20s ease-in-out infinite alternate;
+}
+
+@keyframes pinkFloat {
+    from {transform:translate(0,0) scale(1);}
+    to {transform:translate(240px,170px) scale(1.15);}
+}
+
+@keyframes tealFloat {
+    from {transform:translate(0,0) scale(1);}
+    to {transform:translate(-220px,-180px) scale(1.12);}
+}
+
+@keyframes smallPinkFloat {
+    from {transform:translate(0,0) scale(1);}
+    to {transform:translate(-180px,180px) scale(1.2);}
+}
+
+/* ========================================
+   PAGE
+   ======================================== */
+
+.page {
+    position:relative;
+    z-index:1;
+    min-height:100vh;
+    padding:90px 7% 120px;
+}
+
+.page-inner {
+    max-width:1250px;
+    margin:0 auto;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.art-header {
+    position:relative;
+    text-align:center;
+    padding:50px 20px 80px;
+    overflow:visible;
+}
+
+.art-header::before {
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    border:1px solid rgba(232,143,166,.15);
+    border-radius:50%;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-43%);
+    pointer-events:none;
+    z-index:-2;
+}
+
+.art-header::after {
+    content:"";
+    position:absolute;
+    width:470px;
+    height:470px;
+    border:1px solid rgba(3,108,95,.18);
+    transform:translate(-50%,-43%) rotate(28deg);
+    left:50%;
+    top:50%;
+    pointer-events:none;
+    z-index:-2;
+}
+
+.eyebrow {
+    color:var(--teal-light);
+    font-size:12px;
+    letter-spacing:5px;
+    margin-bottom:20px;
+}
+
+.art-title {
+    margin:0;
+    color:var(--text);
+    font-size:clamp(55px,9vw,110px);
+    font-family:"Palatino Linotype","Book Antiqua",Georgia,serif;
+    font-style:italic;
+    font-weight:bold;
+    letter-spacing:-4px;
+    text-shadow:
+        3px 3px 0 var(--pink-dark),
+        6px 6px 0 var(--teal-dark),
+        0 0 25px rgba(232,143,166,.2);
+}
+
+.art-intro {
+    max-width:650px;
+    margin:25px auto 0;
+    color:var(--text-muted);
+    font-size:18px;
+    line-height:1.8;
+}
+
+.back-button-wrapper {
+    margin-top:35px;
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+.button {
+    display:inline-block;
+    padding:14px 24px;
+    background:var(--teal);
+    color:var(--text);
+    border:2px solid var(--teal-light);
+    border-radius:3px;
+    cursor:pointer;
+    font-size:12px;
+    letter-spacing:2px;
+    text-decoration:none;
+    box-shadow:
+        6px 6px 0 var(--pink-dark),
+        10px 10px 0 var(--teal-dark);
+    transition:.25s;
+}
+
+.button:hover {
+    background:var(--pink);
+    color:var(--black);
+    border-color:var(--text);
+    transform:translateY(-5px) rotate(-2deg);
+}
+
+/* ========================================
+   ART NAVIGATION
+   ======================================== */
+
+.art-navigation {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin:0 0 100px;
+}
+
+.art-nav-button {
+    padding:13px 24px;
+    border:1px solid var(--pink-dark);
+    background:rgba(5,7,7,.65);
+    color:var(--pink);
+    cursor:pointer;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:3px;
+    transition:.25s;
+}
+
+.art-nav-button:hover {
+    background:var(--teal);
+    color:var(--text);
+    transform:translateY(-4px);
+    border-color:var(--teal-light);
+}
+
+/* ========================================
+   ART SECTIONS
+   ======================================== */
+
+.art-section {
+    position:relative;
+    margin-bottom:120px;
+    scroll-margin-top:50px;
+}
+
+.section-heading {
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:30px;
+    margin-bottom:35px;
+    padding-bottom:18px;
+    border-bottom:1px solid rgba(232,143,166,.22);
+}
+
+.section-heading-left {
+    position:relative;
+}
+
+.section-number {
+    display:block;
+    margin-bottom:8px;
+    color:var(--teal-light);
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:4px;
+}
+
+.section-heading h2 {
+    margin:0;
+    color:var(--text);
+    font-size:clamp(35px,5vw,58px);
+    font-style:italic;
+    font-weight:normal;
+    letter-spacing:-2px;
+    text-shadow:3px 3px 0 var(--teal-dark);
+}
+
+.section-heading p {
+    max-width:380px;
+    margin:0;
+    color:var(--text-muted);
+    font-size:14px;
+    line-height:1.6;
+    text-align:right;
+}
+
+/* ========================================
+   ART GRID
+   ======================================== */
+
+.art-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+}
+
+.art-card {
+    position:relative;
+    display:block;
+    width:100%;
+    padding:0;
+    aspect-ratio:1 / 1;
+    overflow:hidden;
+    border:2px solid rgba(3,108,95,.65);
+    background:
+        radial-gradient(circle at 25% 25%,rgba(232,143,166,.22),transparent 32%),
+        radial-gradient(circle at 75% 75%,rgba(3,108,95,.3),transparent 38%),
+        #0A1514;
+    color:var(--text);
+    text-align:left;
+    cursor:pointer;
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+.art-card::before {
+    content:"";
+    position:absolute;
+    width:65%;
+    height:65%;
+    left:-15%;
+    top:-20%;
+    border-radius:50%;
+    background:rgba(232,143,166,.12);
+    filter:blur(35px);
+    transition:transform .5s ease;
+    pointer-events:none;
+}
+
+.art-card::after {
+    content:"";
+    position:absolute;
+    width:55%;
+    height:55%;
+    right:-20%;
+    bottom:-20%;
+    border-radius:50%;
+    background:rgba(3,108,95,.15);
+    filter:blur(30px);
+    transition:transform .5s ease;
+    pointer-events:none;
+}
+
+.art-card:hover {
+    transform:translateY(-9px) rotate(-1deg);
+    border-color:var(--pink);
+    box-shadow:
+        10px 10px 0 rgba(156,63,87,.25),
+        0 20px 45px rgba(0,0,0,.45);
+}
+
+.art-card:hover::before {
+    transform:translate(35px,25px) scale(1.15);
+}
+
+.art-card:hover::after {
+    transform:translate(-25px,-25px) scale(1.2);
+}
+
+.art-card:focus-visible {
+    outline:3px solid var(--pink);
+    outline-offset:5px;
+}
+
+.art-card-image {
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:1;
+    transition:transform .5s ease;
+}
+
+.art-card:hover .art-card-image {
+    transform:scale(1.05);
+}
+
+.art-placeholder {
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+    color:rgba(241,232,229,.45);
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:3px;
+    text-align:center;
+    z-index:1;
+}
+
+.art-placeholder span {
+    padding:12px 16px;
+    border:1px solid rgba(232,143,166,.3);
+    background:rgba(5,7,7,.45);
+}
+
+.art-card-info {
+    position:absolute;
+    z-index:3;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:55px 22px 22px;
+    background:linear-gradient(
+        transparent,
+        rgba(5,7,7,.96) 55%
+    );
+    pointer-events:none;
+}
+
+.art-card-info h3 {
+    margin:0;
+    color:var(--pink);
+    font-size:clamp(19px,2vw,26px);
+    font-weight:normal;
+    font-style:italic;
+}
+
+.art-card-info p {
+    margin:8px 0 0;
+    color:var(--text-muted);
+    font-size:11px;
+    letter-spacing:2px;
+}
+
+/* ========================================
+   SLIDESHOW POPUP
+   ======================================== */
+
+.art-modal {
+    position:fixed;
+    inset:0;
+    z-index:100;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+    background:rgba(5,7,7,.9);
+    backdrop-filter:blur(12px);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .3s ease,visibility .3s ease;
+}
+
+.art-modal.active {
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+.modal-content {
+    position:relative;
+    width:min(1050px,96vw);
+    max-height:92vh;
+    overflow:auto;
+    padding:25px;
+    border:2px solid var(--teal);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(3,108,95,.18),
+            rgba(5,7,7,.98)
+        );
+    box-shadow:
+        14px 14px 0 rgba(156,63,87,.35),
+        0 30px 80px rgba(0,0,0,.7);
+    transform:translateY(25px) scale(.97);
+    transition:transform .3s ease;
+}
+
+.art-modal.active .modal-content {
+    transform:translateY(0) scale(1);
+}
+
+.modal-close {
+    position:absolute;
+    top:12px;
+    right:12px;
+    z-index:10;
+    width:44px;
+    height:44px;
+    border:1px solid var(--pink);
+    background:rgba(5,7,7,.9);
+    color:var(--pink);
+    font-size:27px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.modal-close:hover {
+    background:var(--pink);
+    color:var(--black);
+    transform:rotate(5deg);
+}
+
+.modal-number {
+    color:var(--teal-light);
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:4px;
+    margin:0 0 12px;
+    text-align:center;
+}
+
+.modal-title {
+    margin:0 55px 25px;
+    color:var(--pink);
+    font-size:clamp(30px,5vw,48px);
+    line-height:1.1;
+    font-style:italic;
+    font-weight:normal;
+    text-align:center;
+    text-shadow:3px 3px 0 var(--pink-dark);
+}
+
+.modal-image-area {
+    position:relative;
+    min-height:450px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    border:1px solid rgba(232,143,166,.35);
+    background:
+        radial-gradient(circle at 30% 30%,rgba(232,143,166,.16),transparent 35%),
+        radial-gradient(circle at 70% 70%,rgba(3,108,95,.25),transparent 40%),
+        #0A1514;
+}
+
+.modal-image {
+    display:none;
+    max-width:100%;
+    max-height:62vh;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    position:relative;
+    z-index:2;
+}
+
+.modal-image.loaded {
+    display:block;
+}
+
+.modal-image-placeholder {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:15px;
+    padding:30px;
+    color:rgba(241,232,229,.55);
+    font-size:14px;
+    letter-spacing:3px;
+    text-align:center;
+}
+
+.modal-image-placeholder small {
+    color:var(--pink);
+    font-size:12px;
+    letter-spacing:1px;
+}
+
+.modal-image-placeholder.hidden {
+    display:none;
+}
+
+.modal-caption {
+    min-height:25px;
+    margin:18px 0 0;
+    color:var(--text-muted);
+    font-size:14px;
+    line-height:1.6;
+    text-align:center;
+}
+
+.modal-controls {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:22px;
+    margin-top:25px;
+}
+
+.modal-arrow {
+    width:46px;
+    height:46px;
+    flex-shrink:0;
+    border:1px solid var(--teal-light);
+    background:rgba(3,108,95,.2);
+    color:var(--pink);
+    font-size:27px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.modal-arrow:hover {
+    background:var(--pink);
+    color:var(--black);
+    transform:scale(1.08);
+}
+
+.modal-arrow:disabled {
+    opacity:.25;
+    cursor:not-allowed;
+    transform:none;
+}
+
+.modal-dots {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    max-width:60%;
+}
+
+.modal-dot {
+    width:11px;
+    height:11px;
+    padding:0;
+    border-radius:50%;
+    border:1px solid var(--pink);
+    background:transparent;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.modal-dot.active {
+    background:var(--pink);
+    box-shadow:0 0 12px var(--pink);
+    transform:scale(1.25);
+}
+
+.modal-instruction {
+    margin:18px 0 0;
+    color:var(--teal-light);
+    font-size:11px;
+    letter-spacing:2px;
+    text-align:center;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.art-footer {
+    margin-top:100px;
+    padding-top:35px;
+    border-top:1px solid rgba(232,143,166,.2);
+    text-align:center;
+}
+
+.art-footer p {
+    margin:0;
+    color:var(--text-muted);
+    font-size:13px;
+    letter-spacing:2px;
+}
+
+.footer-line {
+    width:100px;
+    height:3px;
+    margin:20px auto 0;
+    background:var(--pink);
+    box-shadow:0 0 15px rgba(232,143,166,.25);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media(max-width:900px) {
+
+    .page {
+        padding:60px 5% 90px;
+    }
+
+    .art-header {
+        padding-top:35px;
+        padding-bottom:65px;
+    }
+
+    .art-header::before {
+        width:470px;
+        height:470px;
+    }
+
+    .art-header::after {
+        width:360px;
+        height:360px;
+    }
+
+    .art-grid {
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .section-heading {
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .section-heading p {
+        text-align:left;
+    }
+
+    .modal-image-area {
+        min-height:350px;
+    }
+
+}
+
+@media(max-width:600px) {
+
+    .page {
+        padding:45px 20px 70px;
+    }
+
+    .art-header {
+        padding:25px 5px 55px;
+    }
+
+    .art-header::before {
+        width:340px;
+        height:340px;
+    }
+
+    .art-header::after {
+        width:280px;
+        height:280px;
+    }
+
+    .art-title {
+        font-size:clamp(48px,15vw,80px);
+        letter-spacing:-3px;
+    }
+
+    .art-intro {
+        font-size:16px;
+    }
+
+    .eyebrow {
+        font-size:10px;
+        letter-spacing:3px;
+    }
+
+    .art-navigation {
+        margin-bottom:60px;
+    }
+
+    .art-grid {
+        grid-template-columns:1fr;
+    }
+
+    .art-section {
+        margin-bottom:80px;
+    }
+
+    .section-heading h2 {
+        font-size:40px;
+    }
+
+    .art-modal {
+        padding:10px;
+    }
+
+    .modal-content {
+        padding:15px;
+        max-height:95vh;
+    }
+
+    .modal-title {
+        margin:0 40px 20px;
+        font-size:32px;
+    }
+
+    .modal-image-area {
+        min-height:260px;
+    }
+
+    .modal-image {
+        max-height:48vh;
+    }
+
+    .modal-controls {
+        gap:12px;
+    }
+
+    .modal-dots {
+        gap:8px;
+    }
+
+    .modal-arrow {
+        width:40px;
+        height:40px;
+    }
+
+}
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+
+@media(prefers-reduced-motion:reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        scroll-behavior:auto !important;
+        transition-duration:.01ms !important;
+    }
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-<nav class="site-nav">
-    <a href="index.html" class="logo">Fish Heard ✦</a>
-    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+<!-- BACKGROUND SHAPES -->
 
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="art.html" class="active">Art Portfolio</a>
-        <a href="index.html#projects">Projects</a>
-        <a href="index.html#about">About</a>
-        <a href="voice-acting.html">Voice Acting</a>
-        <a href="index.html#contact">Contact</a>
-    </div>
-</nav>
+<div class="background-shape shape-pink"></div>
+<div class="background-shape shape-teal"></div>
+<div class="background-shape shape-pink-small"></div>
 
-<header class="hero">
-    <div class="container hero-content">
-        <span class="eyebrow">Sketches, models and other creations</span>
-        <h1>My Art</h1>
-        <p class="hero-subtitle">
-            Characters, illustrations, models and everything in between.
-        </p>
-        <p class="lead">
-            This is where I collect my creative work. My main focus
-            is developing as a 3D character modeller, alongside
-            my 2D illustration and other creative interests.
-        </p>
+<main class="page">
+
+<div class="page-inner">
+
+<!-- ========================================
+     HEADER
+     ======================================== -->
+
+<header class="art-header">
+
+    <div class="eyebrow">
+        PERSONAL WORK
     </div>
+
+    <h1 class="art-title">
+        PERSONAL ART
+    </h1>
+
+    <p class="art-intro">
+        A collection of character work, illustrations, 3D pieces,
+        experiments and whatever else I've been making.
+    </p>
+
+    <div class="back-button-wrapper">
+
+        <a href="./index.html" class="button">
+            BACK TO PORTFOLIO
+        </a>
+
+    </div>
+
 </header>
 
-<main class="container">
+<!-- ========================================
+     ART NAVIGATION
+     ======================================== -->
 
-    <nav class="art-nav" aria-label="Artwork categories">
-        <a href="#three-dimensional">01 / 3D ART</a>
-        <a href="#two-dimensional">02 / 2D ART</a>
-        <a href="#other">03 / OTHER</a>
-    </nav>
+<nav class="art-navigation">
 
-    <!-- 3D ART -->
+    <button class="art-nav-button" type="button"
+            onclick="scrollToSection('art-2d')">
+        2D ART
+    </button>
 
-    <section class="art-section" id="three-dimensional">
+    <button class="art-nav-button" type="button"
+            onclick="scrollToSection('art-3d')">
+        3D ART
+    </button>
 
-        <span class="eyebrow">01 / Primary specialism</span>
-        <h2>3D Art</h2>
+    <button class="art-nav-button" type="button"
+            onclick="scrollToSection('art-other')">
+        OTHER
+    </button>
 
-        <p class="lead">
-            Character modelling is what I want to specialise in.
-            I'm currently working mainly in Maya and starting
-            to learn Blender and ZBrush. This section will show
-            my models, development work and the technical side
-            of creating characters.
-        </p>
+</nav>
 
-        <div class="art-grid">
+<!-- ========================================
+     3D ART
+     ======================================== -->
 
-            <article class="art-item">
-                <div class="image-placeholder">
-                    <strong>Frog Model Remake</strong>
-                    <small>
-                        Add your original frog and finished remake.
-                        Include front, side, back and three-quarter
-                        views when available.
-                    </small>
-                </div>
-                <h3>Frog Character – Remake</h3>
-                <p>
-                    A refinement of an earlier character model.
-                    Show the original, what I wanted to improve,
-                    the modelling process and the final result.
-                </p>
-                <span class="tag">Maya</span>
-                <span class="tag">Character modelling</span>
-            </article>
+<section class="art-section" id="art-3d">
 
-            <article class="art-item">
-                <div class="image-placeholder">
-                    <strong>New Character Model</strong>
-                    <small>
-                        Make an original stylised character.
-                        Add the concept, model, topology,
-                        UVs, textures and final renders.
-                    </small>
-                </div>
-                <h3>Original Stylised Character</h3>
-                <p>
-                    A new character developed from an initial
-                    concept into a finished 3D model. Focus
-                    on silhouette, proportions, topology
-                    and materials.
-                </p>
-                <span class="tag">Maya</span>
-                <span class="tag">3D character art</span>
-            </article>
+    <div class="section-heading">
 
-            <article class="art-item">
-                <div class="image-placeholder">
-                    <strong>2D to 3D Character</strong>
-                    <small>
-                        Add the original character sheet,
-                        blockout, finished model and comparison.
-                    </small>
-                </div>
-                <h3>Concept to Character</h3>
-                <p>
-                    A character designed in 2D and translated
-                    into 3D. Show how I keep the original
-                    personality and design details when modelling.
-                </p>
-                <span class="tag">Visual development</span>
-                <span class="tag">3D modelling</span>
-            </article>
+        <div class="section-heading-left">
 
-            <article class="art-item">
-                <div class="image-placeholder">
-                    <strong>Topology Breakdown</strong>
-                    <small>
-                        Add a wireframe screenshot, edge flow,
-                        UV layout and any technical tests
-                        from your strongest model.
-                    </small>
-                </div>
-                <h3>Technical Breakdown</h3>
-                <p>
-                    A closer look at how a character is built.
-                    Include topology, UVs, material setup
-                    and any optimisation or deformation tests.
-                </p>
-                <span class="tag">Technical art</span>
-                <span class="tag">Maya</span>
-            </article>
+            <span class="section-number">01 / 03</span>
+
+            <h2>3D ART</h2>
 
         </div>
-    </section>
 
-    <!-- 2D ART -->
-
-    <section class="art-section" id="two-dimensional">
-
-        <span class="eyebrow">02 / Secondary specialism</span>
-        <h2>2D Art</h2>
-
-        <p class="lead">
-            Drawing has always been a big part of what I do.
-            I enjoy character illustration, fantasy designs,
-            creature concepts and experimenting with colour
-            and atmosphere.
+        <p>
+            Character modelling, sculpting, texturing and the
+            different stages of bringing a character into 3D.
         </p>
 
-        <div class="art-grid">
+    </div>
 
-            <article class="art-item">
-                <div class="image-placeholder">
-                    <strong>Woodland Character – Final Redraw</strong>
-                    <small>
-                        Save your new illustration into
-                        images/art/woodland-character-redraw.png
-                        and use it here.
-                    </small>
-                </div>
-                <h3>Woodland Character Redesign</h3>
-                <p>
-                    A redrawn and reworked version of an earlier
-                    character illustration. The new version
-                    explores stronger lighting, colour,
-                    atmosphere and character presentation.
-                </p>
-                <span class="tag">Character illustration</span>
-                <span class="tag">Refinement</span>
-            </article>
+    <div class="art-grid">
 
-            <article class="art-item">
-                <div class="image-placeholder">
-                    <strong>Original Artwork</strong>
-                    <small>
-                        Add your original version here to show
-                        the development between the two drawings.
-                    </small>
-                </div>
-                <h3>Original Character Design</h3>
-                <p>
-                    The earlier version of the woodland character.
-                    Display this alongside the redraw to show
-                    what changed and why.
-                </p>
-                <span class="tag">Original artwork</span>
-                <span class="tag">Development</span>
-            </article>
+        <button class="art-card" type="button" data-gallery="frog">
 
-            <article class="art-item">
-                <div class="image-placeholder">
-                    <strong>Character Concepts</strong>
-                    <small>
-                        Add silhouette exploration, costume
-                        ideas, expressions and colour tests
-                        for a new original character.
-                    </small>
-                </div>
-                <h3>Character Development Sheet</h3>
-                <p>
-                    A collection of sketches and design decisions
-                    showing how I develop an idea before
-                    moving towards a final character.
-                </p>
-                <span class="tag">Concept art</span>
-                <span class="tag">Character design</span>
-            </article>
+            <img class="art-card-image"
+                 src="images/art/frog-01-posed.png"
+                 alt=""
+                 onerror="this.style.display='none'">
 
-            <article class="art-item">
-                <div class="image-placeholder">
-                    <strong>Creature Design</strong>
-                    <small>
-                        Create a creature with a distinctive
-                        silhouette, personality and colour palette.
-                    </small>
-                </div>
-                <h3>Creature Exploration</h3>
-                <p>
-                    An opportunity to explore unusual shapes,
-                    features and personalities through
-                    creature design.
-                </p>
-                <span class="tag">Creature design</span>
-                <span class="tag">Illustration</span>
-            </article>
+            <div class="art-placeholder">
+                <span>FROG MODEL</span>
+            </div>
+
+            <div class="art-card-info">
+                <h3>Frog</h3>
+                <p>3D CHARACTER MODEL · FULL BREAKDOWN</p>
+            </div>
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ========================================
+     2D ART
+     ======================================== -->
+
+<section class="art-section" id="art-2d">
+
+    <div class="section-heading">
+
+        <div class="section-heading-left">
+
+            <span class="section-number">02 / 03</span>
+
+            <h2>2D ART</h2>
 
         </div>
-    </section>
 
-    <!-- OTHER -->
-
-    <section class="art-section" id="other">
-
-        <span class="eyebrow">03 / Other creative work</span>
-        <h2>Other</h2>
-
-        <p class="lead">
-            Not everything I make fits neatly into 2D or 3D art.
-            This section is for animation, experiments, theatre
-            and other creative things I get involved in.
+        <p>
+            Character concepts, redesigns, creature designs
+            and illustrations.
         </p>
 
-        <div class="art-grid">
+    </div>
 
-            <article class="art-item">
-                <div class="image-placeholder">
-                    <strong>Animation Tests</strong>
-                    <small>
-                        Add a short animation, movement test
-                        or character performance experiment
-                        when you have one ready.
-                    </small>
-                </div>
-                <h3>Animation & Experiments</h3>
-                <p>
-                    Small tests exploring movement, timing,
-                    character expression and how a character
-                    communicates through motion.
-                </p>
-            </article>
+    <div class="art-grid">
 
-            <article class="art-item">
-                <div class="image-placeholder">
-                    <strong>Theatre & Performance</strong>
-                    <small>
-                        Add photographs or programme evidence
-                        from theatre work only where you have
-                        permission to share them.
-                    </small>
-                </div>
-                <h3>Theatre & Performance</h3>
-                <p>
-                    My theatre background and performance
-                    experience, which have helped develop
-                    my interest in character and storytelling.
-                </p>
-            </article>
+        <!-- DEER GUARDIAN -->
 
-            <article class="art-item">
-                <div class="image-placeholder">
-                    <strong>Creative Experiments</strong>
-                    <small>
-                        Add personal experiments, unusual
-                        projects, photography or other work
-                        that doesn't fit the other sections.
-                    </small>
-                </div>
+        <button class="art-card" type="button" data-gallery="deerGuardian">
+
+            <img class="art-card-image"
+                 src="images/art/deer-guardian-new.png"
+                 alt=""
+                 onerror="this.style.display='none'">
+
+            <div class="art-placeholder">
+                <span>DEER GUARDIAN</span>
+            </div>
+
+            <div class="art-card-info">
+                <h3>Deer Guardian</h3>
+                <p>CHARACTER REDESIGN</p>
+            </div>
+
+        </button>
+
+        <!-- CHARACTER CONCEPTS -->
+
+        <button class="art-card" type="button" data-gallery="characterConcepts">
+
+            <img class="art-card-image"
+                 src="images/art/wool-and-briar-concept-01.png"
+                 alt=""
+                 onerror="this.style.display='none'">
+
+            <div class="art-placeholder">
+                <span>CHARACTER CONCEPTS</span>
+            </div>
+
+            <div class="art-card-info">
+                <h3>Character Concepts</h3>
+                <p>UNDER WOOL AND BRIAR</p>
+            </div>
+
+        </button>
+
+        <!-- CREATURE DESIGN -->
+
+        <button class="art-card" type="button" data-gallery="creatureDesign">
+
+            <img class="art-card-image"
+                 src="images/art/creature-wolf.png"
+                 alt=""
+                 onerror="this.style.display='none'">
+
+            <div class="art-placeholder">
+                <span>CREATURE DESIGN</span>
+            </div>
+
+            <div class="art-card-info">
+                <h3>Creature Design</h3>
+                <p>WOLF · FOX · BIRD</p>
+            </div>
+
+        </button>
+
+        <!-- FACIAL STUDY -->
+
+        <button class="art-card" type="button" data-gallery="facialStudy">
+
+            <img class="art-card-image"
+                 src="images/art/facial-self-portrait.png"
+                 alt=""
+                 onerror="this.style.display='none'">
+
+            <div class="art-placeholder">
+                <span>FACIAL STUDY</span>
+            </div>
+
+            <div class="art-card-info">
+                <h3>Facial Study</h3>
+                <p>SELF PORTRAIT · ARTIST STUDIES</p>
+            </div>
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ========================================
+     OTHER
+     ======================================== -->
+
+<section class="art-section" id="art-other">
+
+    <div class="section-heading">
+
+        <div class="section-heading-left">
+
+            <span class="section-number">03 / 03</span>
+
+            <h2>OTHER</h2>
+
+        </div>
+
+        <p>
+            Other creative experiments and work that doesn't
+            quite fit into the other categories.
+        </p>
+
+    </div>
+
+    <div class="art-grid">
+
+        <!-- ANIMATION -->
+
+        <button class="art-card" type="button" data-gallery="animation">
+
+            <img class="art-card-image"
+                 src="images/art/animation-01.png"
+                 alt=""
+                 onerror="this.style.display='none'">
+
+            <div class="art-placeholder">
+                <span>ANIMATION</span>
+            </div>
+
+            <div class="art-card-info">
+                <h3>Animation</h3>
+                <p>MOTION AND EXPERIMENTS</p>
+            </div>
+
+        </button>
+
+        <!-- OTHER EXPERIMENTS -->
+
+        <button class="art-card" type="button" data-gallery="otherExperiments">
+
+            <img class="art-card-image"
+                 src="images/art/other-experiments-01.png"
+                 alt=""
+                 onerror="this.style.display='none'">
+
+            <div class="art-placeholder">
+                <span>OTHER EXPERIMENTS</span>
+            </div>
+
+            <div class="art-card-info">
                 <h3>Other Experiments</h3>
-                <p>
-                    A place for the things I make just because
-                    I'm interested in trying something different.
-                </p>
-            </article>
+                <p>ODDS AND ENDS</p>
+            </div>
 
-        </div>
-    </section>
+        </button>
 
+    </div>
+
+</section>
+
+<!-- ========================================
+     FOOTER
+     ======================================== -->
+
+<footer class="art-footer">
+
+    <p>
+        FISH HEARD · PERSONAL WORK
+    </p>
+
+    <div class="footer-line"></div>
+
+</footer>
+
+</div>
 </main>
 
-<footer>
-    <p>FISH HEARD ✦ 3D ART · 2D ART · OTHER</p>
-    <p><a href="index.html">Back to the main portfolio</a></p>
-</footer>
+<!-- ========================================
+     ARTWORK SLIDESHOW POPUP
+     ======================================== -->
+
+<div class="art-modal" id="artModal" aria-hidden="true">
+
+    <div class="modal-content"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="modalTitle">
+
+        <button class="modal-close"
+                id="modalClose"
+                type="button"
+                aria-label="Close slideshow">
+            ×
+        </button>
+
+        <div class="modal-number" id="modalNumber">
+            SLIDE 1 / 5
+        </div>
+
+        <h2 class="modal-title" id="modalTitle">
+            Artwork Title
+        </h2>
+
+        <div class="modal-image-area">
+
+            <img class="modal-image"
+                 id="modalImage"
+                 src=""
+                 alt="">
+
+            <div class="modal-image-placeholder"
+                 id="modalImagePlaceholder">
+
+                <span>ARTWORK PLACEHOLDER</span>
+
+                <small id="modalImageFilename">
+                    Add your image to the images/art folder.
+                </small>
+
+            </div>
+
+        </div>
+
+        <p class="modal-caption" id="modalCaption"></p>
+
+        <div class="modal-controls">
+
+            <button class="modal-arrow"
+                    id="modalPrevious"
+                    type="button"
+                    aria-label="Previous slide">
+                ‹
+            </button>
+
+            <div class="modal-dots" id="modalDots"></div>
+
+            <button class="modal-arrow"
+                    id="modalNext"
+                    type="button"
+                    aria-label="Next slide">
+                ›
+            </button>
+
+        </div>
+
+        <p class="modal-instruction">
+            ✦ USE THE ARROWS OR DOTS TO LOOK THROUGH THE ARTWORK ✦
+        </p>
+
+    </div>
+
+</div>
+
+<!-- ========================================
+     JAVASCRIPT
+     ======================================== -->
+
+<script>
+
+/* ========================================
+   ARTWORK SLIDESHOW CONTENT
+   ======================================== */
+
+const galleries = {
+
+    frog: {
+        title: "Frog",
+        slides: [
+
+            {
+                image: "images/art/frog-01-posed.png",
+                caption: "The finished frog model in its full posed presentation."
+            },
+
+            {
+                image: "images/art/frog-02-rigged.png",
+                caption: "The frog model with its rig."
+            },
+
+            {
+                image: "images/art/frog-03-substance.png",
+                caption: "The frog being textured in Substance Painter."
+            },
+
+            {
+                image: "images/art/frog-04-grey-topology.png",
+                caption: "The grey model, showing the topology and model structure."
+            },
+
+            {
+                image: "images/art/frog-05-character-sheet.png",
+                caption: "The character sheet used for the frog."
+            }
+
+        ]
+    },
+
+    deerGuardian: {
+        title: "Deer Guardian",
+        slides: [
+
+            {
+                image: "images/art/deer-guardian-new.png",
+                caption: "The redesigned Deer Guardian."
+            },
+
+            {
+                image: "images/art/deer-guardian-old.png",
+                caption: "The original Deer Guardian design."
+            }
+
+        ]
+    },
+
+    characterConcepts: {
+        title: "Character Concepts",
+        slides: [
+
+            {
+                image: "images/art/wool-and-briar-concept-01.png",
+                caption: "Under Wool and Briar character concept 1."
+            },
+
+            {
+                image: "images/art/wool-and-briar-concept-02.png",
+                caption: "Under Wool and Briar character concept 2."
+            },
+
+            {
+                image: "images/art/wool-and-briar-concept-03.png",
+                caption: "Under Wool and Briar character concept 3."
+            },
+
+            {
+                image: "images/art/wool-and-briar-concept-04.png",
+                caption: "Under Wool and Briar character concept 4."
+            },
+
+            {
+                image: "images/art/wool-and-briar-concept-05.png",
+                caption: "Under Wool and Briar character concept 5."
+            },
+
+            {
+                image: "images/art/wool-and-briar-concept-06.png",
+                caption: "Under Wool and Briar character concept 6."
+            },
+
+            {
+                image: "images/art/wool-and-briar-concept-07.png",
+                caption: "Under Wool and Briar character concept 7."
+            }
+
+        ]
+    },
+
+    creatureDesign: {
+        title: "Creature Design",
+        slides: [
+
+            {
+                image: "images/art/creature-wolf.png",
+                caption: "Wolf design."
+            },
+
+            {
+                image: "images/art/creature-fox.png",
+                caption: "Fox design."
+            },
+
+            {
+                image: "images/art/creature-bird.png",
+                caption: "Bird design."
+            }
+
+        ]
+    },
+
+    facialStudy: {
+        title: "Facial Study",
+        slides: [
+
+            {
+                image: "images/art/facial-self-portrait.png",
+                caption: "Self portrait study."
+            },
+
+            {
+                image: "images/art/facial-youtubers.png",
+                caption: "Facial studies based on YouTubers I watch."
+            }
+
+        ]
+    },
+
+    animation: {
+        title: "Animation",
+        slides: [
+
+            {
+                image: "images/art/animation-01.png",
+                caption: "Animation work and experiments."
+            }
+
+        ]
+    },
+
+    otherExperiments: {
+        title: "Other Experiments",
+        slides: [
+
+            {
+                image: "images/art/other-experiments-01.png",
+                caption: "Other creative experiments."
+            }
+
+        ]
+    }
+
+};
+
+
+/* ========================================
+   SLIDESHOW ELEMENTS
+   ======================================== */
+
+const artModal = document.getElementById("artModal");
+
+const modalClose = document.getElementById("modalClose");
+
+const modalTitle = document.getElementById("modalTitle");
+
+const modalNumber = document.getElementById("modalNumber");
+
+const modalImage = document.getElementById("modalImage");
+
+const modalImagePlaceholder = document.getElementById("modalImagePlaceholder");
+
+const modalImageFilename = document.getElementById("modalImageFilename");
+
+const modalCaption = document.getElementById("modalCaption");
+
+const modalDots = document.getElementById("modalDots");
+
+const modalPrevious = document.getElementById("modalPrevious");
+
+const modalNext = document.getElementById("modalNext");
+
+let currentGallery = null;
+
+let currentSlide = 0;
+
+let previousFocus = null;
+
+
+/* ========================================
+   OPEN A GALLERY
+   ======================================== */
+
+function openGallery(galleryName) {
+
+    const gallery = galleries[galleryName];
+
+    if (!gallery) {
+        return;
+    }
+
+    currentGallery = gallery;
+
+    currentSlide = 0;
+
+    previousFocus = document.activeElement;
+
+    modalTitle.textContent = gallery.title;
+
+    modalDots.innerHTML = "";
+
+    gallery.slides.forEach((slide, index) => {
+
+        const dot = document.createElement("button");
+
+        dot.type = "button";
+
+        dot.className = "modal-dot";
+
+        dot.setAttribute("aria-label", "Go to slide " + (index + 1));
+
+        dot.addEventListener("click", () => {
+            showSlide(index);
+        });
+
+        modalDots.appendChild(dot);
+
+    });
+
+    artModal.classList.add("active");
+
+    artModal.setAttribute("aria-hidden", "false");
+
+    document.body.style.overflow = "hidden";
+
+    showSlide(0);
+
+    modalClose.focus();
+
+}
+
+
+/* ========================================
+   SHOW A SLIDE
+   ======================================== */
+
+function showSlide(index) {
+
+    if (!currentGallery) {
+        return;
+    }
+
+    const slides = currentGallery.slides;
+
+    if (index < 0) {
+        index = slides.length - 1;
+    }
+
+    if (index >= slides.length) {
+        index = 0;
+    }
+
+    currentSlide = index;
+
+    const slide = slides[currentSlide];
+
+    modalNumber.textContent =
+        "SLIDE " + (currentSlide + 1) + " / " + slides.length;
+
+    modalCaption.textContent = slide.caption || "";
+
+    modalImage.classList.remove("loaded");
+
+    modalImagePlaceholder.classList.remove("hidden");
+
+    modalImageFilename.textContent = slide.image;
+
+    modalImage.alt = currentGallery.title + " - slide " + (currentSlide + 1);
+
+    modalImage.onload = function() {
+
+        modalImage.classList.add("loaded");
+
+        modalImagePlaceholder.classList.add("hidden");
+
+    };
+
+    modalImage.onerror = function() {
+
+        modalImage.classList.remove("loaded");
+
+        modalImagePlaceholder.classList.remove("hidden");
+
+    };
+
+    modalImage.src = slide.image;
+
+    const dots = modalDots.querySelectorAll(".modal-dot");
+
+    dots.forEach((dot, dotIndex) => {
+
+        dot.classList.toggle("active", dotIndex === currentSlide);
+
+        dot.setAttribute(
+            "aria-current",
+            dotIndex === currentSlide ? "true" : "false"
+        );
+
+    });
+
+}
+
+
+/* ========================================
+   NEXT AND PREVIOUS
+   ======================================== */
+
+function nextSlide() {
+
+    if (!currentGallery) {
+        return;
+    }
+
+    showSlide(currentSlide + 1);
+
+}
+
+function previousSlide() {
+
+    if (!currentGallery) {
+        return;
+    }
+
+    showSlide(currentSlide - 1);
+
+}
+
+
+/* ========================================
+   CLOSE THE POPUP
+   ======================================== */
+
+function closeGallery() {
+
+    artModal.classList.remove("active");
+
+    artModal.setAttribute("aria-hidden", "true");
+
+    document.body.style.overflow = "";
+
+    modalImage.removeAttribute("src");
+
+    currentGallery = null;
+
+    if (previousFocus) {
+        previousFocus.focus();
+    }
+
+}
+
+
+/* ========================================
+   CARD CLICK EVENTS
+   ======================================== */
+
+document.querySelectorAll(".art-card").forEach((card) => {
+
+    card.addEventListener("click", () => {
+
+        openGallery(card.dataset.gallery);
+
+    });
+
+});
+
+
+/* ========================================
+   SLIDESHOW CONTROLS
+   ======================================== */
+
+modalNext.addEventListener("click", nextSlide);
+
+modalPrevious.addEventListener("click", previousSlide);
+
+modalClose.addEventListener("click", closeGallery);
+
+
+/* ========================================
+   CLICK OUTSIDE TO CLOSE
+   ======================================== */
+
+artModal.addEventListener("click", function(event) {
+
+    if (event.target === artModal) {
+        closeGallery();
+    }
+
+});
+
+
+/* ========================================
+   KEYBOARD CONTROLS
+   ======================================== */
+
+document.addEventListener("keydown", function(event) {
+
+    if (!artModal.classList.contains("active")) {
+        return;
+    }
+
+    if (event.key === "Escape") {
+        closeGallery();
+    }
+
+    if (event.key === "ArrowRight") {
+        nextSlide();
+    }
+
+    if (event.key === "ArrowLeft") {
+        previousSlide();
+    }
+
+});
+
+
+/* ========================================
+   SCROLL TO CATEGORY
+   ======================================== */
+
+function scrollToSection(sectionId) {
+
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+
+        section.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+    }
+
+}
+
+</script>
 
 </body>
 </html>
