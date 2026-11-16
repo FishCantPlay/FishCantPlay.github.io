@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,10 +16,8 @@
     --pink:#e49bb8;
     --ink:#27222d;
 }
-
 * {box-sizing:border-box;}
 html {scroll-behavior:smooth;}
-
 body {
     margin:0;
     background:
@@ -30,9 +27,7 @@ body {
     color:var(--paper);
     font-family:"Trebuchet MS",Arial,sans-serif;
 }
-
 a {color:inherit;}
-
 .top-nav {
     padding:18px 7%;
     display:flex;
@@ -40,264 +35,177 @@ a {color:inherit;}
     border-bottom:1px dashed var(--pink);
     background:#100d16;
 }
-
 .back-button {
-    text-decoration:none;
-    color:var(--yellow);
-    letter-spacing:2px;
-    font-size:12px;
+    text-decoration:none;color:var(--yellow);
+    letter-spacing:2px;font-size:12px;
 }
-
-.nav-label {
-    color:var(--pink);
-    font-size:11px;
-    letter-spacing:2px;
-}
-
+.nav-label {color:var(--pink);font-size:11px;letter-spacing:2px;}
 .hero {
-    position:relative;
-    overflow:hidden;
-    padding:100px 8%;
-    background:
-        linear-gradient(130deg,rgba(123,76,168,.4),transparent 65%),
-        #17121e;
+    position:relative;overflow:hidden;padding:100px 8%;
+    background:linear-gradient(130deg,rgba(123,76,168,.4),transparent 65%),#17121e;
     border-bottom:4px solid var(--yellow);
 }
-
 .hero-inner {max-width:850px;margin:auto;}
-
-.small-label {
-    color:var(--yellow);
-    letter-spacing:4px;
-    font-size:12px;
-}
-
+.small-label {color:var(--yellow);letter-spacing:4px;font-size:12px;}
 .hero h1 {
-    font-size:clamp(55px,10vw,110px);
-    line-height:.9;
-    margin:25px 0;
-    color:var(--paper);
-    text-shadow:5px 5px 0 var(--purple-dark);
+    font-size:clamp(55px,10vw,110px);line-height:.9;
+    margin:25px 0;color:var(--paper);text-shadow:5px 5px 0 var(--purple-dark);
 }
-
 .hero-subtitle {
     font-family:"Segoe Print","Comic Sans MS",cursive;
-    color:var(--pink);
-    font-size:23px;
+    color:var(--pink);font-size:23px;
 }
-
-.hero-description {
-    max-width:600px;
-    line-height:1.9;
-    color:#d6cbdc;
-}
-
+.hero-description {max-width:650px;line-height:1.9;color:#d6cbdc;}
 .floating-note {
-    position:absolute;
-    padding:20px;
-    width:150px;
-    min-height:120px;
-    color:var(--ink);
-    background:var(--yellow);
-    font-family:"Segoe Print","Comic Sans MS",cursive;
-    font-size:14px;
-    text-align:center;
-    box-shadow:4px 7px 12px rgba(0,0,0,.4);
+    position:absolute;padding:20px;width:150px;min-height:120px;
+    color:var(--ink);background:var(--yellow);
+    font-family:"Segoe Print","Comic Sans MS",cursive;font-size:14px;
+    text-align:center;box-shadow:4px 7px 12px rgba(0,0,0,.4);
     transform:rotate(8deg);
 }
-
 .note-one {right:12%;top:18%;}
-.note-two {
-    right:25%;
-    bottom:8%;
-    background:var(--pink);
-    transform:rotate(-7deg);
-}
-
+.note-two {right:25%;bottom:8%;background:var(--pink);transform:rotate(-7deg);}
 .paper-corner {
-    position:absolute;
-    right:0;
-    bottom:0;
-    border-style:solid;
+    position:absolute;right:0;bottom:0;border-style:solid;
     border-width:0 0 100px 100px;
     border-color:transparent transparent var(--yellow) transparent;
 }
-
 main {max-width:1150px;margin:auto;padding:50px 6%;}
-
-.section {
-    position:relative;
-    margin:65px 0;
-    scroll-margin-top:30px;
-}
-
-.section-heading {
-    display:flex;
-    align-items:center;
-    gap:15px;
-    margin-bottom:25px;
-}
-
-.section-heading h2 {
-    font-size:28px;
-    color:var(--pink);
-    margin:0;
-}
-
-.section-heading span {
-    color:var(--yellow);
-    font-size:12px;
-    letter-spacing:3px;
-}
-
+.section {position:relative;margin:65px 0;scroll-margin-top:30px;}
+.section-heading {display:flex;align-items:center;gap:15px;margin-bottom:25px;flex-wrap:wrap;}
+.section-heading h2 {font-size:28px;color:var(--pink);margin:0;}
+.section-heading span {color:var(--yellow);font-size:12px;letter-spacing:3px;}
 .paper {
-    background:var(--paper);
-    color:var(--ink);
-    padding:35px;
-    box-shadow:8px 9px 0 var(--purple-dark);
-    line-height:1.8;
+    background:var(--paper);color:var(--ink);padding:35px;
+    box-shadow:8px 9px 0 var(--purple-dark);line-height:1.8;
 }
-
 .paper h3 {color:var(--purple-dark);}
-
 .paper p {font-size:14px;}
-
+.paper li {font-size:14px;margin:7px 0;}
 .sticky {
-    background:var(--yellow);
-    color:var(--ink);
-    padding:25px;
+    background:var(--yellow);color:var(--ink);padding:25px;
     box-shadow:4px 7px 12px rgba(0,0,0,.3);
-    transform:rotate(-1deg);
-    line-height:1.7;
+    transform:rotate(-1deg);line-height:1.7;
 }
-
 .sticky.pink {background:var(--pink);transform:rotate(1.5deg);}
 .sticky.purple {background:var(--purple-light);transform:rotate(-1deg);}
-
-.grid {
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:25px;
-}
-
-.character-grid {
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-}
-
+.grid {display:grid;grid-template-columns:repeat(2,1fr);gap:25px;}
+.character-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:25px;}
 .character-card {
-    background:#20182a;
-    border:2px dashed var(--purple-light);
-    padding:15px;
-    transform:rotate(-1deg);
-    transition:.3s;
+    background:#20182a;border:2px dashed var(--purple-light);
+    padding:15px;transform:rotate(-1deg);transition:.3s;
 }
-
 .character-card:nth-child(even) {transform:rotate(1deg);}
 .character-card:hover {transform:rotate(0) translateY(-7px);}
-
 .character-card h3 {
-    color:var(--yellow);
-    font-family:"Segoe Print","Comic Sans MS",cursive;
+    color:var(--yellow);font-family:"Segoe Print","Comic Sans MS",cursive;
 }
-
 .image-placeholder {
-    min-height:200px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
+    min-height:200px;display:flex;flex-direction:column;
+    justify-content:center;align-items:center;text-align:center;
     padding:20px;
-    background:
-        repeating-linear-gradient(45deg,#30263a,#30263a 10px,#382b43 10px,#382b43 20px);
-    border:1px dashed var(--pink);
-    color:var(--pink);
-    font-size:12px;
-    line-height:1.6;
+    background:repeating-linear-gradient(45deg,#30263a,#30263a 10px,#382b43 10px,#382b43 20px);
+    border:1px dashed var(--pink);color:var(--pink);
+    font-size:12px;line-height:1.6;
 }
-
-.image-placeholder img {
-    width:100%;
-    height:100%;
-    object-fit:contain;
-}
-
-.image-placeholder strong {
-    font-size:15px;
-    margin-bottom:10px;
-    color:var(--yellow);
-}
-
-.process {
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-}
-
-.process-card {
-    padding:20px;
-    background:#21192b;
-    border-top:4px solid var(--pink);
-}
-
+.image-placeholder img {width:100%;height:100%;object-fit:contain;}
+.image-placeholder strong {font-size:15px;margin-bottom:10px;color:var(--yellow);}
+.process {display:grid;grid-template-columns:repeat(4,1fr);gap:15px;}
+.process-card {padding:20px;background:#21192b;border-top:4px solid var(--pink);}
 .process-card:nth-child(even) {border-color:var(--yellow);}
-
 .process-card h3 {color:var(--pink);}
 .process-card p {font-size:13px;line-height:1.7;color:#d6cbdc;}
-
 .tag {
-    display:inline-block;
-    margin:5px 3px;
-    padding:5px 9px;
-    background:var(--purple-dark);
-    color:var(--paper);
-    font-size:10px;
+    display:inline-block;margin:5px 3px;padding:5px 9px;
+    background:var(--purple-dark);color:var(--paper);font-size:10px;
 }
-
 .button {
-    display:inline-block;
-    padding:13px 22px;
-    background:var(--yellow);
-    color:var(--ink);
-    text-decoration:none;
-    font-weight:bold;
-    font-size:12px;
-    letter-spacing:2px;
+    display:inline-block;padding:13px 22px;background:var(--yellow);
+    color:var(--ink);text-decoration:none;font-weight:bold;
+    font-size:12px;letter-spacing:2px;border:0;cursor:pointer;
 }
-
+.button:hover {background:var(--pink);}
 .reflection {
-    padding:35px;
-    border:2px dashed var(--pink);
-    background:rgba(123,76,168,.12);
-    line-height:1.8;
+    padding:35px;border:2px dashed var(--pink);
+    background:rgba(123,76,168,.12);line-height:1.8;
 }
+.timeline-entry {
+    display:grid;grid-template-columns:150px 1fr;gap:25px;
+    margin:22px 0;align-items:start;
+}
+.timeline-label {
+    color:var(--yellow);font-size:12px;letter-spacing:2px;
+    border-left:3px solid var(--pink);padding:10px 0 10px 14px;
+}
+.timeline-content {
+    background:#21192b;border:1px solid rgba(185,138,216,.45);
+    padding:22px 25px;line-height:1.8;
+}
+.timeline-content h3 {color:var(--pink);margin:0 0 10px;}
+.timeline-content p {font-size:14px;color:#d6cbdc;}
+details.gallery {
+    background:#20182a;border:1px dashed var(--purple-light);
+    margin:14px 0;padding:0 20px;
+}
+details.gallery summary {
+    cursor:pointer;list-style:none;padding:18px 30px 18px 0;
+    color:var(--yellow);font-weight:bold;position:relative;
+}
+details.gallery summary::-webkit-details-marker {display:none;}
+details.gallery summary:after {content:"+";position:absolute;right:0;font-size:22px;color:var(--pink);}
+details.gallery[open] summary:after {content:"−";}
+.gallery-content {padding:0 0 22px;}
+.slideshow {position:relative;background:#17121e;border:1px dashed var(--purple-light);padding:14px;margin-top:12px;}
+.slide {display:none;}
+.slide.active {display:block;}
+.slide .image-placeholder {min-height:260px;}
+.slide img {display:block;width:100%;max-height:520px;object-fit:contain;background:#100d16;}
+.slide-caption {color:#d6cbdc;font-size:12px;line-height:1.6;margin:10px 2px 0;}
+.slide-controls {display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;flex-wrap:wrap;}
+.slide-controls button {background:var(--yellow);color:var(--ink);border:0;padding:9px 14px;font-weight:bold;cursor:pointer;}
+.slide-controls button:hover {background:var(--pink);}
+.slide-count {color:var(--pink);font-size:12px;letter-spacing:1px;}
+.audio-placeholder {display:block;width:100%;margin-top:12px;}
+.audio-placeholder audio {width:100%;}
+.gallery-content p {color:#d6cbdc;font-size:13px;line-height:1.7;}
+.gallery-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.gallery-grid .image-placeholder {min-height:150px;}
+.audio-list {display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+.audio-card {background:#21192b;padding:20px;border-top:3px solid var(--pink);}
+.audio-card h3 {color:var(--yellow);margin-top:0;}
+.audio-card p {font-size:13px;color:#d6cbdc;line-height:1.7;}
+audio {width:100%;margin-top:8px;}
+.slideshow {background:#20182a;border:1px dashed var(--purple-light);padding:14px;margin-top:12px;}
+.slide {display:none;}
+.slide.active {display:block;}
+.slide .image-placeholder {min-height:220px;}
+.slide-controls {display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap;}
+.slide-controls button {background:var(--yellow);color:var(--ink);border:0;padding:9px 13px;font-weight:bold;cursor:pointer;}
+.slide-controls button:hover {background:var(--pink);}
+.slide-count {color:var(--pink);font-size:12px;letter-spacing:1px;}
+.small-note {font-size:12px;color:#bcaec8;line-height:1.7;}
 
+.small-note {font-size:12px;color:#bcaec8;line-height:1.7;}
 footer {
-    text-align:center;
-    padding:40px;
-    color:var(--pink);
-    border-top:1px dashed var(--pink);
-    font-size:12px;
-    letter-spacing:2px;
+    text-align:center;padding:40px;color:var(--pink);
+    border-top:1px dashed var(--pink);font-size:12px;letter-spacing:2px;
 }
-
 @media(max-width:750px) {
     .floating-note {display:none;}
-    .grid,.character-grid {grid-template-columns:1fr;}
+    .grid,.character-grid,.audio-list {grid-template-columns:1fr;}
     .process {grid-template-columns:1fr 1fr;}
+    .gallery-grid {grid-template-columns:1fr 1fr;}
+    .timeline-entry {grid-template-columns:1fr;gap:8px;}
     .hero {padding:70px 7%;}
 }
-
 @media(max-width:450px) {
-    .process {grid-template-columns:1fr;}
+    .process,.gallery-grid {grid-template-columns:1fr;}
+    .paper {padding:24px;}
 }
 </style>
 </head>
 
 <body>
-
 <nav class="top-nav">
     <a class="back-button" href="index.html">← BACK TO PORTFOLIO</a>
     <span class="nav-label">PROJECT / 02</span>
@@ -309,14 +217,13 @@ footer {
         <h1>GROUP<br>PROJECT</h1>
         <div class="hero-subtitle">Making a game is easier when everyone agrees.</div>
         <p class="hero-description">
-            A collaborative game project involving characters,
-            relationships and player choices. This is where
-            I keep track of the ideas, development and work
-            I contributed along the way.
+            A narrative-driven management game about a group of university students trying to make a game together.
+            Players balance tasks, time, personal needs and relationships, with their choices shaping how the project
+            and the team turn out. This page documents the work I contributed across character art, 3D modelling,
+            animation, dialogue and audio.
         </p>
         <a href="#overview" class="button">TAKE A LOOK ↓</a>
     </div>
-
     <div class="floating-note note-one">REMEMBER TO<br>COMMUNICATE!!! ✦</div>
     <div class="floating-note note-two">THIS WAS<br>DEFINITELY<br>THE PLAN.</div>
     <div class="paper-corner"></div>
@@ -325,162 +232,122 @@ footer {
 <main>
 
 <section class="section" id="overview">
-    <div class="section-heading">
-        <span>01 / THE BRIEF</span>
-        <h2>What's the project?</h2>
-    </div>
-
+    <div class="section-heading"><span>01 / THE BRIEF</span><h2>What's the project?</h2></div>
     <div class="paper">
         <h3>A game made together</h3>
-        <p>
-            This was a university group project focused on
-            creating a relationship-management game. The project
-            involved developing a shared game concept around
-            a group of characters and the way their relationships
-            could change through player choices.
-        </p>
-        <p>
-            The aim of this page is to show the project as
-            a whole, but also make it clear which parts
-            I personally worked on.
-        </p>
+        <p>Group Project is a narrative-driven management game where the player takes the role of a student leading a university game-development team. The gameplay is built around balancing time, simplified production tasks, personal needs and relationships. Choices affect both the project and the team's morale, with failure coming from neglected work or relationships breaking down.</p>
+        <p>We wanted to make something aimed at late-teen and young-adult players, especially students and creatives. It is more about the emotional reality of trying to work together than being a complicated management simulator.</p>
+        <p>My main contributions were the full character art pipeline (concepts, models, textures, rigs and animations), all character and environmental dialogue, the 8-bit character voice sounds, and the main theme track. I have kept the team contributions separate where someone else made the work.</p>
+        <span class="tag">CHARACTER ART</span><span class="tag">3D MODELLING</span><span class="tag">ANIMATION</span><span class="tag">DIALOGUE</span><span class="tag">AUDIO</span>
     </div>
 </section>
 
-<section class="section">
-    <div class="section-heading">
-        <span>02 / THE CAST</span>
-        <h2>Meet the characters</h2>
-    </div>
-
+<section class="section" id="cast">
+    <div class="section-heading"><span>02 / THE CAST</span><h2>Meet the characters</h2></div>
+    <p class="small-note">I made all of the character models and animations. Each card has its own little slideshow, so you can add concepts, model views and in-game images without having everything on the page at once.</p>
     <div class="character-grid">
-
         <article class="character-card">
-            <div class="image-placeholder"><strong>NOTT</strong>Add character artwork here</div>
-            <h3>Nott</h3>
-            <p>Add their personality, role and your contribution to their design.</p>
+            <h3>Nott</h3><p>The player character. I created the model and animations, taking the original 2D design through to a usable in-game character.</p>
+            <div class="slideshow" data-slideshow><div class="slide active"><div class="image-placeholder"><strong>NOTT CONCEPT</strong>Add Nott's original concept / character sheet</div></div><div class="slide"><div class="image-placeholder"><strong>NOTT MODEL</strong>Add front, side or three-quarter model views</div></div><div class="slide"><div class="image-placeholder"><strong>NOTT IN-GAME</strong>Add Nott in the Unity build</div></div><div class="slide"><div class="image-placeholder"><strong>NOTT ANIMATION</strong>Add an idle animation GIF or video still</div></div><div class="slide-controls"><button type="button" data-prev>← PREVIOUS</button><span class="slide-count">1 / 4</span><button type="button" data-next>NEXT →</button></div></div>
         </article>
-
         <article class="character-card">
-            <div class="image-placeholder"><strong>BAM</strong>Add character artwork here</div>
-            <h3>Bam</h3>
-            <p>Add their personality, role and your contribution to their design.</p>
+            <h3>Bam</h3><p>One of the characters the player meets and builds a relationship with. Model and animations by me.</p>
+            <div class="slideshow" data-slideshow><div class="slide active"><div class="image-placeholder"><strong>BAM CONCEPT</strong>Add Bam's concept / character sheet</div></div><div class="slide"><div class="image-placeholder"><strong>BAM MODEL</strong>Add model views</div></div><div class="slide"><div class="image-placeholder"><strong>BAM IN-GAME</strong>Add an in-game screenshot</div></div><div class="slide"><div class="image-placeholder"><strong>BAM ANIMATION</strong>Add an animation GIF or video still</div></div><div class="slide-controls"><button type="button" data-prev>← PREVIOUS</button><span class="slide-count">1 / 4</span><button type="button" data-next>NEXT →</button></div></div>
         </article>
-
         <article class="character-card">
-            <div class="image-placeholder"><strong>TANG</strong>Add character artwork here</div>
-            <h3>Tang</h3>
-            <p>Add their personality, role and your contribution to their design.</p>
+            <h3>Tang</h3><p>I modelled and animated Tang using the same overall style. Her bow was one of my favourite details to make.</p>
+            <div class="slideshow" data-slideshow><div class="slide active"><div class="image-placeholder"><strong>TANG CONCEPT</strong>Add Tang's concept / character sheet</div></div><div class="slide"><div class="image-placeholder"><strong>TANG MODEL</strong>Add model views and bow detail</div></div><div class="slide"><div class="image-placeholder"><strong>TANG IN-GAME</strong>Add an in-game screenshot</div></div><div class="slide"><div class="image-placeholder"><strong>TANG ANIMATION</strong>Add an animation GIF or video still</div></div><div class="slide-controls"><button type="button" data-prev>← PREVIOUS</button><span class="slide-count">1 / 4</span><button type="button" data-next>NEXT →</button></div></div>
         </article>
-
         <article class="character-card">
-            <div class="image-placeholder"><strong>DRIP</strong>Add character artwork here</div>
-            <h3>Drip</h3>
-            <p>Add their personality, role and your contribution to their design.</p>
+            <h3>Drip</h3><p>Character model and animations created by me, following the design and colours established in the concept art.</p>
+            <div class="slideshow" data-slideshow><div class="slide active"><div class="image-placeholder"><strong>DRIP CONCEPT</strong>Add Drip's concept / character sheet</div></div><div class="slide"><div class="image-placeholder"><strong>DRIP MODEL</strong>Add model views and details</div></div><div class="slide"><div class="image-placeholder"><strong>DRIP IN-GAME</strong>Add an in-game screenshot</div></div><div class="slide"><div class="image-placeholder"><strong>DRIP ANIMATION</strong>Add an animation GIF or video still</div></div><div class="slide-controls"><button type="button" data-prev>← PREVIOUS</button><span class="slide-count">1 / 4</span><button type="button" data-next>NEXT →</button></div></div>
         </article>
-
         <article class="character-card">
-            <div class="image-placeholder"><strong>WILMA</strong>Add character artwork here</div>
-            <h3>Wilma</h3>
-            <p>Add their personality, role and your contribution to their design.</p>
+            <h3>Wilma</h3><p>Character model and animations created by me for the final game.</p>
+            <div class="slideshow" data-slideshow><div class="slide active"><div class="image-placeholder"><strong>WILMA CONCEPT</strong>Add Wilma's concept / character sheet</div></div><div class="slide"><div class="image-placeholder"><strong>WILMA MODEL</strong>Add model views</div></div><div class="slide"><div class="image-placeholder"><strong>WILMA IN-GAME</strong>Add an in-game screenshot</div></div><div class="slide"><div class="image-placeholder"><strong>WILMA ANIMATION</strong>Add an animation GIF or video still</div></div><div class="slide-controls"><button type="button" data-prev>← PREVIOUS</button><span class="slide-count">1 / 4</span><button type="button" data-next>NEXT →</button></div></div>
         </article>
-
     </div>
 </section>
 
-<section class="section">
-    <div class="section-heading">
-        <span>03 / MY PART</span>
-        <h2>What I actually did</h2>
-    </div>
-
+<section class="section" id="my-work">
+    <div class="section-heading"><span>03 / MY PART</span><h2>What I actually did</h2></div>
     <div class="grid">
         <div class="sticky">
-            <h3>✦ My contributions</h3>
-            <p>
-                List the characters, artwork, models, design
-                decisions or other work that you personally
-                completed.
-            </p>
-            <p>
-                Be specific about what you did rather than
-                describing the whole team's work as yours.
-            </p>
+            <h3>✦ Character art, models and animation</h3>
+            <p>I created the character artwork and took the full cast through the 3D pipeline. This included modelling, UVs, hand-painted textures, rigging, weight painting and the character animations used in the game.</p>
+            <p>I started with simple shapes and kept the silhouettes readable, as the characters needed to work with the game's low-poly style and be recognisable from the in-game camera. I also made 2D facial animation assets for dialogue.</p>
         </div>
-
         <div class="paper">
-            <h3>Evidence goes here</h3>
-            <p>
-                Add screenshots, sketches, model views,
-                development files and examples of your
-                own work.
-            </p>
-            <div class="image-placeholder">
-                <strong>MY WORK</strong>
-                Add a screenshot of your actual contribution
-            </div>
+            <h3>✦ Dialogue, voices and music</h3>
+            <p>I wrote all of the character dialogue and environmental dialogue, including the smaller lines players could discover by exploring and interacting with objects. I also wrote the main dialogue and progression document, with character profiles, relationships and dialogue choices linked to the relationship system.</p>
+            <p>For the character sounds, everyone recorded their actual voice saying the vowel sounds from their character's name. I edited these recordings, added a bit-crush effect and looped them to make short 8-bit-style sounds for the characters.</p>
+            <p>I composed the main theme track. The other in-game music and additional sound effects were made by another team member, so I am not claiming those as my own work.</p>
         </div>
     </div>
+    <div class="slideshow" data-slideshow style="margin-top:25px">
+        <div class="slide active"><div class="image-placeholder"><strong>CHARACTER DESIGN PROCESS</strong>Add sketches, silhouette tests and final character concepts</div></div>
+        <div class="slide"><div class="image-placeholder"><strong>MODELLING PROCESS</strong>Add Maya screenshots showing blockouts and model development</div></div>
+        <div class="slide"><div class="image-placeholder"><strong>UVS & TEXTURES</strong>Add UV layouts and hand-painted texture sheets</div></div>
+        <div class="slide"><div class="image-placeholder"><strong>RIGGING & WEIGHT PAINT</strong>Add rig and weight-paint screenshots</div></div>
+        <div class="slide"><div class="image-placeholder"><strong>ANIMATION</strong>Add animation timelines, key poses or GIFs</div></div>
+        <div class="slide"><div class="image-placeholder"><strong>2D FACIAL ANIMATION</strong>Add expression sheets / dialogue facial frames</div></div>
+        <div class="slide-controls"><button type="button" data-prev>← PREVIOUS</button><span class="slide-count">1 / 6</span><button type="button" data-next>NEXT →</button></div>
+    </div>
 </section>
 
-<section class="section">
-    <div class="section-heading">
-        <span>04 / THE PROCESS</span>
-        <h2>How it developed</h2>
-    </div>
-
+<section class="section" id="process">
+    <div class="section-heading"><span>04 / THE PROCESS</span><h2>How it developed</h2></div>
     <div class="process">
-
-        <article class="process-card">
-            <h3>01. Ideas</h3>
-            <p>Show the early concepts, planning and research.</p>
-        </article>
-
-        <article class="process-card">
-            <h3>02. Making</h3>
-            <p>Show your actual modelling, artwork or production process.</p>
-        </article>
-
-        <article class="process-card">
-            <h3>03. Testing</h3>
-            <p>Show playtesting, feedback and the changes made.</p>
-        </article>
-
-        <article class="process-card">
-            <h3>04. Final</h3>
-            <p>Show the finished game, presentation and outcome.</p>
-        </article>
-
+        <article class="process-card"><h3>01. Ideas</h3><p>I developed the character concepts and visual direction, using animal forms to keep the cast expressive and readable. I took inspiration from Animal Crossing, Night in the Woods and Over the Hedge.</p></article>
+        <article class="process-card"><h3>02. Making</h3><p>I moved the designs into Maya, then worked through modelling, UVs, hand-painted textures, rigging, weight painting and animation for the full cast.</p></article>
+        <article class="process-card"><h3>03. Writing & audio</h3><p>I wrote the character and environmental dialogue, made the 8-bit character voice sounds from our own recordings, and composed the main theme.</p></article>
+        <article class="process-card"><h3>04. Final</h3><p>I checked and finished the character assets for the final build, including the models, textures, rigs, animations and 2D facial assets.</p></article>
     </div>
+    <div class="slideshow" data-slideshow style="margin-top:25px">
+        <div class="slide active"><div class="image-placeholder"><strong>EARLY CONCEPTS</strong>Add early planning, concept sketches and design decisions</div></div>
+        <div class="slide"><div class="image-placeholder"><strong>MODEL DEVELOPMENT</strong>Add progress screenshots from Maya</div></div>
+        <div class="slide"><div class="image-placeholder"><strong>IN-ENGINE TESTING</strong>Add screenshots of the characters in Unity</div></div>
+        <div class="slide"><div class="image-placeholder"><strong>FINAL GAME</strong>Add final screenshots or footage stills</div></div>
+        <div class="slide-controls"><button type="button" data-prev>← PREVIOUS</button><span class="slide-count">1 / 4</span><button type="button" data-next>NEXT →</button></div>
+    </div>
+</section>
 
-    <div class="image-placeholder" style="margin-top:25px">
-        <strong>DEVELOPMENT BOARD</strong>
-        Add a selection of screenshots showing your project progressing
+<section class="section" id="audio">
+    <div class="section-heading"><span>05 / AUDIO & DIALOGUE</span><h2>Giving the game a voice</h2></div>
+    <div class="paper">
+        <h3>Character voices and main theme</h3>
+        <p>The character sounds were made from recordings of the actual team members. Each person recorded the vowel sounds from their character's name, and I edited these into short, bit-crushed 8-bit-style sounds. It meant the characters had their own little voices while still fitting the stylised look and feel of the game.</p>
+        <p>I also composed the main theme track in BandLab. The other game music and sound effects were created by another team member.</p>
+    </div>
+    <div class="grid" style="margin-top:25px">
+        <div class="character-card">
+            <h3>Main theme</h3>
+            <p>My main theme composition. Add your exported audio file to the folder shown below, or change the path to match the filename you use.</p>
+            <audio controls preload="none"><source src="audio/group-project-main-theme.mp3" type="audio/mpeg">Your browser does not support the audio player.</audio>
+            <p class="small-note">File path: <code>audio/group-project-main-theme.mp3</code></p>
+        </div>
+        <div class="character-card">
+            <h3>Character voice samples</h3>
+            <p>Combined sample of the 8-bit character sounds made from the team's recorded voices.</p>
+            <audio controls preload="none"><source src="audio/group-project-character-voices.mp3" type="audio/mpeg">Your browser does not support the audio player.</audio>
+            <p class="small-note">File path: <code>audio/group-project-character-voices.mp3</code></p>
+        </div>
+    </div>
+    <div class="slideshow" data-slideshow style="margin-top:25px">
+        <div class="slide active"><div class="image-placeholder"><strong>BANDLAB SESSION</strong>Add a screenshot of the main theme project / tracks</div></div>
+        <div class="slide"><div class="image-placeholder"><strong>CHARACTER VOICE PROCESS</strong>Add screenshots of the raw recordings and bit-crush editing</div></div>
+        <div class="slide"><div class="image-placeholder"><strong>INDIVIDUAL CHARACTER CLIPS</strong>Add a screenshot or cover image for individual voice samples</div></div>
+        <div class="slide-controls"><button type="button" data-prev>← PREVIOUS</button><span class="slide-count">1 / 3</span><button type="button" data-next>NEXT →</button></div>
     </div>
 </section>
 
 <section class="section">
-    <div class="section-heading">
-        <span>05 / LOOKING BACK</span>
-        <h2>What I learned</h2>
-    </div>
-
+    <div class="section-heading"><span>06 / LOOKING BACK</span><h2>What I learned</h2></div>
     <div class="reflection">
-        <p>
-            Use this space to reflect on the project honestly.
-            Explain what worked, what was difficult and
-            how you responded to problems.
-        </p>
-        <p>
-            Include an example of feedback you received,
-            what you changed because of it and what you
-            would do differently if you worked on the
-            project again.
-        </p>
-        <p>
-            Link the skills you developed to your future
-            career in character modelling and game art.
-        </p>
+        <p>This project gave me the chance to take the full character cast from 2D designs through to finished, animated 3D assets. I had to think about more than how each model looked on its own. They needed to be readable from the game's camera, fit the shared art direction and work with the rigs and animations needed in the final build.</p>
+        <p>Completing the full cast helped me become quicker and more confident with the character pipeline. There was still a difference in polish between some of the characters because of the time available, so next time I would plan the modelling, texturing and animation stages in more detail and leave more time for final checks.</p>
+        <p>Writing all of the character and environmental dialogue also made me think about how the characters' personalities and relationships come through in small interactions, not just the main conversations. Making the 8-bit voice sounds from our own recordings was a fun way to connect the team to the characters.</p>
+        <p>Overall, I developed my skills in 3D character modelling, texturing, rigging, weight painting, animation, 2D facial assets, dialogue writing and audio production. It also gave me experience of making work for a shared game, where the assets need to fit the project and actually function in-engine.</p>
     </div>
 </section>
 
@@ -491,5 +358,40 @@ footer {
     <p><a href="index.html">BACK TO THE PORTFOLIO</a></p>
 </footer>
 
+<script>
+document.querySelectorAll('[data-slideshow]').forEach(function(show) {
+    const slides = Array.from(show.querySelectorAll('.slide'));
+    const previous = show.querySelector('[data-prev]');
+    const next = show.querySelector('[data-next]');
+    const count = show.querySelector('.slide-count');
+    let current = 0;
+    function displaySlide(index) {
+        current = (index + slides.length) % slides.length;
+        slides.forEach(function(slide, i) { slide.classList.toggle('active', i === current); });
+        if (count) count.textContent = (current + 1) + ' / ' + slides.length;
+    }
+    if (previous) previous.addEventListener('click', function() { displaySlide(current - 1); });
+    if (next) next.addEventListener('click', function() { displaySlide(current + 1); });
+    displaySlide(0);
+});
+</script>
+
+<script>
+document.querySelectorAll('[data-slideshow]').forEach(function(show) {
+    const slides = Array.from(show.querySelectorAll('.slide'));
+    const previous = show.querySelector('[data-prev]');
+    const next = show.querySelector('[data-next]');
+    const count = show.querySelector('.slide-count');
+    let current = 0;
+    function displaySlide(index) {
+        current = (index + slides.length) % slides.length;
+        slides.forEach(function(slide, i) { slide.classList.toggle('active', i === current); });
+        if (count) count.textContent = (current + 1) + ' / ' + slides.length;
+    }
+    if (previous) previous.addEventListener('click', function() { displaySlide(current - 1); });
+    if (next) next.addEventListener('click', function() { displaySlide(current + 1); });
+    displaySlide(0);
+});
+</script>
 </body>
 </html>
