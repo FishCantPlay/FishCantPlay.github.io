@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,10 +18,8 @@
     --ink:#241B18;
     --cream:#EEE2C7;
 }
-
 * {box-sizing:border-box;}
 html {scroll-behavior:smooth;}
-
 body {
     margin:0;
     background:
@@ -32,9 +29,7 @@ body {
     color:var(--cream);
     font-family:Georgia,"Times New Roman",serif;
 }
-
 a {color:inherit;}
-
 .top-nav {
     padding:18px 7%;
     display:flex;
@@ -42,20 +37,13 @@ a {color:inherit;}
     background:#1a110e;
     border-bottom:1px solid var(--paper);
 }
-
 .back-button {
     color:var(--paper);
     text-decoration:none;
     font-size:12px;
     letter-spacing:2px;
 }
-
-.nav-label {
-    color:var(--blue);
-    font-size:11px;
-    letter-spacing:3px;
-}
-
+.nav-label {color:var(--blue);font-size:11px;letter-spacing:3px;}
 .hero {
     position:relative;
     text-align:center;
@@ -66,500 +54,327 @@ a {color:inherit;}
         var(--brown);
     border-bottom:6px double var(--paper);
 }
-
 .hero::before,.hero::after {
-    content:"✦";
-    position:absolute;
-    color:var(--paper);
-    font-size:35px;
+    content:"✦";position:absolute;color:var(--paper);font-size:35px;
 }
-
 .hero::before {top:40px;left:15%;}
 .hero::after {bottom:35px;right:15%;}
-
-.chapter {
-    color:var(--blue);
-    letter-spacing:5px;
-    font-size:12px;
-}
-
+.chapter {color:var(--blue);letter-spacing:5px;font-size:12px;}
 .hero h1 {
-    font-size:clamp(55px,10vw,105px);
-    font-weight:normal;
-    line-height:1;
-    margin:30px 0;
-    color:var(--paper-light);
-    text-shadow:3px 4px 0 var(--red);
+    font-size:clamp(55px,10vw,105px);font-weight:normal;line-height:1;
+    margin:30px 0;color:var(--paper-light);text-shadow:3px 4px 0 var(--red);
 }
-
-.flourish {
-    color:var(--paper);
-    font-size:28px;
-    letter-spacing:12px;
-}
-
+.flourish {color:var(--paper);font-size:28px;letter-spacing:12px;}
 .hero-subtitle {
-    max-width:650px;
-    margin:25px auto;
-    font-style:italic;
-    line-height:1.9;
-    color:var(--paper-light);
-    font-size:18px;
+    max-width:700px;margin:25px auto;font-style:italic;line-height:1.9;
+    color:var(--paper-light);font-size:18px;
 }
-
-.hero-description {
-    color:#d2c2a5;
-    max-width:650px;
-    margin:20px auto;
-    line-height:1.8;
-}
-
-main {
-    max-width:1100px;
-    padding:50px 6%;
-    margin:auto;
-}
-
-.section {
-    margin:70px 0;
-    scroll-margin-top:30px;
-}
-
-.chapter-heading {
-    text-align:center;
-    margin-bottom:30px;
-}
-
-.chapter-heading span {
-    color:var(--blue);
-    letter-spacing:4px;
-    font-size:11px;
-}
-
-.chapter-heading h2 {
-    font-size:34px;
-    font-weight:normal;
-    color:var(--paper);
-    margin:15px 0;
-}
-
-.ornament {
-    text-align:center;
-    color:var(--red);
-    letter-spacing:10px;
-    margin:20px;
-}
-
+.hero-description {color:#d2c2a5;max-width:700px;margin:20px auto;line-height:1.8;}
+main {max-width:1100px;padding:50px 6%;margin:auto;}
+.section {margin:70px 0;scroll-margin-top:30px;}
+.chapter-heading {text-align:center;margin-bottom:30px;}
+.chapter-heading span {color:var(--blue);letter-spacing:4px;font-size:11px;}
+.chapter-heading h2 {font-size:34px;font-weight:normal;color:var(--paper);margin:15px 0;}
+.ornament {text-align:center;color:var(--red);letter-spacing:10px;margin:20px;}
 .paper {
     padding:40px;
-    background:
-        radial-gradient(circle at 10% 20%,rgba(255,255,255,.2),transparent 40%),
-        var(--paper);
-    color:var(--ink);
-    box-shadow:0 0 0 5px var(--brown-light),0 0 0 7px var(--paper);
+    background:radial-gradient(circle at 10% 20%,rgba(255,255,255,.2),transparent 40%),var(--paper);
+    color:var(--ink);box-shadow:0 0 0 5px var(--brown-light),0 0 0 7px var(--paper);
     line-height:1.9;
 }
-
-.paper h3 {
-    color:var(--red);
-    font-weight:normal;
-    font-size:24px;
-}
-
+.paper h3 {color:var(--red);font-weight:normal;font-size:24px;}
 .paper p {font-size:15px;}
-
-.two-column {
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
-    align-items:center;
-}
-
+.two-column {display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;}
 .image-placeholder {
-    min-height:280px;
-    padding:25px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    background:
-        linear-gradient(135deg,rgba(139,48,41,.2),transparent),
-        #32231d;
-    border:3px double var(--paper);
-    color:var(--paper);
-    font-size:12px;
-    line-height:1.7;
+    min-height:230px;padding:25px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;
+    background:linear-gradient(135deg,rgba(139,48,41,.2),transparent),#32231d;
+    border:3px double var(--paper);color:var(--paper);font-size:12px;line-height:1.7;
 }
-
-.image-placeholder strong {
-    display:block;
-    font-size:16px;
-    margin-bottom:12px;
-    color:var(--blue);
-}
-
-.image-placeholder img {
-    width:100%;
-    height:100%;
-    object-fit:contain;
-}
-
-.grid {
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:25px;
-}
-
-.card {
-    background:#30221b;
-    border:1px solid var(--paper);
-    padding:20px;
-    transition:.3s;
-}
-
-.card:hover {
-    transform:translateY(-5px);
-    border-color:var(--blue);
-}
-
-.card h3 {
-    color:var(--paper);
-    font-weight:normal;
-    font-size:21px;
-}
-
-.card p {
-    color:#d2c2a5;
-    font-size:14px;
-    line-height:1.8;
-}
-
-.process {
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-}
-
-.process-card {
-    padding:22px;
-    background:rgba(118,83,68,.3);
-    border-top:2px solid var(--blue);
-}
-
-.process-card h3 {
-    color:var(--paper);
-    font-weight:normal;
-}
-
-.process-card p {
-    color:#d2c2a5;
-    line-height:1.7;
-    font-size:13px;
-}
-
+.image-placeholder strong {display:block;font-size:16px;margin-bottom:12px;color:var(--blue);}
+.image-placeholder img {width:100%;height:100%;object-fit:contain;}
+.grid {display:grid;grid-template-columns:repeat(2,1fr);gap:25px;}
+.card {background:#30221b;border:1px solid var(--paper);padding:20px;transition:.3s;}
+.card:hover {transform:translateY(-3px);border-color:var(--blue);}
+.card h3 {color:var(--paper);font-weight:normal;font-size:21px;}
+.card p {color:#d2c2a5;font-size:14px;line-height:1.8;}
+.process {display:grid;grid-template-columns:repeat(4,1fr);gap:15px;}
+.process-card {padding:22px;background:rgba(118,83,68,.3);border-top:2px solid var(--blue);}
+.process-card h3 {color:var(--paper);font-weight:normal;}
+.process-card p {color:#d2c2a5;line-height:1.7;font-size:13px;}
 .tag {
-    display:inline-block;
-    border:1px solid var(--blue);
-    color:var(--blue);
-    padding:6px 10px;
-    font-family:Arial,sans-serif;
-    font-size:10px;
-    letter-spacing:2px;
-    margin:4px;
+    display:inline-block;border:1px solid var(--blue);color:var(--blue);padding:6px 10px;
+    font-family:Arial,sans-serif;font-size:10px;letter-spacing:2px;margin:4px;
 }
-
-.reflection {
-    padding:35px;
-    background:rgba(139,48,41,.14);
-    border:1px solid var(--red);
-    line-height:1.9;
-}
-
+.reflection {padding:35px;background:rgba(139,48,41,.14);border:1px solid var(--red);line-height:1.9;}
 .button {
-    display:inline-block;
-    padding:13px 22px;
-    border:1px solid var(--paper);
-    color:var(--paper);
-    text-decoration:none;
-    font-size:11px;
-    letter-spacing:3px;
+    display:inline-block;padding:13px 22px;border:1px solid var(--paper);color:var(--paper);
+    text-decoration:none;font-size:11px;letter-spacing:3px;cursor:pointer;background:transparent;
+    font-family:Georgia,"Times New Roman",serif;
 }
-
-.button:hover {
-    background:var(--paper);
-    color:var(--ink);
+.button:hover {background:var(--paper);color:var(--ink);}
+.section-intro {max-width:800px;margin:0 auto 28px;text-align:center;color:#d2c2a5;line-height:1.9;font-size:14px;}
+.gallery-grid {display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+.gallery-card {background:#30221b;border:1px solid var(--paper);padding:18px;}
+.gallery-card h3 {color:var(--paper);font-weight:normal;font-size:20px;margin:14px 0 8px;}
+.gallery-card p {color:#d2c2a5;font-size:13px;line-height:1.7;min-height:44px;}
+.gallery-preview {
+    min-height:160px;display:flex;align-items:center;justify-content:center;text-align:center;
+    padding:20px;background:#241914;border:1px dashed var(--blue);color:var(--blue);
+    font-size:12px;line-height:1.7;
 }
-
-footer {
-    text-align:center;
-    padding:40px;
-    border-top:4px double var(--paper);
-    color:var(--paper);
-    font-size:12px;
-    letter-spacing:3px;
+.gallery-preview img {max-width:100%;max-height:220px;object-fit:contain;}
+.gallery-card .button {margin-top:8px;}
+.media-grid {display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+.media-card {background:#30221b;border:1px solid var(--paper);padding:24px;}
+.media-card h3 {color:var(--paper);font-weight:normal;font-size:22px;margin-top:0;}
+.media-card p {color:#d2c2a5;font-size:14px;line-height:1.8;}
+.media-card audio {width:100%;margin:12px 0;}
+.media-note {font-size:12px!important;color:var(--blue)!important;}
+.gallery-modal {
+    display:none;position:fixed;inset:0;z-index:1000;background:rgba(12,8,6,.94);
+    padding:30px 18px;align-items:center;justify-content:center;
 }
-
+.gallery-modal.open {display:flex;}
+.modal-inner {width:min(900px,100%);max-height:92vh;display:flex;flex-direction:column;align-items:center;}
+.modal-top {width:100%;display:flex;justify-content:space-between;align-items:center;color:var(--paper);margin-bottom:12px;}
+.modal-title {letter-spacing:2px;font-size:13px;color:var(--blue);}
+.modal-image-wrap {
+    width:100%;height:min(65vh,650px);display:flex;align-items:center;justify-content:center;
+    background:#241914;border:2px double var(--paper);padding:15px;color:var(--paper);
+    text-align:center;line-height:1.8;
+}
+.modal-image-wrap img {max-width:100%;max-height:100%;object-fit:contain;}
+.modal-caption {color:var(--cream);line-height:1.7;text-align:center;max-width:750px;margin:14px 0;}
+.modal-controls {display:flex;align-items:center;gap:18px;}
+.modal-count {color:var(--blue);font-size:12px;letter-spacing:2px;min-width:70px;text-align:center;}
+.close-modal {border:0;background:none;color:var(--paper);font-size:28px;cursor:pointer;}
+.reflection p {margin:0 0 16px;}
+footer {text-align:center;padding:40px;border-top:4px double var(--paper);color:var(--paper);font-size:12px;letter-spacing:3px;}
 footer a {color:var(--blue);}
-
 @media(max-width:750px) {
-    .two-column,.grid {grid-template-columns:1fr;}
+    .two-column,.grid,.gallery-grid,.media-grid {grid-template-columns:1fr;}
     .process {grid-template-columns:1fr 1fr;}
     .hero {padding:80px 6%;}
 }
-
 @media(max-width:450px) {
     .process {grid-template-columns:1fr;}
     .paper {padding:22px;}
+    .top-nav {padding:16px 5%;gap:12px;}
+    .nav-label {font-size:9px;}
 }
 </style>
 </head>
 
 <body>
-
 <nav class="top-nav">
     <a class="back-button" href="index.html">← BACK TO PORTFOLIO</a>
     <span class="nav-label">PROJECT / 01</span>
 </nav>
 
 <header class="hero">
-
-    <div class="chapter">A STORY ABOUT STORIES, ESCAPISM AND CREATIVE DESTRUCTION</div>
-
+    <div class="chapter">A TALE THAT REFUSES TO END</div>
     <h1>Bibliocide</h1>
-
     <div class="flourish">✦ ❧ ✦</div>
-
-    <p class="hero-subtitle">
-        A fairytale world, a little rat companion, and a collection
-        of stories that are not quite what they seem.
-    </p>
-
+    <p class="hero-subtitle">Every story has an ending. What happens when someone refuses to let it happen?</p>
     <p class="hero-description">
-        Bibliocide is a puzzle adventure game where the player travels
-        through familiar fairytale-inspired rooms with a small rat
-        companion, solving puzzles and recovering books before
-        reaching the furnace at the end.
+        A first-person puzzle game about twisted fairytales, escapism and the uncomfortable point
+        where fiction stops being a safe place to hide.
     </p>
-
     <a href="#story" class="button">TURN THE PAGE</a>
-
 </header>
 
 <main>
-
 <section class="section" id="story">
-
-    <div class="chapter-heading">
-        <span>CHAPTER I</span>
-        <h2>The Story</h2>
-        <div class="ornament">❧ ✦ ❧</div>
-    </div>
-
+    <div class="chapter-heading"><span>CHAPTER I</span><h2>The Story</h2><div class="ornament">❧ ✦ ❧</div></div>
     <div class="two-column">
-
         <div class="paper">
             <h3>Once upon a time...</h3>
-            <p>
-                Bibliocide grew out of my interest in the way stories can be
-                used as an escape, and what happens when that escape
-                becomes something you cannot leave behind. The player
-                moves through a series of storybook rooms, each based
-                on a familiar fairytale, with a small rat companion
-                helping them solve puzzles and recover books.
-            </p>
-            <p>
-                The original idea I brought to the project was about a
-                plagiarist stealing other artists' work, with burning
-                the stolen pieces representing destruction, guilt and
-                erasure. Once the group formed, I suggested combining
-                that idea with fairytales. The books and final furnace
-                kept the theme of creative destruction, while the
-                fairytale rooms gave us a clear structure for the game.
-            </p>
+            <p>Bibliocide is a first-person puzzle game about escaping escapism. It opens with the player finding a rat clawing at a locked door. After picking it up and entering, they are pulled into a warped fairytale world where familiar stories have become increasingly unsettling.</p>
+            <p>With the rat as a companion, the player works through the fairytale rooms, solving puzzles and collecting books. The journey ends at the furnace, where the player has to choose between returning to the comfort of fantasy or rejecting it and facing reality.</p>
+            <p>The game is not really about saving a world. It is about recognising when something that once felt comforting has become a way of avoiding reality, and how difficult it can be to let that go.</p>
         </div>
-
-        <div class="image-placeholder">
-            <strong>THE WORLD OF BIBLIOCIDE</strong>
-            Storybook rooms, fairytale references and the furnace finale
-        </div>
-
+        <div class="image-placeholder"><strong>THE WORLD OF BIBLIOCIDE</strong>Replace this with a main game screenshot, key artwork or a screenshot that shows the overall visual style.</div>
     </div>
-
 </section>
 
-<section class="section">
-
-    <div class="chapter-heading">
-        <span>CHAPTER II</span>
-        <h2>A World Between the Pages</h2>
-        <div class="ornament">✦ ❧ ✦</div>
-    </div>
-
+<section class="section" id="gameplay">
+    <div class="chapter-heading"><span>CHAPTER II</span><h2>A World Between the Pages</h2><div class="ornament">✦ ❧ ✦</div></div>
+    <p class="section-intro">The game moves through a series of fairytale rooms. The plan changed during development, so this is the final intended flow rather than every idea making it into the build.</p>
     <div class="grid">
-
         <article class="card">
-            <div class="image-placeholder">
-                <strong>ENVIRONMENT</strong>
-                My opening hallway, Cinderella's room, Jack's room and furnace concepts
-            </div>
-            <h3>The World</h3>
-            <p>
-                I designed concepts for the opening hallway, Cinderella's
-                room, Jack's room and the furnace finale. I kept the
-                opening room simple and planned for reusable assets
-                such as boxes, furniture and candles so the visual
-                workload stayed manageable.
-            </p>
+            <div class="image-placeholder"><strong>CINDERELLA'S ROOM</strong>Insert a screenshot of the room or its puzzle.</div>
+            <h3>Cinderella's Room</h3>
+            <p>The player gathers five items for Cinderella and places them on the central table. Once the set is complete, an unexpected sixth slot appears and Cinderella demands one of her sister's eyes. The rat was also intended to retrieve an item from a cupboard that the player could not reach.</p>
         </article>
-
         <article class="card">
-            <div class="image-placeholder">
-                <strong>PUZZLE DESIGN</strong>
-                Room layouts, puzzle notes and rat interaction concepts
-            </div>
-            <h3>The Puzzles</h3>
-            <p>
-                The core loop was to enter a fairytale room, use the rat and
-                environmental clues to solve puzzles, collect a book
-                and move on to the next room. I pushed for one
-                consistent fetch/interact behaviour for the rat rather
-                than giving it a different ability in every level.
-                That would make the controls easier to learn and help
-                keep the scope under control.
-            </p>
+            <div class="image-placeholder"><strong>JACK'S ROOM</strong>Insert a screenshot of the beanstalk, goose or Bean Seller.</div>
+            <h3>Jack's Room</h3>
+            <p>The Bean Seller trades fertiliser for coins, which the rat helps retrieve through mouseholes. The player uses the fertiliser to grow the beanstalk in stages, then buys a special bean to scare the goose away from the book it guards. The original idea was more mechanically layered, but was simplified during development.</p>
         </article>
-
+        <article class="card">
+            <div class="image-placeholder"><strong>PLANNED ALICE ROOM</strong>Insert the concept art if you want to show the cut room.</div>
+            <h3>The Alice Room — Cut</h3>
+            <p>This planned room was based on Alice in Wonderland. The player would shrink after eating a cake, avoid a hostile White Rabbit and use the rat's squeaks as an audio cue while navigating a stealth section. It was cut because of time and technical limitations, so it did not make it into the final game.</p>
+        </article>
+        <article class="card">
+            <div class="image-placeholder"><strong>THE FURNACE ROOM</strong>Insert the final room screenshot or ending image.</div>
+            <h3>The Furnace Room</h3>
+            <p>The final room presents the player with the books they have collected. The Narrator tries to persuade them to sit down, read and return to the stories. The player can remain in the chair and surrender to escapism, or burn the books and leave the fairytale world behind. If they burn the books, the rat jumps into the fire and the player returns to reality alone.</p>
+        </article>
     </div>
-
 </section>
 
-<section class="section">
-
-    <div class="chapter-heading">
-        <span>CHAPTER III</span>
-        <h2>Making the Story</h2>
-        <div class="ornament">❧ ✦ ❧</div>
-    </div>
-
-    <div class="process">
-
-        <article class="process-card">
-            <h3>01. Research</h3>
-            <p>I started with my own idea about plagiarism and creative destruction, then explored how it could be combined with fairytales and a storybook atmosphere.</p>
-        </article>
-
-        <article class="process-card">
-            <h3>02. Concept</h3>
-            <p>I sketched the hallway, a sample puzzle room and the furnace to help the group understand the layout. I also explored Cinderella and the stepsisters as cardboard cut-outs, plus two different directions for the White Rabbit.</p>
-        </article>
-
-        <article class="process-card">
-            <h3>03. Production</h3>
-            <p>I produced room concepts, the goose reference sheet, the rat's idle art and scratching animation, a rat run cycle, music experiments and Cinderella's recorded voice lines.</p>
-        </article>
-
-        <article class="process-card">
-            <h3>04. Evaluation</h3>
-            <p>Pitch feedback supported keeping the rat's behaviour consistent and making the workload modular. Graybox testing was positive overall, although several of my finished assets had not been added to the build.</p>
-        </article>
-
-    </div>
-
-</section>
-
-<section class="section">
-
-    <div class="chapter-heading">
-        <span>CHAPTER IV</span>
-        <h2>My Part in the Story</h2>
-        <div class="ornament">✦ ❧ ✦</div>
-    </div>
-
+<section class="section" id="my-role">
+    <div class="chapter-heading"><span>CHAPTER III</span><h2>My Part in the Story</h2><div class="ornament">❧ ✦ ❧</div></div>
     <div class="paper">
-
-        <h3>My contribution</h3>
-
-        <p>
-            I ended up taking on the project lead role, even though I
-            hadn't set out to do that at the beginning. I wrote and
-            maintained the Game Design Document, organised the
-            direction of the project, helped shape the pitch and
-            produced a large amount of the visual and audio work.
-            I tried to keep the project organised and make sure
-            everyone had a shared idea of what we were making.
-        </p>
-
-        <p>
-            My visual work included the early room and layout sketches,
-            the Cinderella and stepsister concepts, two White Rabbit
-            designs, the Cinderella room, Jack's room, hallway and
-            furnace concepts, and an Embden goose reference sheet
-            for Jane's 3D model. I also created the rat's idle UI art,
-            its scratching animation and its run cycle in Clip Studio
-            Paint. For audio, I made an atmospheric main menu theme
-            in BandLab and recorded Cinderella's lines on my Blue
-            Yeti. I also helped rewrite the Cinderella room script
-            so clues and dialogue appeared in the right order.
-        </p>
-
-        <div class="image-placeholder">
-            <strong>MY DEVELOPMENT EVIDENCE</strong>
-            Concept sketches, room plans, rat artwork and animation, music and voice recordings
+        <h3>More than just the art</h3>
+        <p>My role ended up being a lot broader than I originally expected. I came into the project wanting to focus mainly on 2D character work and voice acting, but I gradually became the project lead and took responsibility for a lot of the organisation, documentation and creative direction as well.</p>
+        <p>I wrote the X-Statement, Aesthetic and Game Concept sections of the Group Design Document, helped shape the game's tone and narrative direction, and structured most of the pitch presentation. I also set up the Trello board, assigned responsibilities, maintained the priority task list and tried to keep communication and production moving.</p>
+        <p>Creatively, I produced character concepts, finished illustrations, rat animations, environmental concepts, a visual style mockup, voice acting and the main menu music. I also helped refine scripts, puzzle flow and playtest feedback. The sections below separate the work into galleries so the page doesn't become one massive wall of images.</p>
+        <div>
+            <span class="tag">PROJECT LEAD</span><span class="tag">2D ART</span><span class="tag">ANIMATION</span>
+            <span class="tag">VOICE ACTING</span><span class="tag">MUSIC</span><span class="tag">CONCEPT DESIGN</span>
         </div>
-
     </div>
-
 </section>
 
-<section class="section">
+<section class="section" id="artwork">
+    <div class="chapter-heading"><span>CHAPTER IV</span><h2>Artwork & Visual Development</h2><div class="ornament">✦ ❧ ✦</div></div>
+    <p class="section-intro">I've kept the artwork in a few small slideshows so the page stays readable. The galleries show the development from early concepts to the finished pieces, with short notes on the decisions behind them.</p>
 
-    <div class="chapter-heading">
-        <span>CHAPTER V</span>
-        <h2>What I Learned</h2>
-        <div class="ornament">❧ ✦ ❧</div>
+    <div class="gallery-grid">
+        <article class="gallery-card">
+            <div class="gallery-preview">CHARACTER CONCEPTS<br>Cinderella, Stepsisters, White Rabbit & Goose</div>
+            <h3>Character Concepts</h3>
+            <p>Early character exploration, reference choices and alternative designs before the final artwork.</p>
+            <button class="button" onclick="openGallery('characterConcepts')">VIEW SLIDES</button>
+        </article>
+        <article class="gallery-card">
+            <div class="gallery-preview">ENVIRONMENT CONCEPTS<br>Room layouts, spatial sketches & prop style</div>
+            <h3>Environment Concepts</h3>
+            <p>Rough layout sketches, polished room plans and the crate style mockup I made to communicate the visual direction.</p>
+            <button class="button" onclick="openGallery('environmentConcepts')">VIEW SLIDES</button>
+        </article>
+        <article class="gallery-card">
+            <div class="gallery-preview">FINISHED CHARACTER ART<br>Cinderella, Stepsisters, Rat & Bean Seller</div>
+            <h3>Finished Character Artwork</h3>
+            <p>Cleaned-up illustrations and the character sprites prepared for use in the game.</p>
+            <button class="button" onclick="openGallery('finishedCharacters')">VIEW SLIDES</button>
+        </article>
+        <article class="gallery-card">
+            <div class="gallery-preview">RAT ANIMATION<br>Idle, scratch & run cycle</div>
+            <h3>Rat Animation</h3>
+            <p>The frame-by-frame process, including how I adapted real movement references to fit the game's rough storybook style.</p>
+            <button class="button" onclick="openGallery('ratAnimation')">VIEW SLIDES</button>
+        </article>
+        <article class="gallery-card">
+            <div class="gallery-preview">EARLY PERSONAL CONCEPT<br>Plagiarism theme & Frogger</div>
+            <h3>Original Concept</h3>
+            <p>The idea I explored before group formation, including the early visual experiments that fed into Bibliocide's themes.</p>
+            <button class="button" onclick="openGallery('earlyConcept')">VIEW SLIDES</button>
+        </article>
+        <article class="gallery-card">
+            <div class="gallery-preview">PITCH & PLAYTEST<br>Planning, greybox & second build</div>
+            <h3>Project Evidence</h3>
+            <p>Selected evidence of the pitch, documentation and how the game changed between playtests.</p>
+            <button class="button" onclick="openGallery('projectEvidence')">VIEW SLIDES</button>
+        </article>
     </div>
+</section>
 
+<section class="section" id="audio">
+    <div class="chapter-heading"><span>CHAPTER V</span><h2>Voice Acting & Music</h2><div class="ornament">❧ ✦ ❧</div></div>
+    <p class="section-intro">I recorded the dialogue and composed the music in BandLab. The players below are ready for the exported audio files; I just need to add each file to the audio folder and update its path.</p>
+    <div class="media-grid">
+        <article class="media-card">
+            <h3>Voice Acting — Cinderella</h3>
+            <p>I recorded all of Cinderella's dialogue using my Blue Yeti microphone and edited the clips in BandLab. I recorded several takes with different deliveries, ranging from warm and gentle to more detached, so the team could choose what suited the character. I used noise gates to reduce background noise, although I didn't have a soundproof recording space.</p>
+            <audio controls preload="none"><source src="audio/cinderella-dialogue.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
+            <p class="media-note">Add the exported Cinderella dialogue here: <code>audio/cinderella-dialogue.mp3</code></p>
+        </article>
+        <article class="media-card">
+            <h3>Voice Acting — The Narrator</h3>
+            <p>I wrote and performed the Narrator's final monologue. I wanted the speech to feel coaxing and comforting on the surface, but increasingly manipulative. The monologue was designed to be interrupted by the player's interaction with the chair, so the player could physically interrupt the attempt to pull them back into escapism.</p>
+            <audio controls preload="none"><source src="audio/narrator-monologue.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
+            <p class="media-note">Add the exported Narrator monologue here: <code>audio/narrator-monologue.mp3</code></p>
+        </article>
+        <article class="media-card">
+            <h3>Main Menu Music</h3>
+            <p>I composed the main menu track in BandLab using my voice because I didn't have the cable needed to connect my keyboard to my PC. I layered a low humming loop with higher harmonies, then added free-use sounds of a fireplace, turning pages and a book being placed down. The humming developed a violin-like quality, which I kept because it suited the mournful fairytale atmosphere.</p>
+            <audio controls preload="none"><source src="audio/main-menu-theme.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
+            <p class="media-note">Add the exported main menu track here: <code>audio/main-menu-theme.mp3</code></p>
+        </article>
+        <article class="media-card">
+            <h3>Experimental Ending Track — Unfinished</h3>
+            <p>I also started a second piece for the ending where the player stays in the chair. I used soft layered vocal tones and a high-pitched frequency that gradually intensified, intended to suggest dissociation and the slow loss of awareness. I never finished this track, so this is an optional space for a work-in-progress excerpt rather than a finished game asset.</p>
+            <audio controls preload="none"><source src="audio/ending-experiment.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
+            <p class="media-note">Optional work-in-progress excerpt: <code>audio/ending-experiment.mp3</code>. This track was not finished or used in the game.</p>
+        </article>
+    </div>
+</section>
+
+<section class="section" id="process">
+    <div class="chapter-heading"><span>CHAPTER VI</span><h2>How I Worked</h2><div class="ornament">✦ ❧ ✦</div></div>
+    <div class="process">
+        <article class="process-card"><h3>01. Planning</h3><p>I used Clip Studio Paint for the 2D work and Trello to organise tasks, assets and priorities. I also wrote key sections of the GDD and helped define the game's direction.</p></article>
+        <article class="process-card"><h3>02. Creating</h3><p>I made character concepts, finished illustrations, room layouts and animation cycles. I used visual references and simplified details where they better suited the game's style.</p></article>
+        <article class="process-card"><h3>03. Audio</h3><p>I recorded dialogue and composed the menu music in BandLab, working around the equipment I had available and editing the audio for use in the game.</p></article>
+        <article class="process-card"><h3>04. Testing</h3><p>I helped organise playtesting, contributed to the feedback form, looked for sequence breaks and considered how player feedback related to the intended experience.</p></article>
+    </div>
+</section>
+
+<section class="section" id="team">
+    <div class="chapter-heading"><span>CHAPTER VII</span><h2>Project Organisation & Teamwork</h2><div class="ornament">❧ ✦ ❧</div></div>
+    <div class="paper">
+        <h3>Keeping the project moving</h3>
+        <p>I became project lead because the group needed someone to give the work some structure. I set up the Trello board, divided responsibilities around the strengths people said they had, maintained the priority task list and attended all but one of our Tuesday Scrum meetings. I also wrote the X-Statement, Aesthetic and Game Concept sections of the GDD, and took primary responsibility for restructuring the pitch presentation after the shared slides became unfocused.</p>
+        <p>In practice, I spent a lot of time trying to keep everyone working from the same plan. We had recurring communication problems, tasks were not always updated, and some decisions were made in private conversations rather than in the group channels. I repeatedly had to clarify what had been agreed and bring the discussion back to the shared project.</p>
+        <p>One of the biggest problems was the gap between the assets being made and the assets being implemented. At the greybox playtest, my rat sprites, animations, Cinderella artwork, voice lines and main menu music were not in the build, despite having been submitted. The second playtest was much closer to what we had planned, with most of these assets finally included. There were still implementation issues, including the rat run animation moving backwards instead of flipping direction and some prepared incorrect-item dialogue not being used.</p>
+        <p>I also helped with script revisions, clarified puzzle flow, posed for reference photographs and supported the playtest process. I tried to keep the project realistic when scope became too large, including supporting a consistent rat interaction mechanic rather than introducing a new ability in every room. The Alice room was ultimately cut because of time and technical limitations.</p>
+        <p>This role taught me that having a plan is only one part of project management. People need to communicate, update their progress and take responsibility for their part of the work. I was able to keep producing my own assets, but the amount of time spent organising and correcting problems reduced the time I could spend on the creative work I originally wanted to focus on.</p>
+    </div>
+</section>
+
+<section class="section" id="playtesting">
+    <div class="chapter-heading"><span>CHAPTER VIII</span><h2>Playtesting & Evaluation</h2><div class="ornament">✦ ❧ ✦</div></div>
+    <div class="two-column">
+        <div class="paper">
+            <h3>From greybox to a fuller game</h3>
+            <p>The first greybox test showed that the core layout and concept were understandable, and players responded well to the idea, level design and dialogue. Some people found the subtitles too fast to read, which reinforced why I wanted the voice acting included. The test also exposed that many of our completed assets had not yet been integrated.</p>
+            <p>By the second playtest, the game felt much more complete. The artwork, rat animations, voice acting and main menu music were present. Players responded positively to the atmosphere, the spoken dialogue and the rat's personality. Some technical issues remained, including the rat moving backwards during its run animation and bugs that could interrupt progression.</p>
+            <p>I was pleased that players enjoyed the game and that the art and audio were noticed. At the same time, I could see how much stronger the final experience could have been with better communication and a more reliable implementation process.</p>
+        </div>
+        <div class="image-placeholder"><strong>PLAYTEST COMPARISON</strong>Use this space for a greybox screenshot beside a screenshot from the second playtest, or open the playtest slideshow above.</div>
+    </div>
+</section>
+
+<section class="section" id="reflection">
+    <div class="chapter-heading"><span>CHAPTER IX</span><h2>What I Learned</h2><div class="ornament">❧ ✦ ❧</div></div>
     <div class="reflection">
-        <p>
-            One of the best parts of this project was getting to work across
-            different areas instead of only doing one type of art. I
-            got to experiment with character concepts, environment
-            planning, animation, music and voice acting. I was also
-            happy that the pitch was well received and that people
-            playing the graybox responded positively to the concept
-            and level design.
-        </p>
-
-        <p>
-            The hardest part was balancing making the work myself with
-            trying to keep the group organised. I spent a lot of time
-            rewriting, clarifying and chasing things because updates
-            were not always shared and decisions sometimes changed
-            without everyone knowing. At the graybox test, the rat
-            sprites, menu music, Cinderella's art and voice lines
-            still had not been implemented, even though I had
-            finished and submitted them earlier. That made it clear
-            that making an asset is only one part of a production
-            pipeline; communication and integration matter just as
-            much.
-
-            I also learned that I need to be clearer about tasks,
-            deadlines and expectations earlier, rather than trying
-            to fill every gap myself. My bluntness can come across
-            harshly, so I want to get better at giving structure and
-            feedback without letting frustration take over. Creatively,
-            I want to keep developing how I use reference, stylisation
-            and mood. The rat run cycle especially taught me that
-            animation does not have to copy real movement exactly:
-            simplifying the motion helped it fit the deliberately
-            sketchy, unsettling storybook style.
-        </p>
+        <p>I'm proud of the amount and range of work I produced for Bibliocide. I came into the project mainly wanting to practise 2D character work and voice acting, but ended up contributing to visual design, animation, audio, documentation, level concepts, playtesting and project organisation. The positive feedback on the rat animation, the atmosphere and the voice acting reassured me that the creative decisions I made were working.</p>
+        <p>The project also made me realise how much I value structure, transparency and shared responsibility. I found it difficult when assets were not implemented or decisions were made without checking with the rest of the team. A lot of my time went into keeping the project organised instead of developing my own work, and that became tiring.</p>
+        <p>Looking back, my direct communication style helped me be clear, but it could also make disagreements more tense. In future projects, I want to be more deliberate about how I lead: keeping the same standards and clarity, but approaching difficult conversations in a way that is less defensive and more constructive. I also want to establish responsibilities and communication expectations earlier, rather than repeatedly trying to fix problems once they have already affected production.</p>
+        <p>Even with the issues, I'm glad we made something that players enjoyed. Bibliocide may not have reached the version I originally imagined, but I learned a lot about adapting creative work to technical limits, explaining visual ideas, managing a team and seeing a project through when things become difficult. That's what I'll take forward into my next projects.</p>
     </div>
-
 </section>
-
 </main>
+
+<div class="gallery-modal" id="galleryModal" role="dialog" aria-modal="true" aria-label="Artwork slideshow" onclick="if(event.target===this) closeGallery()">
+    <div class="modal-inner">
+        <div class="modal-top">
+            <span class="modal-title" id="modalTitle">ARTWORK</span>
+            <button class="close-modal" onclick="closeGallery()" aria-label="Close slideshow">×</button>
+        </div>
+        <div class="modal-image-wrap" id="modalImage">Add an image file to this slide.</div>
+        <p class="modal-caption" id="modalCaption"></p>
+        <div class="modal-controls">
+            <button class="button" onclick="changeSlide(-1)">PREVIOUS</button>
+            <span class="modal-count" id="modalCount">1 / 1</span>
+            <button class="button" onclick="changeSlide(1)">NEXT</button>
+        </div>
+    </div>
+</div>
 
 <footer>
     <p>FIN.</p>
@@ -567,5 +382,124 @@ footer a {color:var(--blue);}
     <a href="index.html">RETURN TO THE PORTFOLIO</a>
 </footer>
 
+<script>
+/*
+    HOW TO ADD YOUR IMAGES:
+    1. Put the image in your website folder (or an images folder).
+    2. In the gallery list below, replace "ADD IMAGE PATH HERE" with its path.
+       Example: "images/bibliocide/rat-idle.png"
+    3. You can add or remove slides by copying a slide object.
+*/
+const galleries = {
+    characterConcepts: {
+        title: "CHARACTER CONCEPTS",
+        slides: [
+            {src:"ADD IMAGE PATH HERE", caption:"Cinderella concept. I used the animated film, the live-action adaptation and stage productions as references, aiming for a recognisable but unsettling storybook character."},
+            {src:"ADD IMAGE PATH HERE", caption:"Stepsister concepts. I designed them as theatrical cardboard cut-outs rather than realistic characters, so they would feel artificial within the room."},
+            {src:"ADD IMAGE PATH HERE", caption:"White Rabbit — anthropomorphic version for the planned Alice room."},
+            {src:"ADD IMAGE PATH HERE", caption:"White Rabbit — realistically proportioned alternative. I made both versions so the group could compare the tone."},
+            {src:"ADD IMAGE PATH HERE", caption:"Embden Goose concept. I focused on the beak, skull and neck structure to give a clear reference for the 3D model."},
+            {src:"ADD IMAGE PATH HERE", caption:"Goose close-up or open-mouth study, showing the beak shape in more detail."}
+        ]
+    },
+    environmentConcepts: {
+        title: "ENVIRONMENT CONCEPTS",
+        slides: [
+            {src:"ADD IMAGE PATH HERE", caption:"Early opening hallway sketch. I made this to help the group understand the route into the first room."},
+            {src:"ADD IMAGE PATH HERE", caption:"Rough example puzzle-room sketch, based on the group's verbal discussion. These early drawings helped turn the idea into something everyone could visualise."},
+            {src:"ADD IMAGE PATH HERE", caption:"Rough furnace-room sketch, showing the final space and its main focal points."},
+            {src:"ADD IMAGE PATH HERE", caption:"Cinderella's Room — bird's-eye layout with annotations and prop planning."},
+            {src:"ADD IMAGE PATH HERE", caption:"Cinderella's Room — perspective concept."},
+            {src:"ADD IMAGE PATH HERE", caption:"Jack's Room — bird's-eye layout, including the beanstalk and mousehole puzzle."},
+            {src:"ADD IMAGE PATH HERE", caption:"Jack's Room — perspective concept."},
+            {src:"ADD IMAGE PATH HERE", caption:"Opening Hallway — a simple corridor intended to introduce the player and control pacing."},
+            {src:"ADD IMAGE PATH HERE", caption:"Furnace Room — kept deliberately minimal, with the furnace and reading chair as the focus."},
+            {src:"ADD IMAGE PATH HERE", caption:"Cell-shaded wooden crate mockup. I made this as a visual reference for shape definition, linework and texture on environmental props."}
+        ]
+    },
+    finishedCharacters: {
+        title: "FINISHED CHARACTER ARTWORK",
+        slides: [
+            {src:"ADD IMAGE PATH HERE", caption:"Final Cinderella cut-out illustration, with cleaned linework and textured hatching."},
+            {src:"ADD IMAGE PATH HERE", caption:"Final Stepsister cut-out illustration. I kept the limited colour treatment to reinforce the cardboard material."},
+            {src:"ADD IMAGE PATH HERE", caption:"Rat idle artwork. I used a photograph of myself holding a similarly sized plush as a pose and scale reference. The grey hand keeps the player character visually anonymous."},
+            {src:"ADD IMAGE PATH HERE", caption:"Bean Seller — front-facing sprite."},
+            {src:"ADD IMAGE PATH HERE", caption:"Bean Seller — looking-away sprite. The planned expressive animation was reduced to two poses because of time and implementation constraints."}
+        ]
+    },
+    ratAnimation: {
+        title: "RAT ANIMATION",
+        slides: [
+            {src:"ADD IMAGE PATH HERE", caption:"Scratch animation. I built the movement from two drawings and looped them into a six-frame cycle using small transformations."},
+            {src:"ADD IMAGE PATH HERE", caption:"Run cycle rough pass. I used real rat footage to understand the weight and rhythm of the movement."},
+            {src:"ADD IMAGE PATH HERE", caption:"Run cycle development. I removed frames to make the motion less smooth and more consistent with the deliberately rough visual style."},
+            {src:"ADD IMAGE PATH HERE", caption:"Final coloured run cycle or sprite sheet. Players responded positively to the drawing, although the animation was implemented facing the wrong direction in the build."}
+        ]
+    },
+    earlyConcept: {
+        title: "ORIGINAL CONCEPT",
+        slides: [
+            {src:"ADD IMAGE PATH HERE", caption:"My original idea before group formation: a writer plagiarising other creators, surrounded by stolen books, repurposed artwork, hostile messages and rejection notices."},
+            {src:"ADD IMAGE PATH HERE", caption:"The burning of the stolen work was intended as a confrontation with guilt, impostor syndrome and shame, rather than a triumphant escape."},
+            {src:"ADD IMAGE PATH HERE", caption:"Frogger, the small chibi character from my early concept. Drawing this was a chance to experiment with exaggerated proportions and move away from my usual semi-realism."},
+            {src:"ADD IMAGE PATH HERE", caption:"Early visual experiments influenced by surreal, mixed-style work such as ENA: BBQ and the high-contrast, hand-drawn look of Bendy and the Ink Machine."}
+        ]
+    },
+    projectEvidence: {
+        title: "PITCH & PLAYTEST EVIDENCE",
+        slides: [
+            {src:"ADD IMAGE PATH HERE", caption:"Pitch presentation. I restructured and largely created the presentation so the concept, tone and scope were communicated clearly."},
+            {src:"ADD IMAGE PATH HERE", caption:"Group Design Document evidence — the X-Statement, Aesthetic and Game Concept sections I wrote."},
+            {src:"ADD IMAGE PATH HERE", caption:"Trello board or priority task list showing how I organised tasks and project priorities."},
+            {src:"ADD IMAGE PATH HERE", caption:"Greybox playtest — early gameplay before my artwork, animation and audio had been integrated."},
+            {src:"ADD IMAGE PATH HERE", caption:"Second playtest — later build with the artwork, rat animations, voice acting and main menu music included."}
+        ]
+    }
+};
+
+let activeGallery = null;
+let activeSlide = 0;
+
+function openGallery(name) {
+    activeGallery = galleries[name];
+    activeSlide = 0;
+    renderSlide();
+    document.getElementById("galleryModal").classList.add("open");
+    document.body.style.overflow = "hidden";
+}
+function closeGallery() {
+    document.getElementById("galleryModal").classList.remove("open");
+    document.body.style.overflow = "";
+}
+function changeSlide(direction) {
+    if (!activeGallery) return;
+    const total = activeGallery.slides.length;
+    activeSlide = (activeSlide + direction + total) % total;
+    renderSlide();
+}
+function renderSlide() {
+    const slide = activeGallery.slides[activeSlide];
+    document.getElementById("modalTitle").textContent = activeGallery.title;
+    const imageBox = document.getElementById("modalImage");
+    imageBox.innerHTML = "";
+    if (slide.src && slide.src !== "ADD IMAGE PATH HERE") {
+        const img = document.createElement("img");
+        img.src = slide.src;
+        img.alt = slide.caption;
+        img.onerror = () => { imageBox.textContent = "Image not found — check the file path: " + slide.src; };
+        imageBox.appendChild(img);
+    } else {
+        imageBox.textContent = "ADD IMAGE HERE — replace the slide's “ADD IMAGE PATH HERE” with your image path in the galleries section of the code.";
+    }
+    document.getElementById("modalCaption").textContent = slide.caption;
+    document.getElementById("modalCount").textContent = (activeSlide + 1) + " / " + activeGallery.slides.length;
+}
+document.addEventListener("keydown", function(event) {
+    if (!document.getElementById("galleryModal").classList.contains("open")) return;
+    if (event.key === "Escape") closeGallery();
+    if (event.key === "ArrowLeft") changeSlide(-1);
+    if (event.key === "ArrowRight") changeSlide(1);
+});
+</script>
 </body>
 </html>
