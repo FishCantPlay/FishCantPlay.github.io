@@ -544,16 +544,37 @@
         }
 
         /* FOUR-YEAR PROGRESS COMPARISON SLIDES */
+        /* Give comparison slides their own larger layout so the image and
+           slider are not trapped inside the normal slideshow image height. */
+        .modal-content.comparison-modal {
+            width: min(1800px, 98vw);
+            max-height: 98vh;
+            padding: 24px clamp(12px, 2vw, 30px);
+        }
+        .modal-content.comparison-modal .modal-art {
+            display: block;
+            width: 100%;
+            min-height: 0;
+            max-height: none;
+            height: auto;
+            overflow: visible;
+            padding: 0;
+            border: 0;
+            box-shadow: none;
+            background: transparent;
+        }
         .comparison-wrap {
             width: 100%;
-            padding: 12px 14px 18px;
+            max-width: 1700px;
+            margin: 0 auto;
+            padding: 4px 2px 10px;
             text-align: center;
         }
         .comparison-stage {
             position: relative;
             width: 100%;
-            aspect-ratio: 16 / 10;
-            min-height: 220px;
+            height: clamp(500px, 76vh, 900px);
+            min-height: 500px;
             overflow: hidden;
             background: #0A1514;
             border: 2px solid var(--teal);
@@ -597,7 +618,9 @@
             border-left: 1px solid rgba(0,0,0,.7);
             border-right: 1px solid rgba(0,0,0,.7);
             box-shadow: 0 0 12px rgba(0,0,0,.65);
-            pointer-events: none;
+            pointer-events: auto;
+            cursor: ew-resize;
+            touch-action: none;
         }
         .comparison-divider::after {
             content: "↔";
@@ -606,14 +629,16 @@
             left: 50%;
             display: grid;
             place-items: center;
-            width: 34px;
-            height: 34px;
+            width: 54px;
+            height: 54px;
             transform: translate(-50%, -50%);
             color: #080D0D;
             background: #fff;
             border: 2px solid var(--pink-dark);
             border-radius: 50%;
-            font: bold 19px Arial, sans-serif;
+            font: bold 27px Arial, sans-serif;
+            cursor: ew-resize;
+            box-shadow: 0 2px 12px rgba(0,0,0,.45);
         }
         .comparison-label {
             position: absolute;
@@ -630,15 +655,8 @@
         }
         .comparison-label.old { left: 12px; }
         .comparison-label.new { right: 12px; }
-        .comparison-range {
-            display: block;
-            width: min(620px, 100%);
-            margin: 24px auto 8px;
-            accent-color: var(--pink);
-            cursor: ew-resize;
-        }
         .comparison-instruction {
-            margin: 8px 0 0;
+            margin: 12px 0 0;
             color: var(--text-muted);
             font-size: 13px;
             line-height: 1.5;
@@ -658,6 +676,19 @@
         }
 
         @media (max-width: 850px) {
+            .modal-content.comparison-modal {
+                width: 96vw;
+                padding: 22px 14px;
+            }
+            .comparison-stage {
+                height: clamp(380px, 68vh, 700px);
+                min-height: 380px;
+            }
+            .comparison-divider::after {
+                width: 48px;
+                height: 48px;
+                font-size: 24px;
+            }
             .art-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
@@ -1241,6 +1272,7 @@ Overall, I am pleased with how much more developed and visually cohesive the fin
         };
 
         const modal = document.getElementById("artModal");
+        const modalContent = modal.querySelector(".modal-content");
         const modalClose = document.getElementById("modalClose");
         const modalNumber = document.getElementById("modalNumber");
         const modalGalleryName = document.getElementById("modalGalleryName");
@@ -1292,6 +1324,7 @@ Overall, I am pleased with how much more developed and visually cohesive the fin
             modalDescription.textContent = slide.description;
 
             modalArt.innerHTML = "";
+            modalContent.classList.toggle("comparison-modal", slide.type === "comparison");
 
             if (slide.type === "comparison") {
                 const wrap = document.createElement("div");
@@ -1352,26 +1385,69 @@ Overall, I am pleased with how much more developed and visually cohesive the fin
                 stage.appendChild(divider);
                 wrap.appendChild(stage);
 
-                const range = document.createElement("input");
-                range.type = "range";
-                range.min = "0";
-                range.max = "100";
-                range.value = "50";
-                range.setAttribute("aria-label", "Move the comparison divider");
-                range.className = "comparison-range";
-                function updateComparison() {
-                    const position = Number(range.value);
-                    oldHalf.style.clipPath = `inset(0 ${100 - position}% 0 0)`;
-                    newHalf.style.clipPath = `inset(0 0 0 ${position}%)`;
-                    divider.style.left = position + "%";
+                let comparisonPosition = 50;
+                let isDraggingComparison = false;
+
+                function updateComparison(position) {
+                    comparisonPosition = Math.max(0, Math.min(100, position));
+                    oldHalf.style.clipPath = `inset(0 ${100 - comparisonPosition}% 0 0)`;
+                    newHalf.style.clipPath = `inset(0 0 0 ${comparisonPosition}%)`;
+                    divider.style.left = comparisonPosition + "%";
                 }
-                range.addEventListener("input", updateComparison);
-                updateComparison();
-                wrap.appendChild(range);
+
+                function moveComparisonToPointer(event) {
+                    const bounds = stage.getBoundingClientRect();
+                    if (!bounds.width) return;
+                    const position = ((event.clientX - bounds.left) / bounds.width) * 100;
+                    updateComparison(position);
+                }
+
+                // The visible white line and ↔ handle are the actual control.
+                // Pointer capture keeps dragging smooth even if the pointer leaves the handle.
+                divider.setAttribute("role", "slider");
+                divider.setAttribute("aria-label", "Drag to compare the older and newer versions");
+                divider.setAttribute("aria-valuemin", "0");
+                divider.setAttribute("aria-valuemax", "100");
+                divider.setAttribute("aria-valuenow", "50");
+                divider.tabIndex = 0;
+                divider.addEventListener("pointerdown", function (event) {
+                    event.preventDefault();
+                    isDraggingComparison = true;
+                    divider.setPointerCapture(event.pointerId);
+                    moveComparisonToPointer(event);
+                });
+                divider.addEventListener("pointermove", function (event) {
+                    if (!isDraggingComparison) return;
+                    moveComparisonToPointer(event);
+                    divider.setAttribute("aria-valuenow", String(Math.round(comparisonPosition)));
+                });
+                function stopComparisonDrag(event) {
+                    isDraggingComparison = false;
+                    if (divider.hasPointerCapture && divider.hasPointerCapture(event.pointerId)) {
+                        divider.releasePointerCapture(event.pointerId);
+                    }
+                }
+                divider.addEventListener("pointerup", stopComparisonDrag);
+                divider.addEventListener("pointercancel", stopComparisonDrag);
+                divider.addEventListener("lostpointercapture", function () {
+                    isDraggingComparison = false;
+                });
+                divider.addEventListener("keydown", function (event) {
+                    let next = comparisonPosition;
+                    if (event.key === "ArrowLeft") next -= 2;
+                    else if (event.key === "ArrowRight") next += 2;
+                    else if (event.key === "Home") next = 0;
+                    else if (event.key === "End") next = 100;
+                    else return;
+                    event.preventDefault();
+                    updateComparison(next);
+                    divider.setAttribute("aria-valuenow", String(Math.round(comparisonPosition)));
+                });
+                updateComparison(50);
 
                 const instruction = document.createElement("p");
                 instruction.className = "comparison-instruction";
-                instruction.textContent = "Drag the slider to compare the older and newer versions.";
+                instruction.textContent = "Grab the ↔ handle on the image and drag it left or right to compare the two versions.";
                 wrap.appendChild(instruction);
                 modalArt.appendChild(wrap);
             } else {
