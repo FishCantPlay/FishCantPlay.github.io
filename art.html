@@ -664,19 +664,7 @@
             font-size: 13px;
             line-height: 1.5;
         }
-        .comparison-progress {
-            margin: 0 auto 16px;
-            color: var(--pink);
-            font-family: Georgia, serif;
-            font-size: clamp(22px, 3vw, 30px);
-            letter-spacing: 1px;
-        }
-        .comparison-subtitle {
-            margin: 0 auto 10px;
-            color: var(--teal-light);
-            font-family: Georgia, serif;
-            font-size: 17px;
-        }
+
 
         @media (max-width: 850px) {
             .modal-content.comparison-modal {
@@ -1333,16 +1321,6 @@ Overall, I am pleased with how much more developed and visually cohesive the fin
                 const wrap = document.createElement("div");
                 wrap.className = "comparison-wrap";
 
-                const progress = document.createElement("div");
-                progress.className = "comparison-progress";
-                progress.textContent = "FOUR YEARS OF PROGRESS";
-                wrap.appendChild(progress);
-
-                const subtitle = document.createElement("div");
-                subtitle.className = "comparison-subtitle";
-                subtitle.textContent = slide.subtitle;
-                wrap.appendChild(subtitle);
-
                 const stage = document.createElement("div");
                 stage.className = "comparison-stage";
 
@@ -1448,10 +1426,6 @@ Overall, I am pleased with how much more developed and visually cohesive the fin
                 });
                 updateComparison(50);
 
-                const instruction = document.createElement("p");
-                instruction.className = "comparison-instruction";
-                instruction.textContent = "Grab the ↔ handle on the image and drag it left or right to compare the two versions.";
-                wrap.appendChild(instruction);
                 modalArt.appendChild(wrap);
             } else {
                 const image = document.createElement("img");
