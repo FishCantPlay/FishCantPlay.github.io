@@ -641,6 +641,7 @@
             border-radius: 50%;
             font: bold 27px Arial, sans-serif;
             cursor: ew-resize;
+            pointer-events: none;
             box-shadow: 0 2px 12px rgba(0,0,0,.45);
         }
         .comparison-label {
@@ -1101,8 +1102,8 @@ img { cursor: zoom-in; }
                         subtitle: "The difference four years can make",
                         oldLabel: "OLDER FROG MODEL",
                         newLabel: "NEWER FROG MODEL",
-                        oldImage: "images/art/frog-new-model.png",
-                        newImage: "images/art/frog-old-model.png",
+                        oldImage: "images/art/frog-old-model.png",
+                        newImage: "images/art/frog-new-model.png",
                         oldPlaceholder: "OLDER FROG MODEL\nAdd the original model image here",
                         newPlaceholder: "NEWER FROG MODEL\nAdd the updated model image here",
                         description: "These versions of my frog character were created four years apart. This comparison shows four years of progress, development and learning. Drag the slider across the image to reveal the differences between the two versions."
@@ -1391,26 +1392,30 @@ Overall, I am pleased with how much more developed and visually cohesive the fin
                 divider.setAttribute("aria-valuemax", "100");
                 divider.setAttribute("aria-valuenow", "50");
                 divider.tabIndex = 0;
-                divider.addEventListener("pointerdown", function (event) {
+                // Listen on the whole stage while only starting a drag when the
+                // actual white divider/handle is grabbed. Capturing on the stage
+                // keeps movement continuous even when the pointer moves quickly.
+                stage.addEventListener("pointerdown", function (event) {
+                    if (!event.target.closest || !event.target.closest(".comparison-divider")) return;
                     event.preventDefault();
                     isDraggingComparison = true;
-                    divider.setPointerCapture(event.pointerId);
+                    stage.setPointerCapture(event.pointerId);
                     moveComparisonToPointer(event);
                 });
-                divider.addEventListener("pointermove", function (event) {
+                stage.addEventListener("pointermove", function (event) {
                     if (!isDraggingComparison) return;
                     moveComparisonToPointer(event);
                     divider.setAttribute("aria-valuenow", String(Math.round(comparisonPosition)));
                 });
                 function stopComparisonDrag(event) {
                     isDraggingComparison = false;
-                    if (divider.hasPointerCapture && divider.hasPointerCapture(event.pointerId)) {
-                        divider.releasePointerCapture(event.pointerId);
+                    if (stage.hasPointerCapture && stage.hasPointerCapture(event.pointerId)) {
+                        stage.releasePointerCapture(event.pointerId);
                     }
                 }
-                divider.addEventListener("pointerup", stopComparisonDrag);
-                divider.addEventListener("pointercancel", stopComparisonDrag);
-                divider.addEventListener("lostpointercapture", function () {
+                stage.addEventListener("pointerup", stopComparisonDrag);
+                stage.addEventListener("pointercancel", stopComparisonDrag);
+                stage.addEventListener("lostpointercapture", function () {
                     isDraggingComparison = false;
                 });
                 divider.addEventListener("keydown", function (event) {
