@@ -319,16 +319,17 @@
         .modal-content {
             position: relative;
             display: grid;
-            grid-template-columns: .95fr 1.05fr;
+            grid-template-columns: minmax(0, 1fr);
             grid-template-areas:
-                "top top"
-                "art title"
-                "art info"
-                "controls controls"
-                "hint hint";
-            column-gap: 42px;
-            row-gap: 8px;
-            width: min(1200px, 100%);
+                "top"
+                "title"
+                "art"
+                "info"
+                "controls"
+                "hint";
+            column-gap: 0;
+            row-gap: 10px;
+            width: min(1050px, 100%);
             max-height: 94vh;
             padding: 38px;
             overflow-y: auto;
@@ -405,7 +406,7 @@
             font-family: "Palatino Linotype", Georgia, serif;
             font-style: italic;
             font-weight: normal;
-            font-size: clamp(34px, 4.5vw, 54px);
+            font-size: clamp(38px, 5vw, 62px);
             line-height: 1.05;
             text-shadow: 3px 3px 0 var(--pink-dark), 6px 6px 0 var(--teal-dark);
         }
@@ -416,8 +417,8 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            min-height: 420px;
-            max-height: 62vh;
+            min-height: 260px;
+            max-height: 50vh;
             overflow: hidden;
             background:
                 radial-gradient(circle at 70% 30%,rgba(232,143,166,.18),transparent 30%),
@@ -434,7 +435,7 @@
             display: block;
             width: 100%;
             height: 100%;
-            max-height: 62vh;
+            max-height: 50vh;
             object-fit: contain;
             cursor: zoom-in;
         }
@@ -456,18 +457,18 @@
             margin: 0 0 14px;
             color: var(--teal-light);
             font-family: "Palatino Linotype", Georgia, serif;
-            font-size: 25px;
+            font-size: 21px;
             font-weight: normal;
             letter-spacing: .5px;
         }
 
-        /* Larger description text so there is room to explain each piece. */
+        /* Smaller, easier-to-read supporting text beneath the artwork. */
         .modal-description {
             max-width: 950px;
             margin: 0;
             color: var(--text);
-            font-size: 20px;
-            line-height: 1.85;
+            font-size: 16px;
+            line-height: 1.7;
             white-space: pre-line;
         }
 
@@ -541,16 +542,21 @@
             }
 
             .modal-content {
-                column-gap: 28px;
+                column-gap: 0;
                 padding: 30px 25px;
             }
 
             .modal-art {
-                min-height: 340px;
+                min-height: 260px;
+                max-height: 48vh;
+            }
+
+            .modal-art img {
+                max-height: 48vh;
             }
 
             .modal-description {
-                font-size: 18px;
+                font-size: 15px;
             }
         }
 
@@ -601,7 +607,7 @@
             .modal-title {
                 padding-right: 20px;
                 margin-top: 4px;
-                font-size: clamp(30px, 9vw, 42px);
+                font-size: clamp(34px, 9vw, 46px);
             }
 
             .modal-art {
@@ -615,8 +621,8 @@
             }
 
             .modal-description {
-                font-size: 17px;
-                line-height: 1.75;
+                font-size: 15px;
+                line-height: 1.7;
             }
 
             .modal-controls {
