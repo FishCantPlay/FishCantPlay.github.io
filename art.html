@@ -1241,6 +1241,10 @@ Overall, I am pleased with how much more developed and visually cohesive the fin
             var image = target.closest("img");
             if (!image) return;
 
+            // The Deer Guardian card image opens its slideshow; only images
+            // inside the slideshow itself should use the global zoom viewer.
+            if (image.closest('.art-card[data-gallery="deer"]')) return;
+
             // Ignore images that are themselves part of the zoom overlay.
             event.preventDefault();
             event.stopImmediatePropagation();
