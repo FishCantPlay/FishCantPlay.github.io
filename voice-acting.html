@@ -8,6 +8,53 @@
     <meta name="description" content="Fish Heard's interest in voice acting, theatre and character performance.">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js" defer></script>
+
+<style id="image-zoom-styles">
+/* Image enlargement overlay — does not change the normal page layout. */
+img {
+    cursor: zoom-in;
+}
+.image-zoom-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 4vh 4vw;
+    background: rgba(0, 0, 0, 0.92);
+    cursor: zoom-out;
+}
+.image-zoom-overlay.is-open {
+    display: flex;
+}
+.image-zoom-overlay img {
+    display: block;
+    max-width: 92vw;
+    max-height: 92vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    cursor: zoom-out;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.55);
+}
+.image-zoom-close {
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font: 36px/1 Arial, sans-serif;
+    cursor: pointer;
+    padding: 8px 12px;
+}
+.image-zoom-close:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+</style>
+
 </head>
 
 <body>
@@ -171,6 +218,77 @@
     <p>FISH HEARD ✦ VOICE & PERFORMANCE</p>
     <p><a href="index.html">Back to portfolio</a></p>
 </footer>
+
+
+<script id="image-zoom-script">
+(function () {
+    function initialiseImageZoom() {
+        if (document.getElementById("imageZoomOverlay")) return;
+
+        const overlay = document.createElement("div");
+        overlay.className = "image-zoom-overlay";
+        overlay.id = "imageZoomOverlay";
+        overlay.setAttribute("role", "dialog");
+        overlay.setAttribute("aria-modal", "true");
+        overlay.setAttribute("aria-label", "Enlarged image");
+
+        const enlargedImage = document.createElement("img");
+        enlargedImage.alt = "";
+        const closeButton = document.createElement("button");
+        closeButton.className = "image-zoom-close";
+        closeButton.type = "button";
+        closeButton.setAttribute("aria-label", "Close enlarged image");
+        closeButton.innerHTML = "&times;";
+
+        overlay.appendChild(enlargedImage);
+        overlay.appendChild(closeButton);
+        document.body.appendChild(overlay);
+
+        function closeZoom() {
+            overlay.classList.remove("is-open");
+            enlargedImage.removeAttribute("src");
+            document.body.style.removeProperty("overflow");
+        }
+
+        function openZoom(image) {
+            const source = image.currentSrc || image.src;
+            if (!source) return;
+            enlargedImage.src = source;
+            enlargedImage.alt = image.alt || "Enlarged image";
+            overlay.classList.add("is-open");
+            document.body.style.overflow = "hidden";
+            closeButton.focus();
+        }
+
+        // Delegation also supports images created later by slideshows and galleries.
+        document.addEventListener("click", function (event) {
+            const image = event.target.closest("img");
+            if (!image || overlay.contains(image)) return;
+            if (image.closest(".image-zoom-overlay")) return;
+            event.preventDefault();
+            event.stopPropagation();
+            openZoom(image);
+        }, true);
+
+        closeButton.addEventListener("click", closeZoom);
+        overlay.addEventListener("click", function (event) {
+            if (event.target === overlay) closeZoom();
+        });
+        enlargedImage.addEventListener("click", closeZoom);
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && overlay.classList.contains("is-open")) {
+                closeZoom();
+            }
+        });
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initialiseImageZoom);
+    } else {
+        initialiseImageZoom();
+    }
+})();
+</script>
 
 </body>
 </html>
