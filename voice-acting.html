@@ -9,26 +9,23 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js" defer></script>
 
-<style id="image-zoom-styles">
-/* Image enlargement overlay — does not change the normal page layout. */
-img {
-    cursor: zoom-in;
-}
-.image-zoom-overlay {
+<style id="global-image-zoom-css">
+/* Image zoom: normal image appearance and layout remain unchanged. */
+img { cursor: zoom-in; }
+#globalImageZoom {
     position: fixed;
     inset: 0;
-    z-index: 99999;
+    z-index: 2147483647;
     display: none;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
     padding: 4vh 4vw;
-    background: rgba(0, 0, 0, 0.92);
+    background: rgba(0,0,0,.94);
     cursor: zoom-out;
 }
-.image-zoom-overlay.is-open {
-    display: flex;
-}
-.image-zoom-overlay img {
+#globalImageZoom.is-visible { display: flex; }
+#globalImageZoom img {
     display: block;
     max-width: 92vw;
     max-height: 92vh;
@@ -36,22 +33,17 @@ img {
     height: auto;
     object-fit: contain;
     cursor: zoom-out;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.55);
 }
-.image-zoom-close {
+#globalImageZoom button {
     position: absolute;
-    top: 16px;
-    right: 24px;
+    top: 12px;
+    right: 20px;
     border: 0;
-    background: transparent;
+    padding: 8px 14px;
     color: #fff;
-    font: 36px/1 Arial, sans-serif;
+    background: transparent;
+    font: 38px/1 Arial, sans-serif;
     cursor: pointer;
-    padding: 8px 12px;
-}
-.image-zoom-close:focus-visible {
-    outline: 2px solid #fff;
-    outline-offset: 3px;
 }
 </style>
 
@@ -220,72 +212,81 @@ img {
 </footer>
 
 
-<script id="image-zoom-script">
+<script id="global-image-zoom-js">
 (function () {
-    function initialiseImageZoom() {
-        if (document.getElementById("imageZoomOverlay")) return;
+    function setupGlobalImageZoom() {
+        if (document.getElementById("globalImageZoom")) return;
 
-        const overlay = document.createElement("div");
-        overlay.className = "image-zoom-overlay";
-        overlay.id = "imageZoomOverlay";
+        var overlay = document.createElement("div");
+        overlay.id = "globalImageZoom";
         overlay.setAttribute("role", "dialog");
         overlay.setAttribute("aria-modal", "true");
         overlay.setAttribute("aria-label", "Enlarged image");
 
-        const enlargedImage = document.createElement("img");
-        enlargedImage.alt = "";
-        const closeButton = document.createElement("button");
-        closeButton.className = "image-zoom-close";
+        var zoomImage = document.createElement("img");
+        var closeButton = document.createElement("button");
         closeButton.type = "button";
         closeButton.setAttribute("aria-label", "Close enlarged image");
         closeButton.innerHTML = "&times;";
-
-        overlay.appendChild(enlargedImage);
+        overlay.appendChild(zoomImage);
         overlay.appendChild(closeButton);
         document.body.appendChild(overlay);
 
         function closeZoom() {
-            overlay.classList.remove("is-open");
-            enlargedImage.removeAttribute("src");
-            document.body.style.removeProperty("overflow");
+            overlay.classList.remove("is-visible");
+            zoomImage.removeAttribute("src");
+            document.body.style.overflow = "";
         }
 
         function openZoom(image) {
-            const source = image.currentSrc || image.src;
-            if (!source) return;
-            enlargedImage.src = source;
-            enlargedImage.alt = image.alt || "Enlarged image";
-            overlay.classList.add("is-open");
+            var src = image.currentSrc || image.getAttribute("src");
+            if (!src) return;
+            zoomImage.src = src;
+            zoomImage.alt = image.alt || "Enlarged image";
+            overlay.classList.add("is-visible");
             document.body.style.overflow = "hidden";
-            closeButton.focus();
         }
 
-        // Delegation also supports images created later by slideshows and galleries.
-        document.addEventListener("click", function (event) {
-            const image = event.target.closest("img");
-            if (!image || overlay.contains(image)) return;
-            if (image.closest(".image-zoom-overlay")) return;
+        // Window capture runs before page/gallery click handlers. Delegation means
+        // images inserted later by galleries, slideshows, or scripts also work.
+        window.addEventListener("click", function (event) {
+            var target = event.target;
+            if (!target || !target.closest) return;
+
+            if (target.closest("#globalImageZoom")) {
+                if (target === overlay || target === zoomImage || target === closeButton) {
+                    closeZoom();
+                }
+                return;
+            }
+
+            var image = target.closest("img");
+            if (!image) return;
+
+            // Ignore images that are themselves part of the zoom overlay.
             event.preventDefault();
-            event.stopPropagation();
+            event.stopImmediatePropagation();
             openZoom(image);
         }, true);
 
-        closeButton.addEventListener("click", closeZoom);
+        closeButton.addEventListener("click", function (event) {
+            event.preventDefault();
+            closeZoom();
+        });
         overlay.addEventListener("click", function (event) {
             if (event.target === overlay) closeZoom();
         });
-        enlargedImage.addEventListener("click", closeZoom);
         document.addEventListener("keydown", function (event) {
-            if (event.key === "Escape" && overlay.classList.contains("is-open")) {
+            if (event.key === "Escape" && overlay.classList.contains("is-visible")) {
                 closeZoom();
             }
         });
     }
 
     if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", initialiseImageZoom);
+        document.addEventListener("DOMContentLoaded", setupGlobalImageZoom);
     } else {
-        initialiseImageZoom();
+        setupGlobalImageZoom();
     }
 })();
 </script>
