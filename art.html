@@ -573,8 +573,8 @@
         .comparison-stage {
             position: relative;
             width: 100%;
-            height: clamp(500px, 76vh, 900px);
-            min-height: 500px;
+            height: clamp(600px, 82vh, 1000px);
+            min-height: 600px;
             overflow: hidden;
             background: #0A1514;
             border: 2px solid var(--teal);
@@ -590,7 +590,10 @@
             display: block;
             width: 100%;
             height: 100%;
+            max-width: 100%;
+            max-height: none !important;
             object-fit: contain;
+            object-position: center;
             cursor: default;
             background: #0A1514;
         }
@@ -681,8 +684,8 @@
                 padding: 22px 14px;
             }
             .comparison-stage {
-                height: clamp(380px, 68vh, 700px);
-                min-height: 380px;
+                height: clamp(440px, 76vh, 820px);
+                min-height: 440px;
             }
             .comparison-divider::after {
                 width: 48px;
