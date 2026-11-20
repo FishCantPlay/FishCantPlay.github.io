@@ -1084,6 +1084,9 @@ footer {
 </style>
 
 <style id="global-image-zoom-css">
+/* The business card flips on click, so its two faces must never open image zoom. */
+#businessCard, #businessCard img { cursor: pointer !important; }
+
 /* Image zoom: normal image appearance and layout remain unchanged. */
 img { cursor: zoom-in; }
 #globalImageZoom {
@@ -2009,6 +2012,10 @@ function goToSection(sectionId) {
                 }
                 return;
             }
+
+            // The business card is an interactive flip control, not a zoomable image.
+            // Let its own click handler run so the front/back animation still works.
+            if (target.closest("#businessCard")) return;
 
             var image = target.closest("img");
             if (!image) return;
