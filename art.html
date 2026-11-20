@@ -543,6 +543,120 @@
             text-align: center;
         }
 
+        /* FOUR-YEAR PROGRESS COMPARISON SLIDES */
+        .comparison-wrap {
+            width: 100%;
+            padding: 12px 14px 18px;
+            text-align: center;
+        }
+        .comparison-stage {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            min-height: 220px;
+            overflow: hidden;
+            background: #0A1514;
+            border: 2px solid var(--teal);
+            box-shadow: 8px 8px 0 var(--pink-dark), 12px 12px 0 var(--teal-dark);
+            isolation: isolate;
+        }
+        .comparison-half {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+        .comparison-half img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            cursor: default;
+            background: #0A1514;
+        }
+        .comparison-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 25px;
+            color: var(--text-muted);
+            font-family: Georgia, serif;
+            font-size: clamp(15px, 2vw, 21px);
+            line-height: 1.6;
+            background: radial-gradient(circle at 50% 45%, rgba(3,108,95,.22), transparent 60%), #0A1514;
+        }
+        .comparison-divider {
+            position: absolute;
+            z-index: 4;
+            top: 0;
+            bottom: 0;
+            width: 7px;
+            transform: translateX(-50%);
+            background: #fff;
+            border-left: 1px solid rgba(0,0,0,.7);
+            border-right: 1px solid rgba(0,0,0,.7);
+            box-shadow: 0 0 12px rgba(0,0,0,.65);
+            pointer-events: none;
+        }
+        .comparison-divider::after {
+            content: "↔";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: grid;
+            place-items: center;
+            width: 34px;
+            height: 34px;
+            transform: translate(-50%, -50%);
+            color: #080D0D;
+            background: #fff;
+            border: 2px solid var(--pink-dark);
+            border-radius: 50%;
+            font: bold 19px Arial, sans-serif;
+        }
+        .comparison-label {
+            position: absolute;
+            z-index: 5;
+            top: 12px;
+            max-width: 45%;
+            padding: 7px 11px;
+            color: white;
+            background: rgba(5,7,7,.78);
+            border: 1px solid rgba(232,143,166,.7);
+            font-size: 11px;
+            letter-spacing: 1px;
+            pointer-events: none;
+        }
+        .comparison-label.old { left: 12px; }
+        .comparison-label.new { right: 12px; }
+        .comparison-range {
+            display: block;
+            width: min(620px, 100%);
+            margin: 24px auto 8px;
+            accent-color: var(--pink);
+            cursor: ew-resize;
+        }
+        .comparison-instruction {
+            margin: 8px 0 0;
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .comparison-progress {
+            margin: 0 auto 16px;
+            color: var(--pink);
+            font-family: Georgia, serif;
+            font-size: clamp(22px, 3vw, 30px);
+            letter-spacing: 1px;
+        }
+        .comparison-subtitle {
+            margin: 0 auto 10px;
+            color: var(--teal-light);
+            font-family: Georgia, serif;
+            font-size: 17px;
+        }
+
         @media (max-width: 850px) {
             .art-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -958,6 +1072,18 @@ img { cursor: zoom-in; }
                         subtitle: "Character reference",
                         image: "images/art/frog-05-character-sheet.png",
                         description: "This is the frog's character sheet. It brings together the design and useful reference information for the model."
+                    },
+                    {
+                        type: "comparison",
+                        title: "Four Years of Progress",
+                        subtitle: "The difference four years can make",
+                        oldLabel: "OLDER FROG MODEL",
+                        newLabel: "NEWER FROG MODEL",
+                        oldImage: null,
+                        newImage: null,
+                        oldPlaceholder: "OLDER FROG MODEL\nAdd the original model image here",
+                        newPlaceholder: "NEWER FROG MODEL\nAdd the updated model image here",
+                        description: "These versions of my frog character were created four years apart. This comparison shows four years of progress, development and learning. Drag the slider across the image to reveal the differences between the two versions."
                     }
                 ]
             },
@@ -986,6 +1112,16 @@ I particularly like how the botanical details, antlers and foliage work together
 Despite these improvements, there are still areas I would develop further if I were to revisit the piece. I would spend more time refining the structure and silhouette of the antlers, as their intricate branches and decorations can compete with the character's face for attention. I would also pay closer attention to the anatomy and positioning of the hands, ensuring they remain clear and believable within the pose. The distinction between materials could be improved further, particularly the fabric of the dress and the decorative botanical elements, by developing their textures, folds and lighting separately. I would also review the darker areas to ensure important details remain readable without losing the atmospheric lighting.
 
 Overall, I am pleased with how much more developed and visually cohesive the final illustration has become. This refinement has helped me understand the importance of evaluating my own work critically, making purposeful artistic decisions and considering how a character design can be developed further for professional use.`
+                    },
+                    {
+                        type: "comparison",
+                        title: "Four Years of Progress",
+                        subtitle: "The difference four years can make",
+                        oldLabel: "ORIGINAL DEER GUARDIAN",
+                        newLabel: "REDESIGNED DEER GUARDIAN",
+                        oldImage: "images/art/deer-guardian-02-old.png",
+                        newImage: "images/art/deer-guardian-01-new.png",
+                        description: "There are four years between these two versions of my Deer Guardian. This comparison shows four years of progress, development and learning. Drag the slider across the image to reveal how the character design and my approach to illustration have changed."
                     }
                 ]
             },
@@ -1157,22 +1293,105 @@ Overall, I am pleased with how much more developed and visually cohesive the fin
 
             modalArt.innerHTML = "";
 
-            const image = document.createElement("img");
-            image.src = slide.image;
-            image.alt = slide.title;
+            if (slide.type === "comparison") {
+                const wrap = document.createElement("div");
+                wrap.className = "comparison-wrap";
 
-            image.onerror = function () {
-                modalArt.innerHTML = "";
+                const progress = document.createElement("div");
+                progress.className = "comparison-progress";
+                progress.textContent = "FOUR YEARS OF PROGRESS";
+                wrap.appendChild(progress);
 
-                const placeholder = document.createElement("div");
-                placeholder.className = "modal-art-placeholder";
-                placeholder.textContent =
-                    "Image not added yet. Add your file here: " + slide.image;
+                const subtitle = document.createElement("div");
+                subtitle.className = "comparison-subtitle";
+                subtitle.textContent = slide.subtitle;
+                wrap.appendChild(subtitle);
 
-                modalArt.appendChild(placeholder);
-            };
+                const stage = document.createElement("div");
+                stage.className = "comparison-stage";
 
-            modalArt.appendChild(image);
+                function makeHalf(imageSource, placeholderText, side) {
+                    const half = document.createElement("div");
+                    half.className = "comparison-half comparison-" + side;
+                    if (imageSource) {
+                        const img = document.createElement("img");
+                        img.src = imageSource;
+                        img.alt = side === "old" ? slide.oldLabel : slide.newLabel;
+                        img.draggable = false;
+                        img.onerror = function () {
+                            half.innerHTML = "";
+                            const fallback = document.createElement("div");
+                            fallback.className = "comparison-placeholder";
+                            fallback.textContent = placeholderText || "Image not added yet";
+                            half.appendChild(fallback);
+                        };
+                        half.appendChild(img);
+                    } else {
+                        const placeholder = document.createElement("div");
+                        placeholder.className = "comparison-placeholder";
+                        placeholder.textContent = placeholderText || "Image placeholder";
+                        half.appendChild(placeholder);
+                    }
+                    return half;
+                }
+
+                const oldHalf = makeHalf(slide.oldImage, slide.oldPlaceholder, "old");
+                const newHalf = makeHalf(slide.newImage, slide.newPlaceholder, "new");
+                const oldLabel = document.createElement("span");
+                oldLabel.className = "comparison-label old";
+                oldLabel.textContent = slide.oldLabel;
+                const newLabel = document.createElement("span");
+                newLabel.className = "comparison-label new";
+                newLabel.textContent = slide.newLabel;
+                const divider = document.createElement("div");
+                divider.className = "comparison-divider";
+                stage.appendChild(newHalf);
+                stage.appendChild(oldHalf);
+                stage.appendChild(oldLabel);
+                stage.appendChild(newLabel);
+                stage.appendChild(divider);
+                wrap.appendChild(stage);
+
+                const range = document.createElement("input");
+                range.type = "range";
+                range.min = "0";
+                range.max = "100";
+                range.value = "50";
+                range.setAttribute("aria-label", "Move the comparison divider");
+                range.className = "comparison-range";
+                function updateComparison() {
+                    const position = Number(range.value);
+                    oldHalf.style.clipPath = `inset(0 ${100 - position}% 0 0)`;
+                    newHalf.style.clipPath = `inset(0 0 0 ${position}%)`;
+                    divider.style.left = position + "%";
+                }
+                range.addEventListener("input", updateComparison);
+                updateComparison();
+                wrap.appendChild(range);
+
+                const instruction = document.createElement("p");
+                instruction.className = "comparison-instruction";
+                instruction.textContent = "Drag the slider to compare the older and newer versions.";
+                wrap.appendChild(instruction);
+                modalArt.appendChild(wrap);
+            } else {
+                const image = document.createElement("img");
+                image.src = slide.image;
+                image.alt = slide.title;
+
+                image.onerror = function () {
+                    modalArt.innerHTML = "";
+
+                    const placeholder = document.createElement("div");
+                    placeholder.className = "modal-art-placeholder";
+                    placeholder.textContent =
+                        "Image not added yet. Add your file here: " + slide.image;
+
+                    modalArt.appendChild(placeholder);
+                };
+
+                modalArt.appendChild(image);
+            }
 
             previousButton.disabled = activeSlide === 0;
             nextButton.disabled = activeSlide === total - 1;
@@ -1316,6 +1535,9 @@ Overall, I am pleased with how much more developed and visually cohesive the fin
             // Gallery-card previews open their slideshow when clicked. Only
             // images inside the opened slideshow should use the zoom viewer.
             if (image.closest('.art-card[data-gallery]')) return;
+
+            // Comparison images are part of an interactive overlay, not zoom targets.
+            if (image.closest(".comparison-stage")) return;
 
             // Ignore images that are themselves part of the zoom overlay.
             event.preventDefault();
