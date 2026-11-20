@@ -258,6 +258,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            cursor: pointer;
             transition: transform 0.4s ease;
         }
 
@@ -314,21 +315,47 @@
             display: flex;
         }
 
+        /* The pop-out uses the same framed, layered look as the About slideshow. */
         .modal-content {
             position: relative;
-            display: flex;
-            flex-direction: column;
-            width: min(1100px, 100%);
+            display: grid;
+            grid-template-columns: .95fr 1.05fr;
+            grid-template-areas:
+                "top top"
+                "art title"
+                "art info"
+                "controls controls"
+                "hint hint";
+            column-gap: 42px;
+            row-gap: 8px;
+            width: min(1200px, 100%);
             max-height: 94vh;
-            padding: 35px;
+            padding: 38px;
             overflow-y: auto;
             background:
-                radial-gradient(circle at top left, rgba(3,108,95,0.16), transparent 45%),
+                radial-gradient(circle at 15% 20%, rgba(3,108,95,.16), transparent 38%),
+                radial-gradient(circle at 85% 80%, rgba(232,143,166,.10), transparent 38%),
                 #080D0D;
-            border: 1px solid rgba(232, 143, 166, 0.65);
-            border-radius: 8px;
-            box-shadow: 0 0 45px rgba(3, 108, 95, 0.2);
+            border: 2px solid var(--teal);
+            border-radius: 3px;
+            box-shadow:
+                12px 12px 0 var(--pink-dark),
+                18px 18px 0 var(--teal-dark),
+                0 0 35px rgba(232,143,166,.16);
+            animation: artModalIn .45s ease;
         }
+
+        @keyframes artModalIn {
+            from { opacity: 0; transform: translateY(18px) scale(.985); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .modal-topline { grid-area: top; }
+        .modal-title { grid-area: title; align-self: end; }
+        .modal-art { grid-area: art; }
+        .modal-info { grid-area: info; align-self: start; }
+        .modal-controls { grid-area: controls; }
+        .modal-hint { grid-area: hint; }
 
         .modal-close {
             position: absolute;
@@ -373,32 +400,43 @@
         }
 
         .modal-title {
-            margin: 0 0 22px;
+            margin: 8px 0 12px;
             color: var(--pink);
-            font-family: Georgia, serif;
-            font-size: clamp(29px, 4vw, 40px);
-            line-height: 1.2;
+            font-family: "Palatino Linotype", Georgia, serif;
+            font-style: italic;
+            font-weight: normal;
+            font-size: clamp(34px, 4.5vw, 54px);
+            line-height: 1.05;
+            text-shadow: 3px 3px 0 var(--pink-dark), 6px 6px 0 var(--teal-dark);
         }
 
         .modal-art {
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100%;
-            min-height: 280px;
-            max-height: 52vh;
+            min-height: 420px;
+            max-height: 62vh;
             overflow: hidden;
-            background: rgba(0, 0, 0, 0.38);
-            border: 1px solid rgba(3, 108, 95, 0.5);
-            border-radius: 5px;
+            background:
+                radial-gradient(circle at 70% 30%,rgba(232,143,166,.18),transparent 30%),
+                radial-gradient(circle at 30% 70%,rgba(3,108,95,.28),transparent 40%),
+                #0A1514;
+            border: 2px solid var(--teal);
+            box-shadow:
+                10px 10px 0 var(--pink-dark),
+                15px 15px 0 var(--teal-dark),
+                0 0 26px rgba(232,143,166,.12);
         }
 
         .modal-art img {
             display: block;
             width: 100%;
             height: 100%;
-            max-height: 52vh;
+            max-height: 62vh;
             object-fit: contain;
+            cursor: zoom-in;
         }
 
         .modal-art-placeholder {
@@ -411,14 +449,16 @@
         }
 
         .modal-info {
-            padding: 26px 5px 10px;
+            padding: 4px 5px 10px;
         }
 
         .modal-info h3 {
             margin: 0 0 14px;
             color: var(--teal-light);
-            font-family: Georgia, serif;
+            font-family: "Palatino Linotype", Georgia, serif;
             font-size: 25px;
+            font-weight: normal;
+            letter-spacing: .5px;
         }
 
         /* Larger description text so there is room to explain each piece. */
@@ -434,27 +474,29 @@
         .modal-controls {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            margin-top: 28px;
-            padding-top: 20px;
+            justify-content: center;
+            gap: 22px;
+            margin-top: 34px;
+            padding-top: 22px;
             border-top: 1px solid rgba(3, 108, 95, 0.5);
         }
 
         .slide-button {
-            min-width: 115px;
-            padding: 12px 18px;
-            color: var(--text);
-            background: rgba(3, 108, 95, 0.25);
+            min-width: 48px;
+            min-height: 48px;
+            padding: 8px 15px;
+            color: var(--pink);
+            background: rgba(3,108,95,.2);
             border: 1px solid var(--teal-light);
-            border-radius: 4px;
+            border-radius: 0;
             cursor: pointer;
-            transition: 0.2s ease;
+            transition: .25s;
         }
 
         .slide-button:hover:not(:disabled) {
-            background: var(--teal);
-            border-color: var(--pink);
+            background: var(--pink);
+            color: var(--black);
+            transform: scale(1.08);
         }
 
         .slide-button:disabled {
@@ -473,15 +515,17 @@
             width: 11px;
             height: 11px;
             padding: 0;
-            border: none;
+            border: 1px solid var(--pink);
             border-radius: 50%;
-            background: rgba(182, 192, 189, 0.35);
+            background: transparent;
             cursor: pointer;
+            transition: .3s;
         }
 
         .slide-dot.active {
             background: var(--pink);
-            box-shadow: 0 0 10px rgba(232, 143, 166, 0.55);
+            box-shadow: 0 0 12px var(--pink);
+            transform: scale(1.25);
         }
 
         .modal-hint {
@@ -497,7 +541,12 @@
             }
 
             .modal-content {
-                padding: 28px 22px;
+                column-gap: 28px;
+                padding: 30px 25px;
+            }
+
+            .modal-art {
+                min-height: 340px;
             }
 
             .modal-description {
@@ -541,21 +590,28 @@
             }
 
             .modal-content {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
                 max-height: 96vh;
-                padding: 25px 16px 20px;
+                padding: 25px 20px 20px;
+                box-shadow: 7px 7px 0 var(--pink-dark), 11px 11px 0 var(--teal-dark);
             }
 
             .modal-title {
                 padding-right: 20px;
+                margin-top: 4px;
+                font-size: clamp(30px, 9vw, 42px);
             }
 
             .modal-art {
-                min-height: 200px;
-                max-height: 38vh;
+                min-height: 220px;
+                max-height: 42vh;
+                box-shadow: 6px 6px 0 var(--pink-dark), 9px 9px 0 var(--teal-dark);
             }
 
             .modal-art img {
-                max-height: 38vh;
+                max-height: 42vh;
             }
 
             .modal-description {
@@ -897,23 +953,23 @@ img { cursor: zoom-in; }
                         title: "Original Deer Guardian Design",
                         subtitle: "Earlier design",
                         image: "images/art/deer-guardian-02-old.png",
-                        description: "My original Deer Guardian character was an exploration of fantasy character design, combining natural elements with a slightly unusual and whimsical appearance. I wanted the character to communicate a strong connection to nature through the use of antlers, flowers, foliage and botanical patterns within the clothing. I think one of the strongest aspects of this original design is its distinctive silhouette and the amount of detail incorporated into the character. The combination of these elements gives the character an identifiable theme and helps establish its personality and visual identity.
+                        description: `My original Deer Guardian character was an exploration of fantasy character design, combining natural elements with a slightly unusual and whimsical appearance. I wanted the character to communicate a strong connection to nature through the use of antlers, flowers, foliage and botanical patterns within the clothing. I think one of the strongest aspects of this original design is its distinctive silhouette and the amount of detail incorporated into the character. The combination of these elements gives the character an identifiable theme and helps establish its personality and visual identity.
 
 However, when evaluating the original illustration, I felt there was room to develop the rendering and overall presentation. The lighting was relatively flat, meaning that some of the character's forms and details lacked depth. The colour palette also needed further development to create a stronger visual hierarchy and a more cohesive atmosphere. Although the character had an interesting design, I wanted to communicate more personality through their expression, pose and body language. I also recognised that the antlers and surrounding decorative elements needed to be considered carefully so they would complement the character rather than distract from the main focal point.
 
-I decided to revisit this piece because I felt the original concept had potential, but it did not fully demonstrate the level of visual development and rendering that I wanted to achieve. Improving it would allow me to demonstrate my ability to critically evaluate existing artwork, identify weaknesses and make purposeful decisions to strengthen a character design."
+I decided to revisit this piece because I felt the original concept had potential, but it did not fully demonstrate the level of visual development and rendering that I wanted to achieve. Improving it would allow me to demonstrate my ability to critically evaluate existing artwork, identify weaknesses and make purposeful decisions to strengthen a character design.`
                     },
                     {
                         title: "New Deer Guardian Design",
                         subtitle: "Revisiting an old piece",
                         image: "images/art/deer-guardian-01-new.png",
-                        description: "When revisiting my Deer Guardian, I wanted to develop the original design into a more visually engaging and polished character illustration. One of the biggest improvements was my use of lighting and rendering. I introduced stronger highlights and shadows, particularly across the character's face, skin and clothing, to create more depth and make the character feel more three-dimensional. I also developed a more controlled colour palette, using contrasting purple, blue-green, teal and warm yellow tones to create a cohesive fantasy atmosphere and establish a clearer focal point. I feel the newer version communicates the character's personality more effectively through its expression, pose and body language, making them feel more like an individual rather than simply a character design.
+                        description: `When revisiting my Deer Guardian, I wanted to develop the original design into a more visually engaging and polished character illustration. One of the biggest improvements was my use of lighting and rendering. I introduced stronger highlights and shadows, particularly across the character's face, skin and clothing, to create more depth and make the character feel more three-dimensional. I also developed a more controlled colour palette, using contrasting purple, blue-green, teal and warm yellow tones to create a cohesive fantasy atmosphere and establish a clearer focal point. I feel the newer version communicates the character's personality more effectively through its expression, pose and body language, making them feel more like an individual rather than simply a character design.
 
 I particularly like how the botanical details, antlers and foliage work together to communicate the character's connection to nature. The improved lighting and presentation also make the illustration feel more complete and give the design a stronger visual identity. This piece supports my professional persona as an aspiring 3D character modeller because it demonstrates my ability to develop character concepts, consider shape language and use colour and visual details to communicate personality. My 2D illustration skills are important to my intended career because they allow me to explore and develop character ideas before translating them into 3D models.
 
 Despite these improvements, there are still areas I would develop further if I were to revisit the piece. I would spend more time refining the structure and silhouette of the antlers, as their intricate branches and decorations can compete with the character's face for attention. I would also pay closer attention to the anatomy and positioning of the hands, ensuring they remain clear and believable within the pose. The distinction between materials could be improved further, particularly the fabric of the dress and the decorative botanical elements, by developing their textures, folds and lighting separately. I would also review the darker areas to ensure important details remain readable without losing the atmospheric lighting.
 
-Overall, I am pleased with how much more developed and visually cohesive the final illustration has become. This refinement has helped me understand the importance of evaluating my own work critically, making purposeful artistic decisions and considering how a character design can be developed further for professional use."
+Overall, I am pleased with how much more developed and visually cohesive the final illustration has become. This refinement has helped me understand the importance of evaluating my own work critically, making purposeful artistic decisions and considering how a character design can be developed further for professional use.`
                     }
                 ]
             },
@@ -1241,9 +1297,9 @@ Overall, I am pleased with how much more developed and visually cohesive the fin
             var image = target.closest("img");
             if (!image) return;
 
-            // The Deer Guardian card image opens its slideshow; only images
-            // inside the slideshow itself should use the global zoom viewer.
-            if (image.closest('.art-card[data-gallery="deer"]')) return;
+            // Gallery-card previews open their slideshow when clicked. Only
+            // images inside the opened slideshow should use the zoom viewer.
+            if (image.closest('.art-card[data-gallery]')) return;
 
             // Ignore images that are themselves part of the zoom overlay.
             event.preventDefault();
